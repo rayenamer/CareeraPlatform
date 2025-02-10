@@ -1,0 +1,3 @@
+<?php //b7953916ae1e20e88765c02dc8b51e0b
+
+return [PHP_INT_MAX, 'img/icon-luxury.png'];

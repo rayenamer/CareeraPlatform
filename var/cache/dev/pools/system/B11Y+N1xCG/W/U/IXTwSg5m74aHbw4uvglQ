@@ -1,0 +1,3 @@
+<?php //1214a42724389eb8fcba24ade5cc9386
+
+return [PHP_INT_MAX, 'img/call-to-action.jpg'];
