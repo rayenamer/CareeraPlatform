@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum Discussion{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <!-- Existing Discussions -->
+    <!-- Discussion Starter -->
+    <div class="testimonial-item bg-light rounded p-3 mb-4">
+        <div class="bg-white border rounded p-4">
+            <div class="d-flex align-items-center">
+                <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('img/testimonial-1.jpg') }}" style="width: 45px; height: 45px;">
+                <div class="ps-3">
+                    <h6 class="fw-bold mb-1">Dorra MAAROUF</h6>
+                    <small>Professeur d'anglais</small>
+                </div>
+            </div>
+            
+            <div class="resource-feedback">
+                <h6>Un Outil Essentiel pour Réussir</h6>
+                <p class="mt-3">
+                Je me sens beaucoup plus confiant dans ma recherche grâce aux ressources disponibles sur la plateforme 
+                (articles, conseils d'experts, webinaires). Elle est super utile et je recommande vivement aux étudiants 
+                et jeunes professionnels de l'utiliser.
+                </p>
+            </div>
+            <!-- Buttons for Discussion Starter -->
+            <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-thumbs-up"></i> Like
+                </button>
+                <button class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-thumbs-down"></i> Dislike
+                </button>
+                <button class="btn btn-outline-secondary btn-sm">
+                    <i class="fas fa-reply"></i> Reply
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reply 1 -->
+    <div class="testimonial-item bg-light rounded p-3 mb-4 ms-5">
+        <div class="bg-white border rounded p-4">
+            <div class="d-flex align-items-center">
+                <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('img/testimonial-2.jpg') }}" style="width: 45px; height: 45px;">
+                <div class="ps-3">
+                    <h6 class="fw-bold mb-1">Jean Dupont</h6>
+                    <small>Étudiant en informatique</small>
+                </div>
+            </div>
+            <p class="mt-3">Je suis tout à fait d'accord avec vous, Dorra ! Les webinaires sont particulièrement utiles pour approfondir mes connaissances. Merci pour la recommandation !</p>
+            
+            <!-- Buttons for Reply 1 -->
+            <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-thumbs-up"></i> Like
+                </button>
+                <button class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-thumbs-down"></i> Dislike
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reply 2 -->
+    <div class="testimonial-item bg-light rounded p-3 mb-4 ms-5">
+        <div class="bg-white border rounded p-4">
+            <div class="d-flex align-items-center">
+                <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('img/testimonial-3.jpg') }}" style="width: 45px; height: 45px;">
+                <div class="ps-3">
+                    <h6 class="fw-bold mb-1">Marie Curie</h6>
+                    <small>Jeune professionnelle</small>
+                </div>
+            </div>
+            <p class="mt-3">Les articles sont très bien rédigés et faciles à comprendre. J'ai appris beaucoup de choses grâce à cette plateforme. Merci pour le partage !</p>
+            
+            <!-- Buttons for Reply 2 -->
+            <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-thumbs-up"></i> Like
+                </button>
+                <button class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-thumbs-down"></i> Dislike
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section to Add a New Discussion Starter -->
+    <div class="testimonial-item bg-light rounded p-3 mb-4">
+        <div class="bg-white border rounded p-4">
+            <h5 class="fw-bold mb-3">Start a New Discussion</h5>
+            <form action="" method="">
+                <div class="mb-3">
+                    <label for="discussionTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="discussionTitle" name="discussionTitle" placeholder="Enter discussion title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="discussionContent" class="form-label">Content</label>
+                    <textarea class="form-control" id="discussionContent" name="discussionContent" rows="4" placeholder="Write your discussion here..." required></textarea>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
