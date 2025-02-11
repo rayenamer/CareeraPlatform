@@ -358,6 +358,13 @@
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\ForumController"/>
       </call>
     </service>
+    <service id="App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\ForumDetailsController"/>
+      </call>
+    </service>
     <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -371,6 +378,12 @@
       <call method="setContainer">
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\IndexController"/>
       </call>
+    </service>
+    <service id="App\Form\DiscussionType" class="App\Form\DiscussionType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ReplyType" class="App\Form\ReplyType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">
@@ -1316,9 +1329,12 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\DiscussionType</argument>
+        <argument>App\Form\ReplyType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3772,7 +3788,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.y4dplYt"/>
+      <argument type="service" id=".service_locator.iknLlM5"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -7021,12 +7037,19 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DiscussionType" class="App\Form\DiscussionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\DiscussionType" class="App\Form\DiscussionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReplyType" class="App\Form\ReplyType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ReplyType" class="App\Form\ReplyType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.w7.f4fT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7618,9 +7641,11 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.y4dplYt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.iknLlM5" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\DiscussionType" type="service_closure" id="App\Form\DiscussionType"/>
+        <argument key="App\Form\ReplyType" type="service_closure" id="App\Form\ReplyType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -8071,6 +8096,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\ForumDetailsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ForumDetailsController"/>
+      <argument>App\Controller\ForumDetailsController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
     <service id=".service_locator.O2p6Lk7.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
       <argument>App\Controller\HomeController</argument>
@@ -8254,6 +8285,7 @@
         <argument type="collection">
           <argument>App\Kernel</argument>
           <argument>App\Controller\ForumController</argument>
+          <argument>App\Controller\ForumDetailsController</argument>
           <argument>App\Controller\HomeController</argument>
           <argument>App\Controller\IndexController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
@@ -9667,7 +9699,7 @@
     <service id=".service_locator.bJ.4HC5" alias=".service_locator.w7.f4fT"/>
     <service id=".service_locator.L.EDYUC" alias=".service_locator.HBdvAhp"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
-    <service id=".service_locator.Za9MpXe" alias=".service_locator.y4dplYt"/>
+    <service id=".service_locator.xF1VE3Q" alias=".service_locator.iknLlM5"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.jUv.zyj" alias=".service_locator.O2p6Lk7"/>

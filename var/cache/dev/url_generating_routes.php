@@ -18,9 +18,11 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'app_forum' => [[], ['_controller' => 'App\\Controller\\ForumController::index'], [], [['text', '/forum']], [], [], []],
+    'app_forum_details' => [[], ['_controller' => 'App\\Controller\\ForumDetailsController::index'], [], [['text', '/forum/details']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
     'app_index' => [[], ['_controller' => 'App\\Controller\\IndexController::index'], [], [['text', '/index']], [], [], []],
     'App\Controller\ForumController::index' => [[], ['_controller' => 'App\\Controller\\ForumController::index'], [], [['text', '/forum']], [], [], []],
+    'App\Controller\ForumDetailsController::index' => [[], ['_controller' => 'App\\Controller\\ForumDetailsController::index'], [], [['text', '/forum/details']], [], [], []],
     'App\Controller\HomeController::index' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
     'App\Controller\IndexController::index' => [[], ['_controller' => 'App\\Controller\\IndexController::index'], [], [['text', '/index']], [], [], []],
 ];

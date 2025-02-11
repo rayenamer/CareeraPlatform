@@ -130,7 +130,13 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
                     <i class=\"fas fa-thumbs-down\"></i> Dislike
                 </button>
                 <button class=\"btn btn-outline-secondary btn-sm\">
-                    <i class=\"fas fa-reply\"></i> Reply
+                    <a href=\"";
+        // line 36
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forum_details");
+        yield "\">
+                         <i class=\"fas fa-reply\"></i> Reply
+                    </a>
+
                 </button>
             </div>
         </div>
@@ -141,7 +147,7 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
         <div class=\"bg-white border rounded p-4\">
             <div class=\"d-flex align-items-center\">
                 <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
-        // line 46
+        // line 49
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-2.jpg"), "html", null, true);
         yield "\" style=\"width: 45px; height: 45px;\">
                 <div class=\"ps-3\">
@@ -157,7 +163,7 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
                     <i class=\"fas fa-thumbs-up\"></i> Like
                 </button>
                 <button class=\"btn btn-outline-danger btn-sm\">
-                    <i class=\"fas fa-thumbs-down\"></i> Dislike
+                    <i class=\"fas fa-thumbs-downF\"></i> Dislike
                 </button>
             </div>
         </div>
@@ -168,7 +174,7 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
         <div class=\"bg-white border rounded p-4\">
             <div class=\"d-flex align-items-center\">
                 <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
-        // line 70
+        // line 73
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-3.jpg"), "html", null, true);
         yield "\" style=\"width: 45px; height: 45px;\">
                 <div class=\"ps-3\">
@@ -192,25 +198,62 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
 
     <!-- Section to Add a New Discussion Starter -->
     <div class=\"testimonial-item bg-light rounded p-3 mb-4\">
-        <div class=\"bg-white border rounded p-4\">
-            <h5 class=\"fw-bold mb-3\">Start a New Discussion</h5>
-            <form action=\"\" method=\"\">
-                <div class=\"mb-3\">
-                    <label for=\"discussionTitle\" class=\"form-label\">Title</label>
-                    <input type=\"text\" class=\"form-control\" id=\"discussionTitle\" name=\"discussionTitle\" placeholder=\"Enter discussion title\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"discussionContent\" class=\"form-label\">Content</label>
-                    <textarea class=\"form-control\" id=\"discussionContent\" name=\"discussionContent\" rows=\"4\" placeholder=\"Write your discussion here...\" required></textarea>
-                </div>
-                <div class=\"d-flex justify-content-end\">
-                    <button type=\"submit\" class=\"btn btn-primary\">
-                        <i class=\"fas fa-paper-plane\"></i> Submit
-                    </button>
-                </div>
-            </form>
+    <div class=\"bg-white border rounded p-4\">
+        <h5 class=\"fw-bold mb-3\">Start a New Discussion</h5>
+
+        ";
+        // line 98
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 98, $this->source); })()), 'form_start');
+        yield "
+
+        <div class=\"mb-3\">
+            ";
+        // line 101
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 101, $this->source); })()), "title", [], "any", false, false, false, 101), 'label');
+        yield "
+            ";
+        // line 102
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 102, $this->source); })()), "title", [], "any", false, false, false, 102), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Enter discussion title"]]);
+        yield "
+            <div class=\"text-danger\">
+                ";
+        // line 104
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 104, $this->source); })()), "title", [], "any", false, false, false, 104), 'errors');
+        yield "
+            </div>
         </div>
+
+        <div class=\"mb-3\">
+            ";
+        // line 109
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 109, $this->source); })()), "content", [], "any", false, false, false, 109), 'label');
+        yield "
+            ";
+        // line 110
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 110, $this->source); })()), "content", [], "any", false, false, false, 110), 'widget', ["attr" => ["class" => "form-control", "rows" => 4, "placeholder" => "Write your discussion here..."]]);
+        yield "
+            <div class=\"text-danger\">
+                ";
+        // line 112
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 112, $this->source); })()), "content", [], "any", false, false, false, 112), 'errors');
+        yield "
+            </div>
+        </div>
+
+        <div class=\"d-flex justify-content-end\">
+            ";
+        // line 117
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 117, $this->source); })()), "submit", [], "any", false, false, false, 117), 'widget', ["attr" => ["class" => "btn btn-primary"]]);
+        yield "
+        </div>
+
+        ";
+        // line 120
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 120, $this->source); })()), 'form_end');
+        yield "
     </div>
+    </div>
+
 </div>
 ";
         
@@ -243,7 +286,7 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  172 => 70,  145 => 46,  108 => 12,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  252 => 120,  246 => 117,  238 => 112,  233 => 110,  229 => 109,  221 => 104,  216 => 102,  212 => 101,  206 => 98,  178 => 73,  151 => 49,  135 => 36,  108 => 12,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -283,7 +326,10 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
                     <i class=\"fas fa-thumbs-down\"></i> Dislike
                 </button>
                 <button class=\"btn btn-outline-secondary btn-sm\">
-                    <i class=\"fas fa-reply\"></i> Reply
+                    <a href=\"{{ path('app_forum_details') }}\">
+                         <i class=\"fas fa-reply\"></i> Reply
+                    </a>
+
                 </button>
             </div>
         </div>
@@ -307,7 +353,7 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
                     <i class=\"fas fa-thumbs-up\"></i> Like
                 </button>
                 <button class=\"btn btn-outline-danger btn-sm\">
-                    <i class=\"fas fa-thumbs-down\"></i> Dislike
+                    <i class=\"fas fa-thumbs-downF\"></i> Dislike
                 </button>
             </div>
         </div>
@@ -339,25 +385,35 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
 
     <!-- Section to Add a New Discussion Starter -->
     <div class=\"testimonial-item bg-light rounded p-3 mb-4\">
-        <div class=\"bg-white border rounded p-4\">
-            <h5 class=\"fw-bold mb-3\">Start a New Discussion</h5>
-            <form action=\"\" method=\"\">
-                <div class=\"mb-3\">
-                    <label for=\"discussionTitle\" class=\"form-label\">Title</label>
-                    <input type=\"text\" class=\"form-control\" id=\"discussionTitle\" name=\"discussionTitle\" placeholder=\"Enter discussion title\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"discussionContent\" class=\"form-label\">Content</label>
-                    <textarea class=\"form-control\" id=\"discussionContent\" name=\"discussionContent\" rows=\"4\" placeholder=\"Write your discussion here...\" required></textarea>
-                </div>
-                <div class=\"d-flex justify-content-end\">
-                    <button type=\"submit\" class=\"btn btn-primary\">
-                        <i class=\"fas fa-paper-plane\"></i> Submit
-                    </button>
-                </div>
-            </form>
+    <div class=\"bg-white border rounded p-4\">
+        <h5 class=\"fw-bold mb-3\">Start a New Discussion</h5>
+
+        {{ form_start(NewDiscussion) }}
+
+        <div class=\"mb-3\">
+            {{ form_label(NewDiscussion.title) }}
+            {{ form_widget(NewDiscussion.title, {'attr': {'class': 'form-control', 'placeholder': 'Enter discussion title'}}) }}
+            <div class=\"text-danger\">
+                {{ form_errors(NewDiscussion.title) }}
+            </div>
         </div>
+
+        <div class=\"mb-3\">
+            {{ form_label(NewDiscussion.content) }}
+            {{ form_widget(NewDiscussion.content, {'attr': {'class': 'form-control', 'rows': 4, 'placeholder': 'Write your discussion here...'}}) }}
+            <div class=\"text-danger\">
+                {{ form_errors(NewDiscussion.content) }}
+            </div>
+        </div>
+
+        <div class=\"d-flex justify-content-end\">
+            {{ form_widget(NewDiscussion.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+        </div>
+
+        {{ form_end(NewDiscussion) }}
     </div>
+    </div>
+
 </div>
 {% endblock %}", "forum/index.html.twig", "C:\\Users\\User\\Desktop\\CareeraPlatform\\templates\\forum\\index.html.twig");
     }
