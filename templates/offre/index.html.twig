@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Offres{% endblock %}
+
+    {% block body %}
+    <h1 class="mb-3 text-center">Liste des Offres</h1>
+
+<div class="container">
+    <div class="row">
+        {% for offre in taboffre %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm d-flex flex-column">
+                    {% if offre.image %}
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ asset('uploads/' ~ offre.image) }}" class="card-img-top rounded-circle" alt="Image de {{ offre.nomposte }}" width="150" height="150">
+                        </div>
+                    {% else %}
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ asset('uploads/default.png') }}" class="card-img-top rounded-circle" alt="Image par défaut" width="150" height="150">
+                        </div>
+                    {% endif %}
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title text-center">{{ offre.nomposte }}</h5>
+                        <p class="card-text text-center">
+                            <strong>Entreprise:</strong> {{ offre.entreprise }}<br>
+                            <strong>Localisation:</strong> {{ offre.localisation }}<br>
+                            <strong>Salaire:</strong> {{ offre.salaire }} DT<br>
+                            <strong>Type:</strong> {{ offre.typeoffre.nom }} | {{ offre.typecontrat.nom }}<br>
+                        </p>
+
+                        <div class="d-flex justify-content-center">
+                            <span class="badge {{ offre.disponibilite ? 'bg-success' : 'bg-danger' }}">
+                                {{ offre.disponibilite ? 'Disponible' : 'Non disponible' }}
+                            </span>
+                        </div>
+                        <div class="mt-3">
+                            <a href="{{ path('app_postuler', { id: offre.id }) }}" class="btn btn-primary btn-sm w-100">
+                                Postuler
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12 text-center">
+                <p class="text-muted">Aucune offre disponible.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

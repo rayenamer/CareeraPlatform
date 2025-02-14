@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Offres{% endblock %}
+
+{% block body %}
+ <div class="mb-4 text-end">
+ </div>
+<h1 class="mb-3 text-center">Gestion des Offres</h1>
+
+<div class="container">
+    <!-- Bouton pour ajouter une nouvelle offre -->
+    <div class="mb-4 text-end">
+        <a href="{{ path('app_ajoutoffre') }}" class="btn btn-success">Ajouter une Offre</a>
+
+    </div>
+
+    <!-- Tableau des offres -->
+    <table class="table table-bordered"> 
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Poste/stage</th>
+                <th>Entreprise</th>
+                <th>Localisation</th>
+                <th>Salaire</th>
+                <th>Type de Contrat</th>
+                <th>Type d'Offre</th>
+                <th>Disponibilité</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for offre in taboffre %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ offre.nomposte }}</td>
+                    <td>{{ offre.entreprise }}</td>
+                    <td>{{ offre.localisation }}</td>
+                    <td>{{ offre.salaire }} DT</td>
+                    <td>{{ offre.typecontrat.nom }}</td>
+                    <td>{{ offre.typeoffre.nom }}</td>
+                    <td>{{ offre.disponibilite ? 'Disponible' : 'Indisponible' }}</td>
+                    <td><img src="{{ asset('uploads/images/' ~ offre.image) }}" alt="Image de {{ offre.nomposte }}" width="50"></td>
+                    <td>
+                        <a href="{{ path('app_modifoffre', { 'id': offre.id }) }}" class="btn btn-primary btn-sm">Modifier</a>
+                        <a href="{{ path('app_supprimeroffre', { 'id': offre.id }) }}" 
+                            class="btn btn-danger btn-sm" 
+                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer
+                        </a>
+
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10" class="text-center">Aucune offre trouvée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -301,7 +301,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
                         <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
-                        <a href=\"offre/offre.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
+                        <a href=\"offre/index.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/event.html\" class=\"nav-item nav-link\">Evénements</a>
                         <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"forum.html\" class=\"nav-item nav-link\">Forum</a>
@@ -427,7 +427,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
                         <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
-                        <a href=\"offre/offre.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
+                        <a href=\"offre/index.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/event.html\" class=\"nav-item nav-link\">Evénements</a>
                         <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"forum.html\" class=\"nav-item nav-link\">Forum</a>
@@ -516,6 +516,6 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
     <script src=\"{{ asset('js/main.js') }}\"></script>
 </body>
 
-</html>", "base.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\careera\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\careera\\templates\\base.html.twig");
     }
 }
