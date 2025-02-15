@@ -111,7 +111,7 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
                 <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
             // line 12
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-1.jpg"), "html", null, true);
-            yield "\" style=\"width: 45px; height: 45px;\">
+            yield "\" style=\"width: 45px; height: 45px;\">      
                 <div class=\"ps-3\">
                     <h6 class=\"fw-bold mb-1\">";
             // line 14
@@ -119,88 +119,183 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
             yield "</h6>
                     <small>";
             // line 15
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "CreatedAt", [], "any", false, false, false, 15), "Y-m-d H:i"), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), $this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "CreatedAt", [], "any", false, false, false, 15), "d F H:i")), "html", null, true);
             yield "</small>
+
+                    <button class=\"btn btn-link text-muted p-0\" type=\"button\" id=\"dropdownMenuButton\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+                        <i class=\"fas fa-ellipsis-v\"></i> <!-- Three dots icon -->
+                    </button>
+                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                        <li><a class=\"dropdown-item\" href=\"";
+            // line 21
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updateDiscussion", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "id", [], "any", false, false, false, 21)]), "html", null, true);
+            yield "\">Modify</a></li>
+                        <li><a class=\"dropdown-item text-danger\" href=\"";
+            // line 22
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deleteDiscussion", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "id", [], "any", false, false, false, 22)]), "html", null, true);
+            yield "\">Delete</a></li>
+                    </ul>
                 </div>
             </div>
-            
             <div class=\"resource-feedback\">
                 <h6>";
-            // line 20
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "title", [], "any", false, false, false, 20), "html", null, true);
+            // line 27
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "title", [], "any", false, false, false, 27), "html", null, true);
             yield "</h6>
                 <p class=\"mt-3\">";
-            // line 21
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "content", [], "any", false, false, false, 21), "html", null, true);
+            // line 28
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "content", [], "any", false, false, false, 28), "html", null, true);
             yield "</p>
             </div>
 
-            <!-- Buttons for Discussion Starter -->
             <div class=\"d-flex gap-2 mt-3\">
                 <button class=\"btn btn-outline-primary btn-sm\">
-                    <i class=\"fas fa-thumbs-up\"></i> Like
+                    <a class=\"text-primary\" href=\"";
+            // line 33
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_AddLike", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "id", [], "any", false, false, false, 33)]), "html", null, true);
+            yield "\">
+                        <i class=\"fas fa-thumbs-up\"></i> Like
+                    </a>
+                    <small>";
+            // line 36
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "likes", [], "any", false, false, false, 36), "html", null, true);
+            yield "</small>
                 </button>
+                
+                <!-- Dislike Button -->
                 <button class=\"btn btn-outline-danger btn-sm\">
-                    <i class=\"fas fa-thumbs-down\"></i> Dislike
+                    <a class=\"text-danger\" href=\"";
+            // line 41
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_AddDisLike", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "id", [], "any", false, false, false, 41)]), "html", null, true);
+            yield "\">
+                        <i class=\"fas fa-thumbs-down\"></i> Dislike
+                    </a>
+                    <small>";
+            // line 44
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "dislikes", [], "any", false, false, false, 44), "html", null, true);
+            yield "</small>
                 </button>
+                
                 <button class=\"btn btn-outline-secondary btn-sm\">
                     <a href=\"";
-            // line 33
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forum_details", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "id", [], "any", false, false, false, 33)]), "html", null, true);
+            // line 48
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forum_details", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "id", [], "any", false, false, false, 48)]), "html", null, true);
             yield "\">
-                         <i class=\"fas fa-reply\"></i> Reply
+                        <i class=\"fas fa-reply\"></i> Reply
                     </a>
                 </button>
             </div>
-        </div>
+
+            <!-- Replies -->
+            ";
+            // line 55
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "replies", [], "any", false, false, false, 55));
+            foreach ($context['_seq'] as $context["_key"] => $context["Reply"]) {
+                // line 56
+                yield "                <div class=\"testimonial-item bg-light rounded p-3 mb-4 ms-5\">
+                    <div class=\"bg-white border rounded p-4\">
+                        <div class=\"d-flex align-items-center\">
+                            <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
+                // line 59
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-2.jpg"), "html", null, true);
+                yield "\" style=\"width: 45px; height: 45px;\">
+                            <div class=\"ps-3\">
+                                <h6 class=\"fw-bold mb-1\">username</h6>
+                                <small>";
+                // line 62
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), $this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "CreatedAt", [], "any", false, false, false, 62), "d F")), "html", null, true);
+                yield "</small>
+                            </div>
+                        </div>
+                        <p class=\"mt-3\">";
+                // line 65
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "content", [], "any", false, false, false, 65), "html", null, true);
+                yield "</p>
+                        <div class=\"d-flex gap-2 mt-3\">
+                            <button class=\"btn btn-outline-primary btn-sm\">
+                                <small>";
+                // line 68
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "likes", [], "any", false, false, false, 68), "html", null, true);
+                yield "</small>
+                                <a class=\"text-primary\" href=\"";
+                // line 69
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_AddLikeToReply", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "id", [], "any", false, false, false, 69)]), "html", null, true);
+                yield "\">
+                                    <i class=\"fas fa-thumbs-up\"></i> Like
+                                </a>
+                            </button>
+                            <button class=\"btn btn-outline-danger btn-sm\">
+                                <small>";
+                // line 74
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "dislikes", [], "any", false, false, false, 74), "html", null, true);
+                yield "</small>
+                                <a class=\"text-danger\" href=\"";
+                // line 75
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_AdddisLikeToReply", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "id", [], "any", false, false, false, 75)]), "html", null, true);
+                yield "\">
+                                    <i class=\"fas fa-thumbs-down\"></i> Dislike
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['Reply'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 83
+            yield "        </div>
     </div>
-    ";
+";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['Discussion'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
+        // line 86
         yield "
+
     <!-- Section to Add a New Discussion -->
     <div class=\"testimonial-item bg-light rounded p-3 mb-4\">
         <div class=\"bg-white border rounded p-4\">
             <h5 class=\"fw-bold mb-3\">Start a New Discussion</h5>
         
             ";
-        // line 47
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 47, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addDiscussion")]);
+        // line 93
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 93, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addDiscussion")]);
         yield "
         
             <div class=\"mb-3\">
                 ";
-        // line 50
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 50, $this->source); })()), "title", [], "any", false, false, false, 50), 'label');
+        // line 96
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 96, $this->source); })()), "title", [], "any", false, false, false, 96), 'label');
         yield "
                 ";
-        // line 51
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 51, $this->source); })()), "title", [], "any", false, false, false, 51), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Enter discussion title"]]);
+        // line 97
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 97, $this->source); })()), "title", [], "any", false, false, false, 97), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Enter discussion title"]]);
         yield "
                 <div class=\"text-danger\">
                     ";
-        // line 53
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 53, $this->source); })()), "title", [], "any", false, false, false, 53), 'errors');
+        // line 99
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 99, $this->source); })()), "title", [], "any", false, false, false, 99), 'errors');
         yield "
                 </div>
             </div>
         
             <div class=\"mb-3\">
                 ";
-        // line 58
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 58, $this->source); })()), "content", [], "any", false, false, false, 58), 'label');
+        // line 104
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 104, $this->source); })()), "content", [], "any", false, false, false, 104), 'label');
         yield "
                 ";
-        // line 59
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 59, $this->source); })()), "content", [], "any", false, false, false, 59), 'widget', ["attr" => ["class" => "form-control", "rows" => 4, "placeholder" => "Write your discussion here..."]]);
+        // line 105
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 105, $this->source); })()), "content", [], "any", false, false, false, 105), 'widget', ["attr" => ["class" => "form-control", "rows" => 4, "placeholder" => "Write your discussion here..."]]);
         yield "
                 <div class=\"text-danger\">
                     ";
-        // line 61
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 61, $this->source); })()), "content", [], "any", false, false, false, 61), 'errors');
+        // line 107
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 107, $this->source); })()), "content", [], "any", false, false, false, 107), 'errors');
         yield "
                 </div>
             </div>
@@ -208,14 +303,14 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
         
             <div class=\"d-flex justify-content-end\">
                 ";
-        // line 67
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 67, $this->source); })()), "submit", [], "any", false, false, false, 67), 'widget', ["attr" => ["class" => "btn btn-primary"]]);
+        // line 113
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 113, $this->source); })()), "submit", [], "any", false, false, false, 113), 'widget', ["attr" => ["class" => "btn btn-primary"]]);
         yield "
             </div>
         
             ";
-        // line 70
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 70, $this->source); })()), 'form_end');
+        // line 116
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewDiscussion"]) || array_key_exists("NewDiscussion", $context) ? $context["NewDiscussion"] : (function () { throw new RuntimeError('Variable "NewDiscussion" does not exist.', 116, $this->source); })()), 'form_end');
         yield "
         </div>
         
@@ -252,7 +347,7 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  218 => 70,  212 => 67,  203 => 61,  198 => 59,  194 => 58,  186 => 53,  181 => 51,  177 => 50,  171 => 47,  163 => 41,  149 => 33,  134 => 21,  130 => 20,  122 => 15,  118 => 14,  113 => 12,  108 => 9,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  313 => 116,  307 => 113,  298 => 107,  293 => 105,  289 => 104,  281 => 99,  276 => 97,  272 => 96,  266 => 93,  257 => 86,  249 => 83,  235 => 75,  231 => 74,  223 => 69,  219 => 68,  213 => 65,  207 => 62,  201 => 59,  196 => 56,  192 => 55,  182 => 48,  175 => 44,  169 => 41,  161 => 36,  155 => 33,  147 => 28,  143 => 27,  135 => 22,  131 => 21,  122 => 15,  118 => 14,  113 => 12,  108 => 9,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -268,35 +363,81 @@ class __TwigTemplate_80e864ac5598f16dc21fd41ef17f7736 extends Template
     <div class=\"testimonial-item bg-light rounded p-3 mb-4\">
         <div class=\"bg-white border rounded p-4\">
             <div class=\"d-flex align-items-center\">
-                <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('img/testimonial-1.jpg') }}\" style=\"width: 45px; height: 45px;\">
+                <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('img/testimonial-1.jpg') }}\" style=\"width: 45px; height: 45px;\">      
                 <div class=\"ps-3\">
                     <h6 class=\"fw-bold mb-1\">{{ Discussion.UserId }}</h6>
-                    <small>{{ Discussion.CreatedAt|date('Y-m-d H:i') }}</small>
+                    <small>{{ Discussion.CreatedAt|date('d F H:i')|lower }}</small>
+
+                    <button class=\"btn btn-link text-muted p-0\" type=\"button\" id=\"dropdownMenuButton\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+                        <i class=\"fas fa-ellipsis-v\"></i> <!-- Three dots icon -->
+                    </button>
+                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                        <li><a class=\"dropdown-item\" href=\"{{ path('app_updateDiscussion', { id: Discussion.id }) }}\">Modify</a></li>
+                        <li><a class=\"dropdown-item text-danger\" href=\"{{ path('app_deleteDiscussion', { id: Discussion.id }) }}\">Delete</a></li>
+                    </ul>
                 </div>
             </div>
-            
             <div class=\"resource-feedback\">
                 <h6>{{ Discussion.title }}</h6>
                 <p class=\"mt-3\">{{ Discussion.content }}</p>
             </div>
 
-            <!-- Buttons for Discussion Starter -->
             <div class=\"d-flex gap-2 mt-3\">
                 <button class=\"btn btn-outline-primary btn-sm\">
-                    <i class=\"fas fa-thumbs-up\"></i> Like
+                    <a class=\"text-primary\" href=\"{{ path('app_AddLike', {'id': Discussion.id}) }}\">
+                        <i class=\"fas fa-thumbs-up\"></i> Like
+                    </a>
+                    <small>{{ Discussion.likes }}</small>
                 </button>
+                
+                <!-- Dislike Button -->
                 <button class=\"btn btn-outline-danger btn-sm\">
-                    <i class=\"fas fa-thumbs-down\"></i> Dislike
+                    <a class=\"text-danger\" href=\"{{ path('app_AddDisLike', {'id': Discussion.id}) }}\">
+                        <i class=\"fas fa-thumbs-down\"></i> Dislike
+                    </a>
+                    <small>{{ Discussion.dislikes }}</small>
                 </button>
+                
                 <button class=\"btn btn-outline-secondary btn-sm\">
                     <a href=\"{{ path('app_forum_details', { id: Discussion.id }) }}\">
-                         <i class=\"fas fa-reply\"></i> Reply
+                        <i class=\"fas fa-reply\"></i> Reply
                     </a>
                 </button>
             </div>
+
+            <!-- Replies -->
+            {% for Reply in Discussion.replies %}
+                <div class=\"testimonial-item bg-light rounded p-3 mb-4 ms-5\">
+                    <div class=\"bg-white border rounded p-4\">
+                        <div class=\"d-flex align-items-center\">
+                            <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('img/testimonial-2.jpg') }}\" style=\"width: 45px; height: 45px;\">
+                            <div class=\"ps-3\">
+                                <h6 class=\"fw-bold mb-1\">username</h6>
+                                <small>{{ Reply.CreatedAt|date('d F')|lower }}</small>
+                            </div>
+                        </div>
+                        <p class=\"mt-3\">{{ Reply.content }}</p>
+                        <div class=\"d-flex gap-2 mt-3\">
+                            <button class=\"btn btn-outline-primary btn-sm\">
+                                <small>{{ Reply.likes }}</small>
+                                <a class=\"text-primary\" href=\"{{ path('app_AddLikeToReply', {'id': Reply.id}) }}\">
+                                    <i class=\"fas fa-thumbs-up\"></i> Like
+                                </a>
+                            </button>
+                            <button class=\"btn btn-outline-danger btn-sm\">
+                                <small>{{ Reply.dislikes }}</small>
+                                <a class=\"text-danger\" href=\"{{ path('app_AdddisLikeToReply', {'id': Reply.id}) }}\">
+                                    <i class=\"fas fa-thumbs-down\"></i> Dislike
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
+{% endfor %}
+
 
     <!-- Section to Add a New Discussion -->
     <div class=\"testimonial-item bg-light rounded p-3 mb-4\">

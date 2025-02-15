@@ -16,7 +16,6 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/forum' => [[['_route' => 'app_forum', '_controller' => 'App\\Controller\\ForumController::index'], null, null, null, false, false, null]],
         '/addDiscussion' => [[['_route' => 'app_addDiscussion', '_controller' => 'App\\Controller\\ForumController::addDiscussion'], null, null, null, false, false, null]],
-        '/forum/details' => [[['_route' => 'app_forum_details', '_controller' => 'App\\Controller\\ForumDetailsController::index'], null, null, null, false, false, null]],
         '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
     ],
@@ -40,8 +39,35 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/DeleteDiscussion/([^/]++)(*:228)'
-                .'|/UpdateDiscussion/([^/]++)(*:262)'
+                .'|/Delete(?'
+                    .'|Discussion/([^/]++)(*:231)'
+                    .'|Reply/([^/]++)/([^/]++)(*:262)'
+                .')'
+                .'|/U(?'
+                    .'|pdate(?'
+                        .'|Discussion/([^/]++)(*:303)'
+                        .'|Reply/([^/]++)/([^/]++)(*:334)'
+                    .')'
+                    .'|nAdd(?'
+                        .'|Like/([^/]++)(*:363)'
+                        .'|DisLike(?'
+                            .'|/([^/]++)(*:390)'
+                            .'|ToReply/([^/]++)(*:414)'
+                        .')'
+                    .')'
+                .')'
+                .'|/Add(?'
+                    .'|Like(?'
+                        .'|/([^/]++)(*:448)'
+                        .'|ToReply/([^/]++)(*:472)'
+                    .')'
+                    .'|DisLike(?'
+                        .'|/([^/]++)(*:500)'
+                        .'|ToReply/([^/]++)(*:524)'
+                    .')'
+                .')'
+                .'|/forum/details/([^/]++)(*:557)'
+                .'|/addReply/([^/]++)(*:583)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -53,9 +79,20 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        228 => [[['_route' => 'app_deleteDiscussion', '_controller' => 'App\\Controller\\ForumController::deleteDiscussion'], ['id'], null, null, false, true, null]],
-        262 => [
-            [['_route' => 'app_updateDiscussion', '_controller' => 'App\\Controller\\ForumController::updateformauthors'], ['id'], null, null, false, true, null],
+        231 => [[['_route' => 'app_deleteDiscussion', '_controller' => 'App\\Controller\\ForumController::deleteDiscussion'], ['id'], null, null, false, true, null]],
+        262 => [[['_route' => 'app_deleteReply', '_controller' => 'App\\Controller\\ForumDetailsController::deleteReply'], ['discussionId', 'replyId'], null, null, false, true, null]],
+        303 => [[['_route' => 'app_updateDiscussion', '_controller' => 'App\\Controller\\ForumController::updateDiscussion'], ['id'], null, null, false, true, null]],
+        334 => [[['_route' => 'app_UpdateReply', '_controller' => 'App\\Controller\\ForumDetailsController::UpdateReply'], ['discussionId', 'replyId'], null, null, false, true, null]],
+        363 => [[['_route' => 'app_UnAddLike', '_controller' => 'App\\Controller\\ForumController::UnAddLike'], ['id'], null, null, false, true, null]],
+        390 => [[['_route' => 'app_UnAddDisLike', '_controller' => 'App\\Controller\\ForumController::UnAddDisLike'], ['id'], null, null, false, true, null]],
+        414 => [[['_route' => 'app_UnAddDisLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::UnAddDisLike'], ['id'], null, null, false, true, null]],
+        448 => [[['_route' => 'app_AddLike', '_controller' => 'App\\Controller\\ForumController::AddLike'], ['id'], null, null, false, true, null]],
+        472 => [[['_route' => 'app_AddLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddLike'], ['id'], null, null, false, true, null]],
+        500 => [[['_route' => 'app_AddDisLike', '_controller' => 'App\\Controller\\ForumController::AddDisLike'], ['id'], null, null, false, true, null]],
+        524 => [[['_route' => 'app_AdddisLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddDisLike'], ['id'], null, null, false, true, null]],
+        557 => [[['_route' => 'app_forum_details', '_controller' => 'App\\Controller\\ForumDetailsController::index'], ['id'], null, null, false, true, null]],
+        583 => [
+            [['_route' => 'app_addReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddReply'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

@@ -34,7 +34,10 @@ class Discussion
     #[ORM\OneToMany(targetEntity: Reply::class, mappedBy: 'Discussion', orphanRemoval: true)]
     private Collection $replies;
 
+    #[ORM\Column(type: "integer", options: ["default" => 0])]
     private int $likes = 0;
+
+    #[ORM\Column(type: "integer", options: ["default" => 0])]
     private int $dislikes = 0;
 
     public function __construct()
@@ -136,22 +139,25 @@ class Discussion
     {
         return $this->likes;
     }
-    
-    public function setLikes(int $likes): static
+
+    // ✅ Setter for Likes
+    public function setLikes(int $likes): self
     {
         $this->likes = $likes;
         return $this;
     }
-    
+
+    // ✅ Getter for Dislikes
     public function getDislikes(): int
     {
         return $this->dislikes;
     }
-    
-    public function setDislikes(int $dislikes): static
+
+    // ✅ Setter for Dislikes
+    public function setDislikes(int $dislikes): self
     {
         $this->dislikes = $dislikes;
         return $this;
     }
     
-    }
+}

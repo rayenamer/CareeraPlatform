@@ -11,9 +11,18 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Discussion;
 use App\Repository\DiscussionRepository;
 use App\Repository\ReplyRepository;
+use phpDocumentor\Reflection\Types\Void_;
 
 class ForumController extends AbstractController
 {
+    //$user = $this->getUser();
+    //if ($user) {
+    //           $id=$user->getId();
+    //           $pic=$user->getPic();
+    //           } else {
+    //            throw $this->createAccessDeniedException('You must be logged in to create a discussion.');
+    //}
+    
     #[Route('/forum', name: 'app_forum')]
     public function index(Request $request, DiscussionRepository $repDiscussion): Response
     {
@@ -35,15 +44,8 @@ class ForumController extends AbstractController
         $manager = $m->getManager();
         $Discussion = new Discussion();
         $Discussions = $repDiscussion->findAll();
-
-        //$user = $this->getUser();
-        //if ($user) {
-        //    $Discussion->setUserId($user->getId());
-        //} else {
-        //     throw $this->createAccessDeniedException('You must be logged in to create a discussion.');
-        //}
-
     
+        // $Discussion->setUserId($id);
         $Discussion->setUserId(1);  // Set user ID, adjust accordingly
         $Discussion->setCreatedAt(new \DateTimeImmutable('now', new \DateTimeZone('UTC')));
     
@@ -96,7 +98,7 @@ class ForumController extends AbstractController
     }
     
     #[Route('/UpdateDiscussion/{id}', name: 'app_updateDiscussion')]
-    public function updateformauthors(ManagerRegistry $m, Request $request,DiscussionRepository $discussionRepository,$id): Response
+    public function updateDiscussion(ManagerRegistry $m, Request $request,DiscussionRepository $discussionRepository,$id): Response
     {
         $manager=$m->getManager();
     
@@ -125,5 +127,44 @@ class ForumController extends AbstractController
             'UpdateDiscussion' => $UpdateDiscussion->createView(),
             'discussion' => $discussion,
         ]);
+    }
+    #[Route('/AddLike/{id}', name: 'app_AddLike')]
+    public function AddLike(DiscussionRepository $discussionRepository,$id): Response
+    {
+        $discussion = $discussionRepository->find($id);
+
+        $discussionRepository->AddLike($discussion);
+
+        return $this->redirectToRoute('app_forum');
+    }
+
+    #[Route('/UnAddLike/{id}', name: 'app_UnAddLike')]
+    public function UnAddLike(DiscussionRepository $discussionRepository,$id): Response
+    {
+        $discussion = $discussionRepository->find($id);
+
+        $discussionRepository->removeLike($discussion);
+
+        return $this->redirectToRoute('app_forum');
+    }
+
+
+    #[Route('/AddDisLike/{id}', name: 'app_AddDisLike')]
+    public function AddDisLike(DiscussionRepository $discussionRepository,$id): Response
+    {
+        $discussion = $discussionRepository->find($id);
+
+        $discussionRepository->addDislike($discussion);
+
+        return $this->redirectToRoute('app_forum');
+    }
+    #[Route('/UnAddDisLike/{id}', name: 'app_UnAddDisLike')]
+    public function UnAddDisLike(DiscussionRepository $discussionRepository,$id): Response
+    {
+        $discussion = $discussionRepository->find($id);
+
+        $discussionRepository->removeDislike($discussion);
+
+        return $this->redirectToRoute('app_forum');
     }
 }

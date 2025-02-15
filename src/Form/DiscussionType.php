@@ -28,7 +28,7 @@ class DiscussionType extends AbstractType
                     new Assert\Length([
                         'min' => 5,
                         'minMessage' => 'Votre réponse est trop courte (minimum 5 caractères).',
-                        'max' => 20,
+                        'max' => 10,
                         'maxMessage' => 'Votre réponse est trop longue (maximum 20 caractères).',
                     ]),
                     new Assert\Regex([
@@ -48,7 +48,7 @@ class DiscussionType extends AbstractType
                     new Assert\Length([
                         'min' => 5,
                         'minMessage' => 'Votre réponse est trop courte (minimum 5 caractères).',
-                        'max' => 20,
+                        'max' => 200,
                         'maxMessage' => 'Votre réponse est trop longue (maximum 20 caractères).',
                     ]),
                     new Assert\Regex([
@@ -67,7 +67,6 @@ class DiscussionType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
         ]);
     }
 }

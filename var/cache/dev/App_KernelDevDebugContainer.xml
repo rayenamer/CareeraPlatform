@@ -388,10 +388,12 @@
     <service id="App\Repository\DiscussionRepository" class="App\Repository\DiscussionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="App\Repository\ReplyRepository" class="App\Repository\ReplyRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">
@@ -420,7 +422,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.7pTMnwQ"/>
+      <argument type="service" id=".service_locator.O_lGN06"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3307,7 +3309,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.7pTMnwQ"/>
+      <argument type="service" id=".service_locator.O_lGN06"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -7513,21 +7515,70 @@
         <argument key="m" type="service_closure" id="doctrine"/>
       </argument>
     </service>
-    <service id=".service_locator.7pTMnwQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.xW26Ner" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="discussionRepository" type="service_closure" id="App\Repository\DiscussionRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.SIstSqo" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="discussionRepository" type="service_closure" id="App\Repository\DiscussionRepository"/>
+        <argument key="replyRepository" type="service_closure" id="App\Repository\ReplyRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ybRzs13" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="discussionRepository" type="service_closure" id="App\Repository\DiscussionRepository"/>
+        <argument key="m" type="service_closure" id="doctrine"/>
+        <argument key="replyRepository" type="service_closure" id="App\Repository\ReplyRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.4s_SyY0" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="replyRepository" type="service_closure" id="App\Repository\ReplyRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.O_lGN06" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\ForumController::AddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
+        <argument key="App\Controller\ForumController::AddLike" type="service_closure" id=".service_locator.xW26Ner"/>
+        <argument key="App\Controller\ForumController::UnAddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
+        <argument key="App\Controller\ForumController::UnAddLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController::addDiscussion" type="service_closure" id=".service_locator.bpcW4EG"/>
         <argument key="App\Controller\ForumController::deleteDiscussion" type="service_closure" id=".service_locator.Bsv6qX0"/>
         <argument key="App\Controller\ForumController::index" type="service_closure" id=".service_locator.aPy9iWU"/>
-        <argument key="App\Controller\ForumController::updateformauthors" type="service_closure" id=".service_locator.dnSIpkt"/>
+        <argument key="App\Controller\ForumController::updateDiscussion" type="service_closure" id=".service_locator.dnSIpkt"/>
+        <argument key="App\Controller\ForumDetailsController::AddDisLike" type="service_closure" id=".service_locator.4s_SyY0"/>
+        <argument key="App\Controller\ForumDetailsController::AddLike" type="service_closure" id=".service_locator.4s_SyY0"/>
+        <argument key="App\Controller\ForumDetailsController::AddReply" type="service_closure" id=".service_locator.ybRzs13"/>
+        <argument key="App\Controller\ForumDetailsController::UnAddDisLike" type="service_closure" id=".service_locator.4s_SyY0"/>
+        <argument key="App\Controller\ForumDetailsController::UpdateReply" type="service_closure" id=".service_locator.ybRzs13"/>
+        <argument key="App\Controller\ForumDetailsController::deleteReply" type="service_closure" id=".service_locator.ybRzs13"/>
+        <argument key="App\Controller\ForumDetailsController::index" type="service_closure" id=".service_locator.SIstSqo"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
+        <argument key="App\Controller\ForumController:AddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
+        <argument key="App\Controller\ForumController:AddLike" type="service_closure" id=".service_locator.xW26Ner"/>
+        <argument key="App\Controller\ForumController:UnAddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
+        <argument key="App\Controller\ForumController:UnAddLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController:addDiscussion" type="service_closure" id=".service_locator.bpcW4EG"/>
         <argument key="App\Controller\ForumController:deleteDiscussion" type="service_closure" id=".service_locator.Bsv6qX0"/>
         <argument key="App\Controller\ForumController:index" type="service_closure" id=".service_locator.aPy9iWU"/>
-        <argument key="App\Controller\ForumController:updateformauthors" type="service_closure" id=".service_locator.dnSIpkt"/>
+        <argument key="App\Controller\ForumController:updateDiscussion" type="service_closure" id=".service_locator.dnSIpkt"/>
+        <argument key="App\Controller\ForumDetailsController:AddDisLike" type="service_closure" id=".service_locator.4s_SyY0"/>
+        <argument key="App\Controller\ForumDetailsController:AddLike" type="service_closure" id=".service_locator.4s_SyY0"/>
+        <argument key="App\Controller\ForumDetailsController:AddReply" type="service_closure" id=".service_locator.ybRzs13"/>
+        <argument key="App\Controller\ForumDetailsController:UnAddDisLike" type="service_closure" id=".service_locator.4s_SyY0"/>
+        <argument key="App\Controller\ForumDetailsController:UpdateReply" type="service_closure" id=".service_locator.ybRzs13"/>
+        <argument key="App\Controller\ForumDetailsController:deleteReply" type="service_closure" id=".service_locator.ybRzs13"/>
+        <argument key="App\Controller\ForumDetailsController:index" type="service_closure" id=".service_locator.SIstSqo"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
       </argument>
@@ -9728,7 +9779,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.w7.f4fT" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.7pTMnwQ"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.O_lGN06"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9752,9 +9803,10 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.bJ.4HC5" alias=".service_locator.w7.f4fT"/>
-    <service id=".service_locator.Y5IVgqI" alias=".service_locator.Bsv6qX0"/>
+    <service id=".service_locator.Y5IVgqI" alias=".service_locator.ybRzs13"/>
     <service id=".service_locator.a2e345O" alias=".service_locator.dnSIpkt"/>
-    <service id=".service_locator.MEE7z2v" alias=".service_locator.7pTMnwQ"/>
+    <service id=".service_locator.vhzeMEP" alias=".service_locator.SIstSqo"/>
+    <service id=".service_locator.SQPcJ8F" alias=".service_locator.O_lGN06"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
     <service id=".service_locator.xF1VE3Q" alias=".service_locator.iknLlM5"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
@@ -9782,8 +9834,11 @@
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
     <service id=".service_locator.2NTQ.42" alias=".service_locator.aPy9iWU"/>
     <service id=".service_locator.8gaH7.Q" alias=".service_locator.bpcW4EG"/>
-    <service id=".service_locator.TEwWVDB" alias=".service_locator.Bsv6qX0"/>
+    <service id=".service_locator.TEwWVDB" alias=".service_locator.ybRzs13"/>
     <service id=".service_locator.FvEA3Jy" alias=".service_locator.dnSIpkt"/>
+    <service id=".service_locator..D8V8Vl" alias=".service_locator.xW26Ner"/>
+    <service id=".service_locator.bRrcud7" alias=".service_locator.SIstSqo"/>
+    <service id=".service_locator.X1KzYdk" alias=".service_locator.4s_SyY0"/>
     <service id=".service_locator.Q1z.f9O" alias=".service_locator.O2p6Lk7"/>
     <service id=".service_locator.dGUCsbe" alias=".service_locator.oR77BOj"/>
     <service id=".service_locator._kIAbz1" alias=".service_locator.TpoC7U9"/>

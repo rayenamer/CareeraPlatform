@@ -27,6 +27,13 @@ class Reply
     #[ORM\JoinColumn(nullable: false)]
     private ?Discussion $Discussion = null;
 
+    #[ORM\Column(type: "integer", options: ["default" => 0])]
+    private int $likes = 0;
+
+    #[ORM\Column(type: "integer", options: ["default" => 0])]
+    private int $dislikes = 0;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -84,6 +91,31 @@ class Reply
     {
         $this->Discussion = $Discussion;
 
+        return $this;
+    }
+
+    public function getLikes(): int
+    {
+        return $this->likes;
+    }
+
+    // ✅ Setter for Likes
+    public function setLikes(int $likes): self
+    {
+        $this->likes = $likes;
+        return $this;
+    }
+
+    // ✅ Getter for Dislikes
+    public function getDislikes(): int
+    {
+        return $this->dislikes;
+    }
+
+    // ✅ Setter for Dislikes
+    public function setDislikes(int $dislikes): self
+    {
+        $this->dislikes = $dislikes;
         return $this;
     }
 }

@@ -6,38 +6,45 @@ use App\Entity\Reply;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+use Doctrine\ORM\EntityManagerInterface;
+
 /**
  * @extends ServiceEntityRepository<Reply>
  */
 class ReplyRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private EntityManagerInterface $entityManager; 
+    public function __construct(ManagerRegistry $registry,EntityManagerInterface $entityManager)
     {
         parent::__construct($registry, Reply::class);
+        $this->entityManager = $entityManager;
     }
 
-    //    /**
-    //     * @return Reply[] Returns an array of Reply objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('r')
-    //            ->andWhere('r.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('r.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function addLike(Reply $relply): void
+    {
+        $relply->setLikes($relply->getLikes() + 1);
+        $this->entityManager->persist($relply);
+        $this->entityManager->flush();
+    }
 
-    //    public function findOneBySomeField($value): ?Reply
-    //    {
-    //        return $this->createQueryBuilder('r')
-    //            ->andWhere('r.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function removeLike(Reply $relply): void
+    {
+        $relply->setLikes(max(0, $relply->getLikes() - 1));
+        $this->entityManager->persist($relply);
+        $this->entityManager->flush();
+    }
+
+    public function addDislike(Reply $relply): void
+    {
+        $relply->setDislikes($relply->getDislikes() + 1);
+        $this->entityManager->persist($relply);
+        $this->entityManager->flush();
+    }
+
+    public function removeDislike(Reply $relply): void
+    {
+        $relply->setDislikes(max(0, $relply->getDislikes() - 1));
+        $this->entityManager->persist($relply);
+        $this->entityManager->flush();
+    }
 }
