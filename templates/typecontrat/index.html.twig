@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion de type de contrat{% endblock %}
+
+{% block body %}
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="w-75">
+            <h1 class="text-center mb-4">Type Contrat</h1>
+
+            {# Add Section #}
+            {% if addform is defined %}
+                <h3 class="text-center">Ajouter Type Contrat</h3>
+                {{ form_start(addform) }}
+                    {{ form_row(addform.nom) }}
+                    <button type="submit" class="btn btn-primary d-block mx-auto">Ajouter Type Contrat</button>
+                {{ form_end(addform) }}
+            {% endif %}
+
+            {# Update Section #}
+            {% if addform is defined %}
+                <h3 class="text-center">Mettre à jour Type Contrat</h3>
+                {{ form_start(addform) }}
+                    {{ form_row(addform.nom) }}
+                    <button type="submit" class="btn btn-warning d-block mx-auto">Mettre à jour Types Contrat</button>
+                {{ form_end(addform) }}
+            {% endif %}
+
+            {# Show Section #}
+            <h3 class="text-center mb-4">Tous Types de Contrats</h3>
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for type in tabtypecontrat %}
+                        <tr>
+                            <td>{{ type.nom }}</td>
+                            <td>
+                                <a href="{{ path('app_updatetypecontrat', {id: type.id}) }}" class="btn btn-warning">Modifier</a>
+                                <a href="{{ path('app_deletetypecontrat', {id: type.id}) }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {# Link to Add New Type Contrat #}
+            <a href="{{ path('app_addtypecontrat') }}" class="btn btn-success d-block mx-auto">Ajouter un Type Contrat</a>
+        </div>
+    </div>
+{% endblock %}

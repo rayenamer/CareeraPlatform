@@ -10,7 +10,7 @@
         <p>Localisation : {{ offre.localisation }}</p>
         <p>Salaire : {{ offre.salaire }} DT</p>
         <form method="post">
-            <a href="{{ path('app_offre') }}" class="btn btn-primary w-100">Envoyer ma candidature</a>
+            <a href="{{ path('app_addcandidature', {'id': offre.id}) }}" class="btn btn-primary w-100">Envoyer ma candidature</a>
             <a href="{{ path('app_offre') }}" class="btn btn-secondary w-100">Retour</a>
         </form>
     </div>

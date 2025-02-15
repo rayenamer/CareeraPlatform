@@ -40,6 +40,20 @@ final class OffreController extends AbstractController
     }
     
 
+    #[Route('/recherche', name: 'app_recherche')]
+    public function recherche(Request $request, OffreRepository $offreRepository): Response
+    {
+        $searchQuery = $request->query->get('search');
+        if ($searchQuery) {
+            $offres = $offreRepository->findBySearchQuery($searchQuery);
+        } else {
+            
+            $offres = $offreRepository->findAll();
+        }
 
+        return $this->render('offre/index.html.twig', [
+            'taboffre' => $offres,
+        ]);
+    }
 
 }

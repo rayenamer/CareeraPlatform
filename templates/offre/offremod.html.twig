@@ -3,15 +3,15 @@
 {% block title %}Gestion des Offres{% endblock %}
 
 {% block body %}
- <div class="mb-4 text-end">
- </div>
 <h1 class="mb-3 text-center">Gestion des Offres</h1>
 
 <div class="container">
-    <!-- Bouton pour ajouter une nouvelle offre -->
-    <div class="mb-4 text-end">
+    <!-- Boutons alignés à gauche -->
+    <div class="d-flex justify-content-start mb-4">
+        <!-- Bouton pour consulter les candidatures -->
+        <a href="{{ path('app_showcandidature') }}" class="btn btn-dark me-2">Consulter les Candidatures</a>
+        <!-- Bouton pour ajouter une nouvelle offre -->
         <a href="{{ path('app_ajoutoffre') }}" class="btn btn-success">Ajouter une Offre</a>
-
     </div>
 
     <!-- Tableau des offres -->
@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Poste/stage</th>
+                <th>Poste/Stage</th>
                 <th>Entreprise</th>
                 <th>Localisation</th>
                 <th>Salaire</th>
@@ -48,7 +48,6 @@
                             class="btn btn-danger btn-sm" 
                             onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer
                         </a>
-
                     </td>
                 </tr>
             {% else %}
@@ -58,6 +57,12 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <!-- Lien vers la page "Type de Contrat" -->
+    <div class="d-flex justify-content-end mt-4">
+        <a href="{{ path('app_typecontrat') }}" class="btn btn">gérer les Types de Contrat</a>
+    </div>
+
 </div>
 
 {% endblock %}

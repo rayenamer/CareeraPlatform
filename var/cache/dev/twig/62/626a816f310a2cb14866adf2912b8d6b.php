@@ -97,18 +97,21 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield " <div class=\"mb-4 text-end\">
- </div>
-<h1 class=\"mb-3 text-center\">Gestion des Offres</h1>
+        yield "<h1 class=\"mb-3 text-center\">Gestion des Offres</h1>
 
 <div class=\"container\">
-    <!-- Bouton pour ajouter une nouvelle offre -->
-    <div class=\"mb-4 text-end\">
+    <!-- Boutons alignés à gauche -->
+    <div class=\"d-flex justify-content-start mb-4\">
+        <!-- Bouton pour consulter les candidatures -->
         <a href=\"";
-        // line 13
+        // line 12
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_showcandidature");
+        yield "\" class=\"btn btn-dark me-2\">Consulter les Candidatures</a>
+        <!-- Bouton pour ajouter une nouvelle offre -->
+        <a href=\"";
+        // line 14
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ajoutoffre");
         yield "\" class=\"btn btn-success\">Ajouter une Offre</a>
-
     </div>
 
     <!-- Tableau des offres -->
@@ -116,7 +119,7 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Poste/stage</th>
+                <th>Poste/Stage</th>
                 <th>Entreprise</th>
                 <th>Localisation</th>
                 <th>Salaire</th>
@@ -199,7 +202,6 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
                             class=\"btn btn-danger btn-sm\" 
                             onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');\">Supprimer
                         </a>
-
                     </td>
                 </tr>
             ";
@@ -213,9 +215,9 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
                 $context['loop']['last'] = 0 === $context['loop']['revindex0'];
             }
         }
-        // line 58
+        // line 57
         if (!$context['_iterated']) {
-            // line 55
+            // line 54
             yield "                <tr>
                     <td colspan=\"10\" class=\"text-center\">Aucune offre trouvée.</td>
                 </tr>
@@ -224,9 +226,18 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['offre'], $context['_parent'], $context['_iterated'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 59
+        // line 58
         yield "        </tbody>
     </table>
+
+    <!-- Lien vers la page \"Type de Contrat\" -->
+    <div class=\"d-flex justify-content-end mt-4\">
+        <a href=\"";
+        // line 63
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_typecontrat");
+        yield "\" class=\"btn btn\">gérer les Types de Contrat</a>
+    </div>
+
 </div>
 
 ";
@@ -260,7 +271,7 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  228 => 59,  219 => 55,  217 => 58,  197 => 47,  193 => 46,  186 => 44,  182 => 43,  178 => 42,  174 => 41,  170 => 40,  166 => 39,  162 => 38,  158 => 37,  154 => 36,  151 => 35,  133 => 34,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  237 => 63,  230 => 58,  221 => 54,  219 => 57,  200 => 47,  196 => 46,  189 => 44,  185 => 43,  181 => 42,  177 => 41,  173 => 40,  169 => 39,  165 => 38,  161 => 37,  157 => 36,  154 => 35,  136 => 34,  113 => 14,  108 => 12,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -270,15 +281,15 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
 {% block title %}Gestion des Offres{% endblock %}
 
 {% block body %}
- <div class=\"mb-4 text-end\">
- </div>
 <h1 class=\"mb-3 text-center\">Gestion des Offres</h1>
 
 <div class=\"container\">
-    <!-- Bouton pour ajouter une nouvelle offre -->
-    <div class=\"mb-4 text-end\">
+    <!-- Boutons alignés à gauche -->
+    <div class=\"d-flex justify-content-start mb-4\">
+        <!-- Bouton pour consulter les candidatures -->
+        <a href=\"{{ path('app_showcandidature') }}\" class=\"btn btn-dark me-2\">Consulter les Candidatures</a>
+        <!-- Bouton pour ajouter une nouvelle offre -->
         <a href=\"{{ path('app_ajoutoffre') }}\" class=\"btn btn-success\">Ajouter une Offre</a>
-
     </div>
 
     <!-- Tableau des offres -->
@@ -286,7 +297,7 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Poste/stage</th>
+                <th>Poste/Stage</th>
                 <th>Entreprise</th>
                 <th>Localisation</th>
                 <th>Salaire</th>
@@ -315,7 +326,6 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
                             class=\"btn btn-danger btn-sm\" 
                             onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');\">Supprimer
                         </a>
-
                     </td>
                 </tr>
             {% else %}
@@ -325,6 +335,12 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
             {% endfor %}
         </tbody>
     </table>
+
+    <!-- Lien vers la page \"Type de Contrat\" -->
+    <div class=\"d-flex justify-content-end mt-4\">
+        <a href=\"{{ path('app_typecontrat') }}\" class=\"btn btn\">gérer les Types de Contrat</a>
+    </div>
+
 </div>
 
 {% endblock %}

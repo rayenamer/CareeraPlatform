@@ -119,7 +119,7 @@ class __TwigTemplate_f127132b9c9ae52c35619622c85ea0d8 extends Template
         <form method=\"post\">
             <a href=\"";
         // line 13
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offre");
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addcandidature", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 13, $this->source); })()), "id", [], "any", false, false, false, 13)]), "html", null, true);
         yield "\" class=\"btn btn-primary w-100\">Envoyer ma candidature</a>
             <a href=\"";
         // line 14
@@ -176,12 +176,11 @@ class __TwigTemplate_f127132b9c9ae52c35619622c85ea0d8 extends Template
         <p>Localisation : {{ offre.localisation }}</p>
         <p>Salaire : {{ offre.salaire }} DT</p>
         <form method=\"post\">
-            <a href=\"{{ path('app_offre') }}\" class=\"btn btn-primary w-100\">Envoyer ma candidature</a>
+            <a href=\"{{ path('app_addcandidature', {'id': offre.id}) }}\" class=\"btn btn-primary w-100\">Envoyer ma candidature</a>
             <a href=\"{{ path('app_offre') }}\" class=\"btn btn-secondary w-100\">Retour</a>
         </form>
     </div>
 </div>
-{% endblock %}
-", "offre/postuler.html.twig", "C:\\careera\\templates\\offre\\postuler.html.twig");
+{% endblock %}", "offre/postuler.html.twig", "C:\\careera\\templates\\offre\\postuler.html.twig");
     }
 }

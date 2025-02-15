@@ -72,9 +72,6 @@ class OffreType extends AbstractType
                         'mimeTypesMessage' => 'Veuillez télécharger un fichier image valide (JPEG ou PNG).', // Message d'erreur en cas de type de fichier incorrect
                     ]),
                 ],
-            ])
-            ->add('enregistrer', SubmitType::class, [
-                'label' => 'Enregistrer',
             ]);
     }
 

@@ -18,34 +18,23 @@ use Symfony\Component\Routing\Attribute\Route;
 final class OffremodController extends AbstractController
 {
 
-#[Route('/offremod', name: 'app_offremod')]
-    public function index(OffreRepository $rep): Response
+
+    #[Route('/offremod', name: 'app_offremod')]
+    public function index(OffreRepository $offreRepository, Security $security): Response
     {
-        $offres = $rep->findAll();
+        //$user = $security->getUser();
+
+        //if (!$user) {
+          //  throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à vos offres.');
+        //}
+        //$offres = $offreRepository->findBy(['user' => $user]);
+        $offres = $offreRepository->findAll();
         return $this->render('offre/offremod.html.twig', [
             'taboffre' => $offres,
         ]);
     }
 
-        // #[Route('/offremod', name: 'app_offremod')]
-    // public function index(OffreRepository $offreRepository, Security $security): Response
-    // {
-    //     // Récupérer l'utilisateur courant
-    //     $user = $security->getUser();
-    //
-    //     // Vérifier si l'utilisateur est authentifié
-    //     if (!$user) {
-    //         throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à vos offres.');
-    //     }
-    //
-    //     // Récupérer les offres de l'utilisateur courant
-    //     $offres = $offreRepository->findBy(['user' => $user]);
-    //
-    //     // Passer les offres à la vue
-    //     return $this->render('offre/offremod.html.twig', [
-    //         'offres' => $offres,
-    //     ]);
-    // }
+
     #[Route('/ajoutoffre', name: 'app_ajoutoffre')]
     public function ajoutoffre(ManagerRegistry $doctrine, Request $req): Response
 {

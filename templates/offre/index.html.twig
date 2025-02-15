@@ -2,10 +2,26 @@
 
 {% block title %}Liste des Offres{% endblock %}
 
-    {% block body %}
-    <h1 class="mb-3 text-center">Liste des Offres</h1>
+{% block body %}
+<h1 class="mb-3 text-center">Liste des Offres</h1>
 
-<div class="container">
+<!-- Recherche avec icône -->
+<div class="d-flex justify-content-between mb-3">
+    <!-- Bouton "Consulter état de candidature" avec marge à gauche et couleur baby blue -->
+    <a href="{{ path('app_candidature') }}" class="btn" style="background-color: hsla(244, 100.00%, 9.80%, 0.93); margin-right: 20px; color: white; border-radius: 20px;">
+        Consulter état de candidature
+    </a>
+    
+    <!-- Formulaire de recherche avec marge à droite -->
+    <form action="{{ path('app_recherche') }}" method="GET" class="d-flex" style="margin-left: 20px;">
+        <input type="text" name="search" class="form-control" placeholder="Rechercher une offre..." style="border-radius: 20px; padding-left: 10px;">
+        <button type="submit" class="btn btn-outline" style="border-radius: 20px;">
+            <i class="fa fa-search" style="color:rgb(115, 160, 141);"></i> <!-- Icône en baby blue -->
+        </button>
+    </form>
+</div>
+
+<div class="container mt-5">
     <div class="row">
         {% for offre in taboffre %}
             <div class="col-md-4 mb-4">
