@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offre{% endblock %}
+
+{% block body %}
+    <div class="services" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h1>Offre <em>Détails</em></h1>
+                        <span>Détails de l'offre sélectionnée</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <img src="assets/images/service_01.jpg" alt="">
+                        <div class="down-content">
+                            <h4>ID</h4>
+                            <p>{{ offre.id }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <img src="assets/images/service_02.jpg" alt="">
+                        <div class="down-content">
+                            <h4>Titre</h4>
+                            <p>{{ offre.titre }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <img src="assets/images/service_03.jpg" alt="">
+                        <div class="down-content">
+                            <h4>Prix</h4>
+                            <p>{{ offre.prix }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <img src="assets/images/service_01.jpg" alt="">
+                        <div class="down-content">
+                            <h4>Description</h4>
+                            <p>{{ offre.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <img src="assets/images/service_02.jpg" alt="">
+                        <div class="down-content">
+                            <h4>Date Limite</h4>
+                            <p>{{ offre.datelimite }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <img src="assets/images/service_03.jpg" alt="">
+                        <div class="down-content">
+                            <h4>Specialite</h4>
+                            <p>{{ offre.specialite }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('app_offrefrelencer_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}">Modifier</a>
+
+    {{ include('offrefrelencer/_delete_form.html.twig') }}
+{% endblock %}

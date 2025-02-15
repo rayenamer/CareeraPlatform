@@ -516,6 +516,6 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
     <script src=\"{{ asset('js/main.js') }}\"></script>
 </body>
 
-</html>", "base.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\careera\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\base.html.twig");
     }
 }

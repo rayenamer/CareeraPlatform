@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offre index{% endblock %}
+
+{% block body %}
+    <style>
+        /* Styles pour le cadre gris */
+        .service-item {
+            background-color: #f0f0f0; /* Gris clair */
+            padding: 20px; /* Espacement interne */
+            border-radius: 8px; /* Coins arrondis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+            margin-bottom: 30px; /* Espacement en bas */
+        }
+
+        .service-item img {
+            max-width: 100%; /* Pour s'assurer que l'image occupe toute la largeur disponible */
+            border-radius: 8px; /* Coins arrondis de l'image */
+        }
+
+        /* Autres styles pour les boutons */
+        .filled-button {
+            padding: 10px 20px;
+            background-color:rgb(114, 206, 117);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .filled-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <div class="services" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>freelance  <em>Services</em></h2>
+                        <span>Consultez toutes les offres disponibles</span>
+                    </div>
+                </div>
+
+                {% for offre in offres %}
+                    <div class="col-md-4">
+                        <div class="service-item">
+                     <img src="https://www.freelance-informatique.fr/images/actualites/consultant%20informatique.jpg" alt="img">
+                            <div class="down-content">
+                                <h4>{{ offre.titre }}</h4>
+                                <p><strong>Prix :</strong> {{ offre.prix }}dt</p>
+                                <p><strong>Description :</strong> {{ offre.description }}</p>
+                                <p><strong>Date limite :</strong> {{ offre.datelimite }}</p>
+                                <p><strong>Spécialité :</strong> {{ offre.specialite }}</p>
+                                <div class="actions">
+                                    <a href="{{ path('app_offrefrelencer_show', {'id': offre.id}) }}" class="filled-button">Voir plus</a>
+                                    <a href="{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}" class="filled-button">Modifier</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-md-12">
+                        <p>Aucune offre trouvée.</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="{{ path('app_offrefrelencer_new') }}" class="filled-button">Créer une nouvelle offre</a>
+    </div>
+{% endblock %}

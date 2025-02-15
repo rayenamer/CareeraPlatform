@@ -16,6 +16,8 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
+        '/offrefrelencer' => [[['_route' => 'app_offrefrelencer_index', '_controller' => 'App\\Controller\\OffrefrelencerController::index'], null, ['GET' => 0], null, false, false, null]],
+        '/offrefrelencer/new' => [[['_route' => 'app_offrefrelencer_new', '_controller' => 'App\\Controller\\OffrefrelencerController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -37,6 +39,11 @@ return [
                         .')'
                     .')'
                 .')'
+                .'|/offrefrelencer/([^/]++)(?'
+                    .'|(*:229)'
+                    .'|/edit(*:242)'
+                    .'|(*:250)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -47,8 +54,11 @@ return [
         148 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        191 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        229 => [[['_route' => 'app_offrefrelencer_show', '_controller' => 'App\\Controller\\OffrefrelencerController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        242 => [[['_route' => 'app_offrefrelencer_edit', '_controller' => 'App\\Controller\\OffrefrelencerController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        250 => [
+            [['_route' => 'app_offrefrelencer_delete', '_controller' => 'App\\Controller\\OffrefrelencerController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
