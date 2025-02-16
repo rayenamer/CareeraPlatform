@@ -47,12 +47,12 @@ class __TwigTemplate_79347afb523ee94eed6f3ff124551b2f extends Template
         // line 1
         yield "<form method=\"post\" action=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_delete", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
-        yield "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        yield "\" onsubmit=\"return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');\">
     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 2
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         yield "\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">supprimer</button>
 </form>
 ";
         
@@ -90,9 +90,9 @@ class __TwigTemplate_79347afb523ee94eed6f3ff124551b2f extends Template
 
     public function getSourceContext(): Source
     {
-        return new Source("<form method=\"post\" action=\"{{ path('app_offrefrelencer_delete', {'id': offre.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('app_offrefrelencer_delete', {'id': offre.id}) }}\" onsubmit=\"return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ offre.id) }}\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">supprimer</button>
 </form>
 ", "offrefrelencer/_delete_form.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offrefrelencer\\_delete_form.html.twig");
     }

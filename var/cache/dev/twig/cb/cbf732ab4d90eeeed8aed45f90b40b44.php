@@ -73,7 +73,7 @@ class __TwigTemplate_3d9c437aaa1d9b6fcb2384b5a9407436 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Edit Offre";
+        yield "modifier Offre";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -97,7 +97,7 @@ class __TwigTemplate_3d9c437aaa1d9b6fcb2384b5a9407436 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Edit Offre</h1>
+        yield "    <h1> Modifer Offre</h1>
 
     <style>
         .form-container {
@@ -145,7 +145,7 @@ class __TwigTemplate_3d9c437aaa1d9b6fcb2384b5a9407436 extends Template
         }
 
         .btn {
-            background-color:rgb(208, 255, 219);
+            background-color: #45a049;
             color: white;
             padding: 12px 25px;
             border: none;
@@ -208,7 +208,7 @@ class __TwigTemplate_3d9c437aaa1d9b6fcb2384b5a9407436 extends Template
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 92
         yield "            <button type=\"submit\" class=\"btn\">";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("button_label", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 92, $this->source); })()), "Update")) : ("Update")), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("button_label", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 92, $this->source); })()), "Mettre a jour")) : ("Mettre a jour")), "html", null, true);
         yield "</button>
         ";
         // line 93
@@ -221,7 +221,7 @@ class __TwigTemplate_3d9c437aaa1d9b6fcb2384b5a9407436 extends Template
         <a href=\"";
         // line 98
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
-        yield "\" class=\"back-link\">Back to list</a>
+        yield "\" class=\"back-link\">retourner à la liste</a>
     </div>
 
     <!-- Formulaire de suppression -->
@@ -267,10 +267,10 @@ class __TwigTemplate_3d9c437aaa1d9b6fcb2384b5a9407436 extends Template
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Edit Offre{% endblock %}
+{% block title %}modifier Offre{% endblock %}
 
 {% block body %}
-    <h1>Edit Offre</h1>
+    <h1> Modifer Offre</h1>
 
     <style>
         .form-container {
@@ -318,7 +318,7 @@ class __TwigTemplate_3d9c437aaa1d9b6fcb2384b5a9407436 extends Template
         }
 
         .btn {
-            background-color:rgb(208, 255, 219);
+            background-color: #45a049;
             color: white;
             padding: 12px 25px;
             border: none;
@@ -356,13 +356,13 @@ class __TwigTemplate_3d9c437aaa1d9b6fcb2384b5a9407436 extends Template
                     {{ form_errors(field) }}
                 </div>
             {% endfor %}
-            <button type=\"submit\" class=\"btn\">{{ button_label|default('Update') }}</button>
+            <button type=\"submit\" class=\"btn\">{{ button_label|default('Mettre a jour') }}</button>
         {{ form_end(form) }}
     </div>
 
     <!-- Lien de retour à la liste des offres -->
     <div class=\"text-center\">
-        <a href=\"{{ path('app_offrefrelencer_index') }}\" class=\"back-link\">Back to list</a>
+        <a href=\"{{ path('app_offrefrelencer_index') }}\" class=\"back-link\">retourner à la liste</a>
     </div>
 
     <!-- Formulaire de suppression -->

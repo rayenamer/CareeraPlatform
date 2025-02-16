@@ -132,3 +132,15 @@ fc34c1,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer/new,1739628978,,200,re
 dd4e05,127.0.0.1,POST,http://127.0.0.1:8000/offrefrelencer/new,1739630723,,303,request
 b49ea1,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer,1739630724,,200,request
 56c40e,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer,1739631499,,200,request
+bd121a,127.0.0.1,GET,http://127.0.0.1:8000/,1739737128,,404,request
+c6fea9,127.0.0.1,GET,http://127.0.0.1:8000/,1739737131,,404,request
+cf5cf2,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer,1739737145,,200,request
+6a4f49,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer/new,1739737905,,200,request
+3b555a,127.0.0.1,POST,http://127.0.0.1:8000/offrefrelencer/new,1739738183,,303,request
+06afab,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer,1739738184,,200,request
+a4483a,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer/9/edit,1739738195,,200,request
+dfed49,127.0.0.1,POST,http://127.0.0.1:8000/offrefrelencer/9/edit,1739738215,,303,request
+2c4501,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer,1739738215,,200,request
+e1e0ba,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer/9/edit,1739738275,,200,request
+ef8774,127.0.0.1,POST,http://127.0.0.1:8000/offrefrelencer/9,1739738281,,303,request
+35aa80,127.0.0.1,GET,http://127.0.0.1:8000/offrefrelencer,1739738281,,200,request

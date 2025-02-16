@@ -127,58 +127,54 @@ class __TwigTemplate_3900303639393443900ef5177c4c1df4 extends Template
     </style>
 
     <div class=\"services\" id=\"services\">
-    <div class=\"container\">
-        <div class=\"row\">
-            <div class=\"col-md-12\">
-                <div class=\"section-heading\" style=\"text-align: center; margin-bottom: 20px;\">
-                    <h2 style=\"font-size: 2rem; color: #2c3e50;\">freelance <em style=\"font-style: normal; color: #3498db;\">Services</em></h2>
-                    <span>Consultez toutes les offres disponibles</span>
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-md-12\">
+                    <div class=\"section-heading\">
+                        <h2>freelance  <em>Services</em></h2>
+                        <span>Consultez toutes les offres disponibles</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
                 ";
-        // line 49
+        // line 45
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["offres"]) || array_key_exists("offres", $context) ? $context["offres"] : (function () { throw new RuntimeError('Variable "offres" does not exist.', 49, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["offres"]) || array_key_exists("offres", $context) ? $context["offres"] : (function () { throw new RuntimeError('Variable "offres" does not exist.', 45, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["offre"]) {
-            // line 50
+            // line 46
             yield "                    <div class=\"col-md-4\">
                         <div class=\"service-item\">
                      <img src=\"https://www.freelance-informatique.fr/images/actualites/consultant%20informatique.jpg\" alt=\"img\">
                             <div class=\"down-content\">
                                 <h4>";
-            // line 54
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "titre", [], "any", false, false, false, 54), "html", null, true);
+            // line 50
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "titre", [], "any", false, false, false, 50), "html", null, true);
             yield "</h4>
                                 <p><strong>Prix :</strong> ";
-            // line 55
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "prix", [], "any", false, false, false, 55), "html", null, true);
+            // line 51
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "prix", [], "any", false, false, false, 51), "html", null, true);
             yield "dt</p>
                                 <p><strong>Description :</strong> ";
-            // line 56
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "description", [], "any", false, false, false, 56), "html", null, true);
+            // line 52
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "description", [], "any", false, false, false, 52), "html", null, true);
             yield "</p>
                                 <p><strong>Date limite :</strong> ";
-            // line 57
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "datelimite", [], "any", false, false, false, 57), "html", null, true);
+            // line 53
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "datelimite", [], "any", false, false, false, 53), "html", null, true);
             yield "</p>
                                 <p><strong>Spécialité :</strong> ";
-            // line 58
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "specialite", [], "any", false, false, false, 58), "html", null, true);
+            // line 54
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "specialite", [], "any", false, false, false, 54), "html", null, true);
             yield "</p>
                                 <div class=\"actions\">
                                     <a href=\"";
-            // line 60
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 60)]), "html", null, true);
+            // line 56
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 56)]), "html", null, true);
             yield "\" class=\"filled-button\">Voir plus</a>
                                     <a href=\"";
-            // line 61
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 61)]), "html", null, true);
+            // line 57
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 57)]), "html", null, true);
             yield "\" class=\"filled-button\">Modifier</a>
                                 </div>
                             </div>
@@ -187,9 +183,9 @@ class __TwigTemplate_3900303639393443900ef5177c4c1df4 extends Template
                 ";
             $context['_iterated'] = true;
         }
-        // line 70
+        // line 66
         if (!$context['_iterated']) {
-            // line 67
+            // line 63
             yield "                    <div class=\"col-md-12\">
                         <p>Aucune offre trouvée.</p>
                     </div>
@@ -198,14 +194,14 @@ class __TwigTemplate_3900303639393443900ef5177c4c1df4 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['offre'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 71
+        // line 67
         yield "            </div>
         </div>
     </div>
 
     <div class=\"text-center\">
         <a href=\"";
-        // line 76
+        // line 72
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_new");
         yield "\" class=\"filled-button\">Créer une nouvelle offre</a>
     </div>
@@ -240,7 +236,7 @@ class __TwigTemplate_3900303639393443900ef5177c4c1df4 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  209 => 76,  202 => 71,  193 => 67,  191 => 70,  181 => 61,  177 => 60,  172 => 58,  168 => 57,  164 => 56,  160 => 55,  156 => 54,  150 => 50,  145 => 49,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  205 => 72,  198 => 67,  189 => 63,  187 => 66,  177 => 57,  173 => 56,  168 => 54,  164 => 53,  160 => 52,  156 => 51,  152 => 50,  146 => 46,  141 => 45,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -280,18 +276,14 @@ class __TwigTemplate_3900303639393443900ef5177c4c1df4 extends Template
     </style>
 
     <div class=\"services\" id=\"services\">
-    <div class=\"container\">
-        <div class=\"row\">
-            <div class=\"col-md-12\">
-                <div class=\"section-heading\" style=\"text-align: center; margin-bottom: 20px;\">
-                    <h2 style=\"font-size: 2rem; color: #2c3e50;\">freelance <em style=\"font-style: normal; color: #3498db;\">Services</em></h2>
-                    <span>Consultez toutes les offres disponibles</span>
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-md-12\">
+                    <div class=\"section-heading\">
+                        <h2>freelance  <em>Services</em></h2>
+                        <span>Consultez toutes les offres disponibles</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
                 {% for offre in offres %}
                     <div class=\"col-md-4\">
