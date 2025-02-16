@@ -73,7 +73,7 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Gestion de type de contrat";
+        yield "Liste des Types de Contrat";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -97,105 +97,68 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <div class=\"container d-flex justify-content-center align-items-center\" style=\"min-height: 100vh;\">
-        <div class=\"w-75\">
-            <h1 class=\"text-center mb-4\">Type Contrat</h1>
-
-            ";
-        // line 11
-        yield "            ";
-        if (array_key_exists("addform", $context)) {
-            // line 12
-            yield "                <h3 class=\"text-center\">Ajouter Type Contrat</h3>
-                ";
-            // line 13
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 13, $this->source); })()), 'form_start');
-            yield "
-                    ";
-            // line 14
-            yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 14, $this->source); })()), "nom", [], "any", false, false, false, 14), 'row');
-            yield "
-                    <button type=\"submit\" class=\"btn btn-primary d-block mx-auto\">Ajouter Type Contrat</button>
-                ";
-            // line 16
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 16, $this->source); })()), 'form_end');
-            yield "
-            ";
-        }
-        // line 18
-        yield "
+        yield "<div class=\"container\">
+    <h1 class=\"text-center my-4\">Liste des Types de Contrat</h1>
+    <div class=\"d-flex justify-content-end mb-3\">
+        <a href=\"";
+        // line 9
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addtypecontrat");
+        yield "\" class=\"btn btn-success\">Ajouter un Type de Contrat</a>
+    </div>
+    <table class=\"table table-striped table-bordered\">
+        <thead class=\"table-dark\">
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
             ";
         // line 20
-        yield "            ";
-        if (array_key_exists("addform", $context)) {
-            // line 21
-            yield "                <h3 class=\"text-center\">Mettre à jour Type Contrat</h3>
-                ";
-            // line 22
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 22, $this->source); })()), 'form_start');
-            yield "
-                    ";
-            // line 23
-            yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 23, $this->source); })()), "nom", [], "any", false, false, false, 23), 'row');
-            yield "
-                    <button type=\"submit\" class=\"btn btn-warning d-block mx-auto\">Mettre à jour Types Contrat</button>
-                ";
-            // line 25
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 25, $this->source); })()), 'form_end');
-            yield "
-            ";
-        }
-        // line 27
-        yield "
-            ";
-        // line 29
-        yield "            <h3 class=\"text-center mb-4\">Tous Types de Contrats</h3>
-            <table class=\"table table-bordered text-center\">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ";
-        // line 38
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["tabtypecontrat"]) || array_key_exists("tabtypecontrat", $context) ? $context["tabtypecontrat"] : (function () { throw new RuntimeError('Variable "tabtypecontrat" does not exist.', 38, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["type"]) {
-            // line 39
-            yield "                        <tr>
-                            <td>";
-            // line 40
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["type"], "nom", [], "any", false, false, false, 40), "html", null, true);
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["tabtypecontrat"]) || array_key_exists("tabtypecontrat", $context) ? $context["tabtypecontrat"] : (function () { throw new RuntimeError('Variable "tabtypecontrat" does not exist.', 20, $this->source); })()));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["typecontrat"]) {
+            // line 21
+            yield "                <tr>
+                    <td>";
+            // line 22
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 22), "html", null, true);
             yield "</td>
-                            <td>
-                                <a href=\"";
-            // line 42
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["type"], "id", [], "any", false, false, false, 42)]), "html", null, true);
-            yield "\" class=\"btn btn-warning\">Modifier</a>
-                                <a href=\"";
-            // line 43
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["type"], "id", [], "any", false, false, false, 43)]), "html", null, true);
-            yield "\" class=\"btn btn-danger\" onclick=\"return confirm('Are you sure?')\">Supprimer</a>
-                            </td>
-                        </tr>
-                    ";
+                    <td>";
+            // line 23
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "nom", [], "any", false, false, false, 23), "html", null, true);
+            yield "</td>
+                    <td>
+                        <a href=\"";
+            // line 25
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+            yield "\" class=\"btn btn-warning btn-sm\">Modifier</a>
+                        <a href=\"";
+            // line 26
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+            yield "\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce type de contrat ?');\">Supprimer</a>
+                    </td>
+                </tr>
+            ";
+            $context['_iterated'] = true;
+        }
+        // line 33
+        if (!$context['_iterated']) {
+            // line 30
+            yield "                <tr>
+                    <td colspan=\"3\" class=\"text-center\">Aucun type de contrat trouvé.</td>
+                </tr>
+            ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_key'], $context['type'], $context['_parent']);
+        unset($context['_seq'], $context['_key'], $context['typecontrat'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 47
-        yield "                </tbody>
-            </table>
-
-            ";
-        // line 51
-        yield "            <a href=\"";
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addtypecontrat");
-        yield "\" class=\"btn btn-success d-block mx-auto\">Ajouter un Type Contrat</a>
-        </div>
-    </div>
+        // line 34
+        yield "        </tbody>
+    </table>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -227,64 +190,47 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  194 => 51,  189 => 47,  179 => 43,  175 => 42,  170 => 40,  167 => 39,  163 => 38,  152 => 29,  149 => 27,  144 => 25,  139 => 23,  135 => 22,  132 => 21,  129 => 20,  126 => 18,  121 => 16,  116 => 14,  112 => 13,  109 => 12,  106 => 11,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  159 => 34,  150 => 30,  148 => 33,  140 => 26,  136 => 25,  131 => 23,  127 => 22,  124 => 21,  119 => 20,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Gestion de type de contrat{% endblock %}
+{% block title %}Liste des Types de Contrat{% endblock %}
 
 {% block body %}
-    <div class=\"container d-flex justify-content-center align-items-center\" style=\"min-height: 100vh;\">
-        <div class=\"w-75\">
-            <h1 class=\"text-center mb-4\">Type Contrat</h1>
-
-            {# Add Section #}
-            {% if addform is defined %}
-                <h3 class=\"text-center\">Ajouter Type Contrat</h3>
-                {{ form_start(addform) }}
-                    {{ form_row(addform.nom) }}
-                    <button type=\"submit\" class=\"btn btn-primary d-block mx-auto\">Ajouter Type Contrat</button>
-                {{ form_end(addform) }}
-            {% endif %}
-
-            {# Update Section #}
-            {% if addform is defined %}
-                <h3 class=\"text-center\">Mettre à jour Type Contrat</h3>
-                {{ form_start(addform) }}
-                    {{ form_row(addform.nom) }}
-                    <button type=\"submit\" class=\"btn btn-warning d-block mx-auto\">Mettre à jour Types Contrat</button>
-                {{ form_end(addform) }}
-            {% endif %}
-
-            {# Show Section #}
-            <h3 class=\"text-center mb-4\">Tous Types de Contrats</h3>
-            <table class=\"table table-bordered text-center\">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for type in tabtypecontrat %}
-                        <tr>
-                            <td>{{ type.nom }}</td>
-                            <td>
-                                <a href=\"{{ path('app_updatetypecontrat', {id: type.id}) }}\" class=\"btn btn-warning\">Modifier</a>
-                                <a href=\"{{ path('app_deletetypecontrat', {id: type.id}) }}\" class=\"btn btn-danger\" onclick=\"return confirm('Are you sure?')\">Supprimer</a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
-            {# Link to Add New Type Contrat #}
-            <a href=\"{{ path('app_addtypecontrat') }}\" class=\"btn btn-success d-block mx-auto\">Ajouter un Type Contrat</a>
-        </div>
+<div class=\"container\">
+    <h1 class=\"text-center my-4\">Liste des Types de Contrat</h1>
+    <div class=\"d-flex justify-content-end mb-3\">
+        <a href=\"{{ path('app_addtypecontrat') }}\" class=\"btn btn-success\">Ajouter un Type de Contrat</a>
     </div>
+    <table class=\"table table-striped table-bordered\">
+        <thead class=\"table-dark\">
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for typecontrat in tabtypecontrat %}
+                <tr>
+                    <td>{{ typecontrat.id }}</td>
+                    <td>{{ typecontrat.nom }}</td>
+                    <td>
+                        <a href=\"{{ path('app_updatetypecontrat', {'id': typecontrat.id}) }}\" class=\"btn btn-warning btn-sm\">Modifier</a>
+                        <a href=\"{{ path('app_deletetypecontrat', {'id': typecontrat.id}) }}\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce type de contrat ?');\">Supprimer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan=\"3\" class=\"text-center\">Aucun type de contrat trouvé.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
 ", "typecontrat/index.html.twig", "C:\\careera\\templates\\typecontrat\\index.html.twig");
     }

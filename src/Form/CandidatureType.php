@@ -3,29 +3,35 @@
 namespace App\Form;
 
 use App\Entity\Candidature;
-use App\Entity\Offre;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class CandidatureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('statut', ChoiceType::class, [
-            'choices' => [
-                'En attente' => 'en_attente',
-                'Acceptée' => 'acceptee',
-                'Refusée' => 'refusee',
-            ],
-            'data' => 'en_attente',  // Définit la valeur par défaut
-            'expanded' => false,      // Afficher comme un select
-            'multiple' => false,      // Permet de sélectionner une seule option
-            'label' => 'Statut',
-        ]);
+            ->add('statut', ChoiceType::class, [
+                'choices' => [
+                    'En attente' => 'en_attente',
+                    'Acceptée' => 'acceptee',
+                    'Refusée' => 'refusee',
+                ],
+                'data' => 'en_attente',  // Valeur par défaut
+                'expanded' => false,      // Afficher comme un select
+                'multiple' => false,      // Sélection unique
+                'label' => 'Statut',
+                'constraints' => [
+                    new Assert\NotBlank(['message' => 'Veuillez sélectionner un statut.']),
+                    new Assert\Choice([
+                        'choices' => ['en_attente', 'acceptee', 'refusee'],
+                        'message' => 'Choix invalide, veuillez sélectionner un statut valide.',
+                    ]),
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

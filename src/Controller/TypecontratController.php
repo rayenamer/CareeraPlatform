@@ -26,7 +26,7 @@ final class TypecontratController extends AbstractController
     public function showtypecontrat(TypeContratRepository $rep): Response
     {
         $tabtypecontrat = $rep->findAll();
-        return $this->render('typecontrat/showtypecontrat.html.twig', [
+        return $this->render('typecontrat/index.html.twig', [
             'tabtypecontrat' => $tabtypecontrat,
             
         ]);
@@ -45,7 +45,7 @@ final class TypecontratController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('app_showtypecontrat');
         }
-        return $this->render('typecontrat/addformauthors.html.twig', [
+        return $this->render('typecontrat/addtypecontrat.html.twig', [
             'addform' => $form,
         ]);
     }
