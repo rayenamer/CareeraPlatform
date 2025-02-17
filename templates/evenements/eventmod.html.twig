@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Evènements{% endblock %}
+
+{% block body %}
+<h1 class="mb-3 text-center">Gestion des Evènements</h1>
+
+<div class="container">
+    <!-- Boutons alignés à gauche -->
+    <div class="d-flex justify-content-start mb-4">
+        <!-- Bouton pour consulter les candidatures -->
+        <a href="{{ path('app_showcandidature') }}" class="btn btn-dark me-2">Consulter les evènement</a>
+        <!-- Bouton pour ajouter une nouvelle offre -->
+        <a href="{{ path('app_ajoutoffre') }}" class="btn btn-success">Ajouter une evènement</a>
+    </div>
+
+    <!-- Tableau des offres -->
+    <table class="table table-bordered"> 
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>description</th>
+                <th>date</th>
+                <th>lieu</th>
+                
+                <th>Disponibilité</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in tabevent %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ event.description }}</td>
+                    <td>{{ event.date}}</td>
+                    <td>{{ event.lieu}}</td>
+                    
+                    <td>{{ event.disponibilite ? 'Disponible' : 'Indisponible' }}</td>
+                    {# Ceci est un commentaire Twig. Il ne sera pas affiché dans le HTML final. 
+
+                    <td><img src="{{ asset('uploads/images/' ~ offre.image) }}" alt="Image de {{ offre.nomposte }}" width="50"></td>#}
+                    <td>
+                        <a href="{{ path('app_modifoffre', { 'id': event.id }) }}" class="btn btn-primary btn-sm">Modifier</a>
+                        <a href="{{ path('app_supprimeroffre', { 'id': event.id }) }}" 
+                            class="btn btn-danger btn-sm" 
+                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10" class="text-center">Aucune evènement trouvée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Lien vers la page "Type de Contrat" -->
+    <div class="d-flex justify-content-end mt-4">
+        <a href="{{ path('app_typecontrat') }}" class="btn btn">gérer les Types de Contrat</a>
+    </div>
+
+</div>
+
+{% endblock %}

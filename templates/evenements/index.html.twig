@@ -1,0 +1,46 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Evènements{% endblock %}
+
+{% block body %}
+<h1 class="mb-3 text-center">Evènements</h1>
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        {% for event in tabevent %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm d-flex flex-column">
+                    
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title text-center">{{ event.description }}</h5>
+                        <p class="card-text text-center">
+                            <strong>Entreprise:</strong> {{  event.date|date('Y-m-d H:i')  }}<br>
+                            <strong>Localisation:</strong> {{ event.lieu }}<br>
+                       
+                        </p>
+
+                        <div class="d-flex justify-content-center">
+                            <span class="badge {{ event.disponibilite ? 'bg-success' : 'bg-danger' }}">
+                                {{ event.disponibilite ? 'Disponible' : 'Non disponible' }}
+                            </span>
+                        </div>
+                        <div class="mt-3">
+                            <a href="{{ path('app_postuler', { id: event.id }) }}" class="btn btn-primary btn-sm w-100">
+                                Postuler
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12 text-center">
+                <p class="text-muted">Aucune evènement disponible.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
