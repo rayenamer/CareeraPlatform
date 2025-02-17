@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Recruteur{% endblock %}
+
+{% block body %}
+<div class="container mb-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="card shadow p-4">
+        <h3 class="text-center mb-4" style="font-size: 1.6rem; font-weight: bold;">
+          Inscription Recruteur
+        </h3>
+        {{ form_start(addform, {'attr': {'novalidate': 'novalidate', 'enctype': 'multipart/form-data'}}) }}
+
+        <div class="row mb-4">
+          <div class="col">
+            <label for="{{ addform.nom.vars.id }}" class="form-label">Nom:</label>
+            {{ form_widget(addform.nom, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+            {{ form_errors(addform.nom) }}
+          </div>
+          <div class="col">
+            <label for="{{ addform.prenom.vars.id }}" class="form-label">Prénom:</label>
+            {{ form_widget(addform.prenom, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+            {{ form_errors(addform.prenom) }}
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <label for="{{ addform.email.vars.id }}" class="form-label">Email:</label>
+          {{ form_widget(addform.email, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+          {{ form_errors(addform.email) }}
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <label for="{{ addform.motdepasse.vars.id }}" class="form-label">Mot de passe:</label>
+            {{ form_widget(addform.motdepasse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+            {{ form_errors(addform.motdepasse) }}
+          </div>
+          <div class="col">
+            <label for="{{ addform.confirmpasse.vars.id }}" class="form-label">Confirmer le mot de passe:</label>
+            {{ form_widget(addform.confirmpasse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+            {{ form_errors(addform.confirmpasse) }}
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="{{ addform.Adresse.vars.id }}" class="form-label">Adresse:</label>
+          {{ form_widget(addform.Adresse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+          {{ form_errors(addform.Adresse) }}
+        </div>
+
+        <div class="mb-4">
+          <label for="{{ addform.societe.vars.id }}" class="form-label">Société:</label>
+          {{ form_widget(addform.societe, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+          {{ form_errors(addform.societe) }}
+        </div>
+
+        <div class="mb-4">
+          <label for="{{ addform.domaine.vars.id }}" class="form-label">Domaine:</label>
+          {{ form_widget(addform.domaine, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+          {{ form_errors(addform.domaine) }}
+        </div>
+
+        <div class="mb-4">
+          <label for="{{ addform.tel.vars.id }}" class="form-label">Numéro de téléphone:</label>
+          {{ form_widget(addform.tel, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+          {{ form_errors(addform.tel) }}
+        </div>
+
+        <div class="mb-4">
+          <label for="{{ addform.photo.vars.id }}" class="form-label">Photo de profil:</label>
+          {{ form_widget(addform.photo, {'attr': {'class': 'form-control'}}) }}
+          {{ form_errors(addform.photo) }}
+        </div>
+
+        <div class="mb-4">
+          <label for="{{ addform.sexe.vars.id }}" class="form-label">Sexe:</label>
+          {{ form_widget(addform.sexe, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+          {{ form_errors(addform.sexe) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+        {{ form_end(addform) }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de Connexion{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-6">
+        <div class="card shadow p-4">
+            <h1 class="text-center mb-4" style="font-weight: bold;">Page de Connexion</h1>
+            <form method="POST" action="">
+                <!-- Champ Email ou Téléphone -->
+                <div class="mb-3">
+                    <label for="login" class="form-label" style="font-size: 0.9rem;">Email ou Téléphone:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="login" 
+                        name="login" 
+                        required
+                        placeholder="Entrez votre email ou numéro de téléphone"
+                        style="font-size: 0.9rem;"
+                    >
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="mb-3">
+                    <label for="password" class="form-label" style="font-size: 0.9rem;">Mot de passe:</label>
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        id="password" 
+                        name="password" 
+                        required
+                        placeholder="Entrez votre mot de passe"
+                        style="font-size: 0.9rem;"
+                    >
+                </div>
+
+                <!-- Bouton de connexion -->
+                <button type="submit" class="btn btn-primary w-100" style="font-size: 1rem;">
+                    Se connecter
+                </button>
+
+                <!-- Lien Mot de passe oublié -->
+                <div class="text-center mt-2">
+                    <a href="{{ path('forgot_password') }}" class="text-decoration-none" style="font-size: 0.9rem;">
+                        Mot de passe oublié ?
+                    </a>
+                </div>
+
+                <hr>
+
+                <!-- Bouton Créer un compte -->
+                <button 
+                    type="button" 
+                    class="btn btn-success w-100" 
+                    style="font-size: 1rem;"
+                    onclick="window.location.href='{{ path('app_register') }}'"
+                >
+                    Créer un compte
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,162 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Freelancer{% endblock %}
+
+{% block body %}
+<h1 class="text-center my-4">Inscription Freelancer</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="wow fadeInUp" data-wow-delay="0.5s">
+                <p class="mb-4">
+                    Remplissez le formulaire ci-dessous pour créer votre compte en tant que freelancer.
+                </p>
+                {{ form_start(addform, {'attr': {'novalidate': 'novalidate', 'enctype': 'multipart/form-data'}}) }}
+                <div class="row g-4">
+                    
+                    {# Nom #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.nom, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.nom.vars.id }}">Nom</label>
+                            {{ form_errors(addform.nom) }}
+                        </div>
+                    </div>
+
+                    {# Prénom #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.prenom, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.prenom.vars.id }}">Prénom</label>
+                            {{ form_errors(addform.prenom) }}
+                        </div>
+                    </div>
+
+                    {# Date de Naissance #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.datedenais, {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'type': 'date',  # Spécifie que le champ est de type "date"
+                                    'required': 'required'
+                                }
+                            }) }}
+                            <label for="{{ addform.datedenais.vars.id }}">Date de Naissance</label>
+                            {{ form_errors(addform.datedenais) }}
+                        </div>
+                    </div>
+
+                    {% block stylesheets %}
+                        <style>
+                            input[type="date"] {
+                                background-color: #fff;
+                                border-radius: 4px;
+                                border: 1px solid #ccc;
+                                padding: 0.5rem;
+                                font-size: 1rem;
+                                width: 100%;
+                            }
+                        </style>
+                    {% endblock %}
+
+                    {# Téléphone #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.tel, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.tel.vars.id }}">Téléphone</label>
+                            {{ form_errors(addform.tel) }}
+                        </div>
+                    </div>
+                    {# Email #}
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            {{ form_widget(addform.email, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.email.vars.id }}">Email</label>
+                            {{ form_errors(addform.email) }}
+                        </div>
+                    </div>
+
+                    
+
+                    {# Mot de passe #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.motdepasse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.motdepasse.vars.id }}">Mot de passe</label>
+                            {{ form_errors(addform.motdepasse) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.confirmpasse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.confirmpasse.vars.id }}">Confirmer Mot de passe</label>
+                            {{ form_errors(addform.confirmpasse) }}
+                        </div>
+                    </div>
+
+                    {# Adresse #}
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            {{ form_widget(addform.Adresse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.Adresse.vars.id }}">Adresse</label>
+                            {{ form_errors(addform.Adresse) }}
+                        </div>
+                    </div>
+
+                    {# Domaine #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.domaine, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.domaine.vars.id }}">Domaine</label>
+                            {{ form_errors(addform.domaine) }}
+                        </div>
+                    </div>
+
+                    {# Sexe (liste déroulante) #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.sexe, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.sexe.vars.id }}">Sexe</label>
+                            {{ form_errors(addform.sexe) }}
+                        </div>
+                    </div>
+
+                    {# Années d'expérience #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.experience, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                            <label for="{{ addform.experience.vars.id }}">Années d'expérience</label>
+                            {{ form_errors(addform.experience) }}
+                        </div>
+                    </div>
+
+                    {# Photo (upload image) #}
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(addform.photo, {'attr': {'class': 'form-control', 'accept': 'image/*'}}) }}
+                            <label for="{{ addform.photo.vars.id }}">Photo</label>
+                            {{ form_errors(addform.photo) }}
+                        </div>
+                    </div>
+
+                    {# CV (upload PDF ou image) #}
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            {{ form_widget(addform.cv, {'attr': {'class': 'form-control', 'accept': '.pdf,image/*'}}) }}
+                            <label for="{{ addform.cv.vars.id }}">CV</label>
+                            {{ form_errors(addform.cv) }}
+                        </div>
+                    </div>
+
+                    {# Bouton de soumission #}
+                    <div class="col-12 text-center mt-4">
+                        <button class="btn btn-success w-75 py-3" type="submit">S'inscrire</button>
+                    </div>
+                </div>
+                {{ form_end(addform) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
