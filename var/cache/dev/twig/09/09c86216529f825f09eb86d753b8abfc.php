@@ -97,121 +97,127 @@ class __TwigTemplate_194452f27360348310d7c036a08e3628 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "   <div class=\"row\">
-   <div class=\"col-md-12\">
-   </div>
-   </div>
-<h1 class=\"mb-3 text-center\">Liste des Offres</h1>
+        yield "<div class=\"row\">
+    <div class=\"col-md-12\">
+    </div>
+    <div class=\"col-md-12\">
+    </div>
+</div>
 
+
+<!-- Titre déplacé ici -->
+<h1 class=\"mt-5 mb-4 text-center\">Liste des Offres</h1>
 <!-- Recherche avec icône -->
-<div class=\"d-flex justify-content-between mb-3\">
-    <!-- Bouton \"Consulter état de candidature\" avec marge à gauche et couleur baby blue -->
+<div class=\"d-flex align-items-center justify-content-between mb-3\">
+    <!-- Bouton \"Consulter état de candidature\" -->
     <a href=\"";
-        // line 15
+        // line 19
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_candidature");
-        yield "\" class=\"btn\" 
-        style=\"background-color:rgb(219, 230, 240); /* Gris Bootstrap */
-          margin-right: 30px; /* Marge à droite */
-          margin-bottom: 20px; /* Marge en bas */
-          color: rgb(50, 52, 53);; 
-          border-radius: 20px;\">Consulter état de candidature
+        yield "\" class=\"btn btn btn-lg\" 
+       style=\"background-color: rgb(255, 255, 255); /* Gris Bootstrap */
+              color: rgb(50, 52, 53); 
+              border-radius: 20px;
+              margin-right: 20px;
+              text-decoration: underline;\">Consulter état de candidature
     </a>
 
-    
-    <!-- Formulaire de recherche avec marge à droite -->
+    <!-- Formulaire de recherche -->
     <form action=\"";
-        // line 25
+        // line 28
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_recherche");
-        yield "\" method=\"GET\" class=\"d-flex\" style=\"margin-left: 20px;\">
-        <input type=\"text\" name=\"search\" class=\"form-control\" placeholder=\"Rechercher une offre...\" style=\"border-radius: 20px; padding-left: 10px;\">
-        <button type=\"submit\" class=\"btn btn-outline\" style=\"border-radius: 20px;\">
-            <i class=\"fa fa-search\" style=\"color:rgb(115, 160, 141);\"></i> <!-- Icône en baby blue -->
+        yield "\" method=\"GET\" class=\"d-flex align-items-center\">
+        <input type=\"text\" name=\"search\" class=\"form-control form-control-lg\" 
+               placeholder=\"Rechercher une offre...\" 
+               style=\"border-radius: 20px; padding-left: 20px; margin-right: 10px;\">
+        <button type=\"submit\" class=\"btn btn-outline btn-lg\" 
+                style=\"border-radius: 20px;\">
+            <i class=\"fa fa-search\" style=\"color: rgb(115, 160, 141);\"></i>
         </button>
     </form>
 </div>
 
+
 <div class=\"container mt-5\">
     <div class=\"row\">
         ";
-        // line 35
+        // line 42
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["taboffre"]) || array_key_exists("taboffre", $context) ? $context["taboffre"] : (function () { throw new RuntimeError('Variable "taboffre" does not exist.', 35, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["taboffre"]) || array_key_exists("taboffre", $context) ? $context["taboffre"] : (function () { throw new RuntimeError('Variable "taboffre" does not exist.', 42, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["offre"]) {
-            // line 36
+            // line 43
             yield "            <div class=\"col-md-4 mb-4\">
                 <div class=\"card shadow-sm d-flex flex-column\">
                     ";
-            // line 38
-            if (CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "image", [], "any", false, false, false, 38)) {
-                // line 39
+            // line 45
+            if (CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "image", [], "any", false, false, false, 45)) {
+                // line 46
                 yield "                        <div class=\"d-flex justify-content-center\">
                             <img src=\"";
-                // line 40
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "image", [], "any", false, false, false, 40))), "html", null, true);
+                // line 47
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "image", [], "any", false, false, false, 47))), "html", null, true);
                 yield "\" 
-                                class=\"rounded-circle\" 
-                                alt=\"Image de ";
-                // line 42
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "nomposte", [], "any", false, false, false, 42), "html", null, true);
+                                 class=\"rounded-circle\" 
+                                 alt=\"Image de ";
+                // line 49
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "nomposte", [], "any", false, false, false, 49), "html", null, true);
                 yield "\" 
-                                style=\"width: 150px; height: 120px; object-fit: cover; 
+                                 style=\"width: 150px; height: 120px; object-fit: cover; 
                                         border: 3px solid white; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);\">
                         </div>
-
                     ";
             } else {
-                // line 48
+                // line 54
                 yield "                        <div class=\"d-flex justify-content-center\">
                             <img src=\"";
-                // line 49
+                // line 55
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/default.png"), "html", null, true);
                 yield "\" class=\"card-img-top rounded-circle\" alt=\"Image par défaut\" width=\"100\" height=\"100\">
                         </div>
                     ";
             }
-            // line 52
+            // line 58
             yield "                    <div class=\"card-body d-flex flex-column justify-content-between\">
                         <h5 class=\"card-title text-center\">";
-            // line 53
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "nomposte", [], "any", false, false, false, 53), "html", null, true);
+            // line 59
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "nomposte", [], "any", false, false, false, 59), "html", null, true);
             yield "</h5>
                         <p class=\"card-text text-center\">
                             <strong>Entreprise:</strong> ";
-            // line 55
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "entreprise", [], "any", false, false, false, 55), "html", null, true);
+            // line 61
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "entreprise", [], "any", false, false, false, 61), "html", null, true);
             yield "<br>
                             <strong>Localisation:</strong> ";
-            // line 56
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "localisation", [], "any", false, false, false, 56), "html", null, true);
+            // line 62
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "localisation", [], "any", false, false, false, 62), "html", null, true);
             yield "<br>
                             <strong>Salaire:</strong> ";
-            // line 57
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "salaire", [], "any", false, false, false, 57), "html", null, true);
+            // line 63
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "salaire", [], "any", false, false, false, 63), "html", null, true);
             yield " DT<br>
                             <strong>Type:</strong> ";
-            // line 58
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "typeoffre", [], "any", false, false, false, 58), "nom", [], "any", false, false, false, 58), "html", null, true);
+            // line 64
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "typeoffre", [], "any", false, false, false, 64), "nom", [], "any", false, false, false, 64), "html", null, true);
             yield " | ";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "typecontrat", [], "any", false, false, false, 58), "nom", [], "any", false, false, false, 58), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "typecontrat", [], "any", false, false, false, 64), "nom", [], "any", false, false, false, 64), "html", null, true);
             yield "<br>
                         </p>
 
                         <div class=\"d-flex justify-content-center\">
                             <span class=\"badge ";
-            // line 62
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "disponibilite", [], "any", false, false, false, 62)) ? ("bg-success") : ("bg-danger"));
+            // line 68
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "disponibilite", [], "any", false, false, false, 68)) ? ("bg-success") : ("bg-danger"));
             yield "\">
                                 ";
-            // line 63
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "disponibilite", [], "any", false, false, false, 63)) ? ("Disponible") : ("Non disponible"));
+            // line 69
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "disponibilite", [], "any", false, false, false, 69)) ? ("Disponible") : ("Non disponible"));
             yield "
                             </span>
                         </div>
                         <div class=\"mt-3\">
                             <a href=\"";
-            // line 67
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_postuler", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 67)]), "html", null, true);
+            // line 73
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_postuler", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 73)]), "html", null, true);
             yield "\" class=\"btn btn-primary btn-sm w-100\">
                                 Postuler
                             </a>
@@ -222,9 +228,9 @@ class __TwigTemplate_194452f27360348310d7c036a08e3628 extends Template
         ";
             $context['_iterated'] = true;
         }
-        // line 78
+        // line 84
         if (!$context['_iterated']) {
-            // line 75
+            // line 81
             yield "            <div class=\"col-12 text-center\">
                 <p class=\"text-muted\">Aucune offre disponible.</p>
             </div>
@@ -233,7 +239,7 @@ class __TwigTemplate_194452f27360348310d7c036a08e3628 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['offre'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 79
+        // line 85
         yield "    </div>
 </div>
 
@@ -268,7 +274,7 @@ class __TwigTemplate_194452f27360348310d7c036a08e3628 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  237 => 79,  228 => 75,  226 => 78,  214 => 67,  207 => 63,  203 => 62,  194 => 58,  190 => 57,  186 => 56,  182 => 55,  177 => 53,  174 => 52,  168 => 49,  165 => 48,  156 => 42,  151 => 40,  148 => 39,  146 => 38,  142 => 36,  137 => 35,  124 => 25,  111 => 15,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  243 => 85,  234 => 81,  232 => 84,  220 => 73,  213 => 69,  209 => 68,  200 => 64,  196 => 63,  192 => 62,  188 => 61,  183 => 59,  180 => 58,  174 => 55,  171 => 54,  163 => 49,  158 => 47,  155 => 46,  153 => 45,  149 => 43,  144 => 42,  127 => 28,  115 => 19,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -278,32 +284,39 @@ class __TwigTemplate_194452f27360348310d7c036a08e3628 extends Template
 {% block title %}Liste des Offres{% endblock %}
 
 {% block body %}
-   <div class=\"row\">
-   <div class=\"col-md-12\">
-   </div>
-   </div>
-<h1 class=\"mb-3 text-center\">Liste des Offres</h1>
+<div class=\"row\">
+    <div class=\"col-md-12\">
+    </div>
+    <div class=\"col-md-12\">
+    </div>
+</div>
 
+
+<!-- Titre déplacé ici -->
+<h1 class=\"mt-5 mb-4 text-center\">Liste des Offres</h1>
 <!-- Recherche avec icône -->
-<div class=\"d-flex justify-content-between mb-3\">
-    <!-- Bouton \"Consulter état de candidature\" avec marge à gauche et couleur baby blue -->
-    <a href=\"{{ path('app_candidature') }}\" class=\"btn\" 
-        style=\"background-color:rgb(219, 230, 240); /* Gris Bootstrap */
-          margin-right: 30px; /* Marge à droite */
-          margin-bottom: 20px; /* Marge en bas */
-          color: rgb(50, 52, 53);; 
-          border-radius: 20px;\">Consulter état de candidature
+<div class=\"d-flex align-items-center justify-content-between mb-3\">
+    <!-- Bouton \"Consulter état de candidature\" -->
+    <a href=\"{{ path('app_candidature') }}\" class=\"btn btn btn-lg\" 
+       style=\"background-color: rgb(255, 255, 255); /* Gris Bootstrap */
+              color: rgb(50, 52, 53); 
+              border-radius: 20px;
+              margin-right: 20px;
+              text-decoration: underline;\">Consulter état de candidature
     </a>
 
-    
-    <!-- Formulaire de recherche avec marge à droite -->
-    <form action=\"{{ path('app_recherche') }}\" method=\"GET\" class=\"d-flex\" style=\"margin-left: 20px;\">
-        <input type=\"text\" name=\"search\" class=\"form-control\" placeholder=\"Rechercher une offre...\" style=\"border-radius: 20px; padding-left: 10px;\">
-        <button type=\"submit\" class=\"btn btn-outline\" style=\"border-radius: 20px;\">
-            <i class=\"fa fa-search\" style=\"color:rgb(115, 160, 141);\"></i> <!-- Icône en baby blue -->
+    <!-- Formulaire de recherche -->
+    <form action=\"{{ path('app_recherche') }}\" method=\"GET\" class=\"d-flex align-items-center\">
+        <input type=\"text\" name=\"search\" class=\"form-control form-control-lg\" 
+               placeholder=\"Rechercher une offre...\" 
+               style=\"border-radius: 20px; padding-left: 20px; margin-right: 10px;\">
+        <button type=\"submit\" class=\"btn btn-outline btn-lg\" 
+                style=\"border-radius: 20px;\">
+            <i class=\"fa fa-search\" style=\"color: rgb(115, 160, 141);\"></i>
         </button>
     </form>
 </div>
+
 
 <div class=\"container mt-5\">
     <div class=\"row\">
@@ -313,12 +326,11 @@ class __TwigTemplate_194452f27360348310d7c036a08e3628 extends Template
                     {% if offre.image %}
                         <div class=\"d-flex justify-content-center\">
                             <img src=\"{{ asset('uploads/images/' ~ offre.image) }}\" 
-                                class=\"rounded-circle\" 
-                                alt=\"Image de {{ offre.nomposte }}\" 
-                                style=\"width: 150px; height: 120px; object-fit: cover; 
+                                 class=\"rounded-circle\" 
+                                 alt=\"Image de {{ offre.nomposte }}\" 
+                                 style=\"width: 150px; height: 120px; object-fit: cover; 
                                         border: 3px solid white; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);\">
                         </div>
-
                     {% else %}
                         <div class=\"d-flex justify-content-center\">
                             <img src=\"{{ asset('uploads/default.png') }}\" class=\"card-img-top rounded-circle\" alt=\"Image par défaut\" width=\"100\" height=\"100\">

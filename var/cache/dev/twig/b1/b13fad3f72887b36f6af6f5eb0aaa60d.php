@@ -103,17 +103,20 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
             <div class=\"card shadow-sm\">
                 <div class=\"card-header text-center\">
                     <h3>Liste des Types de Contrat</h3>
-                    <div class=\"d-flex justify-content-start mb-2\">
-                        <a href=\"";
+                    <div class=\"d-flex justify-content-start mb-2 mt-5  \">
+                    <a href=\"";
         // line 13
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offremod");
-        yield "\" class=\"btn btn btn-sm\">Retour</a>
-                    </div>
+        yield "\" class=\"btn btn-success btn-sm\">
+                        <i class=\"fa fa-arrow-left\"></i> Retour
+                    </a>
+                </div>
+                    
                 </div>
                 <div class=\"card-body\">
                     <div class=\"d-flex justify-content-end mb-3\">
                         <a href=\"";
-        // line 18
+        // line 21
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addtypecontrat");
         yield "\" class=\"btn btn-success\">Ajouter un Type de Contrat</a>
                     </div>
@@ -127,38 +130,38 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
                         </thead>
                         <tbody>
                             ";
-        // line 29
+        // line 32
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["tabtypecontrat"]) || array_key_exists("tabtypecontrat", $context) ? $context["tabtypecontrat"] : (function () { throw new RuntimeError('Variable "tabtypecontrat" does not exist.', 29, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["tabtypecontrat"]) || array_key_exists("tabtypecontrat", $context) ? $context["tabtypecontrat"] : (function () { throw new RuntimeError('Variable "tabtypecontrat" does not exist.', 32, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["typecontrat"]) {
-            // line 30
+            // line 33
             yield "                                <tr>
                                     <td>";
-            // line 31
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 31), "html", null, true);
+            // line 34
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 34), "html", null, true);
             yield "</td>
                                     <td>";
-            // line 32
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "nom", [], "any", false, false, false, 32), "html", null, true);
+            // line 35
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "nom", [], "any", false, false, false, 35), "html", null, true);
             yield "</td>
                                     <td>
                                         <a href=\"";
-            // line 34
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 34)]), "html", null, true);
+            // line 37
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 37)]), "html", null, true);
             yield "\" class=\"btn btn-warning btn-sm\">Modifier</a>
                                         <a href=\"";
-            // line 35
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 35)]), "html", null, true);
+            // line 38
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 38)]), "html", null, true);
             yield "\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce type de contrat ?');\">Supprimer</a>
                                     </td>
                                 </tr>
                             ";
             $context['_iterated'] = true;
         }
-        // line 42
+        // line 45
         if (!$context['_iterated']) {
-            // line 39
+            // line 42
             yield "                                <tr>
                                     <td colspan=\"3\" class=\"text-center\">Aucun type de contrat trouvé.</td>
                                 </tr>
@@ -167,7 +170,7 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['typecontrat'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 46
         yield "                        </tbody>
                     </table>
                 </div>
@@ -206,7 +209,7 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  171 => 43,  162 => 39,  160 => 42,  152 => 35,  148 => 34,  143 => 32,  139 => 31,  136 => 30,  131 => 29,  117 => 18,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  174 => 46,  165 => 42,  163 => 45,  155 => 38,  151 => 37,  146 => 35,  142 => 34,  139 => 33,  134 => 32,  120 => 21,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -222,9 +225,12 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
             <div class=\"card shadow-sm\">
                 <div class=\"card-header text-center\">
                     <h3>Liste des Types de Contrat</h3>
-                    <div class=\"d-flex justify-content-start mb-2\">
-                        <a href=\"{{ path('app_offremod') }}\" class=\"btn btn btn-sm\">Retour</a>
-                    </div>
+                    <div class=\"d-flex justify-content-start mb-2 mt-5  \">
+                    <a href=\"{{ path('app_offremod') }}\" class=\"btn btn-success btn-sm\">
+                        <i class=\"fa fa-arrow-left\"></i> Retour
+                    </a>
+                </div>
+                    
                 </div>
                 <div class=\"card-body\">
                     <div class=\"d-flex justify-content-end mb-3\">

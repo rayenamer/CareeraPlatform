@@ -97,7 +97,7 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "<h1 class=\"mb-3 text-center\">Gestion des Offres</h1>
+        yield "<h1 class=\"mt-5 mb-4 text-center\">Gestion des Offres</h1>
 
 <div class=\"container\">
     <!-- Boutons alignés à gauche -->
@@ -286,7 +286,7 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
 {% block title %}Gestion des Offres{% endblock %}
 
 {% block body %}
-<h1 class=\"mb-3 text-center\">Gestion des Offres</h1>
+<h1 class=\"mt-5 mb-4 text-center\">Gestion des Offres</h1>
 
 <div class=\"container\">
     <!-- Boutons alignés à gauche -->

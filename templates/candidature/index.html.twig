@@ -3,8 +3,10 @@
 {% block title %}Listes des Candidatures{% endblock %}
 
 {% block body %}
-<div class="d-flex justify-content-start mb-2">
-    <a href="{{ path('app_offre') }}" class="btn btn btn-sm">Retour</a>
+<div class="d-flex justify-content-start mb-2 mt-5  ">
+   <a href="{{ path('app_offremod') }}" class="btn btn-success btn-sm">
+      <i class="fa fa-arrow-left"></i> Retour
+   </a>
 </div>
 <h1 class="mb-3 text-center">Listes des Candidatures</h1>
 
@@ -50,12 +52,14 @@
                         {% endif %}
                     </td>
                     <td>
+                    <a href="{{ path('app_deletecandidature', {'id': candidature.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+
                         {% if candidature.statut == 'en_attente' %}
-                            <a href="{{ path('app_updatecandidature', {'id': candidature.id}) }}" class="btn btn-warning">Modifier</a>
+                            <a href="{{ path('app_updatecandidature', {'id': candidature.id}) }}" class="btn btn-outline-warning">Modifier</a>
                         {% else %}
                             <span class="badge  ">none</span>
                         {% endif %} 
-                        <a href="{{ path('app_deletecandidature', {'id': candidature.id}) }}" class="btn btn">Supprimer</a>
+                        
                     </td>      
                 </tr>
 
