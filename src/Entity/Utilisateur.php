@@ -112,12 +112,12 @@ class Utilisateur
         return $this->motdepasse;
     }
 
-    public function setMotdepasse(string $motdepasse): static
-    {
-        $this->motdepasse = $motdepasse;
+    public function setMotdepasse(?string $motdepasse): self
+{
+    $this->motdepasse = $motdepasse ?? '';
+    return $this;
+}
 
-        return $this;
-    }
 
     public function getAdresse(): ?string
     {
@@ -172,12 +172,12 @@ class Utilisateur
         return $this->confirmpasse;
     }
 
-    public function setConfirmpasse(string $confirmpasse): static
+    public function setConfirmpasse(?string $confirmpasse): self
     {
         $this->confirmpasse = $confirmpasse;
-
         return $this;
     }
+    
 
     
    

@@ -10,65 +10,38 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-final class ChercheurController extends AbstractController{
-
-    #[Route('/profile', name: 'app_profile')]
-    public function profile(ChercheurRepository $req): Response
+final class ChercheurController extends AbstractController
+{
+    #[Route('/chercheurprofile', name: 'app_chercheurprofile')]
+    public function profile(ChercheurRepository $repo): Response
     {
-        $profile=$req->findAll();
+        $profile = $repo->findAll();
         return $this->render('chercheur/profile.html.twig', [
-            'tabprofile' => $profile ,
+            'tabprofile' => $profile,
         ]);
     }
 
     #[Route('/chercheur', name: 'app_chercheur')]
-    public function index(ManagerRegistry $m, Request $req, SluggerInterface $slugger ): Response
+    public function index(ManagerRegistry $doctrine, Request $request, SluggerInterface $slugger): Response
     {
-        $em = $m->getManager();
+        $em = $doctrine->getManager();
         $chercheur = new Chercheur();
-    
         $form = $this->createForm(ChercheurType::class, $chercheur);
-        $form->handleRequest($req);
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if (null === $chercheur->getDatedenaiss()) {
-                $chercheur->setDatedenaiss(new \DateTimeImmutable());
-            }
+            $chercheur = $form->getData();
+            $chercheur->setMotdepasse($chercheur->getMotdepasse() ?? '');
+            $chercheur->setConfirmpassse($chercheur->getConfirmpassse() ?? '');
 
-            $imageFile = $form->get('photo')->getData();
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-
-                try {
-                    $imageFile->move(
-                        $this->getParameter('images_directory'),
-                        $newFilename
-                    );
-                    $chercheur->setPhoto($newFilename);
-                } catch (FileException $e) {
-                    $this->addFlash('error', 'Impossible de télécharger l’image.');
-                }
-            } else {
-                // Définir une image par défaut si aucune image n'est fournie
-                $chercheur->setPhoto('default.jpg');
-            }
-            $cvFile = $form->get('cv')->getData();
-            if ($cvFile) {
-                $newFilename = uniqid().'.'.$cvFile->guessExtension();
-                $cvFile->move($this->getParameter('images_directory'), $newFilename);
-                $chercheur->setCv($newFilename);
-            } else {
-                $chercheur->setCv('default.pdf'); // Évite l'erreur
-            }
+            $this->handleFileUploads($form, $chercheur, $slugger);
 
             $em->persist($chercheur);
             $em->flush();
-            
+
             return $this->redirectToRoute('app_login');
         }
 
@@ -76,4 +49,82 @@ final class ChercheurController extends AbstractController{
             'addform' => $form->createView(),
         ]);
     }
+
+    #[Route('/updatechercheur/{id}', name: 'app_updatechercheur')]
+    public function updatechercheur($id, ManagerRegistry $doctrine, Request $request, SluggerInterface $slugger): Response
+    {
+        $em = $doctrine->getManager();
+        $chercheur = $em->getRepository(Chercheur::class)->find($id);
+
+        if (!$chercheur) {
+            throw $this->createNotFoundException('Le chercheur n\'existe pas.');
+        }
+
+        $form = $this->createForm(ChercheurType::class, $chercheur);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->handleFileUploads($form, $chercheur, $slugger);
+            $em->persist($chercheur);
+            $em->flush();
+
+            return $this->redirectToRoute('app_chercheur');
+        }
+
+        return $this->render('chercheur/updatechercheur.html.twig', [
+            'addform' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/deletechercheur/{id}', name: 'app_deletechercheur')]
+    public function deletechercheur($id, ManagerRegistry $doctrine): Response
+    {
+        $em = $doctrine->getManager();
+        $chercheur = $em->getRepository(Chercheur::class)->find($id);
+
+        if (!$chercheur) {
+            throw $this->createNotFoundException('Le chercheur n\'existe pas.');
+        }
+
+        $em->remove($chercheur);
+        $em->flush();
+        $this->addFlash('success', 'Chercheur supprimé avec succès.');
+
+        return $this->redirectToRoute('app_chercheur');
+    }
+
+    private function handleFileUploads($form, Chercheur $chercheur, SluggerInterface $slugger): void
+    {
+        // Traitement de la photo
+        $imageFile = $form->get('photo')->getData();
+        if ($imageFile) {
+            $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($originalFilename);
+            $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+            try {
+                $imageFile->move($this->getParameter('images_directory'), $newFilename);
+                $chercheur->setPhoto($newFilename);
+            } catch (FileException $e) {
+                $this->addFlash('error', 'Impossible de télécharger l’image.');
+            }
+        } else {
+            $chercheur->setPhoto('default.jpg');
+        }
+
+        // Traitement du CV
+        $cvFile = $form->get('cv')->getData();
+        if ($cvFile) {
+            $newFilename = uniqid() . '.' . $cvFile->guessExtension();
+            try {
+                $cvFile->move($this->getParameter('images_directory'), $newFilename);
+                $chercheur->setCv($newFilename);
+            } catch (FileException $e) {
+                $this->addFlash('error', 'Impossible de télécharger le CV.');
+            }
+        } else {
+            $chercheur->setCv('default.pdf');
+        }
+    }
+    
 }

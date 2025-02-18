@@ -16,24 +16,26 @@ class UtilisateurRepository extends ServiceEntityRepository
         parent::__construct($registry, Utilisateur::class);
     }
 
-        public function connecter($email, $motdepasse)
-        {
-            return $this->createQueryBuilder('e')
-                ->where('e.email = :email')
-                ->andWhere('e.motdepasse = :motdepasse')
-                ->setParameter('email', $email)  // Utilisez le même nom que dans la requête
-                ->setParameter('motdepasse', $motdepasse)  // Idem
-                ->getQuery()
-                ->getOneOrNullResult();
-        }
-        public function connectermail($email)
-{
-    return $this->createQueryBuilder('e')
-        ->where('e.email = :email')
-        ->setParameter('email', $email)
-        ->getQuery()
-        ->getOneOrNullResult();
-}
+        //public function connecter($email, $motdepasse)
+        //{
+        //    return $this->createQueryBuilder('e')
+        //        ->where('e.email = :email')
+        //        ->andWhere('e.motdepasse = :motdepasse')
+        //        ->setParameter('email', $email)  // Utilisez le même nom que dans la requête
+        //        ->setParameter('motdepasse', $motdepasse)  // Idem
+        //        ->getQuery()
+        //        ->getOneOrNullResult();
+        //}
+        //public function connectermail($email)
+        //{
+        //    return $this->createQueryBuilder('e')
+        //        ->where('e.email = :email')
+        //        ->setParameter('email', $email)
+        //        ->getQuery()
+        //        ->getOneOrNullResult();
+        //}
+        
+
         
 
 //    /**

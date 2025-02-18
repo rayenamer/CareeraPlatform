@@ -104,7 +104,7 @@ class __TwigTemplate_332641041299029d15f3f5e3a79d50ae extends Template
         <h3 class=\"text-center mb-4\" style=\"font-size: 1.6rem; font-weight: bold;\">
           Connexion
         </h3>
-        
+
         ";
         // line 14
         yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["loginForm"]) || array_key_exists("loginForm", $context) ? $context["loginForm"] : (function () { throw new RuntimeError('Variable "loginForm" does not exist.', 14, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
@@ -224,7 +224,7 @@ class __TwigTemplate_332641041299029d15f3f5e3a79d50ae extends Template
         <h3 class=\"text-center mb-4\" style=\"font-size: 1.6rem; font-weight: bold;\">
           Connexion
         </h3>
-        
+
         {{ form_start(loginForm, {'attr': {'novalidate': 'novalidate'}}) }}
 
         <div class=\"mb-4\">

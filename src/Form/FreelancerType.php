@@ -99,20 +99,17 @@ class FreelancerType extends AbstractType
             ])
             
             ->add('sexe', ChoiceType::class, [
-                'choices' => [
-                    'Femme' => 'Femme',
-                    'Homme' => 'Homme',
-                    'Autre' => 'Autre',
+                'choices'  => [
+                    'Masculin' => 'Masculin',
+                    'Féminin'  => 'Féminin',
+                    'Autre'    => 'Autre',
                 ],
-                'expanded' => false,
+                'expanded' => false, // affichera une liste déroulante
                 'multiple' => false,
-                'label' => 'Sexe'  
+                'data'     => 'Masculin', // valeur par défaut
+                'label'    => 'Sexe',
             ])
-            ->add('datedenais', DateType::class, [
-                'widget' => 'single_text', // Permet de gérer correctement les dates dans les inputs HTML5
-                'input' => 'datetime_immutable', // Permet la conversion automatique en \DateTimeImmutable
-                'required' => true,
-            ])
+            
 
             ->add('cv', FileType::class, [
                 'label' => 'CV (PDF ou image)',

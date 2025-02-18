@@ -1,5 +1,11 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+updatechercheur:
+  path: /chercheur/updatechercheur/{id}
+  controller: App\Controller\ChercheurController::updatechercheur
+profile_delete:
+  path: /chercheur/delete/{id}
+  controller: App\Controller\ChercheurController::delete

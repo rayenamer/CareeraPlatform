@@ -100,24 +100,24 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
         yield "<div class=\"container mb-5\">
   <div class=\"row justify-content-center align-items-center\">
     <div class=\"col-md-6\">
-      <div class=\"card shadow p-4\">
-        <h3 class=\"text-center mb-4\" style=\"font-size: 1.6rem; font-weight: bold;\">
-          Inscription Recruteur
+      <div class=\"card shadow-lg p-4 rounded-4\">
+        <h3 class=\"text-center mb-4 fw-bold text-primary\">
+          <i class=\"fas fa-user-plus\"></i> Inscription Recruteur
         </h3>
         ";
         // line 13
         yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 13, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate", "enctype" => "multipart/form-data"]]);
         yield "
 
-        <div class=\"row mb-4\">
+        <div class=\"row mb-3\">
           <div class=\"col\">
             <label for=\"";
         // line 17
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 17, $this->source); })()), "nom", [], "any", false, false, false, 17), "vars", [], "any", false, false, false, 17), "id", [], "any", false, false, false, 17), "html", null, true);
-        yield "\" class=\"form-label\">Nom:</label>
+        yield "\" class=\"form-label fw-semibold\">Nom:</label>
             ";
         // line 18
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 18, $this->source); })()), "nom", [], "any", false, false, false, 18), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 18, $this->source); })()), "nom", [], "any", false, false, false, 18), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Votre nom"]]);
         yield "
             ";
         // line 19
@@ -128,10 +128,10 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
             <label for=\"";
         // line 22
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 22, $this->source); })()), "prenom", [], "any", false, false, false, 22), "vars", [], "any", false, false, false, 22), "id", [], "any", false, false, false, 22), "html", null, true);
-        yield "\" class=\"form-label\">Prénom:</label>
+        yield "\" class=\"form-label fw-semibold\">Prénom:</label>
             ";
         // line 23
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 23, $this->source); })()), "prenom", [], "any", false, false, false, 23), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 23, $this->source); })()), "prenom", [], "any", false, false, false, 23), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Votre prénom"]]);
         yield "
             ";
         // line 24
@@ -140,14 +140,14 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
           </div>
         </div>
         
-        <div class=\"mb-4\">
+        <div class=\"mb-3\">
           <label for=\"";
         // line 29
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 29, $this->source); })()), "email", [], "any", false, false, false, 29), "vars", [], "any", false, false, false, 29), "id", [], "any", false, false, false, 29), "html", null, true);
-        yield "\" class=\"form-label\">Email:</label>
+        yield "\" class=\"form-label fw-semibold\">Email:</label>
           ";
         // line 30
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 30, $this->source); })()), "email", [], "any", false, false, false, 30), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 30, $this->source); })()), "email", [], "any", false, false, false, 30), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "exemple@email.com"]]);
         yield "
           ";
         // line 31
@@ -155,15 +155,15 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
         yield "
         </div>
 
-        <div class=\"row mb-4\">
+        <div class=\"row mb-3\">
           <div class=\"col\">
             <label for=\"";
         // line 36
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 36, $this->source); })()), "motdepasse", [], "any", false, false, false, 36), "vars", [], "any", false, false, false, 36), "id", [], "any", false, false, false, 36), "html", null, true);
-        yield "\" class=\"form-label\">Mot de passe:</label>
+        yield "\" class=\"form-label fw-semibold\">Mot de passe:</label>
             ";
         // line 37
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 37, $this->source); })()), "motdepasse", [], "any", false, false, false, 37), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 37, $this->source); })()), "motdepasse", [], "any", false, false, false, 37), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "********"]]);
         yield "
             ";
         // line 38
@@ -174,10 +174,10 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
             <label for=\"";
         // line 41
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 41, $this->source); })()), "confirmpasse", [], "any", false, false, false, 41), "vars", [], "any", false, false, false, 41), "id", [], "any", false, false, false, 41), "html", null, true);
-        yield "\" class=\"form-label\">Confirmer le mot de passe:</label>
+        yield "\" class=\"form-label fw-semibold\">Confirmer:</label>
             ";
         // line 42
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 42, $this->source); })()), "confirmpasse", [], "any", false, false, false, 42), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 42, $this->source); })()), "confirmpasse", [], "any", false, false, false, 42), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "********"]]);
         yield "
             ";
         // line 43
@@ -186,14 +186,14 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
           </div>
         </div>
 
-        <div class=\"mb-4\">
+        <div class=\"mb-3\">
           <label for=\"";
         // line 48
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 48, $this->source); })()), "Adresse", [], "any", false, false, false, 48), "vars", [], "any", false, false, false, 48), "id", [], "any", false, false, false, 48), "html", null, true);
-        yield "\" class=\"form-label\">Adresse:</label>
+        yield "\" class=\"form-label fw-semibold\">Adresse:</label>
           ";
         // line 49
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 49, $this->source); })()), "Adresse", [], "any", false, false, false, 49), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 49, $this->source); })()), "Adresse", [], "any", false, false, false, 49), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Votre adresse"]]);
         yield "
           ";
         // line 50
@@ -201,14 +201,14 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
         yield "
         </div>
 
-        <div class=\"mb-4\">
+        <div class=\"mb-3\">
           <label for=\"";
         // line 54
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 54, $this->source); })()), "societe", [], "any", false, false, false, 54), "vars", [], "any", false, false, false, 54), "id", [], "any", false, false, false, 54), "html", null, true);
-        yield "\" class=\"form-label\">Société:</label>
+        yield "\" class=\"form-label fw-semibold\">Société:</label>
           ";
         // line 55
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 55, $this->source); })()), "societe", [], "any", false, false, false, 55), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 55, $this->source); })()), "societe", [], "any", false, false, false, 55), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Nom de la société"]]);
         yield "
           ";
         // line 56
@@ -216,29 +216,29 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
         yield "
         </div>
 
-        <div class=\"mb-4\">
-          <label for=\"";
+       <div class=\"mb-3\">
+    <label for=\"";
         // line 60
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 60, $this->source); })()), "domaine", [], "any", false, false, false, 60), "vars", [], "any", false, false, false, 60), "id", [], "any", false, false, false, 60), "html", null, true);
-        yield "\" class=\"form-label\">Domaine:</label>
-          ";
+        yield "\" class=\"form-label fw-semibold\">Domaine:</label>
+    ";
         // line 61
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 61, $this->source); })()), "domaine", [], "any", false, false, false, 61), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 61, $this->source); })()), "domaine", [], "any", false, false, false, 61), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Domaine d'activité"]]);
         yield "
-          ";
+    ";
         // line 62
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 62, $this->source); })()), "domaine", [], "any", false, false, false, 62), 'errors');
         yield "
-        </div>
+</div>
 
-        <div class=\"mb-4\">
+        <div class=\"mb-3\">
           <label for=\"";
         // line 66
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 66, $this->source); })()), "tel", [], "any", false, false, false, 66), "vars", [], "any", false, false, false, 66), "id", [], "any", false, false, false, 66), "html", null, true);
-        yield "\" class=\"form-label\">Numéro de téléphone:</label>
+        yield "\" class=\"form-label fw-semibold\">Téléphone:</label>
           ";
         // line 67
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 67, $this->source); })()), "tel", [], "any", false, false, false, 67), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 67, $this->source); })()), "tel", [], "any", false, false, false, 67), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "+216 99 999 999"]]);
         yield "
           ";
         // line 68
@@ -246,11 +246,11 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
         yield "
         </div>
 
-        <div class=\"mb-4\">
+        <div class=\"mb-3\">
           <label for=\"";
         // line 72
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 72, $this->source); })()), "photo", [], "any", false, false, false, 72), "vars", [], "any", false, false, false, 72), "id", [], "any", false, false, false, 72), "html", null, true);
-        yield "\" class=\"form-label\">Photo de profil:</label>
+        yield "\" class=\"form-label fw-semibold\">Photo de profil:</label>
           ";
         // line 73
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 73, $this->source); })()), "photo", [], "any", false, false, false, 73), 'widget', ["attr" => ["class" => "form-control"]]);
@@ -261,14 +261,14 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
         yield "
         </div>
 
-        <div class=\"mb-4\">
+        <div class=\"mb-3\">
           <label for=\"";
         // line 78
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 78, $this->source); })()), "sexe", [], "any", false, false, false, 78), "vars", [], "any", false, false, false, 78), "id", [], "any", false, false, false, 78), "html", null, true);
-        yield "\" class=\"form-label\">Sexe:</label>
+        yield "\" class=\"form-label fw-semibold\">Sexe:</label>
           ";
         // line 79
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 79, $this->source); })()), "sexe", [], "any", false, false, false, 79), 'widget', ["attr" => ["class" => "form-control", "required" => "required"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 79, $this->source); })()), "sexe", [], "any", false, false, false, 79), 'widget', ["attr" => ["class" => "form-control"]]);
         yield "
           ";
         // line 80
@@ -276,10 +276,12 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
         yield "
         </div>
 
-        <button type=\"submit\" class=\"btn btn-primary w-100\">S'inscrire</button>
+        <button type=\"submit\" class=\"btn btn-primary w-100 fw-bold\">
+          <i class=\"fas fa-check-circle\"></i> S'inscrire
+        </button>
         ";
-        // line 84
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 84, $this->source); })()), 'form_end');
+        // line 86
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 86, $this->source); })()), 'form_end');
         yield "
       </div>
     </div>
@@ -316,7 +318,7 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  282 => 84,  275 => 80,  271 => 79,  267 => 78,  260 => 74,  256 => 73,  252 => 72,  245 => 68,  241 => 67,  237 => 66,  230 => 62,  226 => 61,  222 => 60,  215 => 56,  211 => 55,  207 => 54,  200 => 50,  196 => 49,  192 => 48,  184 => 43,  180 => 42,  176 => 41,  170 => 38,  166 => 37,  162 => 36,  154 => 31,  150 => 30,  146 => 29,  138 => 24,  134 => 23,  130 => 22,  124 => 19,  120 => 18,  116 => 17,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  284 => 86,  275 => 80,  271 => 79,  267 => 78,  260 => 74,  256 => 73,  252 => 72,  245 => 68,  241 => 67,  237 => 66,  230 => 62,  226 => 61,  222 => 60,  215 => 56,  211 => 55,  207 => 54,  200 => 50,  196 => 49,  192 => 48,  184 => 43,  180 => 42,  176 => 41,  170 => 38,  166 => 37,  162 => 36,  154 => 31,  150 => 30,  146 => 29,  138 => 24,  134 => 23,  130 => 22,  124 => 19,  120 => 18,  116 => 17,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -329,87 +331,88 @@ class __TwigTemplate_f1d77a2667efcaf24305016c9fa55ca5 extends Template
 <div class=\"container mb-5\">
   <div class=\"row justify-content-center align-items-center\">
     <div class=\"col-md-6\">
-      <div class=\"card shadow p-4\">
-        <h3 class=\"text-center mb-4\" style=\"font-size: 1.6rem; font-weight: bold;\">
-          Inscription Recruteur
+      <div class=\"card shadow-lg p-4 rounded-4\">
+        <h3 class=\"text-center mb-4 fw-bold text-primary\">
+          <i class=\"fas fa-user-plus\"></i> Inscription Recruteur
         </h3>
         {{ form_start(addform, {'attr': {'novalidate': 'novalidate', 'enctype': 'multipart/form-data'}}) }}
 
-        <div class=\"row mb-4\">
+        <div class=\"row mb-3\">
           <div class=\"col\">
-            <label for=\"{{ addform.nom.vars.id }}\" class=\"form-label\">Nom:</label>
-            {{ form_widget(addform.nom, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+            <label for=\"{{ addform.nom.vars.id }}\" class=\"form-label fw-semibold\">Nom:</label>
+            {{ form_widget(addform.nom, {'attr': {'class': 'form-control', 'placeholder': 'Votre nom'}}) }}
             {{ form_errors(addform.nom) }}
           </div>
           <div class=\"col\">
-            <label for=\"{{ addform.prenom.vars.id }}\" class=\"form-label\">Prénom:</label>
-            {{ form_widget(addform.prenom, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+            <label for=\"{{ addform.prenom.vars.id }}\" class=\"form-label fw-semibold\">Prénom:</label>
+            {{ form_widget(addform.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Votre prénom'}}) }}
             {{ form_errors(addform.prenom) }}
           </div>
         </div>
         
-        <div class=\"mb-4\">
-          <label for=\"{{ addform.email.vars.id }}\" class=\"form-label\">Email:</label>
-          {{ form_widget(addform.email, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+        <div class=\"mb-3\">
+          <label for=\"{{ addform.email.vars.id }}\" class=\"form-label fw-semibold\">Email:</label>
+          {{ form_widget(addform.email, {'attr': {'class': 'form-control', 'placeholder': 'exemple@email.com'}}) }}
           {{ form_errors(addform.email) }}
         </div>
 
-        <div class=\"row mb-4\">
+        <div class=\"row mb-3\">
           <div class=\"col\">
-            <label for=\"{{ addform.motdepasse.vars.id }}\" class=\"form-label\">Mot de passe:</label>
-            {{ form_widget(addform.motdepasse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+            <label for=\"{{ addform.motdepasse.vars.id }}\" class=\"form-label fw-semibold\">Mot de passe:</label>
+            {{ form_widget(addform.motdepasse, {'attr': {'class': 'form-control', 'placeholder': '********'}}) }}
             {{ form_errors(addform.motdepasse) }}
           </div>
           <div class=\"col\">
-            <label for=\"{{ addform.confirmpasse.vars.id }}\" class=\"form-label\">Confirmer le mot de passe:</label>
-            {{ form_widget(addform.confirmpasse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+            <label for=\"{{ addform.confirmpasse.vars.id }}\" class=\"form-label fw-semibold\">Confirmer:</label>
+            {{ form_widget(addform.confirmpasse, {'attr': {'class': 'form-control', 'placeholder': '********'}}) }}
             {{ form_errors(addform.confirmpasse) }}
           </div>
         </div>
 
-        <div class=\"mb-4\">
-          <label for=\"{{ addform.Adresse.vars.id }}\" class=\"form-label\">Adresse:</label>
-          {{ form_widget(addform.Adresse, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+        <div class=\"mb-3\">
+          <label for=\"{{ addform.Adresse.vars.id }}\" class=\"form-label fw-semibold\">Adresse:</label>
+          {{ form_widget(addform.Adresse, {'attr': {'class': 'form-control', 'placeholder': 'Votre adresse'}}) }}
           {{ form_errors(addform.Adresse) }}
         </div>
 
-        <div class=\"mb-4\">
-          <label for=\"{{ addform.societe.vars.id }}\" class=\"form-label\">Société:</label>
-          {{ form_widget(addform.societe, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+        <div class=\"mb-3\">
+          <label for=\"{{ addform.societe.vars.id }}\" class=\"form-label fw-semibold\">Société:</label>
+          {{ form_widget(addform.societe, {'attr': {'class': 'form-control', 'placeholder': 'Nom de la société'}}) }}
           {{ form_errors(addform.societe) }}
         </div>
 
-        <div class=\"mb-4\">
-          <label for=\"{{ addform.domaine.vars.id }}\" class=\"form-label\">Domaine:</label>
-          {{ form_widget(addform.domaine, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
-          {{ form_errors(addform.domaine) }}
-        </div>
+       <div class=\"mb-3\">
+    <label for=\"{{ addform.domaine.vars.id }}\" class=\"form-label fw-semibold\">Domaine:</label>
+    {{ form_widget(addform.domaine, {'attr': {'class': 'form-control', 'placeholder': 'Domaine d\\'activité'}}) }}
+    {{ form_errors(addform.domaine) }}
+</div>
 
-        <div class=\"mb-4\">
-          <label for=\"{{ addform.tel.vars.id }}\" class=\"form-label\">Numéro de téléphone:</label>
-          {{ form_widget(addform.tel, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+        <div class=\"mb-3\">
+          <label for=\"{{ addform.tel.vars.id }}\" class=\"form-label fw-semibold\">Téléphone:</label>
+          {{ form_widget(addform.tel, {'attr': {'class': 'form-control', 'placeholder': '+216 99 999 999'}}) }}
           {{ form_errors(addform.tel) }}
         </div>
 
-        <div class=\"mb-4\">
-          <label for=\"{{ addform.photo.vars.id }}\" class=\"form-label\">Photo de profil:</label>
+        <div class=\"mb-3\">
+          <label for=\"{{ addform.photo.vars.id }}\" class=\"form-label fw-semibold\">Photo de profil:</label>
           {{ form_widget(addform.photo, {'attr': {'class': 'form-control'}}) }}
           {{ form_errors(addform.photo) }}
         </div>
 
-        <div class=\"mb-4\">
-          <label for=\"{{ addform.sexe.vars.id }}\" class=\"form-label\">Sexe:</label>
-          {{ form_widget(addform.sexe, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+        <div class=\"mb-3\">
+          <label for=\"{{ addform.sexe.vars.id }}\" class=\"form-label fw-semibold\">Sexe:</label>
+          {{ form_widget(addform.sexe, {'attr': {'class': 'form-control'}}) }}
           {{ form_errors(addform.sexe) }}
         </div>
 
-        <button type=\"submit\" class=\"btn btn-primary w-100\">S'inscrire</button>
+        <button type=\"submit\" class=\"btn btn-primary w-100 fw-bold\">
+          <i class=\"fas fa-check-circle\"></i> S'inscrire
+        </button>
         {{ form_end(addform) }}
       </div>
     </div>
   </div>
 </div>
-{% endblock %}
-", "moderateur/index.html.twig", "C:\\Users\\choub\\Desktop\\CareeraPlatform - Copie\\templates\\moderateur\\index.html.twig");
+{% endblock %}", "moderateur/index.html.twig", "C:\\Users\\choub\\Desktop\\CareeraPlatform - Copie\\templates\\moderateur\\index.html.twig");
     }
 }

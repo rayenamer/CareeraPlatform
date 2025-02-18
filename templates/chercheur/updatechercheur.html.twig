@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier{% endblock %}
+
+{% block body %}
+<div class="container mb-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-4 rounded-4">
+        <h3 class="text-center mb-4 fw-bold text-primary">
+          <i class="fas fa-user-plus"></i> Modifier
+        </h3>
+        {{ form_start(addform, {'attr': {'novalidate': 'novalidate', 'enctype': 'multipart/form-data'}}) }}
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="{{ addform.nom.vars.id }}" class="form-label fw-semibold">Nom :</label>
+            {{ form_widget(addform.nom, {'attr': {'class': 'form-control', 'placeholder': 'Votre nom'}}) }}
+            {{ form_errors(addform.nom) }}
+          </div>
+          <div class="col">
+            <label for="{{ addform.prenom.vars.id }}" class="form-label fw-semibold">Prénom :</label>
+            {{ form_widget(addform.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Votre prénom'}}) }}
+            {{ form_errors(addform.prenom) }}
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="{{ addform.email.vars.id }}" class="form-label fw-semibold">Email :</label>
+          {{ form_widget(addform.email, {'attr': {'class': 'form-control', 'placeholder': 'exemple@email.com'}}) }}
+          {{ form_errors(addform.email) }}
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="{{ addform.motdepasse.vars.id }}" class="form-label fw-semibold">Mot de passe :</label>
+            {{ form_widget(addform.motdepasse, {'attr': {'class': 'form-control', 'placeholder': '********'}}) }}
+            {{ form_errors(addform.motdepasse) }}
+          </div>
+          <div class="col">
+            <label for="{{ addform.confirmpasse.vars.id }}" class="form-label fw-semibold">Confirmer :</label>
+            {{ form_widget(addform.confirmpasse, {'attr': {'class': 'form-control', 'placeholder': '********'}}) }}
+            {{ form_errors(addform.confirmpasse) }}
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ addform.Adresse.vars.id }}" class="form-label fw-semibold">Adresse :</label>
+          {{ form_widget(addform.Adresse, {'attr': {'class': 'form-control', 'placeholder': 'Votre adresse'}}) }}
+          {{ form_errors(addform.Adresse) }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ addform.domaine.vars.id }}" class="form-label fw-semibold">Domaine :</label>
+          {{ form_widget(addform.domaine, {'attr': {'class': 'form-control', 'placeholder': 'Domaine d\'activité'}}) }}
+          {{ form_errors(addform.domaine) }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ addform.tel.vars.id }}" class="form-label fw-semibold">Téléphone :</label>
+          {{ form_widget(addform.tel, {'attr': {'class': 'form-control', 'placeholder': '+216 99 999 999'}}) }}
+          {{ form_errors(addform.tel) }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ addform.photo.vars.id }}" class="form-label fw-semibold">Photo de profil :</label>
+          {{ form_widget(addform.photo, {'attr': {'class': 'form-control'}}) }}
+          {{ form_errors(addform.photo) }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ addform.sexe.vars.id }}" class="form-label fw-semibold">Sexe :</label>
+          {{ form_widget(addform.sexe, {'attr': {'class': 'form-control'}}) }}
+          {{ form_errors(addform.sexe) }}
+        </div>
+
+        
+        <div class="mb-3">
+          <label for="{{ addform.cv.vars.id }}" class="form-label fw-semibold">CV (PDF) :</label>
+          {{ form_widget(addform.cv, {'attr': {'class': 'form-control', 'accept': '.pdf'}}) }}
+          {{ form_errors(addform.cv) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 fw-bold">
+          <i class="fas fa-check-circle"></i> Modifier
+        </button>
+        {{ form_end(addform) }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

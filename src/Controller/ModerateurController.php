@@ -14,15 +14,27 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 final class ModerateurController extends AbstractController
 {
-    #[Route('/moderateur', name: 'app_moderateur')]
-    public function index(ManagerRegistry $m, Request $req, SluggerInterface $slugger): Response
+    #[Route('/moderateur/profile', name: 'app_moderateur_profile')]
+    public function profile(ManagerRegistry $repo): Response
     {
-        $em = $m->getManager();
-        $moderateur = new Moderateur();
-        $form = $this->createForm(ModerateurType::class, $moderateur);
-        $form->handleRequest($req);
+        $profile = $repo->getRepository(Moderateur::class)->findAll();
+        return $this->render('moderateur/profile.html.twig', [
+            'tabprofile' => $profile,
+        ]);
+    }
 
-        $imageFile = $form->get('photo')->getData();
+    #[Route('/moderateur', name: 'app_moderateur')]
+    public function index(ManagerRegistry $doctrine, Request $request, SluggerInterface $slugger): Response
+    {
+        $em = $doctrine->getManager();
+        $moderateur = new Moderateur();
+
+        $form = $this->createForm(ModerateurType::class, $moderateur);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Traitement de la photo
+            $imageFile = $form->get('photo')->getData();
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
@@ -38,17 +50,17 @@ final class ModerateurController extends AbstractController
                     $this->addFlash('error', 'Impossible de télécharger l’image.');
                 }
             } else {
-                // Définir une image par défaut si aucune image n'est fournie
-                $moderateur->setPhoto('default.jpg');
+                $moderateur->setPhoto('default.jpg'); // Définir une image par défaut
             }
-        if ($form->isSubmitted() && $form->isValid()) {
-            
+
+            // Persister l'entité dans la base de données
             $em->persist($moderateur);
             $em->flush();
+
+            // Rediriger vers la page de connexion
             return $this->redirectToRoute('app_login');
         }
 
-      
         return $this->render('moderateur/index.html.twig', [
             'addform' => $form->createView(),
         ]);

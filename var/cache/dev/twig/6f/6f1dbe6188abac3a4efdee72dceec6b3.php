@@ -101,15 +101,24 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
     <div class=\"col-md-6\">
         <div class=\"card shadow p-4\">
             <h1 class=\"text-center mb-4\" style=\"font-weight: bold;\">Page de Connexion</h1>
-            <form method=\"POST\" action=\"\">
+            <form method=\"POST\" action=\"";
+        // line 10
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        yield "\">
+                <!-- CSRF Token for security -->
+                <input type=\"hidden\" name=\"_csrf_token\" value=\"";
+        // line 12
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
+        yield "\">
+
                 <!-- Champ Email ou Téléphone -->
                 <div class=\"mb-3\">
-                    <label for=\"login\" class=\"form-label\" style=\"font-size: 0.9rem;\">Email ou Téléphone:</label>
+                    <label for=\"email\" class=\"form-label\" style=\"font-size: 0.9rem;\">Email ou Téléphone:</label>
                     <input 
                         type=\"text\" 
                         class=\"form-control\" 
-                        id=\"login\" 
-                        name=\"login\" 
+                        id=\"email\" 
+                        name=\"email\" 
                         required
                         placeholder=\"Entrez votre email ou numéro de téléphone\"
                         style=\"font-size: 0.9rem;\"
@@ -118,12 +127,12 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
 
                 <!-- Mot de passe -->
                 <div class=\"mb-3\">
-                    <label for=\"password\" class=\"form-label\" style=\"font-size: 0.9rem;\">Mot de passe:</label>
+                    <label for=\"motdepasse\" class=\"form-label\" style=\"font-size: 0.9rem;\">Mot de passe:</label>
                     <input 
                         type=\"password\" 
                         class=\"form-control\" 
-                        id=\"password\" 
-                        name=\"password\" 
+                        id=\"motdepasse\" 
+                        name=\"motdepasse\" 
                         required
                         placeholder=\"Entrez votre mot de passe\"
                         style=\"font-size: 0.9rem;\"
@@ -135,16 +144,6 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
                     Se connecter
                 </button>
 
-                <!-- Lien Mot de passe oublié -->
-                <div class=\"text-center mt-2\">
-                    <a href=\"";
-        // line 46
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("forgot_password");
-        yield "\" class=\"text-decoration-none\" style=\"font-size: 0.9rem;\">
-                        Mot de passe oublié ?
-                    </a>
-                </div>
-
                 <hr>
 
                 <!-- Bouton Créer un compte -->
@@ -153,7 +152,7 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
                     class=\"btn btn-success w-100\" 
                     style=\"font-size: 1rem;\"
                     onclick=\"window.location.href='";
-        // line 58
+        // line 54
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         yield "'\"
                 >
@@ -163,6 +162,7 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
         </div>
     </div>
 </div>
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -194,7 +194,7 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  157 => 58,  142 => 46,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  156 => 54,  111 => 12,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -208,15 +208,18 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
     <div class=\"col-md-6\">
         <div class=\"card shadow p-4\">
             <h1 class=\"text-center mb-4\" style=\"font-weight: bold;\">Page de Connexion</h1>
-            <form method=\"POST\" action=\"\">
+            <form method=\"POST\" action=\"{{ path('app_login') }}\">
+                <!-- CSRF Token for security -->
+                <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
+
                 <!-- Champ Email ou Téléphone -->
                 <div class=\"mb-3\">
-                    <label for=\"login\" class=\"form-label\" style=\"font-size: 0.9rem;\">Email ou Téléphone:</label>
+                    <label for=\"email\" class=\"form-label\" style=\"font-size: 0.9rem;\">Email ou Téléphone:</label>
                     <input 
                         type=\"text\" 
                         class=\"form-control\" 
-                        id=\"login\" 
-                        name=\"login\" 
+                        id=\"email\" 
+                        name=\"email\" 
                         required
                         placeholder=\"Entrez votre email ou numéro de téléphone\"
                         style=\"font-size: 0.9rem;\"
@@ -225,12 +228,12 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
 
                 <!-- Mot de passe -->
                 <div class=\"mb-3\">
-                    <label for=\"password\" class=\"form-label\" style=\"font-size: 0.9rem;\">Mot de passe:</label>
+                    <label for=\"motdepasse\" class=\"form-label\" style=\"font-size: 0.9rem;\">Mot de passe:</label>
                     <input 
                         type=\"password\" 
                         class=\"form-control\" 
-                        id=\"password\" 
-                        name=\"password\" 
+                        id=\"motdepasse\" 
+                        name=\"motdepasse\" 
                         required
                         placeholder=\"Entrez votre mot de passe\"
                         style=\"font-size: 0.9rem;\"
@@ -241,13 +244,6 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
                 <button type=\"submit\" class=\"btn btn-primary w-100\" style=\"font-size: 1rem;\">
                     Se connecter
                 </button>
-
-                <!-- Lien Mot de passe oublié -->
-                <div class=\"text-center mt-2\">
-                    <a href=\"{{ path('forgot_password') }}\" class=\"text-decoration-none\" style=\"font-size: 0.9rem;\">
-                        Mot de passe oublié ?
-                    </a>
-                </div>
 
                 <hr>
 
@@ -264,6 +260,7 @@ class __TwigTemplate_d2b316c3bb323f92ccc9ced9ef091fcc extends Template
         </div>
     </div>
 </div>
+
 {% endblock %}
 
 ", "login/index.html.twig", "C:\\Users\\choub\\Desktop\\CareeraPlatform - Copie\\templates\\login\\index.html.twig");

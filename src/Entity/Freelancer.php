@@ -10,9 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: "freelancer")]
 class Freelancer extends Utilisateur
 {
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeImmutable $datedenais = null;
-
+    
     #[ORM\Column(length: 255)]
     private ?string $cv = null;
 
@@ -21,18 +19,6 @@ class Freelancer extends Utilisateur
 
     #[ORM\Column]
     private ?int $experience = null;
-
-    public function getDatedenais(): ?\DateTimeImmutable
-    {
-        return $this->datedenais;
-    }
-
-    public function setDatedenais(\DateTimeImmutable $datedenais): static
-    {
-        $this->datedenais = $datedenais;
-
-        return $this;
-    }
 
     public function getCv(): ?string
     {

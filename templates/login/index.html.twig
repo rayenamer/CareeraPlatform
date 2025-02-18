@@ -7,15 +7,18 @@
     <div class="col-md-6">
         <div class="card shadow p-4">
             <h1 class="text-center mb-4" style="font-weight: bold;">Page de Connexion</h1>
-            <form method="POST" action="">
+            <form method="POST" action="{{ path('app_login') }}">
+                <!-- CSRF Token for security -->
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
                 <!-- Champ Email ou Téléphone -->
                 <div class="mb-3">
-                    <label for="login" class="form-label" style="font-size: 0.9rem;">Email ou Téléphone:</label>
+                    <label for="email" class="form-label" style="font-size: 0.9rem;">Email ou Téléphone:</label>
                     <input 
                         type="text" 
                         class="form-control" 
-                        id="login" 
-                        name="login" 
+                        id="email" 
+                        name="email" 
                         required
                         placeholder="Entrez votre email ou numéro de téléphone"
                         style="font-size: 0.9rem;"
@@ -24,12 +27,12 @@
 
                 <!-- Mot de passe -->
                 <div class="mb-3">
-                    <label for="password" class="form-label" style="font-size: 0.9rem;">Mot de passe:</label>
+                    <label for="motdepasse" class="form-label" style="font-size: 0.9rem;">Mot de passe:</label>
                     <input 
                         type="password" 
                         class="form-control" 
-                        id="password" 
-                        name="password" 
+                        id="motdepasse" 
+                        name="motdepasse" 
                         required
                         placeholder="Entrez votre mot de passe"
                         style="font-size: 0.9rem;"
@@ -40,13 +43,6 @@
                 <button type="submit" class="btn btn-primary w-100" style="font-size: 1rem;">
                     Se connecter
                 </button>
-
-                <!-- Lien Mot de passe oublié -->
-                <div class="text-center mt-2">
-                    <a href="{{ path('forgot_password') }}" class="text-decoration-none" style="font-size: 0.9rem;">
-                        Mot de passe oublié ?
-                    </a>
-                </div>
 
                 <hr>
 
@@ -63,5 +59,6 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
 

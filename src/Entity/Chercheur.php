@@ -15,10 +15,6 @@ class Chercheur extends Utilisateur
     #[ORM\Column(length: 255)]
     private ?string $cv = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeImmutable $datedenaiss = null;
-
-    
 
     public function getCv(): ?string
     {
@@ -32,16 +28,6 @@ class Chercheur extends Utilisateur
         return $this;
     }
 
-    public function getDatedenaiss(): ?\DateTimeImmutable
-    {
-        return $this->datedenaiss;
-    }
-
-    public function setDatedenaiss(?\DateTimeImmutable $datedenaiss): self
-    {
-        $this->datedenaiss = $datedenaiss;
-        return $this;
-    }
     
     
 }

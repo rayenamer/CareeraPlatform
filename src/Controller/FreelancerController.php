@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Freelancer;
 use App\Form\FreelancerType;
+use App\Repository\FreelancerRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,6 +15,15 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 final class FreelancerController extends AbstractController
 {
+    #[Route('/freelancerprofile', name: 'app_freelancerprofile')]
+    public function profile(FreelancerRepository $rep): Response
+    {
+        $profile=$rep->findAll();
+        return $this->render('freelancer/profile.html.twig', [
+            'profile' => $profile,
+        ]);
+    }
+
     #[Route('/freelancer', name: 'app_freelancer')]
     public function index(ManagerRegistry $m, Request $req, SluggerInterface $slugger): Response
     {
@@ -53,7 +63,7 @@ final class FreelancerController extends AbstractController
                 $cvFile->move($this->getParameter('images_directory'), $newFilename);
                 $freelancer->setCv($newFilename);
             } else {
-                $freelancer->setCv('default.pdf'); // Évite l'erreur
+                $freelancer->setCv('default.pdf'); 
             }
 
             $em->persist($freelancer);
