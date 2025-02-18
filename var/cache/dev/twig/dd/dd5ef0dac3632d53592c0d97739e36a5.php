@@ -300,8 +300,14 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
                 </button>
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
-                        <a href=\"offre/index.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
+                        <a href=\"";
+        // line 59
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
+        yield "\" class=\"nav-item nav-link active\">Acceuil</a>
+                        <a href=\"";
+        // line 60
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offre");
+        yield "\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/event.html\" class=\"nav-item nav-link\">Evénements</a>
                         <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"forum.html\" class=\"nav-item nav-link\">Forum</a>
@@ -363,7 +369,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  324 => 70,  295 => 52,  288 => 47,  275 => 46,  262 => 31,  256 => 28,  250 => 25,  246 => 24,  243 => 23,  230 => 22,  207 => 6,  192 => 146,  186 => 143,  182 => 142,  178 => 141,  174 => 140,  100 => 70,  98 => 46,  83 => 33,  81 => 22,  68 => 12,  59 => 6,  52 => 1,);
+        return array (  330 => 70,  309 => 60,  305 => 59,  295 => 52,  288 => 47,  275 => 46,  262 => 31,  256 => 28,  250 => 25,  246 => 24,  243 => 23,  230 => 22,  207 => 6,  192 => 146,  186 => 143,  182 => 142,  178 => 141,  174 => 140,  100 => 70,  98 => 46,  83 => 33,  81 => 22,  68 => 12,  59 => 6,  52 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -426,8 +432,8 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
                 </button>
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
-                        <a href=\"offre/index.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
+                        <a href=\"{{ path('app_index') }}\" class=\"nav-item nav-link active\">Acceuil</a>
+                        <a href=\"{{ path('app_offre') }}\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/event.html\" class=\"nav-item nav-link\">Evénements</a>
                         <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"forum.html\" class=\"nav-item nav-link\">Forum</a>

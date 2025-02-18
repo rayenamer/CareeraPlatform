@@ -34,22 +34,23 @@ class CandidatureaddType extends AbstractType
                 ],
             ])
             ->add('cv', FileType::class, [
-                'label' => 'CV (PDF ou Word)',
+                'label' => 'Image (JPG, PNG)',
                 'mapped' => false,
                 'required' => true,
                 'constraints' => [
-                    new NotBlank(['message' => 'Veuillez télécharger un CV.']),
+                    new NotBlank(['message' => 'Veuillez télécharger une image.']),
                     new File([
                         'maxSize' => '2M',
                         'mimeTypes' => [
-                            'application/pdf',
-                            'application/msword',
-                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                            'image/jpeg',
+                            'image/png',
+                            'image/jpg',
                         ],
-                        'mimeTypesMessage' => 'Veuillez télécharger un fichier PDF ou Word valide.',
+                        'mimeTypesMessage' => 'Veuillez télécharger une image au format JPG ou PNG valide.',
                     ]),
                 ],
             ])
+            
             ->add('lettremotivation', TextType::class, [
                 'label' => 'Lettre de motivation',
                 'constraints' => [

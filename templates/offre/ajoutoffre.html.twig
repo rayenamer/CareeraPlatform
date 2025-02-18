@@ -14,37 +14,60 @@
                     <div class="col-md-6">
                         <div class="form-floating">
                             {{ form_widget(addform.nomposte, {'attr': {'class': 'form-control'}}) }}
-                            <label for="{{ addform.nomposte.vars.id }}">Nom du Poste(emploi ou stage)</label>
+                            <label for="{{ addform.nomposte.vars.id }}">Nom du Poste (emploi ou stage)</label>
+                        </div>
+                        <div class="text-danger">
+                            {{ form_errors(addform.nomposte) }}
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-floating">
                             {{ form_widget(addform.entreprise, {'attr': {'class': 'form-control'}}) }}
                             <label for="{{ addform.entreprise.vars.id }}">Entreprise</label>
                         </div>
+                        <div class="text-danger">
+                            {{ form_errors(addform.entreprise) }}
+                        </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-floating">
                             {{ form_widget(addform.localisation, {'attr': {'class': 'form-control'}}) }}
                             <label for="{{ addform.localisation.vars.id }}">Localisation</label>
                         </div>
+                        <div class="text-danger">
+                            {{ form_errors(addform.localisation) }}
+                        </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-floating">
                             {{ form_widget(addform.salaire, {'attr': {'class': 'form-control'}}) }}
                             <label for="{{ addform.salaire.vars.id }}">Salaire</label>
                         </div>
+                        <div class="text-danger">
+                            {{ form_errors(addform.salaire) }}
+                        </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-floating">
                             {{ form_widget(addform.typecontrat, {'attr': {'class': 'form-control'}}) }}
                             <label for="{{ addform.typecontrat.vars.id }}">Type de Contrat</label>
                         </div>
+                        <div class="text-danger">
+                            {{ form_errors(addform.typecontrat) }}
+                        </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-floating">
                             {{ form_widget(addform.typeOffre, {'attr': {'class': 'form-control'}}) }}
                             <label for="{{ addform.typeOffre.vars.id }}">Type d'Offre</label>
+                        </div>
+                        <div class="text-danger">
+                            {{ form_errors(addform.typeOffre) }}
                         </div>
                     </div>
                     
@@ -60,17 +83,24 @@
                                 </div>
                             {% endif %}
                         </div>
+                        <div class="text-danger">
+                            {{ form_errors(addform.image) }}
+                        </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-check">
                             <!-- Le widget du formulaire génère automatiquement un élément input de type checkbox -->
                             {{ form_widget(addform.disponibilite, {'attr': {'class': 'form-check-input'}}) }}
                             <label for="{{ addform.disponibilite.vars.id }}" class="form-check-label">Disponibilité</label>
                         </div>
+                        <div class="text-danger">
+                            {{ form_errors(addform.disponibilite) }}
+                        </div>
                     </div>
 
                     <div class="col-12 text-center mt-4">
-                        <button class="btn btn-success w-75 py-3" type="submit">{{ form_label(addform.enregistrer) }} enregistrer</button>
+                        <button class="btn btn-success w-75 py-3" type="submit">Enregistrer</button>
                     </div>
                 </div>
                 {{ form_end(addform) }}

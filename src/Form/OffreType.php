@@ -29,8 +29,8 @@ class OffreType extends AbstractType
                     new Assert\Length([
                         'min' => 3,
                         'max' => 50,
-                        'minMessage' => 'Le nom du poste doit comporter au moins {{ limit }} caractères.',
-                        'maxMessage' => 'Le nom du poste ne peut pas dépasser {{ limit }} caractères.',
+                        'minMessage' => 'Le nom du poste doit comporter au moins 3 caractères.',
+                        'maxMessage' => 'Le nom du poste ne peut pas dépasser 50 caractères.',
                     ]),
                     new Assert\Regex([
                         'pattern' => '/^[a-zA-Z\s]+$/',
@@ -47,8 +47,8 @@ class OffreType extends AbstractType
                     new Assert\Length([
                         'min' => 2,
                         'max' => 50,
-                        'minMessage' => 'Le nom de l\'entreprise doit comporter au moins {{ limit }} caractères.',
-                        'maxMessage' => 'Le nom de l\'entreprise ne peut pas dépasser {{ limit }} caractères.',
+                        'minMessage' => 'Le nom de l\'entreprise doit comporter au moins 2 caractères.',
+                        'maxMessage' => 'Le nom de l\'entreprise ne peut pas dépasser 50 caractères.',
                     ]),
                 ],
                 'attr' => ['placeholder' => 'Nom de l\'entreprise'],
@@ -62,7 +62,7 @@ class OffreType extends AbstractType
                 'attr' => ['placeholder' => 'Ex: Paris, Tunisie...'],
             ])
             ->add('salaire', NumberType::class, [
-                'label' => 'Salaire (€)',
+                'label' => 'Salaire DT',
                 'required' => true,
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le salaire est obligatoire.']),
@@ -91,19 +91,22 @@ class OffreType extends AbstractType
             ->add('disponibilite', CheckboxType::class, [
                 'label' => 'Disponible',
                 'required' => false,
+                'data' => true, // Définit la valeur par défaut à true
             ])
+            
             ->add('image', FileType::class, [
-                'label' => 'Image (JPEG ou PNG)',
-                'mapped' => false,
-                'required' => true,
+                'label' => 'Image',
+                'mapped' => false, // Très important ! On ne mappe pas directement l'image à l'entité
+                'required' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '2M',
-                        'mimeTypes' => ['image/jpeg', 'image/png'],
-                        'mimeTypesMessage' => 'Veuillez télécharger un fichier image valide (JPEG ou PNG).',
-                    ]),
+                        'maxSize' => '5M',
+                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/jpg'],
+                        'mimeTypesMessage' => 'Veuillez télécharger une image valide (JPEG, PNG, JPG)',
+                    ])
                 ],
             ]);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void

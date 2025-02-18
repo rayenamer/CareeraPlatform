@@ -78,6 +78,8 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="images_directory">C:\careera/public/uploads/images</parameter>
+    <parameter key="cv_directory">C:\careera/public/uploads/cvs</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -393,6 +395,13 @@
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\TypecontratController"/>
       </call>
     </service>
+    <service id="App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\TypeoffreController"/>
+      </call>
+    </service>
     <service id="App\Form\CandidatureType" class="App\Form\CandidatureType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -403,6 +412,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\TypeContratType" class="App\Form\TypeContratType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\TypeOffreType" class="App\Form\TypeOffreType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" autoconfigure="true">
@@ -448,7 +460,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.t9rrN8_"/>
+      <argument type="service" id=".service_locator.EjphwMo"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1373,6 +1385,7 @@
         <argument>App\Form\CandidatureaddType</argument>
         <argument>App\Form\OffreType</argument>
         <argument>App\Form\TypeContratType</argument>
+        <argument>App\Form\TypeOffreType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3337,7 +3350,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.t9rrN8_"/>
+      <argument type="service" id=".service_locator.EjphwMo"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -3826,7 +3839,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.RxHyhg."/>
+      <argument type="service" id=".service_locator.GCIkixw"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -7090,6 +7103,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TypecontratController" class="App\Controller\TypecontratController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TypecontratController" class="App\Controller\TypecontratController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TypecontratController" class="App\Controller\TypecontratController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CandidatureType" class="App\Form\CandidatureType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CandidatureType" class="App\Form\CandidatureType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CandidatureaddType" class="App\Form\CandidatureaddType" autowire="true" abstract="true"/>
@@ -7098,6 +7114,8 @@
     <service id=".abstract.instanceof.App\Form\OffreType" class="App\Form\OffreType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeContratType" class="App\Form\TypeContratType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\TypeContratType" class="App\Form\TypeContratType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeOffreType" class="App\Form\TypeOffreType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TypeOffreType" class="App\Form\TypeOffreType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\OffreRepository" class="App\Repository\OffreRepository" autowire="true" abstract="true"/>
@@ -7560,23 +7578,25 @@
         <argument key="offreRepository" type="service_closure" id="App\Repository\OffreRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.ctTTze6" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="offreRepository" type="service_closure" id="App\Repository\OffreRepository"/>
-        <argument key="security" type="service_closure" id="security.helper"/>
-      </argument>
-    </service>
-    <service id=".service_locator.o6sN0hZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ESajd_W" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine" type="service_closure" id="doctrine"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
       </argument>
     </service>
-    <service id=".service_locator.WaSJSkb" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.1lmvpqq" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="m" type="service_closure" id="doctrine"/>
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
+        <argument key="rep" type="service_closure" id="App\Repository\OffreRepository"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
+      </argument>
+    </service>
+    <service id=".service_locator.56KbrvQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
         <argument key="rep" type="service_closure" id="App\Repository\OffreRepository"/>
       </argument>
     </service>
@@ -7593,47 +7613,78 @@
         <argument key="rep" type="service_closure" id="App\Repository\TypeContratRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.t9rrN8_" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.15EnnVx" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="rep" type="service_closure" id="App\Repository\TypeOffreRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator._IYBtH." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="m" type="service_closure" id="doctrine"/>
+        <argument key="rep" type="service_closure" id="App\Repository\TypeOffreRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.EjphwMo" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\CandidatureController::Acceptees" type="service_closure" id=".service_locator.ZXaK3cG"/>
+        <argument key="App\Controller\CandidatureController::Rejetees" type="service_closure" id=".service_locator.ZXaK3cG"/>
+        <argument key="App\Controller\CandidatureController::accept" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController::addcandidature" type="service_closure" id=".service_locator.C5aMZSX"/>
         <argument key="App\Controller\CandidatureController::deletecandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController::index" type="service_closure" id=".service_locator.ZXaK3cG"/>
+        <argument key="App\Controller\CandidatureController::rejectCandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController::showcandidature" type="service_closure" id=".service_locator.ZXaK3cG"/>
         <argument key="App\Controller\CandidatureController::updatecandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\OffreController::index" type="service_closure" id=".service_locator.IZCfKrU"/>
         <argument key="App\Controller\OffreController::postuler" type="service_closure" id=".service_locator.kjLqtAK"/>
         <argument key="App\Controller\OffreController::recherche" type="service_closure" id=".service_locator.kjLqtAK"/>
-        <argument key="App\Controller\OffremodController::ajoutoffre" type="service_closure" id=".service_locator.o6sN0hZ"/>
-        <argument key="App\Controller\OffremodController::index" type="service_closure" id=".service_locator.ctTTze6"/>
-        <argument key="App\Controller\OffremodController::modifoffre" type="service_closure" id=".service_locator.WaSJSkb"/>
-        <argument key="App\Controller\OffremodController::supprimeroffre" type="service_closure" id=".service_locator.WaSJSkb"/>
+        <argument key="App\Controller\OffremodController::ajoutoffre" type="service_closure" id=".service_locator.ESajd_W"/>
+        <argument key="App\Controller\OffremodController::index" type="service_closure" id=".service_locator.kjLqtAK"/>
+        <argument key="App\Controller\OffremodController::modifoffre" type="service_closure" id=".service_locator.1lmvpqq"/>
+        <argument key="App\Controller\OffremodController::supprimeroffre" type="service_closure" id=".service_locator.56KbrvQ"/>
         <argument key="App\Controller\TypecontratController::addtypecontrat" type="service_closure" id=".service_locator.C5aMZSX"/>
         <argument key="App\Controller\TypecontratController::deletetypecontrat" type="service_closure" id=".service_locator.q2iQt7w"/>
         <argument key="App\Controller\TypecontratController::index" type="service_closure" id=".service_locator.9oQ0dhj"/>
         <argument key="App\Controller\TypecontratController::showtypecontrat" type="service_closure" id=".service_locator.9oQ0dhj"/>
         <argument key="App\Controller\TypecontratController::updatetypecontrat" type="service_closure" id=".service_locator.q2iQt7w"/>
+        <argument key="App\Controller\TypeoffreController::addtypeoffre" type="service_closure" id=".service_locator.C5aMZSX"/>
+        <argument key="App\Controller\TypeoffreController::deletetypeoffre" type="service_closure" id=".service_locator._IYBtH."/>
+        <argument key="App\Controller\TypeoffreController::index" type="service_closure" id=".service_locator.15EnnVx"/>
+        <argument key="App\Controller\TypeoffreController::showtypeoffre" type="service_closure" id=".service_locator.15EnnVx"/>
+        <argument key="App\Controller\TypeoffreController::updatetypeoffre" type="service_closure" id=".service_locator._IYBtH."/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
+        <argument key="App\Controller\CandidatureController:Acceptees" type="service_closure" id=".service_locator.ZXaK3cG"/>
+        <argument key="App\Controller\CandidatureController:Rejetees" type="service_closure" id=".service_locator.ZXaK3cG"/>
+        <argument key="App\Controller\CandidatureController:accept" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController:addcandidature" type="service_closure" id=".service_locator.C5aMZSX"/>
         <argument key="App\Controller\CandidatureController:deletecandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController:index" type="service_closure" id=".service_locator.ZXaK3cG"/>
+        <argument key="App\Controller\CandidatureController:rejectCandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController:showcandidature" type="service_closure" id=".service_locator.ZXaK3cG"/>
         <argument key="App\Controller\CandidatureController:updatecandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\OffreController:index" type="service_closure" id=".service_locator.IZCfKrU"/>
         <argument key="App\Controller\OffreController:postuler" type="service_closure" id=".service_locator.kjLqtAK"/>
         <argument key="App\Controller\OffreController:recherche" type="service_closure" id=".service_locator.kjLqtAK"/>
-        <argument key="App\Controller\OffremodController:ajoutoffre" type="service_closure" id=".service_locator.o6sN0hZ"/>
-        <argument key="App\Controller\OffremodController:index" type="service_closure" id=".service_locator.ctTTze6"/>
-        <argument key="App\Controller\OffremodController:modifoffre" type="service_closure" id=".service_locator.WaSJSkb"/>
-        <argument key="App\Controller\OffremodController:supprimeroffre" type="service_closure" id=".service_locator.WaSJSkb"/>
+        <argument key="App\Controller\OffremodController:ajoutoffre" type="service_closure" id=".service_locator.ESajd_W"/>
+        <argument key="App\Controller\OffremodController:index" type="service_closure" id=".service_locator.kjLqtAK"/>
+        <argument key="App\Controller\OffremodController:modifoffre" type="service_closure" id=".service_locator.1lmvpqq"/>
+        <argument key="App\Controller\OffremodController:supprimeroffre" type="service_closure" id=".service_locator.56KbrvQ"/>
         <argument key="App\Controller\TypecontratController:addtypecontrat" type="service_closure" id=".service_locator.C5aMZSX"/>
         <argument key="App\Controller\TypecontratController:deletetypecontrat" type="service_closure" id=".service_locator.q2iQt7w"/>
         <argument key="App\Controller\TypecontratController:index" type="service_closure" id=".service_locator.9oQ0dhj"/>
         <argument key="App\Controller\TypecontratController:showtypecontrat" type="service_closure" id=".service_locator.9oQ0dhj"/>
         <argument key="App\Controller\TypecontratController:updatetypecontrat" type="service_closure" id=".service_locator.q2iQt7w"/>
+        <argument key="App\Controller\TypeoffreController:addtypeoffre" type="service_closure" id=".service_locator.C5aMZSX"/>
+        <argument key="App\Controller\TypeoffreController:deletetypeoffre" type="service_closure" id=".service_locator._IYBtH."/>
+        <argument key="App\Controller\TypeoffreController:index" type="service_closure" id=".service_locator.15EnnVx"/>
+        <argument key="App\Controller\TypeoffreController:showtypeoffre" type="service_closure" id=".service_locator.15EnnVx"/>
+        <argument key="App\Controller\TypeoffreController:updatetypeoffre" type="service_closure" id=".service_locator._IYBtH."/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
       </argument>
@@ -7795,13 +7846,14 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.RxHyhg." class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.GCIkixw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CandidatureType" type="service_closure" id="App\Form\CandidatureType"/>
         <argument key="App\Form\CandidatureaddType" type="service_closure" id="App\Form\CandidatureaddType"/>
         <argument key="App\Form\OffreType" type="service_closure" id="App\Form\OffreType"/>
         <argument key="App\Form\TypeContratType" type="service_closure" id="App\Form\TypeContratType"/>
+        <argument key="App\Form\TypeOffreType" type="service_closure" id="App\Form\TypeOffreType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -8287,6 +8339,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\TypeoffreController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\TypeoffreController"/>
+      <argument>App\Controller\TypeoffreController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
     <service id=".service_locator.fuYM_Z." class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8467,6 +8525,7 @@
           <argument>App\Controller\OffreController</argument>
           <argument>App\Controller\OffremodController</argument>
           <argument>App\Controller\TypecontratController</argument>
+          <argument>App\Controller\TypeoffreController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>
@@ -9852,7 +9911,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.w7.f4fT" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.t9rrN8_"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.EjphwMo"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9876,9 +9935,10 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.bJ.4HC5" alias=".service_locator.w7.f4fT"/>
-    <service id=".service_locator.f9gygD0" alias=".service_locator.t9rrN8_"/>
+    <service id=".service_locator.gIB5Vtt" alias=".service_locator.1lmvpqq"/>
+    <service id=".service_locator.4BNcGx4" alias=".service_locator.EjphwMo"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
-    <service id=".service_locator.oFKTp6U" alias=".service_locator.RxHyhg."/>
+    <service id=".service_locator.r16fpD9" alias=".service_locator.GCIkixw"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.jUv.zyj" alias=".service_locator.O2p6Lk7"/>
@@ -9907,11 +9967,13 @@
     <service id=".service_locator.GObR.ZS" alias=".service_locator.5FQ7ubt"/>
     <service id=".service_locator.RGe8TWu" alias=".service_locator.IZCfKrU"/>
     <service id=".service_locator.qKPDMPG" alias=".service_locator.kjLqtAK"/>
-    <service id=".service_locator.EPmAPXf" alias=".service_locator.ctTTze6"/>
-    <service id=".service_locator.eQ296SW" alias=".service_locator.o6sN0hZ"/>
-    <service id=".service_locator.pILenmO" alias=".service_locator.WaSJSkb"/>
+    <service id=".service_locator.jZ84U_V" alias=".service_locator.ESajd_W"/>
+    <service id=".service_locator.rqcQJUU" alias=".service_locator.1lmvpqq"/>
+    <service id=".service_locator.rZWGGG7" alias=".service_locator.56KbrvQ"/>
     <service id=".service_locator.RKuD_AK" alias=".service_locator.9oQ0dhj"/>
     <service id=".service_locator.h8lOIOC" alias=".service_locator.q2iQt7w"/>
+    <service id=".service_locator.tlulF5s" alias=".service_locator.15EnnVx"/>
+    <service id=".service_locator.VQHrH7m" alias=".service_locator._IYBtH."/>
     <service id=".service_locator.Q1z.f9O" alias=".service_locator.O2p6Lk7"/>
     <service id=".service_locator.dGUCsbe" alias=".service_locator.oR77BOj"/>
     <service id=".service_locator._kIAbz1" alias=".service_locator.TpoC7U9"/>

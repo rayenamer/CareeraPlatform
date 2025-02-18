@@ -9,11 +9,13 @@
             <div class="card shadow-sm p-4">
                 {% if addform is defined %} 
                     <h3 class="text-center">Ajouter Type Contrat</h3>
-                    {{ form_start(addform) }}
+                    {{ form_start(addform, {'attr': {'novalidate': 'novalidate'}}) }}
                         <div class="mb-3">
                             {{ form_label(addform.nom, 'Nom du Type Contrat', {'label_attr': {'class': 'form-label'}}) }}
                             {{ form_widget(addform.nom, {'attr': {'class': 'form-control'}}) }}
-                            {{ form_errors(addform.nom) }}
+                            <div class="text-danger">
+                                {{ form_errors(addform.nom) }}
+                            </div>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Ajouter Type Contrat</button>

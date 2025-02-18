@@ -108,7 +108,7 @@ class __TwigTemplate_9b12d8a9e39c70cedfec82e505efec9f extends Template
                     <h3 class=\"text-center\">Modifier Type Contrat</h3>
                     ";
             // line 12
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 12, $this->source); })()), 'form_start');
+            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 12, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
             yield "
                         <div class=\"mb-3\">
                             ";
@@ -119,25 +119,27 @@ class __TwigTemplate_9b12d8a9e39c70cedfec82e505efec9f extends Template
             // line 15
             yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 15, $this->source); })()), "nom", [], "any", false, false, false, 15), 'widget', ["attr" => ["class" => "form-control"]]);
             yield "
-                            ";
-            // line 16
-            yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 16, $this->source); })()), "nom", [], "any", false, false, false, 16), 'errors');
+                            <div class=\"text-danger\">
+                                ";
+            // line 17
+            yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 17, $this->source); })()), "nom", [], "any", false, false, false, 17), 'errors');
             yield "
+                            </div>
                         </div>
                         <div class=\"text-center\">
                             <button type=\"submit\" class=\"btn btn-warning\">Modifier Type Contrat</button>
                         </div>
                     ";
-            // line 21
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 21, $this->source); })()), 'form_end');
+            // line 23
+            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 23, $this->source); })()), 'form_end');
             yield "
                 ";
         } else {
-            // line 23
+            // line 25
             yield "                    <p class=\"text-center text-danger\">Le formulaire n'est pas disponible.</p>
                 ";
         }
-        // line 25
+        // line 27
         yield "            </div>
         </div>
     </div>
@@ -173,7 +175,7 @@ class __TwigTemplate_9b12d8a9e39c70cedfec82e505efec9f extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  141 => 25,  137 => 23,  132 => 21,  124 => 16,  120 => 15,  116 => 14,  111 => 12,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  143 => 27,  139 => 25,  134 => 23,  125 => 17,  120 => 15,  116 => 14,  111 => 12,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -189,11 +191,13 @@ class __TwigTemplate_9b12d8a9e39c70cedfec82e505efec9f extends Template
             <div class=\"card shadow-sm p-4\">
                 {% if addform is defined %} 
                     <h3 class=\"text-center\">Modifier Type Contrat</h3>
-                    {{ form_start(addform) }}
+                    {{ form_start(addform, {'attr': {'novalidate': 'novalidate'}}) }}
                         <div class=\"mb-3\">
                             {{ form_label(addform.nom, 'Nom du Type Contrat', {'label_attr': {'class': 'form-label'}}) }}
                             {{ form_widget(addform.nom, {'attr': {'class': 'form-control'}}) }}
-                            {{ form_errors(addform.nom) }}
+                            <div class=\"text-danger\">
+                                {{ form_errors(addform.nom) }}
+                            </div>
                         </div>
                         <div class=\"text-center\">
                             <button type=\"submit\" class=\"btn btn-warning\">Modifier Type Contrat</button>
@@ -206,6 +210,7 @@ class __TwigTemplate_9b12d8a9e39c70cedfec82e505efec9f extends Template
         </div>
     </div>
 </div>
-{% endblock %}", "typecontrat/updatetypecontrat.html.twig", "C:\\careera\\templates\\typecontrat\\updatetypecontrat.html.twig");
+{% endblock %}
+", "typecontrat/updatetypecontrat.html.twig", "C:\\careera\\templates\\typecontrat\\updatetypecontrat.html.twig");
     }
 }

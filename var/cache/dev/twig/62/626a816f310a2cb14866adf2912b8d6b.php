@@ -230,13 +230,18 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
         yield "        </tbody>
     </table>
 
-    <!-- Lien vers la page \"Type de Contrat\" -->
+    <!-- Liens vers les pages \"Type d'Offre\" et \"Type de Contrat\" -->
     <div class=\"d-flex justify-content-end mt-4\">
-        <a href=\"";
+    <a href=\"";
         // line 63
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_typeoffre");
+        yield "\" class=\"btn btn me-2\">Gérer les Types d'Offre</a>
+    <span class=\"mx-2\">|</span>
+    <a href=\"";
+        // line 65
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_typecontrat");
-        yield "\" class=\"btn btn\">gérer les Types de Contrat</a>
-    </div>
+        yield "\" class=\"btn btn\">Gérer les Types de Contrat</a>
+</div>
 
 </div>
 
@@ -271,7 +276,7 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  237 => 63,  230 => 58,  221 => 54,  219 => 57,  200 => 47,  196 => 46,  189 => 44,  185 => 43,  181 => 42,  177 => 41,  173 => 40,  169 => 39,  165 => 38,  161 => 37,  157 => 36,  154 => 35,  136 => 34,  113 => 14,  108 => 12,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  242 => 65,  237 => 63,  230 => 58,  221 => 54,  219 => 57,  200 => 47,  196 => 46,  189 => 44,  185 => 43,  181 => 42,  177 => 41,  173 => 40,  169 => 39,  165 => 38,  161 => 37,  157 => 36,  154 => 35,  136 => 34,  113 => 14,  108 => 12,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -336,10 +341,12 @@ class __TwigTemplate_51f23bf7347940b1882c5800ebee6df7 extends Template
         </tbody>
     </table>
 
-    <!-- Lien vers la page \"Type de Contrat\" -->
+    <!-- Liens vers les pages \"Type d'Offre\" et \"Type de Contrat\" -->
     <div class=\"d-flex justify-content-end mt-4\">
-        <a href=\"{{ path('app_typecontrat') }}\" class=\"btn btn\">gérer les Types de Contrat</a>
-    </div>
+    <a href=\"{{ path('app_typeoffre') }}\" class=\"btn btn me-2\">Gérer les Types d'Offre</a>
+    <span class=\"mx-2\">|</span>
+    <a href=\"{{ path('app_typecontrat') }}\" class=\"btn btn\">Gérer les Types de Contrat</a>
+</div>
 
 </div>
 

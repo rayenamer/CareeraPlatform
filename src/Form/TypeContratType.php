@@ -20,8 +20,8 @@ class TypeContratType extends AbstractType
                     new Assert\Length([
                         'min' => 3,
                         'max' => 50,
-                        'minMessage' => 'Le nom doit comporter au moins {{ limit }} caractères.',
-                        'maxMessage' => 'Le nom ne peut pas dépasser {{ limit }} caractères.',
+                        'minMessage' => 'Le nom doit comporter au moins 3 caractères.',
+                        'maxMessage' => 'Le nom ne peut pas dépasser 50 caractères.',
                     ]),
                     new Assert\Regex([
                         'pattern' => '/^[a-zA-Z\s]+$/',

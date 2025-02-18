@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des Candidatures{% endblock %}
+{% block title %}Listes des Candidatures{% endblock %}
 
 {% block body %}
-<h1 class="mb-3 text-center">Gestion des Candidatures</h1>
+<div class="d-flex justify-content-start mb-2">
+    <a href="{{ path('app_offre') }}" class="btn btn btn-sm">Retour</a>
+</div>
+<h1 class="mb-3 text-center">Listes des Candidatures</h1>
 
 <div class="container">
     
@@ -12,13 +15,14 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Utilisateur</th>
+                <th>Nom</th>
                 <th>Poste/Stage</th>
                 <th>Entreprise</th>
-                <th>Statut</th>
                 <th>Date de Soumission</th>
                 <th>CV</th>
                 <th>Lettre de Motivation</th>
+                <th>Statut</th>
+                <th>Actions</th>
                 
             </tr>
         </thead>
@@ -29,20 +33,35 @@
                     <td>{{ candidature.utilisateur }}</td>
                     <td>{{ candidature.offre.nomposte }}</td>
                     <td>{{ candidature.offre.entreprise }}</td>
-                    <td>{{ candidature.statut }}</td>
                     <td>{{ candidature.datesoumission|date('d/m/Y') }}</td>
                     <td>
-                        <a href="{{ asset('uploads/cv/' ~ candidature.cv) }}" target="_blank" class="btn btn-dark btn-sm">Voir CV</a>
+                        <a href="{{ asset('uploads/cv/' ~ candidature.cv) }}" target="_blank" class="btn btn btn-sm">Voir CV</a>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#motivationModal{{ candidature.id }}">Voir</button>
+                        <button type="button" class="btn btn btn-sm" data-bs-toggle="modal" data-bs-target="#motivationModal{{ candidature.id }}">Voir</button>
                     </td>
-                    
+                    <td>
+                        {% if candidature.statut == 'acceptée' %}
+                            <span class="badge bg-success">Acceptée</span>
+                        {% elseif candidature.statut == 'rejetée' %}
+                            <span class="badge bg-danger">Rejetée</span>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">En attente</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if candidature.statut == 'en_attente' %}
+                            <a href="{{ path('app_updatecandidature', {'id': candidature.id}) }}" class="btn btn-warning">Modifier</a>
+                        {% else %}
+                            <span class="badge  ">none</span>
+                        {% endif %} 
+                        <a href="{{ path('app_deletecandidature', {'id': candidature.id}) }}" class="btn btn">Supprimer</a>
+                    </td>      
                 </tr>
 
                 <!-- Modal pour la lettre de motivation -->
                 <div class="modal fade" id="motivationModal{{ candidature.id }}" tabindex="-1" aria-labelledby="motivationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                   <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="motivationModalLabel">Lettre de Motivation</h5>
@@ -53,6 +72,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             {% else %}
                 <tr>

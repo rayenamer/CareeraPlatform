@@ -97,67 +97,83 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "<div class=\"container\">
-    <h1 class=\"text-center my-4\">Liste des Types de Contrat</h1>
-    <div class=\"d-flex justify-content-end mb-3\">
-        <a href=\"";
-        // line 9
+        yield "<div class=\"container mt-4\">
+    <div class=\"row justify-content-center\">
+        <div class=\"col-md-8\"> <!-- Limite la largeur du tableau à 8 colonnes -->
+            <div class=\"card shadow-sm\">
+                <div class=\"card-header text-center\">
+                    <h3>Liste des Types de Contrat</h3>
+                    <div class=\"d-flex justify-content-start mb-2\">
+                        <a href=\"";
+        // line 13
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offremod");
+        yield "\" class=\"btn btn btn-sm\">Retour</a>
+                    </div>
+                </div>
+                <div class=\"card-body\">
+                    <div class=\"d-flex justify-content-end mb-3\">
+                        <a href=\"";
+        // line 18
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addtypecontrat");
         yield "\" class=\"btn btn-success\">Ajouter un Type de Contrat</a>
-    </div>
-    <table class=\"table table-striped table-bordered\">
-        <thead class=\"table-dark\">
-            <tr>
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            ";
-        // line 20
+                    </div>
+                    <table class=\"table table-striped table-bordered text-center\">
+                        <thead class=\"table-dark\">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ";
+        // line 29
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["tabtypecontrat"]) || array_key_exists("tabtypecontrat", $context) ? $context["tabtypecontrat"] : (function () { throw new RuntimeError('Variable "tabtypecontrat" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["tabtypecontrat"]) || array_key_exists("tabtypecontrat", $context) ? $context["tabtypecontrat"] : (function () { throw new RuntimeError('Variable "tabtypecontrat" does not exist.', 29, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["typecontrat"]) {
-            // line 21
-            yield "                <tr>
-                    <td>";
-            // line 22
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 22), "html", null, true);
+            // line 30
+            yield "                                <tr>
+                                    <td>";
+            // line 31
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 31), "html", null, true);
             yield "</td>
-                    <td>";
-            // line 23
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "nom", [], "any", false, false, false, 23), "html", null, true);
+                                    <td>";
+            // line 32
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "nom", [], "any", false, false, false, 32), "html", null, true);
             yield "</td>
-                    <td>
-                        <a href=\"";
-            // line 25
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+                                    <td>
+                                        <a href=\"";
+            // line 34
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 34)]), "html", null, true);
             yield "\" class=\"btn btn-warning btn-sm\">Modifier</a>
-                        <a href=\"";
-            // line 26
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+                                        <a href=\"";
+            // line 35
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletetypecontrat", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["typecontrat"], "id", [], "any", false, false, false, 35)]), "html", null, true);
             yield "\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce type de contrat ?');\">Supprimer</a>
-                    </td>
-                </tr>
-            ";
+                                    </td>
+                                </tr>
+                            ";
             $context['_iterated'] = true;
         }
-        // line 33
+        // line 42
         if (!$context['_iterated']) {
-            // line 30
-            yield "                <tr>
-                    <td colspan=\"3\" class=\"text-center\">Aucun type de contrat trouvé.</td>
-                </tr>
-            ";
+            // line 39
+            yield "                                <tr>
+                                    <td colspan=\"3\" class=\"text-center\">Aucun type de contrat trouvé.</td>
+                                </tr>
+                            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['typecontrat'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
-        yield "        </tbody>
-    </table>
+        // line 43
+        yield "                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 ";
         
@@ -190,7 +206,7 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  159 => 34,  150 => 30,  148 => 33,  140 => 26,  136 => 25,  131 => 23,  127 => 22,  124 => 21,  119 => 20,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  171 => 43,  162 => 39,  160 => 42,  152 => 35,  148 => 34,  143 => 32,  139 => 31,  136 => 30,  131 => 29,  117 => 18,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -200,36 +216,49 @@ class __TwigTemplate_199a855998a2b65287a04a9f40a6ad9d extends Template
 {% block title %}Liste des Types de Contrat{% endblock %}
 
 {% block body %}
-<div class=\"container\">
-    <h1 class=\"text-center my-4\">Liste des Types de Contrat</h1>
-    <div class=\"d-flex justify-content-end mb-3\">
-        <a href=\"{{ path('app_addtypecontrat') }}\" class=\"btn btn-success\">Ajouter un Type de Contrat</a>
+<div class=\"container mt-4\">
+    <div class=\"row justify-content-center\">
+        <div class=\"col-md-8\"> <!-- Limite la largeur du tableau à 8 colonnes -->
+            <div class=\"card shadow-sm\">
+                <div class=\"card-header text-center\">
+                    <h3>Liste des Types de Contrat</h3>
+                    <div class=\"d-flex justify-content-start mb-2\">
+                        <a href=\"{{ path('app_offremod') }}\" class=\"btn btn btn-sm\">Retour</a>
+                    </div>
+                </div>
+                <div class=\"card-body\">
+                    <div class=\"d-flex justify-content-end mb-3\">
+                        <a href=\"{{ path('app_addtypecontrat') }}\" class=\"btn btn-success\">Ajouter un Type de Contrat</a>
+                    </div>
+                    <table class=\"table table-striped table-bordered text-center\">
+                        <thead class=\"table-dark\">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for typecontrat in tabtypecontrat %}
+                                <tr>
+                                    <td>{{ typecontrat.id }}</td>
+                                    <td>{{ typecontrat.nom }}</td>
+                                    <td>
+                                        <a href=\"{{ path('app_updatetypecontrat', {'id': typecontrat.id}) }}\" class=\"btn btn-warning btn-sm\">Modifier</a>
+                                        <a href=\"{{ path('app_deletetypecontrat', {'id': typecontrat.id}) }}\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce type de contrat ?');\">Supprimer</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan=\"3\" class=\"text-center\">Aucun type de contrat trouvé.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <table class=\"table table-striped table-bordered\">
-        <thead class=\"table-dark\">
-            <tr>
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for typecontrat in tabtypecontrat %}
-                <tr>
-                    <td>{{ typecontrat.id }}</td>
-                    <td>{{ typecontrat.nom }}</td>
-                    <td>
-                        <a href=\"{{ path('app_updatetypecontrat', {'id': typecontrat.id}) }}\" class=\"btn btn-warning btn-sm\">Modifier</a>
-                        <a href=\"{{ path('app_deletetypecontrat', {'id': typecontrat.id}) }}\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce type de contrat ?');\">Supprimer</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan=\"3\" class=\"text-center\">Aucun type de contrat trouvé.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 </div>
 {% endblock %}
 ", "typecontrat/index.html.twig", "C:\\careera\\templates\\typecontrat\\index.html.twig");

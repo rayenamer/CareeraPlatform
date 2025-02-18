@@ -17,17 +17,17 @@ class CandidatureType extends AbstractType
             ->add('statut', ChoiceType::class, [
                 'choices' => [
                     'En attente' => 'en_attente',
-                    'Acceptée' => 'acceptee',
-                    'Refusée' => 'refusee',
+                    'Acceptée' => 'acceptée',
+                    'Rejetée' => 'rejetée',
                 ],
-                'data' => 'en_attente',  // Valeur par défaut
-                'expanded' => false,      // Afficher comme un select
-                'multiple' => false,      // Sélection unique
+                'data' => 'en_attente',  
+                'expanded' => false,     
+                'multiple' => false,     
                 'label' => 'Statut',
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Veuillez sélectionner un statut.']),
                     new Assert\Choice([
-                        'choices' => ['en_attente', 'acceptee', 'refusee'],
+                        'choices' => ['en_attente', 'acceptée', 'rejetée'],
                         'message' => 'Choix invalide, veuillez sélectionner un statut valide.',
                     ]),
                 ],
