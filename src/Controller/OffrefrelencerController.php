@@ -23,24 +23,25 @@ final class OffrefrelencerController extends AbstractController
     }
 
     #[Route('/new', name: 'app_offrefrelencer_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $offre = new Offre();
-        $form = $this->createForm(OffreType::class, $offre);
-        $form->handleRequest($request);
+public function new(Request $request, EntityManagerInterface $entityManager): Response
+{
+ 
+    $offre = new Offre();
+    $form = $this->createForm(OffreType::class, $offre);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($offre);
-            $entityManager->flush();
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager->persist($offre);
+        $entityManager->flush();
 
-            return $this->redirectToRoute('app_offrefrelencer_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('offrefrelencer/new.html.twig', [
-            'offre' => $offre,
-            'form' => $form,
-        ]);
+        return $this->redirectToRoute('app_offrefrelencer_index');
     }
+
+    return $this->render('offrefrelencer/new.html.twig', [
+        'offre' => $offre,
+        'form' => $form->createView(),
+    ]);
+}
 
     #[Route('/{id}', name: 'app_offrefrelencer_show', methods: ['GET'])]
     public function show(Offre $offre): Response
@@ -71,7 +72,16 @@ final class OffrefrelencerController extends AbstractController
             'offre' => $offre,
             'form' => $form->createView(), // Assurez-vous d'appeler createView pour rendre le formulaire
             'button_label' => 'Update', // Texte du bouton
+
         ]);
+        $imageFile = $form->get('image')->getData();
+if ($imageFile) {
+    $newFilename = uniqid().'.'.$imageFile->guessExtension();
+    $imageFile->move($this->getParameter('uploads_directory'), $newFilename);
+    $offre->setImage($newFilename);
+}
+$entityManager->flush();
+
     }
     
     #[Route('/{id}', name: 'app_offrefrelencer_delete', methods: ['POST'])]
@@ -84,4 +94,5 @@ final class OffrefrelencerController extends AbstractController
 
         return $this->redirectToRoute('app_offrefrelencer_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

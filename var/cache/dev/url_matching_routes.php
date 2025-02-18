@@ -14,6 +14,8 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/demande/mission' => [[['_route' => 'app_demande_mission_index', '_controller' => 'App\\Controller\\DemandeMissionController::index'], null, ['GET' => 0], null, false, false, null]],
+        '/demande/mission/new' => [[['_route' => 'app_demande_mission_new', '_controller' => 'App\\Controller\\DemandeMissionController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
         '/offrefrelencer' => [[['_route' => 'app_offrefrelencer_index', '_controller' => 'App\\Controller\\OffrefrelencerController::index'], null, ['GET' => 0], null, false, false, null]],
@@ -39,10 +41,15 @@ return [
                         .')'
                     .')'
                 .')'
+                .'|/demande/mission/([^/]++)(?'
+                    .'|(*:230)'
+                    .'|/edit(*:243)'
+                    .'|(*:251)'
+                .')'
                 .'|/offrefrelencer/([^/]++)(?'
-                    .'|(*:229)'
-                    .'|/edit(*:242)'
-                    .'|(*:250)'
+                    .'|(*:287)'
+                    .'|/edit(*:300)'
+                    .'|(*:308)'
                 .')'
             .')/?$}sDu',
     ],
@@ -55,9 +62,12 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        229 => [[['_route' => 'app_offrefrelencer_show', '_controller' => 'App\\Controller\\OffrefrelencerController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        242 => [[['_route' => 'app_offrefrelencer_edit', '_controller' => 'App\\Controller\\OffrefrelencerController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        250 => [
+        230 => [[['_route' => 'app_demande_mission_show', '_controller' => 'App\\Controller\\DemandeMissionController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        243 => [[['_route' => 'app_demande_mission_edit', '_controller' => 'App\\Controller\\DemandeMissionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        251 => [[['_route' => 'app_demande_mission_delete', '_controller' => 'App\\Controller\\DemandeMissionController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        287 => [[['_route' => 'app_offrefrelencer_show', '_controller' => 'App\\Controller\\OffrefrelencerController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        300 => [[['_route' => 'app_offrefrelencer_edit', '_controller' => 'App\\Controller\\OffrefrelencerController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        308 => [
             [['_route' => 'app_offrefrelencer_delete', '_controller' => 'App\\Controller\\OffrefrelencerController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

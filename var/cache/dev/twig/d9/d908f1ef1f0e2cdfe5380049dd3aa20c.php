@@ -116,8 +116,10 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
                         <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"offre/offremod.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/eventmod.html\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"mission/missionmod.html\" class=\"nav-item nav-link\">Mission freelance</a>
-                        <a href=\"demande.html\" class=\"nav-item nav-link\">les demandes</a>
+                        <a href=\"";
+        // line 21
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
+        yield "\" class=\"nav-item nav-link\">test</a>
                         <a href=\"contact.html\" class=\"nav-item nav-link\">Forum</a>
                     </div>
                 </div>
@@ -134,7 +136,7 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
         yield from [];
     }
 
-    // line 30
+    // line 29
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -147,7 +149,7 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 31
+        // line 30
         yield "<!-- Header Start -->
         <div class=\"row mt-5\">
             <div class=\"col\"></div>
@@ -164,13 +166,13 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
                 <div class=\"owl-carousel header-carousel\">
                     <div class=\"owl-carousel-item\">
                         <img class=\"img-fluid\" src=\"";
-        // line 46
+        // line 45
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/img/careeraflyer.png"), "html", null, true);
         yield "\" alt=\"flyer\" style=\"width: 90%; height: 450px; object-fit: cover;\">
                     </div>
                     <div class=\"owl-carousel-item\">
                         <img class=\"img-fluid\" src=\"";
-        // line 49
+        // line 48
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/careeragalss.png"), "html", null, true);
         yield "\" alt=\"\" style=\"width: 90%; height: 450px; object-fit: cover;\">
                     </div>
@@ -200,7 +202,7 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
                 <div class=\"row g-3 align-items-center\">
                     <div class=\"col-3\">
                         <img class=\"img-fluid rounded w-100\" src=\"";
-        // line 76
+        // line 75
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/emp.jpg"), "html", null, true);
         yield "\" alt=\"Offres d'emploi\">
                     </div>
@@ -218,7 +220,7 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
                 <div class=\"row g-3 align-items-center\">
                     <div class=\"col-3\">
                         <img class=\"img-fluid rounded w-100\" src=\"";
-        // line 91
+        // line 90
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/event.jpg"), "html", null, true);
         yield "\" alt=\"Événements\">
                     </div>
@@ -238,14 +240,18 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
                 <div class=\"row g-3 align-items-center\">
                     <div class=\"col-3\">
                         <img class=\"img-fluid rounded w-100\" src=\"";
-        // line 108
+        // line 107
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/free.jpg"), "html", null, true);
         yield "\" alt=\"Missions freelance\">
                     </div>
                     <div class=\"col-9\">
                         <h1>Missions freelance</h1>
                         <p>Nous sommes déterminés à offrir à nos utilisateurs des outils efficaces pour améliorer leurs chances de réussite et d'épanouissement professionnel.</p>
-                        <a href=\"mission/missionmod.html\" class=\"btn btn-primary py-2 px-4\"><i class=\"fas fa-cogs me-2\"></i>Gérer les missions</a>
+                       <a href=\"";
+        // line 112
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
+        yield "\" class=\"btn btn-primary py-2 px-4\"><i class=\"fas fa-cogs me-2\"></i>Gérer les missions</a>
+
                     </div>
                 </div>
             </div>
@@ -306,7 +312,7 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  261 => 124,  242 => 108,  222 => 91,  204 => 76,  174 => 49,  168 => 46,  151 => 31,  138 => 30,  108 => 11,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  267 => 124,  252 => 112,  244 => 107,  224 => 90,  206 => 75,  176 => 48,  170 => 45,  153 => 30,  140 => 29,  121 => 21,  108 => 11,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -331,8 +337,7 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
                         <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"offre/offremod.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/eventmod.html\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"mission/missionmod.html\" class=\"nav-item nav-link\">Mission freelance</a>
-                        <a href=\"demande.html\" class=\"nav-item nav-link\">les demandes</a>
+                        <a href=\"{{ path('app_offrefrelencer_index') }}\" class=\"nav-item nav-link\">test</a>
                         <a href=\"contact.html\" class=\"nav-item nav-link\">Forum</a>
                     </div>
                 </div>
@@ -423,7 +428,8 @@ class __TwigTemplate_e3e41759ced6501208ad379b8f6f2155 extends Template
                     <div class=\"col-9\">
                         <h1>Missions freelance</h1>
                         <p>Nous sommes déterminés à offrir à nos utilisateurs des outils efficaces pour améliorer leurs chances de réussite et d'épanouissement professionnel.</p>
-                        <a href=\"mission/missionmod.html\" class=\"btn btn-primary py-2 px-4\"><i class=\"fas fa-cogs me-2\"></i>Gérer les missions</a>
+                       <a href=\"{{ path('app_offrefrelencer_index') }}\" class=\"btn btn-primary py-2 px-4\"><i class=\"fas fa-cogs me-2\"></i>Gérer les missions</a>
+
                     </div>
                 </div>
             </div>

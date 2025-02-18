@@ -6,16 +6,33 @@ use App\Entity\Offre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType; // Add this line
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType; 
+use Symfony\Component\Form\Extension\Core\Type\TextType; // Bon import
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class OffreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre')
-            ->add('prix')
-            ->add('description')
+        ->add('titre', TextType::class, [
+            'constraints' => [
+                new Assert\NotBlank(['message' => 'Le titre ne peut pas être vide.']),
+            ],
+        ])
+        ->add('prix', NumberType::class, [
+            'constraints' => [
+                new Assert\GreaterThan(['value' => 0, 'message' => 'Le prix doit être supérieur à zéro.']),
+            ],
+        ])
+        ->add('description', TextType::class, [
+            'constraints' => [
+                new Assert\Length(['max' => 500, 'maxMessage' => 'La description ne peut pas dépasser {{ limit }} caractères.']),
+            ],
+        ])
             ->add('datelimite')
             ->add('specialite', ChoiceType::class, [
                 'choices'  => [
@@ -33,7 +50,7 @@ class OffreType extends AbstractType
             ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => Offre::class,

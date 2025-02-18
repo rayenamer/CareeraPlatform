@@ -73,7 +73,7 @@ class __TwigTemplate_5c6004b91966f786cecf332368daf018 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Offre";
+        yield "Détails de l'Offre";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -106,74 +106,75 @@ class __TwigTemplate_5c6004b91966f786cecf332368daf018 extends Template
                         <span>Détails de l'offre sélectionnée</span>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_01.jpg\" alt=\"\">
+                        <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image de l'offre\">
                         <div class=\"down-content\">
                             <h4>ID</h4>
                             <p>";
-        // line 20
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 20, $this->source); })()), "id", [], "any", false, false, false, 20), "html", null, true);
+        // line 21
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21), "html", null, true);
         yield "</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_02.jpg\" alt=\"\">
                         <div class=\"down-content\">
                             <h4>Titre</h4>
                             <p>";
-        // line 29
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 29, $this->source); })()), "titre", [], "any", false, false, false, 29), "html", null, true);
+        // line 30
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 30, $this->source); })()), "titre", [], "any", false, false, false, 30), "html", null, true);
         yield "</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_03.jpg\" alt=\"\">
                         <div class=\"down-content\">
                             <h4>Prix</h4>
                             <p>";
-        // line 38
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 38, $this->source); })()), "prix", [], "any", false, false, false, 38), "html", null, true);
-        yield "</p>
+        // line 39
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 39, $this->source); })()), "prix", [], "any", false, false, false, 39), "html", null, true);
+        yield " dt</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_01.jpg\" alt=\"\">
                         <div class=\"down-content\">
                             <h4>Description</h4>
                             <p>";
-        // line 47
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 47, $this->source); })()), "description", [], "any", false, false, false, 47), "html", null, true);
+        // line 48
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 48, $this->source); })()), "description", [], "any", false, false, false, 48), "html", null, true);
         yield "</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_02.jpg\" alt=\"\">
                         <div class=\"down-content\">
                             <h4>Date Limite</h4>
                             <p>";
-        // line 56
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 56, $this->source); })()), "datelimite", [], "any", false, false, false, 56), "html", null, true);
+        // line 57
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 57, $this->source); })()), "datelimite", [], "any", false, false, false, 57), "d/m/Y"), "html", null, true);
         yield "</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_03.jpg\" alt=\"\">
                         <div class=\"down-content\">
-                            <h4>Specialite</h4>
+                            <h4>Spécialité</h4>
                             <p>";
-        // line 65
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 65, $this->source); })()), "specialite", [], "any", false, false, false, 65), "html", null, true);
+        // line 66
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 66, $this->source); })()), "specialite", [], "any", false, false, false, 66), "html", null, true);
         yield "</p>
                         </div>
                     </div>
@@ -182,20 +183,20 @@ class __TwigTemplate_5c6004b91966f786cecf332368daf018 extends Template
         </div>
     </div>
 
-    <a href=\"";
-        // line 73
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
-        yield "\">Retour à la liste</a>
-
-    <a href=\"";
+    <div class=\"text-center\">
+        <a href=\"";
         // line 75
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 75, $this->source); })()), "id", [], "any", false, false, false, 75)]), "html", null, true);
-        yield "\">Modifier</a>
-
-    ";
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
+        yield "\" class=\"filled-button\">Retour à la liste</a>
+        <a href=\"";
+        // line 76
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 76, $this->source); })()), "id", [], "any", false, false, false, 76)]), "html", null, true);
+        yield "\" class=\"filled-button\">Modifier</a>
+        ";
         // line 77
         yield Twig\Extension\CoreExtension::include($this->env, $context, "offrefrelencer/_delete_form.html.twig");
         yield "
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -227,14 +228,14 @@ class __TwigTemplate_5c6004b91966f786cecf332368daf018 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  197 => 77,  192 => 75,  187 => 73,  176 => 65,  164 => 56,  152 => 47,  140 => 38,  128 => 29,  116 => 20,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  197 => 77,  193 => 76,  189 => 75,  177 => 66,  165 => 57,  153 => 48,  141 => 39,  129 => 30,  117 => 21,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Offre{% endblock %}
+{% block title %}Détails de l'Offre{% endblock %}
 
 {% block body %}
     <div class=\"services\" id=\"services\">
@@ -246,56 +247,57 @@ class __TwigTemplate_5c6004b91966f786cecf332368daf018 extends Template
                         <span>Détails de l'offre sélectionnée</span>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_01.jpg\" alt=\"\">
+                        <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image de l'offre\">
                         <div class=\"down-content\">
                             <h4>ID</h4>
                             <p>{{ offre.id }}</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_02.jpg\" alt=\"\">
                         <div class=\"down-content\">
                             <h4>Titre</h4>
                             <p>{{ offre.titre }}</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_03.jpg\" alt=\"\">
                         <div class=\"down-content\">
                             <h4>Prix</h4>
-                            <p>{{ offre.prix }}</p>
+                            <p>{{ offre.prix }} dt</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_01.jpg\" alt=\"\">
                         <div class=\"down-content\">
                             <h4>Description</h4>
                             <p>{{ offre.description }}</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_02.jpg\" alt=\"\">
                         <div class=\"down-content\">
                             <h4>Date Limite</h4>
-                            <p>{{ offre.datelimite }}</p>
+                            <p>{{ offre.datelimite|date('d/m/Y') }}</p>
                         </div>
                     </div>
                 </div>
+
                 <div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"assets/images/service_03.jpg\" alt=\"\">
                         <div class=\"down-content\">
-                            <h4>Specialite</h4>
+                            <h4>Spécialité</h4>
                             <p>{{ offre.specialite }}</p>
                         </div>
                     </div>
@@ -304,11 +306,12 @@ class __TwigTemplate_5c6004b91966f786cecf332368daf018 extends Template
         </div>
     </div>
 
-    <a href=\"{{ path('app_offrefrelencer_index') }}\">Retour à la liste</a>
-
-    <a href=\"{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}\">Modifier</a>
-
-    {{ include('offrefrelencer/_delete_form.html.twig') }}
-{% endblock %}", "offrefrelencer/show.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offrefrelencer\\show.html.twig");
+    <div class=\"text-center\">
+        <a href=\"{{ path('app_offrefrelencer_index') }}\" class=\"filled-button\">Retour à la liste</a>
+        <a href=\"{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}\" class=\"filled-button\">Modifier</a>
+        {{ include('offrefrelencer/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
+", "offrefrelencer/show.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offrefrelencer\\show.html.twig");
     }
 }

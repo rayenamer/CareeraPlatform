@@ -303,7 +303,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
                         <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"offre/offre.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/event.html\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
+                        <a href=\"/offrefrelencer\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"forum.html\" class=\"nav-item nav-link\">Forum</a>
                     </div>
                 </div>
@@ -429,7 +429,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
                         <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"offre/offre.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/event.html\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
+                        <a href=\"/offrefrelencer\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"forum.html\" class=\"nav-item nav-link\">Forum</a>
                     </div>
                 </div>
