@@ -1,10 +1,6 @@
 <?php
 
 namespace App\Entity;
-
-
-namespace App\Entity;
-
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
@@ -14,7 +10,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Component\Uid\UuidV4;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\InheritanceType("JOINED")]
@@ -33,36 +29,59 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\NotBlank(message: "L'email est requis.")]
+    #[Assert\Email(message: "Veuillez fournir une adresse email valide.")]
     private ?string $email = null;
 
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(message: "Le mot de passe est requis.")]
     private ?string $password = null;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: "Le nom est requis.")]
+    #[Assert\Length(min: 3, minMessage: "Le nom doit contenir au moins {{ limit }} caractères.")]
+    #[Assert\Regex(pattern: "/^[a-zA-Z]+$/", message: "Le nom doit contenir uniquement des lettres.")]
     private ?string $nom = null;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: "Le prénom est requis.")]
+    #[Assert\Length(min: 3, minMessage: "Le prénom doit contenir au moins {{ limit }} caractères.")]
+    #[Assert\Regex(pattern: "/^[a-zA-Z]+$/", message: "Le prénom doit contenir uniquement des lettres.")]
     private ?string $prenom = null;
 
-    private ?string $confirmPassword = null; // Non mappé, utilisé uniquement pour la validation
+    // Ce champ n'est pas mappé en base de données, il est utilisé pour la confirmation du mot de passe
+    #[Assert\NotBlank(message: "La confirmation du mot de passe est requise.")]
+    #[Assert\EqualTo(propertyPath: "password", message: "Les mots de passe doivent correspondre.")]
+    private ?string $confirmPassword = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $domaine = null;
 
     #[ORM\Column(type: 'string', length: 20, nullable: true)]
+    #[Assert\Choice(choices: ["homme", "femme"], message: "Veuillez choisir 'homme' ou 'femme'.")]
     private ?string $sexe = null;
 
     #[ORM\Column(type: 'string', length: 20, nullable: true)]
+    #[Assert\NotBlank(message: "Le numéro de téléphone est requis.")]
+    #[Assert\Length(
+        min: 8, 
+        max: 15, 
+        minMessage: "Le numéro de téléphone doit contenir au moins {{ limit }} chiffres.", 
+        maxMessage: "Le numéro de téléphone ne peut pas contenir plus de {{ limit }} chiffres."
+    )]
+    #[Assert\Regex(pattern: "/^\d+$/", message: "Le numéro de téléphone doit contenir uniquement des chiffres.")]
     private ?string $tel = null;
+
     private Collection $resetPasswordRequests;
 
     public function __construct()
     {
         $this->resetPasswordRequests = new ArrayCollection();
     }
+
     public function getId(): ?int
     {
         return $this->id;

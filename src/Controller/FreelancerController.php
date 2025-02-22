@@ -25,7 +25,8 @@ class FreelancerController extends AbstractController
     public function index(ManagerRegistry $doctrine, Request $request, SluggerInterface $slugger): Response
     {
         // Créer une instance de Freelancer
-        $freelancer = new Freelancer();
+        $freelancer = new Freelancer(); 
+        $errors = [];
         $freelancer->setReview("0");
 
         // Gérer la soumission du formulaire
@@ -37,7 +38,7 @@ class FreelancerController extends AbstractController
             $freelancer->setEmail($request->request->get('email'));
             $freelancer->setDomaine($request->request->get('domaine'));
             $freelancer->setSexe($request->request->get('sexe'));
-            $freelancer->setAdresse($request->request->get('adresse'));
+          
 
             // Gestion du mot de passe
            // Récupérer et hacher le mot de passe
@@ -46,9 +47,6 @@ if ($password) {
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     $freelancer->setPassword($hashedPassword);
 }
-
-            // Ici, vous pouvez ajouter votre propre logique pour hasher le mot de passe si nécessaire
-
             // Gérer l'upload de l'image
             $imageFile = $request->files->get('photo');
             if ($imageFile) {
@@ -66,7 +64,7 @@ if ($password) {
                     $this->addFlash('error', 'Impossible de télécharger l’image.');
                 }
             }
-
+ 
             // Gérer l'upload du CV
             $cvFile = $request->files->get('cv');
             if ($cvFile) {
@@ -136,7 +134,7 @@ if ($password) {
             $em->persist($freelancer);
             $em->flush();
 
-            return $this->redirectToRoute('app_profilefreelancer');
+            return $this->redirectToRoute('app_freelancerprofile');
         }
 
         // Affichage du formulaire manuel
@@ -159,7 +157,7 @@ if ($password) {
         $em->flush();
         $this->addFlash('success', 'Freelancer supprimé avec succès.');
 
-        return $this->redirectToRoute('app_profilefreelancer');
+        return $this->redirectToRoute('app_freelancerprofile');
     }
 
 }
