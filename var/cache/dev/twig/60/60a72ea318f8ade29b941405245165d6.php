@@ -29,10 +29,16 @@ class __TwigTemplate_0ed2c75c77587c0349ba2d99dd7073c3 extends Template
 
         $this->source = $this->getSourceContext();
 
-        $this->parent = false;
-
         $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'body' => [$this, 'block_body'],
         ];
+    }
+
+    protected function doGetParent(array $context): bool|string|Template|TemplateWrapper
+    {
+        // line 1
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = []): iterable
@@ -44,36 +50,136 @@ class __TwigTemplate_0ed2c75c77587c0349ba2d99dd7073c3 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "security/login.html.twig"));
 
-        // line 1
-        yield "<form method=\"post\" action=\"";
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        yield "\">
-    <div>
-        <label for=\"username\">Email:</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 4
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 4, $this->source); })()), "html", null, true);
-        yield "\" required autofocus>
-    </div>
-    <div>
-        <label for=\"password\">Password:</label>
-        <input type=\"password\" id=\"password\" name=\"_password\" required>
-    </div>
-
-    ";
-        // line 12
-        yield "    <input type=\"hidden\" name=\"_csrf_token\" value=\"";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
-        yield "\">
-
-    <button type=\"submit\">Login</button>
-</form>
-";
+        $this->parent = $this->loadTemplate("base.html.twig", "security/login.html.twig", 1);
+        yield from $this->parent->unwrap()->yield($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 3
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_title(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        yield "Page de Connexion";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 5
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_body(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        // line 6
+        yield "<div class=\"container d-flex justify-content-center align-items-center vh-100\">
+    <div class=\"col-md-6\">
+        <div class=\"card shadow p-4\">
+            <h1 class=\"text-center mb-4\" style=\"font-weight: bold;\">Page de Connexion</h1>
+            <form method=\"POST\" action=\"";
+        // line 10
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        yield "\">
+                <!-- CSRF Token for security -->
+                <input type=\"hidden\" name=\"_csrf_token\" value=\"";
+        // line 12
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
+        yield "\">
+
+                <!-- Champ Email ou Téléphone -->
+                <div class=\"mb-3\">
+                    <label for=\"email\" class=\"form-label\" style=\"font-size: 0.9rem;\">Email ou Téléphone:</label>
+                    <input 
+                        type=\"text\" 
+                        class=\"form-control\" 
+                        id=\"email\" 
+                        name=\"email\" 
+                        required
+                        placeholder=\"Entrez votre email ou numéro de téléphone\"
+                        style=\"font-size: 0.9rem;\"
+                    >
+                </div>
+
+                <!-- Mot de passe -->
+                <div class=\"mb-3\">
+                    <label for=\"motdepasse\" class=\"form-label\" style=\"font-size: 0.9rem;\">Mot de passe:</label>
+                    <input 
+                        type=\"password\" 
+                        class=\"form-control\" 
+                        id=\"motdepasse\" 
+                        name=\"motdepasse\" 
+                        required
+                        placeholder=\"Entrez votre mot de passe\"
+                        style=\"font-size: 0.9rem;\"
+                    >
+                </div>
+
+                <!-- Bouton de connexion -->
+                <button type=\"submit\" class=\"btn btn-primary w-100\" style=\"font-size: 1rem;\">
+                    Se connecter
+                </button>
+       <!-- Lien mot de passe oublié sous le bouton de connexion -->
+                <div class=\"text-center mt-3\">
+                    <a href=\"";
+        // line 48
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forgot_password_request");
+        yield "\" style=\"font-size: 0.9rem; color: #007bff;\" >
+                        Mot de passe oublié ?
+                    </a>
+                </div>
+                <hr> 
+
+
+                <!-- Bouton Créer un compte -->
+                <button 
+                    type=\"button\" 
+                    class=\"btn btn-success w-100\" 
+                    style=\"font-size: 1rem;\"
+                    onclick=\"window.location.href='";
+        // line 60
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+        yield "'\"
+                >
+                    Créer un compte
+                </button>
+
+         
+            </form>
+        </div>
+    </div>
+</div>
+
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
         yield from [];
     }
@@ -99,26 +205,82 @@ class __TwigTemplate_0ed2c75c77587c0349ba2d99dd7073c3 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  65 => 12,  55 => 4,  48 => 1,);
+        return array (  165 => 60,  150 => 48,  111 => 12,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
-        return new Source("<form method=\"post\" action=\"{{ path('app_login') }}\">
-    <div>
-        <label for=\"username\">Email:</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\" required autofocus>
-    </div>
-    <div>
-        <label for=\"password\">Password:</label>
-        <input type=\"password\" id=\"password\" name=\"_password\" required>
-    </div>
+        return new Source("{% extends 'base.html.twig' %}
 
-    {# ✅ Add this hidden field for CSRF protection #}
-    <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
+{% block title %}Page de Connexion{% endblock %}
 
-    <button type=\"submit\">Login</button>
-</form>
+{% block body %}
+<div class=\"container d-flex justify-content-center align-items-center vh-100\">
+    <div class=\"col-md-6\">
+        <div class=\"card shadow p-4\">
+            <h1 class=\"text-center mb-4\" style=\"font-weight: bold;\">Page de Connexion</h1>
+            <form method=\"POST\" action=\"{{ path('app_login') }}\">
+                <!-- CSRF Token for security -->
+                <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
+
+                <!-- Champ Email ou Téléphone -->
+                <div class=\"mb-3\">
+                    <label for=\"email\" class=\"form-label\" style=\"font-size: 0.9rem;\">Email ou Téléphone:</label>
+                    <input 
+                        type=\"text\" 
+                        class=\"form-control\" 
+                        id=\"email\" 
+                        name=\"email\" 
+                        required
+                        placeholder=\"Entrez votre email ou numéro de téléphone\"
+                        style=\"font-size: 0.9rem;\"
+                    >
+                </div>
+
+                <!-- Mot de passe -->
+                <div class=\"mb-3\">
+                    <label for=\"motdepasse\" class=\"form-label\" style=\"font-size: 0.9rem;\">Mot de passe:</label>
+                    <input 
+                        type=\"password\" 
+                        class=\"form-control\" 
+                        id=\"motdepasse\" 
+                        name=\"motdepasse\" 
+                        required
+                        placeholder=\"Entrez votre mot de passe\"
+                        style=\"font-size: 0.9rem;\"
+                    >
+                </div>
+
+                <!-- Bouton de connexion -->
+                <button type=\"submit\" class=\"btn btn-primary w-100\" style=\"font-size: 1rem;\">
+                    Se connecter
+                </button>
+       <!-- Lien mot de passe oublié sous le bouton de connexion -->
+                <div class=\"text-center mt-3\">
+                    <a href=\"{{path('app_forgot_password_request')}}\" style=\"font-size: 0.9rem; color: #007bff;\" >
+                        Mot de passe oublié ?
+                    </a>
+                </div>
+                <hr> 
+
+
+                <!-- Bouton Créer un compte -->
+                <button 
+                    type=\"button\" 
+                    class=\"btn btn-success w-100\" 
+                    style=\"font-size: 1rem;\"
+                    onclick=\"window.location.href='{{ path('app_register') }}'\"
+                >
+                    Créer un compte
+                </button>
+
+         
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
 ", "security/login.html.twig", "C:\\CareeraPlatform\\templates\\security\\login.html.twig");
     }
 }

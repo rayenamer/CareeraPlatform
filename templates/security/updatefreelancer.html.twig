@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Freelancer{% endblock %}
+
+{% block body %}
+<div class="container mb-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-4 rounded-4">
+        <h3 class="text-center mb-4 fw-bold text-primary">
+          <i class="fas fa-user-edit"></i> Modifier un Freelancer
+        </h3>
+        <form action="" method="post" enctype="multipart/form-data" novalidate="novalidate">
+          <div class="row mb-3">
+            <div class="col">
+              <label for="nom" class="form-label fw-semibold">Nom :</label>
+              <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" value="{{ freelancer.nom|default('') }}" required>
+            </div>
+            <div class="col">
+              <label for="prenom" class="form-label fw-semibold">Prénom :</label>
+              <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Votre prénom" value="{{ freelancer.prenom|default('') }}" required>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="email" class="form-label fw-semibold">Email :</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="exemple@email.com"
+                   value="{{ freelancer.email|default('') }}" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="adresse" class="form-label fw-semibold">Adresse :</label>
+            <input type="text" id="adresse" name="adresse" class="form-control" placeholder="Votre adresse" value="{{ freelancer.adresse|default('') }}">
+          </div>
+          
+          <div class="mb-3">
+            <label for="domaine" class="form-label fw-semibold">Domaine :</label>
+            <input type="text" id="domaine" name="domaine" class="form-control" placeholder="Domaine d'activité" value="{{ freelancer.domaine|default('') }}">
+          </div>
+          
+          <div class="mb-3">
+            <label for="tel" class="form-label fw-semibold">Téléphone :</label>
+            <input type="text" id="tel" name="tel" class="form-control" placeholder="+216 99 999 999" value="{{ freelancer.tel|default('') }}">
+          </div>
+          
+          <div class="mb-3">
+            <label for="photo" class="form-label fw-semibold">Photo de profil :</label>
+            <input type="file" id="photo" name="photo" class="form-control">
+            {% if freelancer.photo %}
+              <p class="mt-2">Photo actuelle : <img src="{{ asset('uploads/' ~ freelancer.photo) }}" alt="Photo de profil" width="100"></p>
+            {% endif %}
+          </div>
+          
+          <div class="mb-3">
+            <label for="sexe" class="form-label fw-semibold">Sexe :</label>
+            <select id="sexe" name="sexe" class="form-control">
+              <option value="">Choisir un sexe</option>
+              <option value="Homme" {% if freelancer.sexe == 'Homme' %}selected{% endif %}>Homme</option>
+              <option value="Femme" {% if freelancer.sexe == 'Femme' %}selected{% endif %}>Femme</option>
+              <option value="Autres" {% if freelancer.sexe == 'Autres' %}selected{% endif %}>Autres</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="cv" class="form-label fw-semibold">CV (PDF) :</label>
+            <input type="file" id="cv" name="cv" class="form-control" accept=".pdf">
+            {% if freelancer.cv %}
+              <p class="mt-2">CV actuel : <a href="{{ asset('uploads/' ~ freelancer.cv) }}" target="_blank">Télécharger</a></p>
+            {% endif %}
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 fw-bold">
+            <i class="fas fa-check-circle"></i> Modifier
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

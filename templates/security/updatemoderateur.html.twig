@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier{% endblock %}
+
+{% block body %}
+<div class="container mb-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-4 rounded-4">
+        <h3 class="text-center mb-4 fw-bold text-primary">
+          <i class="fas fa-user-plus"></i> Modifier
+        </h3>
+        <form action="" method="post" enctype="multipart/form-data" novalidate="novalidate">
+          <div class="row mb-3">
+            <div class="col">
+              <label for="nom" class="form-label fw-semibold">Nom :</label>
+              <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" value="{{  moderateur.nom|default('') }}" required>
+            </div>
+            <div class="col">
+              <label for="prenom" class="form-label fw-semibold">Prénom :</label>
+              <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Votre prénom" value="{{  moderateur.prenom|default('') }}" required>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="email" class="form-label fw-semibold">Email :</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="exemple@email.com"
+                   value="{{ moderateur.email|default('') }}" required>
+          </div>
+          <div class="col">
+  <label for="societe" class="form-label fw-semibold">Société :</label>
+  <input type="text" id="societe" name="societe" class="form-control" placeholder="Votre société" value="{{ moderateur.societe|default('') }}" required>
+</div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <label for="motdepasse" class="form-label fw-semibold">Mot de passe :</label>
+              <input type="password" id="motdepasse" name="motdepasse" class="form-control" placeholder="********" required>
+            </div>
+            <div class="col">
+              <label for="confirmpasse" class="form-label fw-semibold">Confirmer :</label>
+              <input type="password" id="confirmpasse" name="confirmpasse" class="form-control" placeholder="********" required>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="Adresse" class="form-label fw-semibold">Adresse :</label>
+            <input type="text" id="Adresse" name="Adresse" class="form-control" placeholder="Votre adresse" value="{{ chercheur.Adresse|default('') }}">
+          </div>
+          
+          <div class="mb-3">
+            <label for="domaine" class="form-label fw-semibold">Domaine :</label>
+            <input type="text" id="domaine" name="domaine" class="form-control" placeholder="Domaine d'activité" value="{{ chercheur.domaine|default('') }}">
+          </div>
+          
+          <div class="mb-3">
+            <label for="tel" class="form-label fw-semibold">Téléphone :</label>
+            <input type="text" id="tel" name="tel" class="form-control" placeholder="+216 99 999 999" value="{{ chercheur.tel|default('') }}">
+          </div>
+      
+          
+     
+
+          
+          <div class="mb-3">
+            <label for="cv" class="form-label fw-semibold">CV (PDF) :</label>
+            <input type="file" id="cv" name="cv" class="form-control" accept=".pdf">
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-100 fw-bold">
+            <i class="fas fa-check-circle"></i> Modifier
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Freelancer{% endblock %}
+
+{% block body %}
+
+    <meta charset="UTF-8">
+    <title>Inscription Freelancer</title>
+    {# Ajoutez ici vos liens CSS (par exemple Bootstrap) si nécessaire #}
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h1 class="text-center mb-4">Inscription Freelancer</h1>
+          <form method="post" action="{{ path('app_freelancer') }}" enctype="multipart/form-data">
+            
+            <div class="form-group">
+              <label for="nom">Nom :</label>
+              <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" required><br>
+            </div>
+            
+            <div class="form-group mt-3">
+              <label for="prenom">Prénom :</label>
+              <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Votre prénom" required><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="tel">Téléphone :</label>
+              <input type="text" id="tel" name="tel" class="form-control" placeholder="+216 99 999 999" required><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="email">Email :</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="exemple@email.com" required><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="password">Mot de passe :</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="********" required><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="confirm_password">Confirmation du mot de passe :</label>
+              <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirmer votre mot de passe" required><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="domaine">Domaine :</label>
+              <input type="text" id="domaine" name="domaine" class="form-control" placeholder="Votre domaine"><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="sexe">Sexe :</label>
+              <select id="sexe" name="sexe" class="form-control">
+               <option value="" disabled selected>Choisir un sexe</option>
+               <option value="femme">Femme</option>
+               <option value="homme">Homme</option>
+               <option value="autre">Autre</option>
+              </select><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="experience">Années d'expérience :</label>
+              <input type="number" id="experience" name="experience" class="form-control" placeholder="Nombre d'années"><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="adresse">Adresse :</label>
+              <input type="text" id="adresse" name="adresse" class="form-control" placeholder="Votre adresse" required><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="photo">Photo :</label>
+              <input type="file" id="photo" name="photo" accept="image/*" class="form-control"><br>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="cv">CV (PDF ou image) :</label>
+              <input type="file" id="cv" name="cv" accept=".pdf,image/*" class="form-control"><br>
+            </div>
+
+<div class="form-group mt-4 text-center">
+  <button type="submit" class="btn btn-primary">S'inscrire</button>
+</div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+   
+  </body>
+</html>
+{% endblock %}

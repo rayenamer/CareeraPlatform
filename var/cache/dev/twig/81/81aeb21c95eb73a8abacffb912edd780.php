@@ -73,7 +73,7 @@ class __TwigTemplate_f590e1ef0152ca33f6265223271d0d8d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Register";
+        yield "Inscription";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -97,19 +97,52 @@ class __TwigTemplate_f590e1ef0152ca33f6265223271d0d8d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Register</h1>
+        yield "<div class=\"container vh-100 d-flex justify-content-center align-items-center\">
+    <div class=\"col-md-6\">
+        <div class=\"card shadow p-4 text-center\">
+            <h1 class=\"mb-3\" style=\"font-weight: bold;\">Créer un compte</h1>
+            <p class=\"mb-4\" style=\"font-size: 1rem;\">
+                Sélectionnez le type de compte qui correspond le mieux à votre profil :
+            </p>
 
-    <form method=\"post\">
-        <div>
-            <label for=\"email\">Email:</label>
-            <input type=\"email\" id=\"email\" name=\"email\" required>
+            <!-- Bouton Freelancer -->
+            <button 
+                class=\"btn btn-outline-primary w-100 mb-3\" 
+                style=\"font-size: 1rem;\" 
+                onclick=\"window.location.href='";
+        // line 18
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_freelancer");
+        yield "'\"
+            >
+                Freelancer
+            </button>
+
+            <!-- Bouton Jeune Diplômé / Professionnel -->
+            <button 
+                class=\"btn btn-outline-primary w-100 mb-3\" 
+                style=\"font-size: 1rem;\" 
+                onclick=\"window.location.href='";
+        // line 27
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_chercheur");
+        yield "'\"
+            >
+                Jeune Diplômé / Professionnel
+            </button>
+
+            <!-- Bouton RH / Recruteur -->
+            <button 
+                class=\"btn btn-outline-primary w-100\" 
+                style=\"font-size: 1rem;\" 
+                onclick=\"window.location.href='";
+        // line 36
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_moderateur");
+        yield "'\"
+            >
+                RH / Recruteur
+            </button>
         </div>
-        <div>
-            <label for=\"password\">Password:</label>
-            <input type=\"password\" id=\"password\" name=\"password\" required>
-        </div>
-        <button type=\"submit\">Register</button>
-    </form>
+    </div>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -141,29 +174,53 @@ class __TwigTemplate_f590e1ef0152ca33f6265223271d0d8d extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  138 => 36,  126 => 27,  114 => 18,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<div class=\"container vh-100 d-flex justify-content-center align-items-center\">
+    <div class=\"col-md-6\">
+        <div class=\"card shadow p-4 text-center\">
+            <h1 class=\"mb-3\" style=\"font-weight: bold;\">Créer un compte</h1>
+            <p class=\"mb-4\" style=\"font-size: 1rem;\">
+                Sélectionnez le type de compte qui correspond le mieux à votre profil :
+            </p>
 
-    <form method=\"post\">
-        <div>
-            <label for=\"email\">Email:</label>
-            <input type=\"email\" id=\"email\" name=\"email\" required>
+            <!-- Bouton Freelancer -->
+            <button 
+                class=\"btn btn-outline-primary w-100 mb-3\" 
+                style=\"font-size: 1rem;\" 
+                onclick=\"window.location.href='{{ path('app_freelancer') }}'\"
+            >
+                Freelancer
+            </button>
+
+            <!-- Bouton Jeune Diplômé / Professionnel -->
+            <button 
+                class=\"btn btn-outline-primary w-100 mb-3\" 
+                style=\"font-size: 1rem;\" 
+                onclick=\"window.location.href='{{ path('app_chercheur') }}'\"
+            >
+                Jeune Diplômé / Professionnel
+            </button>
+
+            <!-- Bouton RH / Recruteur -->
+            <button 
+                class=\"btn btn-outline-primary w-100\" 
+                style=\"font-size: 1rem;\" 
+                onclick=\"window.location.href='{{ path('app_moderateur') }}'\"
+            >
+                RH / Recruteur
+            </button>
         </div>
-        <div>
-            <label for=\"password\">Password:</label>
-            <input type=\"password\" id=\"password\" name=\"password\" required>
-        </div>
-        <button type=\"submit\">Register</button>
-    </form>
+    </div>
+</div>
 {% endblock %}
 ", "security/register.html.twig", "C:\\CareeraPlatform\\templates\\security\\register.html.twig");
     }

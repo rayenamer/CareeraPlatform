@@ -1,15 +1,71 @@
-<form method="post" action="{{ path('app_login') }}">
-    <div>
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required autofocus>
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password" required>
-    </div>
+{% extends 'base.html.twig' %}
 
-    {# ✅ Add this hidden field for CSRF protection #}
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+{% block title %}Page de Connexion{% endblock %}
 
-    <button type="submit">Login</button>
-</form>
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-6">
+        <div class="card shadow p-4">
+            <h1 class="text-center mb-4" style="font-weight: bold;">Page de Connexion</h1>
+            <form method="POST" action="{{ path('app_login') }}">
+                <!-- CSRF Token for security -->
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <!-- Champ Email ou Téléphone -->
+                <div class="mb-3">
+                    <label for="email" class="form-label" style="font-size: 0.9rem;">Email ou Téléphone:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="email" 
+                        name="email" 
+                        required
+                        placeholder="Entrez votre email ou numéro de téléphone"
+                        style="font-size: 0.9rem;"
+                    >
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="mb-3">
+                    <label for="motdepasse" class="form-label" style="font-size: 0.9rem;">Mot de passe:</label>
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        id="motdepasse" 
+                        name="motdepasse" 
+                        required
+                        placeholder="Entrez votre mot de passe"
+                        style="font-size: 0.9rem;"
+                    >
+                </div>
+
+                <!-- Bouton de connexion -->
+                <button type="submit" class="btn btn-primary w-100" style="font-size: 1rem;">
+                    Se connecter
+                </button>
+       <!-- Lien mot de passe oublié sous le bouton de connexion -->
+                <div class="text-center mt-3">
+                    <a href="{{path('app_forgot_password_request')}}" style="font-size: 0.9rem; color: #007bff;" >
+                        Mot de passe oublié ?
+                    </a>
+                </div>
+                <hr> 
+
+
+                <!-- Bouton Créer un compte -->
+                <button 
+                    type="button" 
+                    class="btn btn-success w-100" 
+                    style="font-size: 1rem;"
+                    onclick="window.location.href='{{ path('app_register') }}'"
+                >
+                    Créer un compte
+                </button>
+
+         
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

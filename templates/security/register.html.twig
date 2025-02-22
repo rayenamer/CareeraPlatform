@@ -1,19 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
+        <div class="card shadow p-4 text-center">
+            <h1 class="mb-3" style="font-weight: bold;">Créer un compte</h1>
+            <p class="mb-4" style="font-size: 1rem;">
+                Sélectionnez le type de compte qui correspond le mieux à votre profil :
+            </p>
 
-    <form method="post">
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <!-- Bouton Freelancer -->
+            <button 
+                class="btn btn-outline-primary w-100 mb-3" 
+                style="font-size: 1rem;" 
+                onclick="window.location.href='{{ path('app_freelancer') }}'"
+            >
+                Freelancer
+            </button>
+
+            <!-- Bouton Jeune Diplômé / Professionnel -->
+            <button 
+                class="btn btn-outline-primary w-100 mb-3" 
+                style="font-size: 1rem;" 
+                onclick="window.location.href='{{ path('app_chercheur') }}'"
+            >
+                Jeune Diplômé / Professionnel
+            </button>
+
+            <!-- Bouton RH / Recruteur -->
+            <button 
+                class="btn btn-outline-primary w-100" 
+                style="font-size: 1rem;" 
+                onclick="window.location.href='{{ path('app_moderateur') }}'"
+            >
+                RH / Recruteur
+            </button>
         </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">Register</button>
-    </form>
+    </div>
+</div>
 {% endblock %}
