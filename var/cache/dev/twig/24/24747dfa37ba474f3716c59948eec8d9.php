@@ -175,52 +175,53 @@ class __TwigTemplate_e2c62476f253194e06a1ffdd6c2c2698 extends Template
             // line 31
             yield ((CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "sexe", [], "any", true, true, false, 31)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "sexe", [], "any", false, false, false, 31), "html", null, true)) : ("Sexe indisponible"));
             yield "</p>
-
+   
+ 
                     ";
-            // line 33
-            if (CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "cv", [], "any", true, true, false, 33)) {
-                // line 34
+            // line 34
+            if (CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "cv", [], "any", true, true, false, 34)) {
+                // line 35
                 yield "                        <a href=\"";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/cv/" . CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "cv", [], "any", false, false, false, 34))), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/cv/" . CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "cv", [], "any", false, false, false, 35))), "html", null, true);
                 yield "\" class=\"btn btn-outline-primary mt-3\" download>
                             Télécharger CV
                         </a>
                     ";
             } else {
-                // line 38
+                // line 39
                 yield "                        <p>CV non disponible</p>
                     ";
             }
-            // line 40
+            // line 41
             yield "
                     <!-- Bouton Modifier -->
                     <a href=\"";
-            // line 42
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatefreelancer", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "id", [], "any", false, false, false, 42)]), "html", null, true);
+            // line 43
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatefreelancer", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "id", [], "any", false, false, false, 43)]), "html", null, true);
             yield "\" class=\"btn btn-success mt-3\">
                         Modifier
                     </a>
 
                     <!-- Bouton Supprimer -->
                     <a href=\"";
-            // line 47
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletefreelancer", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "id", [], "any", false, false, false, 47)]), "html", null, true);
+            // line 48
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletefreelancer", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "id", [], "any", false, false, false, 48)]), "html", null, true);
             yield "\" class=\"btn btn-danger mt-3\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce profil ?')\">
                         Supprimer
                     </a>
                 ";
             $context['_iterated'] = true;
         }
-        // line 52
+        // line 53
         if (!$context['_iterated']) {
-            // line 51
+            // line 52
             yield "                    <p>Aucun profil trouvé.</p>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['profile'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 53
+        // line 54
         yield "            </div>
         </div>
     </div>
@@ -256,7 +257,7 @@ class __TwigTemplate_e2c62476f253194e06a1ffdd6c2c2698 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  224 => 53,  217 => 51,  215 => 52,  207 => 47,  199 => 42,  195 => 40,  191 => 38,  183 => 34,  181 => 33,  176 => 31,  172 => 30,  168 => 29,  164 => 28,  160 => 27,  155 => 25,  151 => 24,  148 => 23,  143 => 22,  138 => 19,  131 => 17,  125 => 15,  115 => 13,  113 => 12,  110 => 11,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  225 => 54,  218 => 52,  216 => 53,  208 => 48,  200 => 43,  196 => 41,  192 => 39,  184 => 35,  182 => 34,  176 => 31,  172 => 30,  168 => 29,  164 => 28,  160 => 27,  155 => 25,  151 => 24,  148 => 23,  143 => 22,  138 => 19,  131 => 17,  125 => 15,  115 => 13,  113 => 12,  110 => 11,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -292,7 +293,8 @@ class __TwigTemplate_e2c62476f253194e06a1ffdd6c2c2698 extends Template
                     <p><strong>Adresse :</strong> {{ profile.adresse is defined ? profile.adresse : 'Adresse indisponible' }}</p>
                     <p><strong>Domaine :</strong> {{ profile.domaine is defined ? profile.domaine : 'Domaine indisponible' }}</p>
                     <p><strong>Sexe :</strong> {{ profile.sexe is defined ? profile.sexe : 'Sexe indisponible' }}</p>
-
+   
+ 
                     {% if profile.cv is defined %}
                         <a href=\"{{ asset('uploads/cv/' ~ profile.cv) }}\" class=\"btn btn-outline-primary mt-3\" download>
                             Télécharger CV

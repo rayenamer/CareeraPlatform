@@ -119,6 +119,10 @@ class __TwigTemplate_0ed2c75c77587c0349ba2d99dd7073c3 extends Template
                         class=\"form-control\" 
                         id=\"email\" 
                         name=\"email\" 
+                          value=\"";
+        // line 22
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 22, $this->source); })()), "html", null, true);
+        yield "\" 
                         required
                         placeholder=\"Entrez votre email ou numéro de téléphone\"
                         style=\"font-size: 0.9rem;\"
@@ -146,7 +150,7 @@ class __TwigTemplate_0ed2c75c77587c0349ba2d99dd7073c3 extends Template
        <!-- Lien mot de passe oublié sous le bouton de connexion -->
                 <div class=\"text-center mt-3\">
                     <a href=\"";
-        // line 48
+        // line 49
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forgot_password_request");
         yield "\" style=\"font-size: 0.9rem; color: #007bff;\" >
                         Mot de passe oublié ?
@@ -161,7 +165,7 @@ class __TwigTemplate_0ed2c75c77587c0349ba2d99dd7073c3 extends Template
                     class=\"btn btn-success w-100\" 
                     style=\"font-size: 1rem;\"
                     onclick=\"window.location.href='";
-        // line 60
+        // line 61
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         yield "'\"
                 >
@@ -205,7 +209,7 @@ class __TwigTemplate_0ed2c75c77587c0349ba2d99dd7073c3 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  165 => 60,  150 => 48,  111 => 12,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  169 => 61,  154 => 49,  124 => 22,  111 => 12,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -231,6 +235,7 @@ class __TwigTemplate_0ed2c75c77587c0349ba2d99dd7073c3 extends Template
                         class=\"form-control\" 
                         id=\"email\" 
                         name=\"email\" 
+                          value=\"{{ last_username }}\" 
                         required
                         placeholder=\"Entrez votre email ou numéro de téléphone\"
                         style=\"font-size: 0.9rem;\"

@@ -29,7 +29,8 @@
                     <p><strong>Adresse :</strong> {{ profile.adresse is defined ? profile.adresse : 'Adresse indisponible' }}</p>
                     <p><strong>Domaine :</strong> {{ profile.domaine is defined ? profile.domaine : 'Domaine indisponible' }}</p>
                     <p><strong>Sexe :</strong> {{ profile.sexe is defined ? profile.sexe : 'Sexe indisponible' }}</p>
-
+   
+ 
                     {% if profile.cv is defined %}
                         <a href="{{ asset('uploads/cv/' ~ profile.cv) }}" class="btn btn-outline-primary mt-3" download>
                             Télécharger CV
