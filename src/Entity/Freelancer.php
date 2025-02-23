@@ -16,24 +16,26 @@ class Freelancer extends User
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: "Le CV est obligatoire.")]
-    private string $cv;
-
+    private string $cv; 
+    
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $adresse = null;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $anneesExperience = null; 
 
-    private $review;
-
-    // Méthode pour définir la valeur de review
-    public function setReview(string $review): self
+    
+    public function getAdresse(): string
     {
-        $this->review = $review;
+        return $this->adresse;
+    }
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
         return $this;
     }
 
-    // Getters et setters pour photo et cv
+
 
     public function getPhoto(): string
     {

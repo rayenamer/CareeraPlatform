@@ -26,21 +26,19 @@ class FreelancerController extends AbstractController
     {
         // Créer une instance de Freelancer
         $freelancer = new Freelancer(); 
-        $errors = [];
-        $freelancer->setReview("0");
 
         // Gérer la soumission du formulaire
         if ($request->isMethod('POST')) {
             // Récupérer les données depuis la requête
             $freelancer->setNom($request->request->get('nom'));
             $freelancer->setPrenom($request->request->get('prenom'));
-            $freelancer->setTel($request->request->get('tel'));
             $freelancer->setEmail($request->request->get('email'));
+            $freelancer->setTel($request->request->get('tel'));
+            $freelancer->setAdresse($request->request->get('adresse'));
             $freelancer->setDomaine($request->request->get('domaine'));
             $freelancer->setSexe($request->request->get('sexe'));
-          
 
-            // Gestion du mot de passe
+        
            // Récupérer et hacher le mot de passe
 $password = $request->request->get('password');
 if ($password) {
@@ -134,7 +132,7 @@ if ($password) {
             $em->persist($freelancer);
             $em->flush();
 
-            return $this->redirectToRoute('app_freelancerprofile');
+            return $this->redirectToRoute('app_profilefreelancer');
         }
 
         // Affichage du formulaire manuel
@@ -157,7 +155,7 @@ if ($password) {
         $em->flush();
         $this->addFlash('success', 'Freelancer supprimé avec succès.');
 
-        return $this->redirectToRoute('app_freelancerprofile');
+        return $this->redirectToRoute('app_profilefreelancer');
     }
 
 }
