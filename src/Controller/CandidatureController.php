@@ -13,18 +13,27 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 final class CandidatureController extends AbstractController
 {
+    private TranslatorInterface $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     #[Route('/candidature', name: 'app_candidature')]
     public function index(CandidatureRepository $rep): Response
     {
-        $candidature= $rep->findAll();
+        $candidature = $rep->findAll();
         return $this->render('candidature/index.html.twig', [
             'tabcandidature' => $candidature,
         ]);
     }
-
     #[Route('/showcandidature', name: 'app_showcandidature')]
     public function showcandidature(CandidatureRepository $rep): Response
     {
@@ -46,7 +55,7 @@ final class CandidatureController extends AbstractController
         $offre = $em->getRepository(Offre::class)->find($id);
 
         if (!$offre) {
-            throw $this->createNotFoundException('Offre non trouvée');
+            throw $this->createNotFoundException($this->translator->trans('Offre non trouvée'));
         }
 
         $candidature = new Candidature();
@@ -58,6 +67,12 @@ final class CandidatureController extends AbstractController
         //if ($user->getCv()) {
           //  $candidature->setCv($user->getCv());
         //}
+        $file = $form->get('cv')->getData();
+        if ($file) {
+            $fileName = uniqid().'.'.$file->guessExtension();
+            $file->move($this->getParameter('cv_directory'), $fileName);
+            $candidature->setCv($fileName);
+        }
         if ($form->isSubmitted() && $form->isValid()) {
 
             $em->persist($candidature);
@@ -153,5 +168,35 @@ final class CandidatureController extends AbstractController
             'tabcandidature' => $candidatures,
         ]);
     }
+
+    #[Route('/export/pdf/{id}', name: 'app_export_pdf')]
+public function exportToPdf(CandidatureRepository $rep, int $id): Response
+{
+    $pdfOptions = new Options();
+    $pdfOptions->set('defaultFont', 'Arial');
+
+    $dompdf = new Dompdf($pdfOptions);
+
+    // Récupérer une seule candidature par ID
+    $candidature = $rep->find($id);
+
+    if (!$candidature) {
+        throw $this->createNotFoundException("Candidature introuvable");
+    }
+
+    $html = $this->renderView('candidature/pdf.html.twig', [
+        'candidature' => $candidature, // Passer une seule candidature
+    ]);
+
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+
+    return new Response($dompdf->output(), 200, [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'inline; filename="candidature_'.$id.'.pdf"',
+    ]);
+}
+
 
 }

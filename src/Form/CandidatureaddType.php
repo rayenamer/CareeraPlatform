@@ -27,24 +27,21 @@ class CandidatureaddType extends AbstractType
                     new NotBlank(['message' => 'Veuillez entrer une date.']),
                 ],
             ])
-            ->add('Utlisateur', TextType::class, [])
+            ->add('utilisateur', TextType::class, [])
             ->add('cv', FileType::class, [
-                'label' => 'Image (JPG, PNG)',
-                'mapped' => false,
-                'required' => true,
+                'label' => 'CV (PDF ou DOCX)',
+                'mapped' => false, // Si le fichier est géré manuellement
+                'required' => true, // Rendre obligatoire
                 'constraints' => [
-                    new NotBlank(['message' => 'Veuillez télécharger une image.']),
+                    new NotBlank(),
                     new File([
                         'maxSize' => '2M',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                            'image/jpg',
-                        ],
-                        'mimeTypesMessage' => 'Veuillez télécharger une image au format JPG ou PNG valide.',
+                        'mimeTypes' => ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+                        'mimeTypesMessage' => 'Veuillez télécharger un fichier PDF ou DOCX valide',
                     ]),
                 ],
             ])
+            
             
             ->add('lettremotivation', TextType::class, [
                 'label' => 'Lettre de motivation',

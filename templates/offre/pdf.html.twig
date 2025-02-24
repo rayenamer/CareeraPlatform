@@ -1,0 +1,61 @@
+{% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .header {
+        position: relative;
+        text-align: right; /* Align to the right */
+        padding: 10px; /* Optional padding */
+    }
+</style>
+
+<div class="header">
+    <h3>CareEra</h3>
+</div>
+
+<h2>Liste des Offres</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Poste/Stage</th>
+            <th>Entreprise</th>
+            <th>Localisation</th>
+            <th>Salaire</th>
+            <th>Type de Contrat</th>
+            <th>Type d'Offre</th>
+            <th>Disponibilité</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for offre in offres %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ offre.nomposte }}</td>
+                <td>{{ offre.entreprise }}</td>
+                <td>{{ offre.localisation }}</td>
+                <td>{{ offre.salaire }} DT</td>
+                <td>{{ offre.typecontrat.nom }}</td>
+                <td>{{ offre.typeoffre.nom }}</td>
+                <td>{{ offre.disponibilite ? 'Disponible' : 'Indisponible' }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

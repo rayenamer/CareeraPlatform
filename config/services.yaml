@@ -6,12 +6,12 @@
 parameters:
     images_directory: '%kernel.project_dir%/public/uploads/images'
     cv_directory: '%kernel.project_dir%/public/uploads/cvs'
-
+    locale: 'fr'
 services:
     _defaults:
         autowire: true
         autoconfigure: true
-        
+    Dompdf\Dompdf: ~
     App\Entity\Offre:
         autowire: true
         autoconfigure: true

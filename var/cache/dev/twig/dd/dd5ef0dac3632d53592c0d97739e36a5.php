@@ -77,11 +77,13 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
     <link href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css\" rel=\"stylesheet\">
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css\" rel=\"stylesheet\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css\">
+    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\" integrity=\"sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMC4A5M3b6B+QZgq1RQFOc6CkzZZU0jzKh7H7r\" crossorigin=\"anonymous\">
+
 
 ";
-        // line 24
+        // line 26
         yield from $this->unwrap()->yieldBlock('extra_css', $context, $blocks);
-        // line 35
+        // line 37
         yield "</head>
 
 
@@ -96,9 +98,9 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
         <!-- Spinner End -->
 
 ";
-        // line 48
+        // line 50
         yield from $this->unwrap()->yieldBlock('navbar', $context, $blocks);
-        // line 75
+        // line 77
         yield "        <main>";
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
         yield "</main>
@@ -172,26 +174,26 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
     <script src=\"https://code.jquery.com/jquery-3.4.1.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js\"></script>
     <script src=\"";
-        // line 145
+        // line 147
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/wow/wow.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 146
+        // line 148
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/easing/easing.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 147
+        // line 149
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/waypoints/waypoints.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 148
+        // line 150
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/owlcarousel/owl.carousel.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
 
     <!-- Template Javascript -->
     <script src=\"";
-        // line 152
+        // line 154
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
         yield "\"></script>
 </body>
@@ -229,7 +231,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
         yield from [];
     }
 
-    // line 24
+    // line 26
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -242,26 +244,26 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "extra_css"));
 
-        // line 25
+        // line 27
         yield "    <!-- Libraries Stylesheet -->
     <link href=\"";
-        // line 26
+        // line 28
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/animate/animate.min.css"), "html", null, true);
         yield "\" rel=\"stylesheet\">
     <link href=\"";
-        // line 27
+        // line 29
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/owlcarousel/assets/owl.carousel.min.css"), "html", null, true);
         yield "\" rel=\"stylesheet\">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href=\"";
-        // line 30
+        // line 32
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/bootstrap.min.css"), "html", null, true);
         yield "\" rel=\"stylesheet\">
 
     <!-- Template Stylesheet -->
     <link href=\"";
-        // line 33
+        // line 35
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style.css"), "html", null, true);
         yield "\" rel=\"stylesheet\">
 ";
@@ -274,7 +276,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
         yield from [];
     }
 
-    // line 48
+    // line 50
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -287,17 +289,17 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
 
-        // line 49
+        // line 51
         yield "        <!-- Navbar Start -->
         <div class=\"container-fluid nav-bar bg-transparent\">
             <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
                 <a href=\"";
-        // line 52
+        // line 54
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_indexhome");
         yield "\" class=\"navbar-brand d-flex align-items-center text-center\">
                     
                     <img class=\"img-fluid\" src=\"";
-        // line 54
+        // line 56
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/transparentcareera.png"), "html", null, true);
         yield "\" alt=\"Icon\" style=\"width: 150px; height: 100px;\">
                 </a>
@@ -307,11 +309,11 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
                         <a href=\"";
-        // line 61
+        // line 63
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_indexhome");
         yield "\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"";
-        // line 62
+        // line 64
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offre");
         yield "\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"event/event.html\" class=\"nav-item nav-link\">Evénements</a>
@@ -335,7 +337,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
         yield from [];
     }
 
-    // line 75
+    // line 77
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -378,7 +380,7 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  339 => 75,  315 => 62,  311 => 61,  301 => 54,  296 => 52,  291 => 49,  278 => 48,  265 => 33,  259 => 30,  253 => 27,  249 => 26,  246 => 25,  233 => 24,  210 => 6,  195 => 152,  188 => 148,  184 => 147,  180 => 146,  176 => 145,  102 => 75,  100 => 48,  85 => 35,  83 => 24,  68 => 12,  59 => 6,  52 => 1,);
+        return array (  341 => 77,  317 => 64,  313 => 63,  303 => 56,  298 => 54,  293 => 51,  280 => 50,  267 => 35,  261 => 32,  255 => 29,  251 => 28,  248 => 27,  235 => 26,  212 => 6,  197 => 154,  190 => 150,  186 => 149,  182 => 148,  178 => 147,  104 => 77,  102 => 50,  87 => 37,  85 => 26,  68 => 12,  59 => 6,  52 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -405,6 +407,8 @@ class __TwigTemplate_2d24a949b171c6be0012c1a2385bafe2 extends Template
     <link href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css\" rel=\"stylesheet\">
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css\" rel=\"stylesheet\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css\">
+    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\" integrity=\"sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMC4A5M3b6B+QZgq1RQFOc6CkzZZU0jzKh7H7r\" crossorigin=\"anonymous\">
+
 
 {% block extra_css %}
     <!-- Libraries Stylesheet -->

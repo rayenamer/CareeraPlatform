@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 final class OffremodController extends AbstractController
 {
@@ -160,6 +162,28 @@ final class OffremodController extends AbstractController
             'dataLocalisation' => json_encode($dataLocalisation),
             'labelsSalaire' => json_encode($labelsSalaire),
             'dataSalaire' => json_encode($dataSalaire),
+        ]);
+    }
+    #[Route('/export/pdf2', name: 'app_export_pdf2')]
+    public function exportToPdf2(OffreRepository $offreRepository): Response
+    {
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        $dompdf = new Dompdf($pdfOptions);
+
+        $offres = $offreRepository->findAll();
+        $html = $this->renderView('offre/pdf.html.twig', [
+            'offres' => $offres,
+        ]);
+
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+
+        return new Response($dompdf->output(), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="offres.pdf"',
         ]);
     }
     

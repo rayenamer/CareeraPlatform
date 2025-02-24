@@ -11,7 +11,7 @@
 <h1 class="mb-3 text-center">Listes des Candidatures</h1>
 
 <div class="container">
-    
+   
     <!-- Tableau des candidatures -->
     <table class="table table-bordered"> 
         <thead>
@@ -52,15 +52,22 @@
                         {% endif %}
                     </td>
                     <td>
-                    <a href="{{ path('app_deletecandidature', {'id': candidature.id}) }}" class="btn btn-outline-danger">Supprimer</a>
-
-                        {% if candidature.statut == 'en_attente' %}
-                            <a href="{{ path('app_updatecandidature', {'id': candidature.id}) }}" class="btn btn-outline-warning">Modifier</a>
-                        {% else %}
-                            <span class="badge  ">none</span>
-                        {% endif %} 
-                        
-                    </td>      
+                        <a href="{{ path('app_deletecandidature', {'id': candidature.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+                             {% if candidature.statut == 'acceptée' %}
+                                <a href="{{ path('app_export_pdf', {'id': candidature.id}) }}" class="btn btn-primary">Exporter en PDF</a> 
+                                
+                            {% else %}
+                                <span class="badge  ">none</span>
+                            {% endif %} 
+                            {% if candidature.statut == 'en_attente' %}
+                                <a href="{{ path('app_updatecandidature', {'id': candidature.id}) }}" class="btn btn-outline-warning">Modifier</a>
+                            {% else %}
+                                <span class="badge  ">none</span>
+                            {% endif %} 
+                
+                          
+                            
+                    </td>   
                 </tr>
 
                 <!-- Modal pour la lettre de motivation -->
