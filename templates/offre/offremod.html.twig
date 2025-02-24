@@ -6,13 +6,22 @@
 <h1 class="mt-5 mb-4 text-center">Gestion des Offres</h1>
 
 <div class="container">
-    <!-- Boutons alignés à gauche -->
-    <div class="d-flex justify-content-start mb-4">
-        <!-- Bouton pour consulter les candidatures -->
+    <!-- Boutons alignés à gauche avec le logo de statistiques -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+    <!-- Conteneur des boutons à gauche -->
+    <div>
         <a href="{{ path('app_showcandidature') }}" class="btn btn-dark me-2">Consulter les Candidatures</a>
-        <!-- Bouton pour ajouter une nouvelle offre -->
-        <a href="{{ path('app_ajoutoffre') }}" class="btn btn-success">Ajouter une Offre</a>
+        <a href="{{ path('app_ajoutoffre') }}" class="btn btn-success me-2">Ajouter une Offre</a>
     </div>
+    
+   <!-- Bouton Statistiques à droite -->
+    {% set offre = taboffre[0] %}
+<a href="{{ path('app_statistiques', {'id': offre.id}) }}" class="btn btn-info d-flex align-items-center">
+    <i class="fas fa-chart-bar me-2"></i> Voir les Statistiques
+</a>
+
+
+</div>
 
     <!-- Tableau des offres -->
     <table class="table table-bordered"> 
@@ -60,10 +69,10 @@
 
     <!-- Liens vers les pages "Type d'Offre" et "Type de Contrat" -->
     <div class="d-flex justify-content-end mt-4">
-    <a href="{{ path('app_typeoffre') }}" class="btn btn me-2">Gérer les Types d'Offre</a>
-    <span class="mx-2">|</span>
-    <a href="{{ path('app_typecontrat') }}" class="btn btn">Gérer les Types de Contrat</a>
-</div>
+        <a href="{{ path('app_typeoffre') }}" class="btn btn me-2">Gérer les Types d'Offre</a>
+        <span class="mx-2">|</span>
+        <a href="{{ path('app_typecontrat') }}" class="btn btn">Gérer les Types de Contrat</a>
+    </div>
 
 </div>
 

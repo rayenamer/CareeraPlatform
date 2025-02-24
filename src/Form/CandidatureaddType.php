@@ -27,12 +27,7 @@ class CandidatureaddType extends AbstractType
                     new NotBlank(['message' => 'Veuillez entrer une date.']),
                 ],
             ])
-            ->add('utilisateur', TextType::class, [
-                'label' => 'Utilisateur',
-                'constraints' => [
-                    new NotBlank(['message' => 'Le champ utilisateur ne peut pas être vide.']),
-                ],
-            ])
+            ->add('Utlisateur', TextType::class, [])
             ->add('cv', FileType::class, [
                 'label' => 'Image (JPG, PNG)',
                 'mapped' => false,

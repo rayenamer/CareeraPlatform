@@ -55,23 +55,10 @@ final class CandidatureController extends AbstractController
 
         $form = $this->createForm(CandidatureaddType::class, $candidature);
         $form->handleRequest($req);
-
+        //if ($user->getCv()) {
+          //  $candidature->setCv($user->getCv());
+        //}
         if ($form->isSubmitted() && $form->isValid()) {
-            $cvFile = $form->get('cv')->getData(); // Récupérer le fichier via le formulaire
-
-            if ($cvFile) {
-                $newFilename = uniqid() . '.' . $cvFile->guessExtension();
-
-                try {
-                    $cvFile->move($this->getParameter('cv_directory'), $newFilename);
-                } catch (FileException $e) {
-                    throw new \Exception("Erreur lors de l'upload du CV !");
-                }
-
-                $candidature->setCv($newFilename);
-            } else {
-                throw new \Exception("Veuillez télécharger un CV !");
-            }
 
             $em->persist($candidature);
             $em->flush();

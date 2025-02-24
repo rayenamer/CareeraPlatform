@@ -14,8 +14,10 @@ class Candidature
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'candidatures')]
+    #[ORM\ManyToOne(targetEntity: Offre::class, inversedBy: 'candidatures')]
+    #[ORM\JoinColumn(nullable: false)] 
     private ?Offre $offre = null;
+    
 
     #[ORM\Column(length: 255)]
     private ?string $statut = null;

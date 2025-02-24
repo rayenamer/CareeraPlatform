@@ -31,6 +31,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'navbar' => [$this, 'block_navbar'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -87,6 +88,44 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
     /**
      * @return iterable<null|scalar|\Stringable>
      */
+    public function block_navbar(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
+
+        // line 5
+        yield "          <div class=\"container-fluid nav-bar bg-transparent\">
+            <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
+                <a href=\"";
+        // line 7
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
+        yield "\" class=\"navbar-brand d-flex align-items-center text-center\">
+                    
+                    <img class=\"img-fluid\" src=\"";
+        // line 9
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/transparentcareera.png"), "html", null, true);
+        yield "\" alt=\"Icon\" style=\"width: 150px; height: 100px;\">
+                </a>
+            </nav>
+        </div>
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 14
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
     public function block_body(array $context, array $blocks = []): iterable
     {
         $macros = $this->macros;
@@ -96,7 +135,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 5
+        // line 15
         yield "        <!-- Header Start -->
         <div class=\"row mt-5\">
             <div class=\"col\"></div>
@@ -108,19 +147,19 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                 <div class=\"col-md-6 p-5 mt-lg-5\">
                     <h1 class=\"display-5 animated fadeIn mb-4 mt-5\">Plateforme <span class=\"text-primary\">des opportunités</span></h1>
                     <h3 class=\"animated fadeIn mb-4 pb-3\">pour les étudiants et jeunes professionnels.</h3>
-                    <a href=\"utilisateur/login.html\" class=\"btn btn-primary py-3 px-5 me-3 animated fadeIn\">Se connecter</a>
+                  <a href=\"\" class=\"btn btn-primary py-3 px-5 me-3 animated fadeIn\">Se connecter</a>
                 </div>
              <div class=\"col-lg-6 animated fadeIn\">
                 <div class=\"owl-carousel header-carousel\">
                     <div class=\"owl-carousel-item\">
                         <img class=\"img-fluid\" src=\"";
-        // line 21
+        // line 31
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/img/careeraflyer.png"), "html", null, true);
         yield "\" alt=\"flyer\" style=\"width: 90%; height: 450px; object-fit: cover;\">
                     </div>
                     <div class=\"owl-carousel-item\">
                         <img class=\"img-fluid\" src=\"";
-        // line 24
+        // line 34
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/careeragalss.png"), "html", null, true);
         yield "\" alt=\"\" style=\"width: 90%; height: 450px; object-fit: cover;\">
                     </div>
@@ -146,7 +185,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <div class=\"rounded p-4\">
                                 <div class=\"icon mb-3\">
                                     <img class=\"img-fluid\" src=\"";
-        // line 47
+        // line 57
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/formation.png"), "html", null, true);
         yield "\" alt=\"Icon\" width=\"50\" height=\"70\">
                                 </div>
@@ -160,7 +199,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <div class=\"rounded p-4\">
                                 <div class=\"icon mb-3\">
                                     <img class=\"img-fluid\" src=\"";
-        // line 58
+        // line 68
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/hackathon.jpg"), "html", null, true);
         yield "\" alt=\"Icon\" width=\"50\" height=\"60\">
                                 </div>
@@ -174,7 +213,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <div class=\"rounded p-4\">
                                 <div class=\"icon mb-3\">
                                     <img class=\"img-fluid\" src=\"";
-        // line 69
+        // line 79
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/offres.jpg"), "html", null, true);
         yield "\" alt=\"Icon\" width=\"50\" height=\"60\">
                                 </div>
@@ -188,7 +227,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <div class=\"rounded p-4\">
                                 <div class=\"icon mb-3\">
                                     <img class=\"img-fluid\" src=\"";
-        // line 80
+        // line 90
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/stage.png"), "html", null, true);
         yield "\" alt=\"Icon\" width=\"45\" height=\"70\">
                                 </div>
@@ -202,7 +241,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <div class=\"rounded p-4\">
                                 <div class=\"icon mb-3\">
                                     <img class=\"img-fluid\" src=\"";
-        // line 91
+        // line 101
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/freelance.jpg"), "html", null, true);
         yield "\" alt=\"Icon\" width=\"50\" height=\"60\">
                                 </div>
@@ -216,7 +255,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <div class=\"rounded p-4\">
                                 <div class=\"icon mb-3\">
                                     <img class=\"img-fluid\" src=\"";
-        // line 102
+        // line 112
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/bourse.png"), "html", null, true);
         yield "\" alt=\"Icon\" width=\"50\" height=\"40\">
                                 </div>
@@ -230,7 +269,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <div class=\"rounded p-4\">
                                 <div class=\"icon mb-3\">
                                     <img class=\"img-fluid\" src=\"";
-        // line 113
+        // line 123
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/club.jpg"), "html", null, true);
         yield "\" alt=\"Icon\" width=\"50\" height=\"50\">
                                 </div>
@@ -244,7 +283,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <div class=\"rounded p-4\">
                                 <div class=\"icon mb-3\">
                                     <img class=\"img-fluid\" src=\"";
-        // line 124
+        // line 134
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/alternance.jpg"), "html", null, true);
         yield "\" alt=\"Icon\" width=\"50\" height=\"50\">
                                 </div>
@@ -266,7 +305,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                     <div class=\"col-lg-6 wow fadeIn\" data-wow-delay=\"0.1s\">
                         <div class=\"about-img position-relative overflow-hidden p-5 pe-0\">
                             <img class=\"img-fluid w-100\" src=\"";
-        // line 143
+        // line 153
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/flyer.png"), "html", null, true);
         yield "\" width=\"30\" height=\"80\">
                         </div>
@@ -316,7 +355,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 190
+        // line 200
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/offre1.jpg"), "html", null, true);
         yield "\" alt=\"\" width=\"450\" hight=\"600\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour professionnels</div>
@@ -338,7 +377,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 209
+        // line 219
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/offre2.jpg"), "html", null, true);
         yield "\" alt=\"\" width=\"450\" hight=\"1000\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour étudiants</div>
@@ -360,7 +399,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 228
+        // line 238
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/offre3.png"), "html", null, true);
         yield "\" alt=\"\" width=\"450\" hight=\"1000\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour étudiants</div>
@@ -382,7 +421,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 247
+        // line 257
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/offre5.png"), "html", null, true);
         yield "\" alt=\"\"width=\"450\" hight=\"1000\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour Profesionnels</div>
@@ -404,7 +443,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 266
+        // line 276
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/offre4.png"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour étudiants</div>
@@ -426,7 +465,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 285
+        // line 295
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/offre6.png"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour profesionnels</div>
@@ -456,7 +495,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 312
+        // line 322
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/financier.jpg"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour étudiants</div>
@@ -478,7 +517,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 331
+        // line 341
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/civil.jpg"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour étudiants</div>
@@ -500,7 +539,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 350
+        // line 360
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/robotique.jpg"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour étudiants</div>
@@ -522,7 +561,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 369
+        // line 379
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/bourses.jpg"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\"> Pour étudiant</div>
@@ -544,7 +583,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 388
+        // line 398
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/clubc.jpg"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour étudiants</div>
@@ -573,7 +612,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 414
+        // line 424
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/clubc.jpg"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour professionnels</div>
@@ -595,7 +634,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 433
+        // line 443
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/financier.jpg"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour professionnels</div>
@@ -617,7 +656,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 452
+        // line 462
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/prof.jpg"), "html", null, true);
         yield "\" alt=\"\" height=\" 400\" width=\"350\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour professionnels</div>
@@ -639,7 +678,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                                 <div class=\"property-item rounded overflow-hidden\">
                                     <div class=\"position-relative overflow-hidden\">
                                         <a href=\"\"><img class=\"img-fluid\" src=\"";
-        // line 471
+        // line 481
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/informaticien.jpg"), "html", null, true);
         yield "\" alt=\"\"></a>
                                         <div class=\"bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3\">Pour professionnels</div>
@@ -677,7 +716,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                         <div class=\"row g-5 align-items-center\">
                             <div class=\"col-lg-6 wow fadeIn\" data-wow-delay=\"0.1s\">
                                 <img class=\"img-fluid rounded w-100\" src=\"";
-        // line 506
+        // line 516
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/contact.jpg"), "html", null, true);
         yield "\" alt=\"\" width=\"50\" height=\"50\">
                             </div>
@@ -709,7 +748,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                         <div class=\"team-item rounded overflow-hidden\">
                             <div class=\"position-relative\">
                                 <img class=\"img-fluid\" src=\"";
-        // line 535
+        // line 545
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/esprit.png"), "html", null, true);
         yield "\" alt=\"\">
                                 <div class=\"position-absolute start-50 top-100 translate-middle d-flex align-items-center\">
@@ -728,7 +767,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                         <div class=\"team-item rounded overflow-hidden\">
                             <div class=\"position-relative\">
                                 <img class=\"img-fluid\" src=\"";
-        // line 551
+        // line 561
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/ey.png"), "html", null, true);
         yield "\" alt=\"\">
                                 <div class=\"position-absolute start-50 top-100 translate-middle d-flex align-items-center\">
@@ -747,7 +786,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                         <div class=\"team-item rounded overflow-hidden\">
                             <div class=\"position-relative\">
                                 <img class=\"img-fluid\" src=\"";
-        // line 567
+        // line 577
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/gomycode.png"), "html", null, true);
         yield "\" alt=\"\" width=\"300\" heigth=\"350\">
                                 <div class=\"position-absolute start-50 top-100 translate-middle d-flex align-items-center\">
@@ -766,7 +805,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                         <div class=\"team-item rounded overflow-hidden\">
                             <div class=\"position-relative\">
                                 <img class=\"img-fluid\" src=\"";
-        // line 583
+        // line 593
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/otef.png"), "html", null, true);
         yield "\" alt=\"\" width=\"300\" heigth=\"350\">
                                 <div class=\"position-absolute start-50 top-100 translate-middle d-flex align-items-center\">
@@ -800,7 +839,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <p>Je me sens beaucoup plus confiant dans ma recherche grâce aux ressources disponibles sur la plateforme (articles, conseils d'experts, webinaires). Elle est super utile et je recommande vivement aux étudiants et jeunes professionnels de l'utiliser.</p>
                             <div class=\"d-flex align-items-center\">
                                 <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
-        // line 614
+        // line 624
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-1.jpg"), "html", null, true);
         yield "\" style=\"width: 45px; height: 45px;\">
                                 <div class=\"ps-3\">
@@ -815,7 +854,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <p>C'est un espace où l'on se sent soutenu et accompagné, et pas seulement un endroit pour chercher des jobs. La plateforme est plus qu'une simple base de données d'offres. Je la recommande à 100% !</p>
                             <div class=\"d-flex align-items-center\">
                                 <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
-        // line 626
+        // line 636
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-2.jpg"), "html", null, true);
         yield "\" style=\"width: 45px; height: 45px;\">
                                 <div class=\"ps-3\">
@@ -830,7 +869,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                             <p>la possibilité de suivre des ateliers et des sessions de formation pour améliorer mes compétences est un énorme avantage. Cela m'a permis de me préparer bien mieux aux entretiens. C'est un must-have pour tous les jeunes professionnels !</p>
                             <div class=\"d-flex align-items-center\">
                                 <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
-        // line 638
+        // line 648
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-3.jpg"), "html", null, true);
         yield "\" style=\"width: 45px; height: 45px;\">
                                 <div class=\"ps-3\">
@@ -875,7 +914,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  834 => 638,  819 => 626,  804 => 614,  770 => 583,  751 => 567,  732 => 551,  713 => 535,  681 => 506,  643 => 471,  621 => 452,  599 => 433,  577 => 414,  548 => 388,  526 => 369,  504 => 350,  482 => 331,  460 => 312,  430 => 285,  408 => 266,  386 => 247,  364 => 228,  342 => 209,  320 => 190,  270 => 143,  248 => 124,  234 => 113,  220 => 102,  206 => 91,  192 => 80,  178 => 69,  164 => 58,  150 => 47,  124 => 24,  118 => 21,  100 => 5,  87 => 4,  64 => 3,  41 => 1,);
+        return array (  873 => 648,  858 => 636,  843 => 624,  809 => 593,  790 => 577,  771 => 561,  752 => 545,  720 => 516,  682 => 481,  660 => 462,  638 => 443,  616 => 424,  587 => 398,  565 => 379,  543 => 360,  521 => 341,  499 => 322,  469 => 295,  447 => 276,  425 => 257,  403 => 238,  381 => 219,  359 => 200,  309 => 153,  287 => 134,  273 => 123,  259 => 112,  245 => 101,  231 => 90,  217 => 79,  203 => 68,  189 => 57,  163 => 34,  157 => 31,  139 => 15,  126 => 14,  110 => 9,  105 => 7,  101 => 5,  88 => 4,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -883,6 +922,16 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Carrera | Accueil{% endblock %}
+{% block navbar %}
+          <div class=\"container-fluid nav-bar bg-transparent\">
+            <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
+                <a href=\"{{ path('app_index') }}\" class=\"navbar-brand d-flex align-items-center text-center\">
+                    
+                    <img class=\"img-fluid\" src=\"{{ asset('img/transparentcareera.png') }}\" alt=\"Icon\" style=\"width: 150px; height: 100px;\">
+                </a>
+            </nav>
+        </div>
+{% endblock %}
 {% block body %}
         <!-- Header Start -->
         <div class=\"row mt-5\">
@@ -895,7 +944,7 @@ class __TwigTemplate_c9bcc59929f05acdea0fc921ec8c396e extends Template
                 <div class=\"col-md-6 p-5 mt-lg-5\">
                     <h1 class=\"display-5 animated fadeIn mb-4 mt-5\">Plateforme <span class=\"text-primary\">des opportunités</span></h1>
                     <h3 class=\"animated fadeIn mb-4 pb-3\">pour les étudiants et jeunes professionnels.</h3>
-                    <a href=\"utilisateur/login.html\" class=\"btn btn-primary py-3 px-5 me-3 animated fadeIn\">Se connecter</a>
+                  <a href=\"\" class=\"btn btn-primary py-3 px-5 me-3 animated fadeIn\">Se connecter</a>
                 </div>
              <div class=\"col-lg-6 animated fadeIn\">
                 <div class=\"owl-carousel header-carousel\">

@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statistiques des Offres{% endblock %}
+
+{% block body %}
+<h1 class="mt-5 mb-4 text-center">Statistiques des Offres</h1>
+
+<div class="charts-container">
+    <div class="chart-box">
+        <h5 class="text-center">Les offres par type d'offre</h3>
+        <canvas id="offreChart"></canvas>
+    </div>
+    <div class="chart-box">
+        <h5 class="text-center">Les offres par localisation</h3>
+        <canvas id="localisationChart"></canvas>
+    </div>
+    <div class="chart-box">
+        <h5 class="text-center">Les offres par salaire</h3>
+        <canvas id="salaireChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    function generateColors(count) {
+        let colors = [];
+        let borderColors = [];
+        for (let i = 0; i < count; i++) {
+            let color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            colors.push(color.replace("hsl", "hsla").replace(")", ", 0.5)"));
+            borderColors.push(color);
+        }
+        return { colors, borderColors };
+    }
+
+    function createChart(id, labels, data, type, title) {
+        var ctx = document.getElementById(id).getContext('2d');
+        var colorSet = generateColors(labels.length);
+        
+        new Chart(ctx, {
+            type: type,
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: title,
+                    data: data,
+                    backgroundColor: colorSet.colors,
+                    borderColor: colorSet.borderColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: type === 'bar' ? { y: { beginAtZero: true } } : {}
+            }
+        });
+    }
+
+    createChart("offreChart", JSON.parse('{{ labelsOffre|raw }}'), JSON.parse('{{ dataOffre|raw }}'), "pie", "Répartition par Type d'Offre");
+    createChart("localisationChart", JSON.parse('{{ labelsLocalisation|raw }}'), JSON.parse('{{ dataLocalisation|raw }}'), "bar", "Répartition par Localisation", true);
+    createChart("salaireChart", JSON.parse('{{ labelsSalaire|raw }}'), JSON.parse('{{ dataSalaire|raw }}'), "doughnut", "Répartition par Tranche de Salaire");
+
+</script>
+
+<style> 
+    .charts-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .chart-box {
+        width: 400px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+</style>
+
+{% endblock %}

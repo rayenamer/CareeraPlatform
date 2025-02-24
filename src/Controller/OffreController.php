@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Candidature;
 use App\Entity\Offre;
 use App\Form\OffreType;
+use App\Repository\CandidatureRepository;
 use App\Repository\OffreRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
@@ -56,5 +58,5 @@ final class OffreController extends AbstractController
             'taboffre' => $offres,
         ]);
     }
-
+   
 }
