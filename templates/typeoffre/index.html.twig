@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Types d'Offre{% endblock %}
+
+{% block body %}
+<div class="d-flex justify-content-end mb-3">
+   <a href="{{ path('app_addtypeoffre') }}" class="btn btn-success">Ajouter un Type d'Offre</a>
+</div>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8"> 
+            <div class="card shadow-sm">
+                <div class="card-header text-center">
+                    <h3>Liste des Types d'Offre</h3>
+                </div>
+                <div class="d-flex justify-content-start mb-2 mt-5  ">
+                    <a href="{{ path('app_offremod') }}" class="btn btn-success btn-sm">
+                        <i class="fa fa-arrow-left"></i> Retour
+                    </a>
+                </div>
+                <div class="card-body">
+                    
+                    <table class="table table-striped table-bordered text-center">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for typeoffre in tabtypeoffre %}
+                                <tr>
+                                    <td>{{ typeoffre.id }}</td>
+                                    <td>{{ typeoffre.nom }}</td>
+                                    <td>
+                                        <a href="{{ path('app_updatetypeoffre', {'id': typeoffre.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                        <a href="{{ path('app_deletetypeoffre', {'id': typeoffre.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce type d\'offre ?');">Supprimer</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="3" class="text-center">Aucun type d'offre trouvé.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

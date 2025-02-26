@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Offres{% endblock %}
+
+{% block body %}
+<h1 class="mt-5 mb-4 text-center">Gestion des Offres</h1>
+
+<div class="container">
+    <!-- Boutons alignés à gauche avec le logo de statistiques -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+    <!-- Conteneur des boutons à gauche -->
+    <div>
+        <a href="{{ path('app_showcandidature') }}" class="btn btn-dark me-2">Consulter les Candidatures</a>
+        <a href="{{ path('app_ajoutoffre') }}" class="btn btn-success me-2">Ajouter une Offre</a>
+        <a href="{{ path('app_export_pdf2') }}" class="btn btn-primary">Exporter en PDF</a>
+    </div>
+    
+   <!-- Bouton Statistiques à droite -->
+     {% set offre = taboffre[0] %}
+    <a href="{{ path('app_statistiques', {'id': offre.id}) }}" class="btn btn-info d-flex align-items-center">
+        <i class="fas fa-chart-bar me-2"></i> Voir les Statistiques
+    </a>
+
+
+
+</div>
+
+    <!-- Tableau des offres -->
+    <table class="table table-bordered"> 
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Poste/Stage</th>
+                <th>Entreprise</th>
+                <th>Localisation</th>
+                <th>Salaire</th>
+                <th>Type de Contrat</th>
+                <th>Type d'Offre</th>
+                <th>Disponibilité</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for offre in taboffre %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ offre.nomposte }}</td>
+                    <td>{{ offre.entreprise }}</td>
+                    <td>{{ offre.localisation }}</td>
+                    <td>{{ offre.salaire }} DT</td>
+                    <td>{{ offre.typecontrat.nom }}</td>
+                    <td>{{ offre.typeoffre.nom }}</td>
+                    <td>{{ offre.disponibilite ? 'Disponible' : 'Indisponible' }}</td>
+                    <td><img src="{{ asset('uploads/images/' ~ offre.image) }}" alt="Image de {{ offre.nomposte }}" width="50"></td>
+                    <td>
+                        <a href="{{ path('app_modifoffre', { 'id': offre.id }) }}" class="btn btn-primary btn-sm">Modifier</a>
+                        <a href="{{ path('app_supprimeroffre', { 'id': offre.id }) }}" 
+                            class="btn btn-danger btn-sm" 
+                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10" class="text-center">Aucune offre trouvée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Liens vers les pages "Type d'Offre" et "Type de Contrat" -->
+    <div class="d-flex justify-content-end mt-4">
+        <a href="{{ path('app_typeoffre') }}" class="btn btn me-2">Gérer les Types d'Offre</a>
+        <span class="mx-2">|</span>
+        <a href="{{ path('app_typecontrat') }}" class="btn btn">Gérer les Types de Contrat</a>
+    </div>
+
+    
+
+</div>
+
+{% endblock %}

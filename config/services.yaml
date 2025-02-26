@@ -5,7 +5,10 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
   uploads_directory: "%kernel.project_dir%/public/uploads"
-  images_directory: "%kernel.project_dir%/public/images"
+  images_directory: "%kernel.project_dir%/public/uploads/images"
+  cv_directory: "%kernel.project_dir%/public/uploads/cvs"
+  locale: 'fr'
+
 services:
   # default configuration for services in *this* file
   _defaults:
@@ -20,6 +23,17 @@ services:
       - "../src/DependencyInjection/"
       - "../src/Entity/"
       - "../src/Kernel.php"
+
+  # New services added in HedireZraga branch
+  Dompdf\Dompdf: ~
+  App\Entity\Offre:
+    autowire: true
+    autoconfigure: true
+  App\Repository\OffreRepository:
+    autowire: true
+    autoconfigure: true
+  App\Controller\OffremodController:
+    tags: ['controller.service_arguments']
 
   # add more service definitions when explicit configuration is needed
   # please note that last definitions always *replace* previous ones
