@@ -1136,3 +1136,17 @@ d619e9,127.0.0.1,GET,http://127.0.0.1:8000/resetpassword,1740575566,1f0382,404,r
 b2b4af,127.0.0.1,GET,http://127.0.0.1:8000/rreset_password/reset.html.twig,1740575890,,404,request
 926fa5,127.0.0.1,GET,http://127.0.0.1:8000/reset_password/reset.html.twig,1740575893,1d9fb0,404,request
 1d9fb0,127.0.0.1,GET,http://127.0.0.1:8000/reset_password/reset.html.twig,1740575893,,404,request
+f9e5b2,127.0.0.1,GET,http://127.0.0.1:8000/,1740577128,,404,request
+46588a,127.0.0.1,GET,http://127.0.0.1:8000/login,1740577149,,200,request
+653aa7,127.0.0.1,POST,http://127.0.0.1:8000/login,1740577160,,302,request
+be62a5,127.0.0.1,GET,http://127.0.0.1:8000/home,1740577161,,200,request
+b48aab,127.0.0.1,GET,http://127.0.0.1:8000//user/data,1740577178,b26d84,404,request
+b26d84,127.0.0.1,GET,http://127.0.0.1:8000//user/data,1740577178,,404,request
+60884f,127.0.0.1,GET,http://127.0.0.1:8000/user/data,1740577186,a09ba6,500,request
+a09ba6,127.0.0.1,GET,http://127.0.0.1:8000/user/data,1740577186,,500,request
+98b9bf,127.0.0.1,GET,http://127.0.0.1:8000/user/data,1740577215,cc8d52,500,request
+cc8d52,127.0.0.1,GET,http://127.0.0.1:8000/user/data,1740577215,,500,request
+d6ef30,127.0.0.1,GET,http://127.0.0.1:8000/user/data,1740577562,,200,request
+7da104,127.0.0.1,GET,http://127.0.0.1:8000/user/data,1740577957,,200,request
+855b1a,127.0.0.1,GET,http://127.0.0.1:8000/user/data,1740578020,,200,request
+c8b717,127.0.0.1,GET,http://127.0.0.1:8000/user/data,1740578068,,200,request

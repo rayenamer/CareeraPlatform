@@ -36,6 +36,7 @@ return [
     'app_check_email' => [[], ['_controller' => 'App\\Controller\\ResetPasswordController::checkEmail'], [], [['text', '/reset-password/check-email']], [], [], []],
     'app_reset_password' => [['token'], ['token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/reset-password/reset']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'user_data' => [[], ['_controller' => 'App\\Controller\\UserDataController::getUserData'], [], [['text', '/user/data']], [], [], []],
     'App\Controller\ChercheurController::profile' => [[], ['_controller' => 'App\\Controller\\ChercheurController::profile'], [], [['text', '/profilechercheur']], [], [], []],
     'App\Controller\ChercheurController::index' => [[], ['_controller' => 'App\\Controller\\ChercheurController::index'], [], [['text', '/chercheur']], [], [], []],
     'App\Controller\ChercheurController::updatechercheur' => [['id'], ['_controller' => 'App\\Controller\\ChercheurController::updatechercheur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/updatechercheur']], [], [], []],
@@ -55,4 +56,5 @@ return [
     'App\Controller\ResetPasswordController::checkEmail' => [[], ['_controller' => 'App\\Controller\\ResetPasswordController::checkEmail'], [], [['text', '/reset-password/check-email']], [], [], []],
     'App\Controller\ResetPasswordController::reset' => [['token'], ['token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/reset-password/reset']], [], [], []],
     'App\Controller\SecurityController::login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'App\Controller\UserDataController::getUserData' => [[], ['_controller' => 'App\\Controller\\UserDataController::getUserData'], [], [['text', '/user/data']], [], [], []],
 ];
