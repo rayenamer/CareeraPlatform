@@ -1,0 +1,3 @@
+<?php //6778690d1ac33bd81a48f1037f6aca54
+
+return [PHP_INT_MAX, 'img/stage.png'];

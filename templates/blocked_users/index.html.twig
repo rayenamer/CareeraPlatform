@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlockedUsersController!{% endblock %}
+
+{% block body %}
+
+<h2>Blocked Users</h2>
+<ul>
+    {% for user in blockedUsers %}
+        <li>User ID: {{ user.userId }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
