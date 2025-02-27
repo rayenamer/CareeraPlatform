@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Postuler - {{ offre.nomposte }}{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-sm p-4" style="width: 100%; max-width: 600px;">
+        <h1 class="mb-3 text-center">Postuler pour "{{ offre.nomposte }}"</h1>
+        <p>Entreprise : {{ offre.entreprise }}</p>
+        <p>Localisation : {{ offre.localisation }}</p>
+        <p>Salaire : {{ offre.salaire }} DT</p>
+        <form method="post">
+            <a href="{{ path('app_addcandidature', {'id': offre.id}) }}" class="btn btn-primary w-100">Envoyer ma candidature</a>
+            <a href="{{ path('app_offre') }}" class="btn btn-secondary w-100">Retour</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

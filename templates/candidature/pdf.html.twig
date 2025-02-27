@@ -1,0 +1,67 @@
+{% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-align: center;
+    }
+    .container {
+        width: 100%;
+        margin: auto;
+        position: relative;
+    }
+    .logo {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 100px;
+    }
+    .header {
+        position: absolute;
+        top: 10px;
+        right: 10px; /* Positionné à droite */
+        text-align: right; /* Alignement à droite */
+        font-size: 20px; /* Taille de la police pour le nom */
+        font-weight: bold; /* Mettre en gras */
+    }
+    .candidature {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #000;
+        font-size: 16px;
+    }
+    .candidature h3 {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+    .candidature p {
+        margin: 2px 0;
+    }
+    .footer-message {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+    <div class="header">
+        CareEra <!-- Nom positionné ici -->
+    </div>
+    
+    <h2 class="text-center">Candidature Acceptée</h2>
+    {% if candidature is defined and candidature is not empty %}
+        <div class="candidature">
+            <h3>{{ candidature.utilisateur }}</h3>
+            <p><strong>Poste/Stage :</strong> {{ candidature.offre.nomposte }}</p>
+            <p><strong>Entreprise :</strong> {{ candidature.offre.entreprise }}</p>
+            <p><strong>Statut :</strong> {{ candidature.statut }}</p>
+            <p><strong>Date de Soumission :</strong> {{ candidature.datesoumission|date('d/m/Y') }}</p>
+            <p><strong>Lettre de Motivation :</strong> {{ candidature.lettremotivation }}</p>
+        </div>
+        <p class="footer-message">Accomplissez votre dossier et prenez-le avec vous pour l'entretien.</p>
+    {% else %}
+        <p class="text-center">Aucune candidature acceptée.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidatures Acceptées{% endblock %}
+
+{% block body %}
+
+<div class="d-flex justify-content-start mb-2 mt-5  ">
+   <a href="{{ path('app_showcandidature') }}" class="btn btn-success btn-sm">
+       <i class="fa fa-arrow-left"></i> Retour
+   </a>
+</div>
+<div class="container mt-4">
+    <h2 class="text-center">Candidatures Acceptées</h2>
+    <table class="table table-striped table-bordered text-center">
+        <thead class="table-dark">
+            <tr>
+                
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Poste/Stage</th>
+                <th>Entreprise</th>
+                <th>Statut</th>
+                <th>Date de Soumission</th>
+                <th>CV</th>
+                <th>Lettre de Motivation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidature in tabcandidature %}
+                 <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ candidature.utilisateur }}</td>
+                    <td>{{ candidature.offre.nomposte }}</td>
+                    <td>{{ candidature.offre.entreprise }}</td>
+                    <td>{{ candidature.statut }}</td>
+                    <td>{{ candidature.datesoumission|date('d/m/Y') }}</td>
+                    <td>
+                        <a href="{{ asset('uploads/cv/' ~ candidature.cv) }}" target="_blank" class="btn btn-dark btn-sm">Voir CV</a>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#motivationModal{{ candidature.id }}">Voir</button>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8" class="text-center">Aucune candidature acceptée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

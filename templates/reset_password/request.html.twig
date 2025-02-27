@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réinitialiser votre mot de passe{% endblock %}
+
+{% block body %}
+    <h1 class="text-center my-4">Réinitialisation du mot de passe</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card p-4 shadow">
+                    <h2 class="card-title text-center mb-3">Entrez votre adresse e-mail</h2>
+                    <p class="text-center">Un lien de réinitddialisation vous sera envoyé.</p>
+
+                    {# Début du formulaire avec l'attribut novalidate pour désactiver la validation HTML5 côté client #}
+                    {{ form_start(resetForm, {'attr': {'novalidate': 'novalidate'}}) }}
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                {{ form_widget(resetForm.email, {'attr': {'class': 'form-control', 'placeholder': 'example@domain.com'}}) }}
+                                <label for="{{ resetForm.email.vars.id }}">Adresse e-mail</label>
+                            </div>
+                            <div class="text-danger">
+                                {{ form_errors(resetForm.email) }}
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary w-100 py-2" type="submit">Envoyer le lien</button>
+                        </div>
+                    {{ form_end(resetForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

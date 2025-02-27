@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Types de Contrat{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8"> <!-- Limite la largeur du tableau à 8 colonnes -->
+            <div class="card shadow-sm">
+                <div class="card-header text-center">
+                    <h3>Liste des Types de Contrat</h3>
+                </div>
+                    <div class="d-flex justify-content-start mb-2 mt-5  ">
+                        <a href="{{ path('app_offremod') }}" class="btn btn-success btn-sm">
+                            <i class="fa fa-arrow-left"></i> Retour
+                        </a>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-end mb-3">
+                        <a href="{{ path('app_addtypecontrat') }}" class="btn btn-success">Ajouter un Type de Contrat</a>
+                    </div>
+                    <table class="table table-striped table-bordered text-center">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for typecontrat in tabtypecontrat %}
+                                <tr>
+                                    <td>{{ typecontrat.id }}</td>
+                                    <td>{{ typecontrat.nom }}</td>
+                                    <td>
+                                        <a href="{{ path('app_updatetypecontrat', {'id': typecontrat.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                        <a href="{{ path('app_deletetypecontrat', {'id': typecontrat.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce type de contrat ?');">Supprimer</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="3" class="text-center">Aucun type de contrat trouvé.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
