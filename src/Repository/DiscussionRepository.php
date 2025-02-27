@@ -46,4 +46,34 @@ class DiscussionRepository extends ServiceEntityRepository
         $this->entityManager->persist($discussion);
         $this->entityManager->flush();
     }
+
+    // ✅ Get total number of discussions created
+    public function getTotalDiscussions(): int
+    {
+        return (int) $this->createQueryBuilder('d')
+            ->select('COUNT(d.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    // ✅ Get top N most liked discussions
+    public function getTopLikedDiscussions(int $limit = 5): array
+    {
+        return $this->createQueryBuilder('d')
+            ->orderBy('d.likes', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getTopRepliedDiscussions(int $limit): array
+    {
+        return $this->createQueryBuilder('d')
+            ->leftJoin('d.replies', 'r')
+            ->groupBy('d.id')
+            ->orderBy('COUNT(r.id)', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
 }

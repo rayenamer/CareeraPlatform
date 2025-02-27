@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessageController!{% endblock %}
+
+{% block body %}
+
+<div class="chat-container">
+    <h2>Conversation between 2 users</h2>
+
+    {% for message in messages %}
+        <div class="d-flex align-items-center {% if message.messager1 == messager1Id %}sent{% else %}received{% endif %}">
+            <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('img/testimonial-2.jpg') }}" alt="{{ message.messager1 }}" style="width: 45px; height: 45px;">
+            <div class="ps-3">
+                <h6 class="fw-bold mb-1">{{ message.messager1 }}</h6>
+                <small>{{ message.createdAt|date('d F H:i')|lower }}</small>
+                <button class="btn btn-link text-muted p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i> <!-- Three dots icon -->
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Modify</a></li>
+                    <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                </ul>
+                <p class="mt-2">{{ message.content }}</p>
+            </div>
+        </div>
+    {% else %}
+        <p>No messages found between these users.</p>
+    {% endfor %}
+</div>
+<div>
+    {{ form_start(NewMessage, {
+        'action': path('send_message', {'messager1Id': 42, 'messager2Id': 69}),
+        'method': 'POST'
+    }) }}
+        <div class="mb-3">
+            {{ form_label(NewMessage.content) }}
+            {{ form_widget(NewMessage.content, {
+                'attr': {
+                    'class': 'form-control',
+                    'rows': 4,
+                    'placeholder': 'Write your discussion here...'
+                }
+            }) }}
+            <div class="text-danger">
+                {{ form_errors(NewMessage.content) }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    {{ form_end(NewMessage) }}
+</div>
+
+
+
+
+{% endblock %}

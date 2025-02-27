@@ -12,6 +12,7 @@ use App\Entity\Discussion;
 use App\Repository\DiscussionRepository;
 use App\Repository\ReplyRepository;
 use phpDocumentor\Reflection\Types\Void_;
+use App\Entity\BlockedUser;
 
 class ForumController extends AbstractController
 {
@@ -44,6 +45,27 @@ class ForumController extends AbstractController
         $manager = $m->getManager();
         $Discussion = new Discussion();
         $Discussions = $repDiscussion->findAll();
+
+        #if ($blockedUserRepo->findOneBy(['userId' => $userId])) {
+        #    return $this->json(['error' => 'You are blocked from posting discussions.'], 403);
+        #}
+        //BLOCKED USERS
+        $badWords = ['badword1', 'badword2', 'badword3'];
+        $content = $request->request->get('content');
+        foreach ($badWords as $badWord) {
+            if (stripos($content, $badWord) !== false) {
+                // Block the user
+                $blockedUser = new BlockedUser();
+                $blockedUser->setUserId(1);
+                $manager->persist($blockedUser);
+                $manager->flush();
+
+                return $this->json(['error' => 'You used inappropriate language and have been blocked.'], 403);
+            }
+        }
+        //BLOCKED USERS 
+
+        
     
         // $Discussion->setUserId($id);
         $Discussion->setUserId(1);  // Set user ID, adjust accordingly
@@ -166,5 +188,19 @@ class ForumController extends AbstractController
         $discussionRepository->removeDislike($discussion);
 
         return $this->redirectToRoute('app_forum');
+    }
+
+    #[Route('/discussion/stats', name: 'discussion_stats', methods: ['GET'])]
+    public function discussionStats(DiscussionRepository $discussionRepository): Response
+    {
+        $totalDiscussions = $discussionRepository->getTotalDiscussions();
+        $topLikedDiscussions =$discussionRepository->getTopLikedDiscussions(5);
+        $topRepliedDiscussions =$discussionRepository->getTopRepliedDiscussions(5);
+
+        return $this->render('forum/stats.html.twig', [
+            'totalDiscussions' => $totalDiscussions,
+            'topLikedDiscussions' => $topLikedDiscussions,
+            'topRepliedDiscussions' => $topRepliedDiscussions
+        ]);
     }
 }
