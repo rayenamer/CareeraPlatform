@@ -24,7 +24,14 @@ class EvenementRepository extends ServiceEntityRepository
 
         return $qb->getResult();
     }
-
+    public function findByUserId(int $userId): array
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.user_id = :userId')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getResult();
+    }
     //    /**
     //     * @return Evenement[] Returns an array of Evenement objects
     //     */

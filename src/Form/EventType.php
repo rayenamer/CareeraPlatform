@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Form;
-
+namespace App\Form; 
+use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use App\Entity\Evenement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,7 +14,8 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 use App\Entity\Offre;
 use App\Entity\TypeContrat;
-use App\Entity\TypeOffre;
+use App\Entity\TypeEvent;
+
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -21,18 +23,31 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\File; 
+
 
 class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
+        $builder 
+
+        ->add('id') 
+        ->add('nom', TextType::class, [
+            'label' => 'description',
+            'required' => true,
+            'attr' => ['placeholder' => 'évènement'],
+            'constraints' => [
+                new NotBlank([
+                    'message' => 'La description ne peut pas être vide.',
+                ]),
+            ],
+        ])
             
         ->add('description', TextType::class, [
-            'label' => 'Nom du Poste',
+            'label' => 'description',
             'required' => true,
-            'attr' => ['placeholder' => 'Ex: Développeur Web'],
+            'attr' => ['placeholder' => 'description'],
             'constraints' => [
                 new NotBlank([
                     'message' => 'La description ne peut pas être vide.',
@@ -41,22 +56,39 @@ class EventType extends AbstractType
         ])
 
 
-            ->add('date', DateType::class, [
-                'widget' => 'single_text',
-                'attr' => ['class' => 'form-control'],
-                'label' => 'Date',
-            ])
+        ->add('date', DateTimeType::class, [
+            'widget' => 'single_text', // Permet d'afficher un seul champ combiné
+            'attr' => ['class' => 'form-control'],
+            'label' => 'Date et Heure', 
+            'constraints' => [
+                new NotBlank(['message' => 'Ce champ est obligatoire.']),
+            ],
+        ])
             ->add('lieu', TextType::class, [
                 'label' => 'Localisation',
                 'required' => true,
-                'attr' => ['placeholder' => 'Ex: Paris, Tunisie...'],
+                'attr' => ['placeholder' => 'Ex: Paris, Tunisie...'], 
+                'constraints' => [
+                new NotBlank(['message' => 'ce champ est obligatoire.']),
+                
+            ]
             ])
             ->add('TypeEvent', EntityType::class, [
-                'class' => TypeContrat::class, // L'entité associée au champ
-                'choice_label' => 'nom', // La propriété de TypeContrat affichée dans le choix
-                'label' => 'Type de Contrat',
-                'placeholder' => 'Sélectionnez un type de contrat',
+                'class' => TypeEvent::class,
+                'choice_label' => 'nom',
+                'label' => 'Type événement'
+            ]) 
+            ->add('imageUrl', TextType::class, [
+                'label' => 'URL de l\'image (Cloudinary)',
+                'required' => false, // L'image n'est pas obligatoire
+                'attr' => [
+                    'placeholder' => 'Collez le lien Cloudinary ici',
+                ],
             ])
+             
+
+
+
             ->add('disponibilite', CheckboxType::class, [
                 'label' => 'Disponible',
                 'required' => false,

@@ -1530,6 +1530,6 @@ class __TwigTemplate_7494c45ba2ed2833929e7da583441805 extends Template
         </div>
         <!-- Testimonial End -->
 {% endblock %} 
-", "index/index.html.twig", "C:\\Users\\medhe\\OneDrive\\Bureau\\carrera\\carrera\\CareeraPlatform\\templates\\index\\index.html.twig");
+", "index/index.html.twig", "C:\\Users\\medhe\\OneDrive\\Bureau\\New folder (9)\\CareeraPlatform\\templates\\index\\index.html.twig");
     }
 }

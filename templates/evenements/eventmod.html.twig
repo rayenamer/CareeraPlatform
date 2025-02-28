@@ -1,64 +1,129 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des Evènements{% endblock %}
+{% block title %}Gestion des Événements{% endblock %}
 
 {% block body %}
-<h1 class="mb-3 text-center">Gestion des Evènements</h1>
+<div class="container py-5">
+    <h1 class="mb-4 text-center fw-bold">Gestion des Événements</h1>
 
-<div class="container">
-    <!-- Boutons alignés à gauche -->
-    <div class="d-flex justify-content-start mb-4">
-        <!-- Bouton pour consulter les candidatures -->
-        <a href="{{ path('app_showcandidature') }}" class="btn btn-dark me-2">Consulter les evènement</a>
-        <!-- Bouton pour ajouter une nouvelle offre -->
-        <a href="{{ path('app_ajoutoffre') }}" class="btn btn-success">Ajouter une evènement</a>
+    <!-- Boutons d'action -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="btn-group" role="group">
+            
+            <a href="new" class="btn btn-success px-3">
+                <i class="fas fa-plus me-2"></i>Ajouter un événement
+            </a> 
+            <a href="type"  class="btn btn-outline-dark px-3">
+                <i class="fas fa-list me-2"></i>consulter les types des evenement
+            </a>
+        </div>
+        <!-- Recherche rapide -->
+        <div class="input-group w-25">
+            <input type="text" class="form-control" placeholder="Rechercher..." id="searchEvent">
+            <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+        </div>
     </div>
 
-    <!-- Tableau des offres -->
-    <table class="table table-bordered"> 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>description</th>
-                <th>date</th>
-                <th>lieu</th>
-                
-                <th>Disponibilité</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for event in tabevent %}
-                <tr>
-                    <td>{{ loop.index }}</td>
-                    <td>{{ event.description }}</td>
-                    <td>{{ event.date}}</td>
-                    <td>{{ event.lieu}}</td>
-                    
-                    <td>{{ event.disponibilite ? 'Disponible' : 'Indisponible' }}</td>
-                    {# Ceci est un commentaire Twig. Il ne sera pas affiché dans le HTML final. 
-
-                    <td><img src="{{ asset('uploads/images/' ~ offre.image) }}" alt="Image de {{ offre.nomposte }}" width="50"></td>#}
-                    <td>
-                        <a href="{{ path('app_modifoffre', { 'id': event.id }) }}" class="btn btn-primary btn-sm">Modifier</a>
-                        <a href="{{ path('app_supprimeroffre', { 'id': event.id }) }}" 
-                            class="btn btn-danger btn-sm" 
-                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer
-                        </a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="10" class="text-center">Aucune evènement trouvée.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <!-- Lien vers la page "Type de Contrat" -->
-    <div class="d-flex justify-content-end mt-4">
-        <a href="{{ path('app_typecontrat') }}" class="btn btn">gérer les Types de Contrat</a>
+    <!-- Tableau amélioré -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4">Description</th>
+                            <th>Date</th>
+                            <th>Lieu</th>
+                            <th>Type</th>
+                            <th>Disponibilité</th>
+                            <th>Participants</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in tabevent %}
+                            <tr>
+                                <td class="ps-4">{{ event.description }}</td>
+                                <td>{{ event.date|date('d M Y, H:i') }}</td>
+                                <td>{{ event.lieu }}</td>
+                                <td>
+                                    <span class="badge bg-primary">{{ event.TypeEvent.nom }}</span>
+                                </td>
+                                <td>
+                                    <span class="badge {{ event.disponibilite ? 'bg-success' : 'bg-danger' }}">
+                                        {{ event.disponibilite ? 'Oui' : 'Non' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    {% if event.utilisateurs is not empty %}
+                                        <button class="btn btn-link p-0" 
+                                                data-bs-toggle="popover" 
+                                                data-bs-trigger="hover" 
+                                                data-bs-html="true"
+                                                data-bs-content="{% for user in event.utilisateurs %}{{ user.nom }} {{ user.prenom }}<br>{% endfor %}">
+                                            {{ event.utilisateurs|length }} participant{{ event.utilisateurs|length > 1 ? 's' : '' }}
+                                        </button>
+                                    {% else %}
+                                        <span class="text-muted">Aucun</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="edit/{{ event.id }}"
+                                           class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="delEvent/{{ event.id }}"
+                                           class="btn btn-outline-danger btn-sm"
+                                           onclick="return confirm('Confirmez-vous la suppression de « {{ event.description }} » ?');">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7" class="text-center py-4 text-muted">
+                                    <i class="fas fa-calendar-times me-2"></i>Aucun événement trouvé
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-
 </div>
 
+
+    <script>
+        // Recherche simple côté client
+        document.getElementById('searchEvent').addEventListener('keyup', function(e) {
+            const searchString = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchString) ? '' : 'none';
+            });
+        });
+
+        // Initialisation des popovers Bootstrap
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+        popoverTriggerList.forEach(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+    </script>
+
+
+<style>
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+        transition: background-color 0.2s;
+    }
+    .btn-group .btn {
+        transition: all 0.2s;
+    }
+    .btn-group .btn:hover {
+        transform: translateY(-2px);
+    }
+</style>
 {% endblock %}

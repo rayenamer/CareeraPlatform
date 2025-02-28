@@ -300,9 +300,9 @@ class __TwigTemplate_76dbbbc178281565daf91038e6d7b2aa extends Template
                 </button>
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
+                        <a href=\"home\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"offre/index.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
-                        <a href=\"evenements/eventmod.html\" class=\"nav-item nav-link\">Evénements</a>
+                        <a href=\"events\" class=\"nav-item nav-link\">Evénements</a>
                         <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"forum.html\" class=\"nav-item nav-link\">Forum</a>
                     </div>
@@ -426,9 +426,9 @@ class __TwigTemplate_76dbbbc178281565daf91038e6d7b2aa extends Template
                 </button>
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
+                        <a href=\"home\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"offre/index.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
-                        <a href=\"evenements/eventmod.html\" class=\"nav-item nav-link\">Evénements</a>
+                        <a href=\"events\" class=\"nav-item nav-link\">Evénements</a>
                         <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"forum.html\" class=\"nav-item nav-link\">Forum</a>
                     </div>
@@ -516,6 +516,6 @@ class __TwigTemplate_76dbbbc178281565daf91038e6d7b2aa extends Template
     <script src=\"{{ asset('js/main.js') }}\"></script>
 </body>
 
-</html>", "base.html.twig", "C:\\Users\\medhe\\OneDrive\\Bureau\\carrera\\carrera\\CareeraPlatform\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\medhe\\OneDrive\\Bureau\\New folder (9)\\CareeraPlatform\\templates\\base.html.twig");
     }
 }

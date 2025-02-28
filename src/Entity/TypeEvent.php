@@ -18,7 +18,7 @@ class TypeEvent
     /**
      * @var Collection<int, Evenement>
      */
-    #[ORM\OneToMany(targetEntity: Evenement::class, mappedBy: 'TypeEvent')]
+    #[ORM\OneToMany(targetEntity: Evenement::class, mappedBy: 'TypeEvent',orphanRemoval: true)]
     private Collection $evenements;
 
     #[ORM\Column(length: 255)]

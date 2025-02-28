@@ -113,9 +113,9 @@ class __TwigTemplate_4883df7440f3b7d34a263f98382d3d5c extends Template
                 </button>
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
+                        <a href=\"home\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"offre/offremod.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
-                        <a href=\"evenements/index.html\" class=\"nav-item nav-link\">Evénement</a>
+                        <a href=\"events\" class=\"nav-item nav-link\">Evénement</a>
                         <a href=\"mission/missionmod.html\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"demande.html\" class=\"nav-item nav-link\">les demandes</a>
                         <a href=\"contact.html\" class=\"nav-item nav-link\">Forum</a>
@@ -328,9 +328,9 @@ class __TwigTemplate_4883df7440f3b7d34a263f98382d3d5c extends Template
                 </button>
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Acceuil</a>
+                        <a href=\"home\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"offre/offremod.html\" class=\"nav-item nav-link\">Offres d'emploi</a>
-                        <a href=\"evenements/index.html\" class=\"nav-item nav-link\">Evénement</a>
+                        <a href=\"events\" class=\"nav-item nav-link\">Evénement</a>
                         <a href=\"mission/missionmod.html\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"demande.html\" class=\"nav-item nav-link\">les demandes</a>
                         <a href=\"contact.html\" class=\"nav-item nav-link\">Forum</a>
@@ -451,6 +451,6 @@ class __TwigTemplate_4883df7440f3b7d34a263f98382d3d5c extends Template
             
             <!-- main End -->
 {% endblock %}
-", "home/index.html.twig", "C:\\Users\\medhe\\OneDrive\\Bureau\\carrera\\carrera\\CareeraPlatform\\templates\\home\\index.html.twig");
+", "home/index.html.twig", "C:\\Users\\medhe\\OneDrive\\Bureau\\New folder (9)\\CareeraPlatform\\templates\\home\\index.html.twig");
     }
 }

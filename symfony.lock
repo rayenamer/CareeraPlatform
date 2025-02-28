@@ -40,6 +40,9 @@
             "./tests/bootstrap.php"
         ]
     },
+    "pyrrah/openweathermap-bundle": {
+        "version": "v1.1.0"
+    },
     "symfony/asset-mapper": {
         "version": "6.4",
         "recipe": {
