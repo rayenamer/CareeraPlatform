@@ -258,6 +258,6 @@ class __TwigTemplate_777357cb4518216f3939761b4b98b2a9 extends Template
         </div>
     </div>
 {% endblock %}
-", "forum/stats.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\forum\\stats.html.twig");
+", "forum/stats.html.twig", "C:\\careera\\templates\\forum\\stats.html.twig");
     }
 }

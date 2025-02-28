@@ -73,7 +73,7 @@ class __TwigTemplate_dd0371ac1c2fb464757faff6d43ccd2f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Hello MessageController!";
+        yield "Only Professional Conversations please";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -98,96 +98,83 @@ class __TwigTemplate_dd0371ac1c2fb464757faff6d43ccd2f extends Template
 
         // line 6
         yield "
-<div class=\"chat-container\">
-    <h2>Conversation between 2 users</h2>
-
-    ";
-        // line 10
-        $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["messages"]) || array_key_exists("messages", $context) ? $context["messages"] : (function () { throw new RuntimeError('Variable "messages" does not exist.', 10, $this->source); })()));
-        $context['_iterated'] = false;
-        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 11
-            yield "        <div class=\"d-flex align-items-center ";
-            if ((CoreExtension::getAttribute($this->env, $this->source, $context["message"], "messager1", [], "any", false, false, false, 11) == (isset($context["messager1Id"]) || array_key_exists("messager1Id", $context) ? $context["messager1Id"] : (function () { throw new RuntimeError('Variable "messager1Id" does not exist.', 11, $this->source); })()))) {
-                yield "sent";
-            } else {
-                yield "received";
-            }
-            yield "\">
-            <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
-            // line 12
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-2.jpg"), "html", null, true);
-            yield "\" alt=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["message"], "messager1", [], "any", false, false, false, 12), "html", null, true);
-            yield "\" style=\"width: 45px; height: 45px;\">
-            <div class=\"ps-3\">
-                <h6 class=\"fw-bold mb-1\">";
-            // line 14
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["message"], "messager1", [], "any", false, false, false, 14), "html", null, true);
-            yield "</h6>
+";
+        // line 7
+        if ( !Twig\Extension\CoreExtension::testEmpty((isset($context["messages"]) || array_key_exists("messages", $context) ? $context["messages"] : (function () { throw new RuntimeError('Variable "messages" does not exist.', 7, $this->source); })()))) {
+            // line 8
+            yield "    ";
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["messages"]) || array_key_exists("messages", $context) ? $context["messages"] : (function () { throw new RuntimeError('Variable "messages" does not exist.', 8, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+                // line 9
+                yield "        <div class=\"d-flex align-items-center\">
+            <img class=\"img-fluid flex-shrink-0 rounded\" 
+                 src=\"";
+                // line 11
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["message"], "UserPhotoSender", [], "any", false, false, false, 11))), "html", null, true);
+                yield "\" 
+                 style=\"width: 45px; height: 45px;\">
+            <div class=\"ps-3\"> 
+                <strong>";
+                // line 14
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["message"], "UserNameSender", [], "any", false, false, false, 14), "html", null, true);
+                yield "</strong>  
                 <small>";
-            // line 15
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), $this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["message"], "createdAt", [], "any", false, false, false, 15), "d F H:i")), "html", null, true);
-            yield "</small>
-                <button class=\"btn btn-link text-muted p-0\" type=\"button\" id=\"dropdownMenuButton\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
-                    <i class=\"fas fa-ellipsis-v\"></i> <!-- Three dots icon -->
-                </button>
-                <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
-                    <li><a class=\"dropdown-item\" href=\"#\">Modify</a></li>
-                    <li><a class=\"dropdown-item text-danger\" href=\"#\">Delete</a></li>
-                </ul>
+                // line 15
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["message"], "createdAt", [], "any", false, false, false, 15), "d F H:i"), "html", null, true);
+                yield "</small>    
                 <p class=\"mt-2\">";
-            // line 23
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["message"], "content", [], "any", false, false, false, 23), "html", null, true);
-            yield "</p>
+                // line 16
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["message"], "content", [], "any", false, false, false, 16), "html", null, true);
+                yield "</p>   
             </div>
         </div>
+        <!-- Fine line separating messages -->
+        <hr style=\"border-top: 1px solid #ddd; margin: 10px 0;\">
     ";
-            $context['_iterated'] = true;
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+        } else {
+            // line 23
+            yield "    <p>Aucun message à afficher.</p>
+";
         }
-        // line 26
-        if (!$context['_iterated']) {
-            // line 27
-            yield "        <p>No messages found between these users.</p>
-    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_key'], $context['message'], $context['_parent'], $context['_iterated']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
-        yield "</div>
+        // line 25
+        yield "
+<!-- Formulaire d'envoi de message -->
 <div>
     ";
+        // line 28
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 28, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("send_message", ["messager2Id" =>         // line 29
+(isset($context["messager2Id"]) || array_key_exists("messager2Id", $context) ? $context["messager2Id"] : (function () { throw new RuntimeError('Variable "messager2Id" does not exist.', 29, $this->source); })())]), "method" => "POST"]);
         // line 31
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 31, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("send_message", ["messager1Id" => 42, "messager2Id" => 69]), "method" => "POST"]);
-        // line 34
         yield "
         <div class=\"mb-3\">
             ";
-        // line 36
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 36, $this->source); })()), "content", [], "any", false, false, false, 36), 'label');
+        // line 33
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 33, $this->source); })()), "content", [], "any", false, false, false, 33), 'label');
         yield "
             ";
-        // line 37
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 37, $this->source); })()), "content", [], "any", false, false, false, 37), 'widget', ["attr" => ["class" => "form-control", "rows" => 4, "placeholder" => "Write your discussion here..."]]);
-        // line 43
+        // line 34
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 34, $this->source); })()), "content", [], "any", false, false, false, 34), 'widget', ["attr" => ["class" => "form-control", "rows" => 4, "placeholder" => "Write your discussion here..."]]);
+        // line 40
         yield "
             <div class=\"text-danger\">
                 ";
-        // line 45
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 45, $this->source); })()), "content", [], "any", false, false, false, 45), 'errors');
+        // line 42
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 42, $this->source); })()), "content", [], "any", false, false, false, 42), 'errors');
         yield "
             </div>
         </div>
 
         <button type=\"submit\" class=\"btn btn-primary\">Send Message</button>
     ";
-        // line 50
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 50, $this->source); })()), 'form_end');
+        // line 47
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["NewMessage"]) || array_key_exists("NewMessage", $context) ? $context["NewMessage"] : (function () { throw new RuntimeError('Variable "NewMessage" does not exist.', 47, $this->source); })()), 'form_end');
         yield "
 </div>
-
 
 
 
@@ -222,43 +209,40 @@ class __TwigTemplate_dd0371ac1c2fb464757faff6d43ccd2f extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  187 => 50,  179 => 45,  175 => 43,  173 => 37,  169 => 36,  165 => 34,  163 => 31,  159 => 29,  152 => 27,  150 => 26,  142 => 23,  131 => 15,  127 => 14,  120 => 12,  111 => 11,  106 => 10,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  175 => 47,  167 => 42,  163 => 40,  161 => 34,  157 => 33,  153 => 31,  151 => 29,  150 => 28,  145 => 25,  141 => 23,  128 => 16,  124 => 15,  120 => 14,  114 => 11,  110 => 9,  105 => 8,  103 => 7,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello MessageController!{% endblock %}
+{% block title %}Only Professional Conversations please{% endblock %}
 
 {% block body %}
 
-<div class=\"chat-container\">
-    <h2>Conversation between 2 users</h2>
-
+{% if messages is not empty %}
     {% for message in messages %}
-        <div class=\"d-flex align-items-center {% if message.messager1 == messager1Id %}sent{% else %}received{% endif %}\">
-            <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('img/testimonial-2.jpg') }}\" alt=\"{{ message.messager1 }}\" style=\"width: 45px; height: 45px;\">
-            <div class=\"ps-3\">
-                <h6 class=\"fw-bold mb-1\">{{ message.messager1 }}</h6>
-                <small>{{ message.createdAt|date('d F H:i')|lower }}</small>
-                <button class=\"btn btn-link text-muted p-0\" type=\"button\" id=\"dropdownMenuButton\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
-                    <i class=\"fas fa-ellipsis-v\"></i> <!-- Three dots icon -->
-                </button>
-                <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
-                    <li><a class=\"dropdown-item\" href=\"#\">Modify</a></li>
-                    <li><a class=\"dropdown-item text-danger\" href=\"#\">Delete</a></li>
-                </ul>
-                <p class=\"mt-2\">{{ message.content }}</p>
+        <div class=\"d-flex align-items-center\">
+            <img class=\"img-fluid flex-shrink-0 rounded\" 
+                 src=\"{{ asset('uploads/images/' ~ message.UserPhotoSender) }}\" 
+                 style=\"width: 45px; height: 45px;\">
+            <div class=\"ps-3\"> 
+                <strong>{{ message.UserNameSender }}</strong>  
+                <small>{{ message.createdAt|date('d F H:i') }}</small>    
+                <p class=\"mt-2\">{{ message.content }}</p>   
             </div>
         </div>
-    {% else %}
-        <p>No messages found between these users.</p>
+        <!-- Fine line separating messages -->
+        <hr style=\"border-top: 1px solid #ddd; margin: 10px 0;\">
     {% endfor %}
-</div>
+{% else %}
+    <p>Aucun message à afficher.</p>
+{% endif %}
+
+<!-- Formulaire d'envoi de message -->
 <div>
     {{ form_start(NewMessage, {
-        'action': path('send_message', {'messager1Id': 42, 'messager2Id': 69}),
+        'action': path('send_message', {'messager2Id': messager2Id}),
         'method': 'POST'
     }) }}
         <div class=\"mb-3\">
@@ -281,8 +265,7 @@ class __TwigTemplate_dd0371ac1c2fb464757faff6d43ccd2f extends Template
 
 
 
-
 {% endblock %}
-", "message/index.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\message\\index.html.twig");
+", "message/index.html.twig", "C:\\careera\\templates\\message\\index.html.twig");
     }
 }

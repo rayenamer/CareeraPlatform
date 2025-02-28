@@ -286,6 +286,6 @@ class __TwigTemplate_1503bfc4287f0e01c0dbe8be2d87d659 extends Template
 </div>
 
 {% endblock %}
-", "security/login.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\security\\login.html.twig");
+", "security/login.html.twig", "C:\\careera\\templates\\security\\login.html.twig");
     }
 }

@@ -1531,6 +1531,6 @@ class __TwigTemplate_7bc15696a7e5ed93c584633fdaf3a495 extends Template
         </div>
         <!-- Testimonial End -->
 {% endblock %} 
-", "index/indexhome.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\index\\indexhome.html.twig");
+", "index/indexhome.html.twig", "C:\\careera\\templates\\index\\indexhome.html.twig");
     }
 }

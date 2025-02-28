@@ -160,6 +160,6 @@ class __TwigTemplate_1bc62d711ecd0c576b45f4843f3041d3 extends Template
         {{ form_end(UpdateReply) }}
 
 
-{% endblock %}", "forum_details/UpdateReply.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\forum_details\\UpdateReply.html.twig");
+{% endblock %}", "forum_details/UpdateReply.html.twig", "C:\\careera\\templates\\forum_details\\UpdateReply.html.twig");
     }
 }

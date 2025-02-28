@@ -13,16 +13,28 @@ use App\Repository\DiscussionRepository;
 use App\Repository\ReplyRepository;
 use phpDocumentor\Reflection\Types\Void_;
 use App\Entity\BlockedUser;
+use Symfony\Component\VarDumper\VarDumper;
+use Symfony\Bundle\SecurityBundle\Security;
+use App\Entity\User;
+use App\Entity\Chercheur;
+use App\Entity\Freelancer;
 
 class ForumController extends AbstractController
 {
-    //$user = $this->getUser();
-    //if ($user) {
-    //           $id=$user->getId();
-    //           $pic=$user->getPic();
-    //           } else {
-    //            throw $this->createAccessDeniedException('You must be logged in to create a discussion.');
-    //}
+    public function getAuthUser(Security $security): ?User
+    {
+        $user = $security->getUser();
+    
+        if (!$user) {
+            return null; 
+        }
+    
+        if (!$user instanceof User) {
+            return null; 
+        }
+    
+        return $user;
+    }
     
     #[Route('/forum', name: 'app_forum')]
     public function index(Request $request, DiscussionRepository $repDiscussion): Response
@@ -40,8 +52,10 @@ class ForumController extends AbstractController
     }
 
     #[Route('/addDiscussion', name: 'app_addDiscussion')]
-    public function addDiscussion(ManagerRegistry $m, Request $request,DiscussionRepository $repDiscussion): Response
+    public function addDiscussion(ManagerRegistry $m, Request $request,DiscussionRepository $repDiscussion,Security $security): Response
     {
+        $user = $this->getAuthUser($security);
+
         $manager = $m->getManager();
         $Discussion = new Discussion();
         $Discussions = $repDiscussion->findAll();
@@ -68,9 +82,15 @@ class ForumController extends AbstractController
         
     
         // $Discussion->setUserId($id);
-        $Discussion->setUserId(1);  // Set user ID, adjust accordingly
+        $Discussion->setUserId($user->getId());  // Set user ID, adjust accordingly
         $Discussion->setCreatedAt(new \DateTimeImmutable('now', new \DateTimeZone('UTC')));
-    
+        $Discussion->setUserName($user->getPrenom());
+
+        if ($user instanceof Chercheur || $user instanceof Freelancer) {
+            $Discussion->setUserPhoto($user->getPhoto());
+        } 
+        
+        
         // Create the form
         $NewDiscussion = $this->createForm(DiscussionType::class, $Discussion);
         $NewDiscussion->handleRequest($request);
@@ -97,59 +117,103 @@ class ForumController extends AbstractController
     }
 
     #[Route('/DeleteDiscussion/{id}', name: 'app_deleteDiscussion')]
-    public function deleteDiscussion(ManagerRegistry $m, Request $request,DiscussionRepository $discussionRepository,ReplyRepository $replyRepository,$id): Response
-    {
-        $manager=$m->getManager();
-    
+    public function deleteDiscussion(
+        Security $security,
+        ManagerRegistry $m,
+        Request $request,
+        DiscussionRepository $discussionRepository,
+        ReplyRepository $replyRepository,
+        $id
+    ): Response {
+        // Get the authenticated user
+        $user = $this->getAuthUser($security);
+
+        // Get the manager to handle the database operations
+        $manager = $m->getManager();
+
+        // Find the discussion by ID
         $discussion = $discussionRepository->find($id);
 
-
+        // Check if the discussion exists
         if (!$discussion) {
             throw $this->createNotFoundException('Discussion not found');
         }
 
+        // Check if the authenticated user is the owner of the discussion
+        if ($discussion->getUserId() !== $user->getId()) {
+            // User is not the owner, return a response or redirect
+            return $this->redirectToRoute('app_forum')->setStatusCode(403);
+        }
+
+        // Find all replies related to this discussion
         $replies = $replyRepository->findBy(['Discussion' => $discussion]);
 
-        foreach ($replies as $reply){
+        // Remove the replies
+        foreach ($replies as $reply) {
             $manager->remove($reply);
         }
 
+        // Remove the discussion
         $manager->remove($discussion);
         $manager->flush();
+
+        // Redirect to the forum after successful deletion
         return $this->redirectToRoute('app_forum');
     }
-    
-    #[Route('/UpdateDiscussion/{id}', name: 'app_updateDiscussion')]
-    public function updateDiscussion(ManagerRegistry $m, Request $request,DiscussionRepository $discussionRepository,$id): Response
-    {
-        $manager=$m->getManager();
-    
-        $discussion = $discussionRepository->find($id);
-        $Discussions = $discussionRepository->findAll();
 
+
+    #[Route('/UpdateDiscussion/{id}', name: 'app_updateDiscussion')]
+    public function updateDiscussion(
+        Security $security,
+        ManagerRegistry $m,
+        Request $request,
+        DiscussionRepository $discussionRepository,
+        $id
+    ): Response {
+        // Get the authenticated user
+        $user = $this->getAuthUser($security);
+    
+        // Get the manager to handle the database operations
+        $manager = $m->getManager();
+    
+        // Find the discussion by ID
+        $discussion = $discussionRepository->find($id);
+    
+        // Check if the discussion exists
         if (!$discussion) {
             throw $this->createNotFoundException('Discussion not found');
         }
-
-        
-        $UpdateDiscussion = $this->createForm(DiscussionType::class, $discussion);
-
-        
-        $UpdateDiscussion->handleRequest($request);
-
-        if ($UpdateDiscussion->isSubmitted() && $UpdateDiscussion->isValid()) {
+    
+        // Check if the authenticated user is the owner of the discussion
+        if ($discussion->getUserId() !== $user->getId()) {
+            // User is not the owner, return a response or redirect
+            return $this->redirectToRoute('app_forum')->setStatusCode(403);
+        }
+    
+        // Create the form to update the discussion
+        $updateDiscussion = $this->createForm(DiscussionType::class, $discussion);
+    
+        // Handle the form submission
+        $updateDiscussion->handleRequest($request);
+    
+        // Check if the form was submitted and is valid
+        if ($updateDiscussion->isSubmitted() && $updateDiscussion->isValid()) {
+            // Persist and flush the updated discussion
             $manager->persist($discussion);
-
-            $manager->flush();  
-
+            $manager->flush();
+        
+            // Redirect to the forum after the update
             return $this->redirectToRoute('app_forum');
         }
+    
+        // Render the form to update the discussion
         return $this->render('forum/UpdateDiscussion.html.twig', [
             'controller_name' => 'ForumController',
-            'UpdateDiscussion' => $UpdateDiscussion->createView(),
+            'UpdateDiscussion' => $updateDiscussion->createView(),
             'discussion' => $discussion,
         ]);
     }
+
     #[Route('/AddLike/{id}', name: 'app_AddLike')]
     public function AddLike(DiscussionRepository $discussionRepository,$id): Response
     {

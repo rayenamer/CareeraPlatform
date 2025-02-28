@@ -12,9 +12,27 @@ use App\Repository\ReplyRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Reply;
-
+use Symfony\Bundle\SecurityBundle\Security;
+use App\Entity\User;
+use App\Entity\Chercheur;
+use App\Entity\Freelancer;
 final class ForumDetailsController extends AbstractController
 {
+    public function getAuthUser(Security $security): ?User
+    {
+        $user = $security->getUser();
+    
+        if (!$user) {
+            return null; 
+        }
+    
+        if (!$user instanceof User) {
+            return null; 
+        }
+    
+        return $user;
+    }
+
     #[Route('/forum/details/{id}', name: 'app_forum_details')]
     public function index(
         Request $request, ReplyRepository $replyRepository, DiscussionRepository $discussionRepository, $id
@@ -45,17 +63,20 @@ public function AddReply(
     ReplyRepository $replyRepository, 
     DiscussionRepository $discussionRepository, 
     $id,
-    ManagerRegistry $m
+    ManagerRegistry $m,
+    Security $security
 ): Response {
+    $user = $this->getAuthUser($security);
+
     $manager = $m->getManager();
     $Reply = new Reply();
 
-    // Simulate a user (replace with actual authentication later)
-    $Reply->setUserId(1);
-
-    // Set created timestamp
+    $Reply->setUserId($user->getId());
     $Reply->setCreatedAt(new \DateTimeImmutable('now', new \DateTimeZone('UTC')));
-
+    $Reply->setUserName($user->getPrenom());
+    if ($user instanceof Chercheur || $user instanceof Freelancer) {
+        $Reply->setUserPhoto($user->getPhoto());
+    } 
     // Fetch the discussion by ID
     $Discussion = $discussionRepository->find($id);
     if (!$Discussion) {
@@ -98,14 +119,21 @@ public function AddReply(
        DiscussionRepository $discussionRepository, 
        $discussionId, 
        $replyId, 
+       Security $security,
        ManagerRegistry $m
    ): Response {
+       $user = $this->getAuthUser($security);
+
        $manager = $m->getManager();
        $Discussion = $discussionRepository->find($discussionId);
        $Reply = $replyRepository->find($replyId);
        
         if (!$Reply) {
             throw $this->createNotFoundException('Reply not found.');
+        }
+        if ($Reply->getUserId() !== $user->getId()) {
+            // User is not the owner, return a response or redirect
+            return $this->redirectToRoute('app_forum')->setStatusCode(403);
         }
 
        $Discussion->removeReply($Reply);
@@ -121,8 +149,11 @@ public function AddReply(
     $discussionId, 
     $replyId, 
     Request $request, 
+    Security $security,
     ManagerRegistry $m
 ): Response {
+    $user = $this->getAuthUser($security);
+
     $manager = $m->getManager();
 
     // Fetch the discussion and the reply by their respective IDs
@@ -131,6 +162,10 @@ public function AddReply(
 
     if (!$Discussion || !$Reply) {
         throw $this->createNotFoundException('Discussion or Reply not found.');
+    }
+    if ($Reply->getUserId() !== $user->getId()) {
+        // User is not the owner, return a response or redirect
+        return $this->redirectToRoute('app_forum')->setStatusCode(403);
     }
 
     // Create and handle the form

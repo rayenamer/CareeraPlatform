@@ -320,6 +320,6 @@ class __TwigTemplate_b2a9450a4a489a22caaa3ff1aa58c010 extends Template
     </div>
 </div>
 {% endblock %}
-", "security/profilefreelancer.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\security\\profilefreelancer.html.twig");
+", "security/profilefreelancer.html.twig", "C:\\careera\\templates\\security\\profilefreelancer.html.twig");
     }
 }

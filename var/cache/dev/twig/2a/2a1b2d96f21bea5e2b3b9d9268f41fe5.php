@@ -222,6 +222,6 @@ class __TwigTemplate_35096f57047b4f409296a51f4014ebad extends Template
     </div>
 </div>
 {% endblock %}
-", "security/register.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\security\\register.html.twig");
+", "security/register.html.twig", "C:\\careera\\templates\\security\\register.html.twig");
     }
 }

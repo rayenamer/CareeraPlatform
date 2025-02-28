@@ -167,6 +167,6 @@ class __TwigTemplate_536ce8e4b10295330b3d312eacfe0cb9 extends Template
 </ul>
 
 {% endblock %}
-", "blocked_users/index.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\blocked_users\\index.html.twig");
+", "blocked_users/index.html.twig", "C:\\careera\\templates\\blocked_users\\index.html.twig");
     }
 }

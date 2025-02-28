@@ -40,6 +40,11 @@ class Discussion
     #[ORM\Column(type: "integer", options: ["default" => 0])]
     private int $dislikes = 0;
 
+    #[ORM\Column(length: 30)]
+    private ?string $UserName = null;
+
+    #[ORM\Column(length: 30, nullable: true)]
+    public ?string $UserPhoto = null;
     public function __construct()
     {
         $this->replies = new ArrayCollection();
@@ -157,6 +162,30 @@ class Discussion
     public function setDislikes(int $dislikes): self
     {
         $this->dislikes = $dislikes;
+        return $this;
+    }
+
+    public function getUserName(): string
+    {
+        return $this->UserName;
+    }
+
+    // ✅ Setter for Dislikes
+    public function setUserName(string $UserName): self
+    {
+        $this->UserName = $UserName;
+        return $this;
+    }
+
+    public function getUserUserPhoto(): string
+    {
+        return $this->UserPhoto;
+    }
+
+    // ✅ Setter for Dislikes
+    public function setUserPhoto(string $UserPhoto): self
+    {
+        $this->UserPhoto = $UserPhoto;
         return $this;
     }
     

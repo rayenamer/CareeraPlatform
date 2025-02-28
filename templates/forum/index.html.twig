@@ -9,9 +9,9 @@
     <div class="testimonial-item bg-light rounded p-3 mb-4">
         <div class="bg-white border rounded p-4">
             <div class="d-flex align-items-center">
-                <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('img/testimonial-1.jpg') }}" style="width: 45px; height: 45px;">      
+                <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('uploads/images/' ~ Discussion.UserPhoto) }}" style="width: 45px; height: 45px;">  
                 <div class="ps-3">
-                    <h6 class="fw-bold mb-1">{{ Discussion.UserId }}</h6>
+                    <h6 class="fw-bold mb-1">{{ Discussion.UserName }}</h6>
                     <small>{{ Discussion.CreatedAt|date('d F H:i')|lower }}</small>
 
                     <button class="btn btn-link text-muted p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,9 +56,9 @@
                 <div class="testimonial-item bg-light rounded p-3 mb-4 ms-5">
                     <div class="bg-white border rounded p-4">
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('img/testimonial-2.jpg') }}" style="width: 45px; height: 45px;">
+                            <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('uploads/images/' ~ Reply.UserPhoto) }}" style="width: 45px; height: 45px;"> 
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">username</h6>
+                                 <h6 class="fw-bold mb-1">{{ Reply.UserName }}</h6>
                                 <small>{{ Reply.CreatedAt|date('d F')|lower }}</small>
                             </div>
                         </div>

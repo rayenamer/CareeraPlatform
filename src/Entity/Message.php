@@ -24,6 +24,10 @@ class Message
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+    #[ORM\Column(length: 100)]
+    private ?string $UserNameSender = null;
+    #[ORM\Column(length: 100)]
+    private ?string $UserPhotoSender = null;
 
     public function getId(): ?int
     {
@@ -77,4 +81,28 @@ class Message
 
         return $this;
     }
+
+    public function getUserNameSender(): ?string
+    {
+        return $this->UserNameSender;
+    }
+
+    public function setUserNameSender(?string $UserNameSender): self
+    {
+        $this->UserNameSender = $UserNameSender;
+        return $this;
+    }
+    public function getUserPhotoSender(): ?string
+    {
+        return $this->UserPhotoSender;
+    }
+
+    public function setUserPhotoSender(?string $UserPhotoSender): self
+    {
+        $this->UserPhotoSender = $UserPhotoSender;
+        return $this;
+    }
+
+    
+
 }

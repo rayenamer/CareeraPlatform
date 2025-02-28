@@ -431,6 +431,6 @@ class __TwigTemplate_5f34ab95d3f95213aacb201d2b069515 extends Template
     </div>
 </div>
 {% endblock %}
-", "offre/modifoffre.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\offre\\modifoffre.html.twig");
+", "offre/modifoffre.html.twig", "C:\\careera\\templates\\offre\\modifoffre.html.twig");
     }
 }

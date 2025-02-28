@@ -114,14 +114,12 @@ class __TwigTemplate_ec32a7c7000dc4ebb9a2dd84320bb2a7 extends Template
             <div class=\"d-flex align-items-center\">
                 <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
             // line 16
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-2.jpg"), "html", null, true);
-            yield "\" alt=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "UserId", [], "any", false, false, false, 16), "html", null, true);
-            yield "\" style=\"width: 45px; height: 45px;\">
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "UserPhoto", [], "any", false, false, false, 16))), "html", null, true);
+            yield "\" style=\"width: 45px; height: 45px;\"> 
                 <div class=\"ps-3\">
                     <h6 class=\"fw-bold mb-1\">";
             // line 18
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "UserId", [], "any", false, false, false, 18), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "UserName", [], "any", false, false, false, 18), "html", null, true);
             yield "</h6>
                     <small>";
             // line 19
@@ -258,7 +256,7 @@ class __TwigTemplate_ec32a7c7000dc4ebb9a2dd84320bb2a7 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  228 => 72,  222 => 69,  214 => 64,  209 => 62,  205 => 61,  200 => 59,  189 => 51,  185 => 49,  171 => 41,  167 => 40,  159 => 35,  155 => 34,  147 => 29,  140 => 25,  136 => 24,  128 => 19,  124 => 18,  117 => 16,  111 => 12,  107 => 11,  102 => 8,  89 => 7,  77 => 4,  64 => 3,  41 => 1,);
+        return array (  226 => 72,  220 => 69,  212 => 64,  207 => 62,  203 => 61,  198 => 59,  187 => 51,  183 => 49,  169 => 41,  165 => 40,  157 => 35,  153 => 34,  145 => 29,  138 => 25,  134 => 24,  126 => 19,  122 => 18,  117 => 16,  111 => 12,  107 => 11,  102 => 8,  89 => 7,  77 => 4,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -278,9 +276,9 @@ class __TwigTemplate_ec32a7c7000dc4ebb9a2dd84320bb2a7 extends Template
     <div class=\"testimonial-item bg-light rounded p-3 mb-4 ms-5\">
         <div class=\"bg-white border rounded p-4\">
             <div class=\"d-flex align-items-center\">
-                <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('img/testimonial-2.jpg') }}\" alt=\"{{ Reply.UserId }}\" style=\"width: 45px; height: 45px;\">
+                <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('uploads/images/' ~ Reply.UserPhoto) }}\" style=\"width: 45px; height: 45px;\"> 
                 <div class=\"ps-3\">
-                    <h6 class=\"fw-bold mb-1\">{{ Reply.UserId }}</h6>
+                    <h6 class=\"fw-bold mb-1\">{{ Reply.UserName }}</h6>
                     <small>{{ Reply.CreatedAt|date('d F H:i')|lower }}</small>
                     <button class=\"btn btn-link text-muted p-0\" type=\"button\" id=\"dropdownMenuButton\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
                         <i class=\"fas fa-ellipsis-v\"></i> <!-- Three dots icon -->
@@ -336,6 +334,6 @@ class __TwigTemplate_ec32a7c7000dc4ebb9a2dd84320bb2a7 extends Template
 
         {{ form_end(NewReply) }}
 {% endblock %}
-", "forum_details/index.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\forum_details\\index.html.twig");
+", "forum_details/index.html.twig", "C:\\careera\\templates\\forum_details\\index.html.twig");
     }
 }

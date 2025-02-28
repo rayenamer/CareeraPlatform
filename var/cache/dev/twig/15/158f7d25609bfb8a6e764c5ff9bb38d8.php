@@ -110,12 +110,12 @@ class __TwigTemplate_bed6b1d8571bfa3963cb509596e689c8 extends Template
             <div class=\"d-flex align-items-center\">
                 <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
             // line 12
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-1.jpg"), "html", null, true);
-            yield "\" style=\"width: 45px; height: 45px;\">      
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "UserPhoto", [], "any", false, false, false, 12))), "html", null, true);
+            yield "\" style=\"width: 45px; height: 45px;\">  
                 <div class=\"ps-3\">
                     <h6 class=\"fw-bold mb-1\">";
             // line 14
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "UserId", [], "any", false, false, false, 14), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Discussion"], "UserName", [], "any", false, false, false, 14), "html", null, true);
             yield "</h6>
                     <small>";
             // line 15
@@ -198,10 +198,13 @@ class __TwigTemplate_bed6b1d8571bfa3963cb509596e689c8 extends Template
                         <div class=\"d-flex align-items-center\">
                             <img class=\"img-fluid flex-shrink-0 rounded\" src=\"";
                 // line 59
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/testimonial-2.jpg"), "html", null, true);
-                yield "\" style=\"width: 45px; height: 45px;\">
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "UserPhoto", [], "any", false, false, false, 59))), "html", null, true);
+                yield "\" style=\"width: 45px; height: 45px;\"> 
                             <div class=\"ps-3\">
-                                <h6 class=\"fw-bold mb-1\">username</h6>
+                                 <h6 class=\"fw-bold mb-1\">";
+                // line 61
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "UserName", [], "any", false, false, false, 61), "html", null, true);
+                yield "</h6>
                                 <small>";
                 // line 62
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), $this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["Reply"], "CreatedAt", [], "any", false, false, false, 62), "d F")), "html", null, true);
@@ -355,7 +358,7 @@ class __TwigTemplate_bed6b1d8571bfa3963cb509596e689c8 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  313 => 116,  307 => 113,  298 => 107,  293 => 105,  289 => 104,  281 => 99,  276 => 97,  272 => 96,  266 => 93,  257 => 86,  249 => 83,  235 => 75,  231 => 74,  223 => 69,  219 => 68,  213 => 65,  207 => 62,  201 => 59,  196 => 56,  192 => 55,  182 => 48,  175 => 44,  169 => 41,  161 => 36,  155 => 33,  147 => 28,  143 => 27,  135 => 22,  131 => 21,  122 => 15,  118 => 14,  113 => 12,  108 => 9,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  316 => 116,  310 => 113,  301 => 107,  296 => 105,  292 => 104,  284 => 99,  279 => 97,  275 => 96,  269 => 93,  260 => 86,  252 => 83,  238 => 75,  234 => 74,  226 => 69,  222 => 68,  216 => 65,  210 => 62,  206 => 61,  201 => 59,  196 => 56,  192 => 55,  182 => 48,  175 => 44,  169 => 41,  161 => 36,  155 => 33,  147 => 28,  143 => 27,  135 => 22,  131 => 21,  122 => 15,  118 => 14,  113 => 12,  108 => 9,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -371,9 +374,9 @@ class __TwigTemplate_bed6b1d8571bfa3963cb509596e689c8 extends Template
     <div class=\"testimonial-item bg-light rounded p-3 mb-4\">
         <div class=\"bg-white border rounded p-4\">
             <div class=\"d-flex align-items-center\">
-                <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('img/testimonial-1.jpg') }}\" style=\"width: 45px; height: 45px;\">      
+                <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('uploads/images/' ~ Discussion.UserPhoto) }}\" style=\"width: 45px; height: 45px;\">  
                 <div class=\"ps-3\">
-                    <h6 class=\"fw-bold mb-1\">{{ Discussion.UserId }}</h6>
+                    <h6 class=\"fw-bold mb-1\">{{ Discussion.UserName }}</h6>
                     <small>{{ Discussion.CreatedAt|date('d F H:i')|lower }}</small>
 
                     <button class=\"btn btn-link text-muted p-0\" type=\"button\" id=\"dropdownMenuButton\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
@@ -418,9 +421,9 @@ class __TwigTemplate_bed6b1d8571bfa3963cb509596e689c8 extends Template
                 <div class=\"testimonial-item bg-light rounded p-3 mb-4 ms-5\">
                     <div class=\"bg-white border rounded p-4\">
                         <div class=\"d-flex align-items-center\">
-                            <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('img/testimonial-2.jpg') }}\" style=\"width: 45px; height: 45px;\">
+                            <img class=\"img-fluid flex-shrink-0 rounded\" src=\"{{ asset('uploads/images/' ~ Reply.UserPhoto) }}\" style=\"width: 45px; height: 45px;\"> 
                             <div class=\"ps-3\">
-                                <h6 class=\"fw-bold mb-1\">username</h6>
+                                 <h6 class=\"fw-bold mb-1\">{{ Reply.UserName }}</h6>
                                 <small>{{ Reply.CreatedAt|date('d F')|lower }}</small>
                             </div>
                         </div>
@@ -489,6 +492,6 @@ class __TwigTemplate_bed6b1d8571bfa3963cb509596e689c8 extends Template
 </script>
 
 {% endblock %}
-", "forum/index.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\forum\\index.html.twig");
+", "forum/index.html.twig", "C:\\careera\\templates\\forum\\index.html.twig");
     }
 }

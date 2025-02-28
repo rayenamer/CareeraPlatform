@@ -265,6 +265,6 @@ class __TwigTemplate_61732fa31693e37b4f8a7aa998c7647d extends Template
     </div>
 </div>
 {% endblock %}
-", "typecontrat/index.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\typecontrat\\index.html.twig");
+", "typecontrat/index.html.twig", "C:\\careera\\templates\\typecontrat\\index.html.twig");
     }
 }

@@ -369,6 +369,6 @@ class __TwigTemplate_814c153b6349891c3440ecade0475abd extends Template
 </div>
 
 {% endblock %}
-", "candidature/showcandidature.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\candidature\\showcandidature.html.twig");
+", "candidature/showcandidature.html.twig", "C:\\careera\\templates\\candidature\\showcandidature.html.twig");
     }
 }

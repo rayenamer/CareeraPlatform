@@ -385,6 +385,6 @@ class __TwigTemplate_225582a38905e43aafff58e818812756 extends Template
 </div>
 
 {% endblock %}
-", "offre/offremod.html.twig", "C:\\Users\\hedir\\OneDrive\\Desktop\\Careera\\templates\\offre\\offremod.html.twig");
+", "offre/offremod.html.twig", "C:\\careera\\templates\\offre\\offremod.html.twig");
     }
 }
