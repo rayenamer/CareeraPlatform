@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Only Professional Conversations please{% endblock %}
+
+{% block body %}
+
+{% if messages is not empty %}
+    {% for message in messages %}
+        <div class="d-flex align-items-center">
+            <img class="img-fluid flex-shrink-0 rounded" 
+                 src="{{ asset('uploads/images/' ~ message.UserPhotoSender) }}" 
+                 style="width: 45px; height: 45px;">
+            <div class="ps-3"> 
+                <strong>{{ message.UserNameSender }}</strong>  
+                <small>{{ message.createdAt|date('d F H:i') }}</small>    
+                <p class="mt-2">{{ message.content }}</p>   
+            </div>
+        </div>
+        <!-- Fine line separating messages -->
+        <hr style="border-top: 1px solid #ddd; margin: 10px 0;">
+    {% endfor %}
+{% else %}
+    <p>Aucun message à afficher.</p>
+{% endif %}
+
+<!-- Formulaire d'envoi de message -->
+<div>
+    {{ form_start(NewMessage, {
+        'action': path('send_message', {'messager2Id': messager2Id}),
+        'method': 'POST'
+    }) }}
+        <div class="mb-3">
+            {{ form_label(NewMessage.content) }}
+            {{ form_widget(NewMessage.content, {
+                'attr': {
+                    'class': 'form-control',
+                    'rows': 4,
+                    'placeholder': 'Write your discussion here...'
+                }
+            }) }}
+            <div class="text-danger">
+                {{ form_errors(NewMessage.content) }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    {{ form_end(NewMessage) }}
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Discussion Statistics{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Discussion Statistics</h1>
+
+        <!-- Total Discussions -->
+        <div class="card p-3 mb-3">
+            <h3>Total Discussions</h3>
+            <p class="display-4">{{ totalDiscussions }}</p>
+        </div>
+
+        <!-- Top Liked Discussions -->
+        <div class="card p-3 mb-3">
+            <h3>Top 5 Most Liked Discussions</h3>
+            <ul class="list-group">
+                {% for discussion in topLikedDiscussions %}
+                    <li class="list-group-item">
+                        <strong>{{ discussion.title }}</strong> - {{ discussion.likes }} likes
+                    </li>
+                {% else %}
+                    <li class="list-group-item text-muted">No discussions found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Top Replied Discussions -->
+        <div class="card p-3">
+            <h3>Top 5 Discussions with Most Replies</h3>
+            <ul class="list-group">
+                {% for discussion in topRepliedDiscussions %}
+                    <li class="list-group-item">
+                        <strong>{{ discussion.title }}</strong> - {{ discussion.replies|length }} replies
+                    </li>
+                {% else %}
+                    <li class="list-group-item text-muted">No discussions found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '5ddf22dd5d70cea13cdc20ac0d7c5052ff401c97',
+        'reference' => '05fdf05d1916aefcd63f457c4d78de491ade4f06',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '5ddf22dd5d70cea13cdc20ac0d7c5052ff401c97',
+            'reference' => '05fdf05d1916aefcd63f457c4d78de491ade4f06',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -439,8 +439,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache-implementation' => array(
@@ -1085,15 +1085,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'symfony/polyfill-uuid' => array(
-            'pretty_version' => 'v1.31.0',
-            'version' => '1.31.0.0',
-            'reference' => '21533be36c24be3f4b1669c4725c7d1d2bab4ae2',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/polyfill-uuid',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'symfony/process' => array(
             'pretty_version' => 'v6.4.19',
             'version' => '6.4.19.0',
@@ -1268,15 +1259,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'symfony/uid' => array(
-            'pretty_version' => 'v6.4.13',
-            'version' => '6.4.13.0',
-            'reference' => '18eb207f0436a993fffbdd811b5b8fa35fa5e007',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/uid',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'symfony/ux-turbo' => array(
             'pretty_version' => 'v2.23.0',
             'version' => '2.23.0.0',
@@ -1330,6 +1312,15 @@
             'install_path' => __DIR__ . '/../symfony/web-profiler-bundle',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'symfony/webpack-encore-bundle' => array(
+            'pretty_version' => 'v2.2.0',
+            'version' => '2.2.0.0',
+            'reference' => 'e335394b68a775a9b2bd173a8ba4fd2001f3870c',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../symfony/webpack-encore-bundle',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'symfony/yaml' => array(
             'pretty_version' => 'v6.4.18',
