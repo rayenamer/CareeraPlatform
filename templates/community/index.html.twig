@@ -12,7 +12,9 @@
              style="width: 45px; height: 45px;">
         <div class="ps-3"> 
             <strong>{{ user.Prenom }}</strong>  
+            <small> - expertise - </small>
             <small>{{ user.domaine}}</small>
+            <small> - contact - </small>
             <a class="text-primary" href="{{ path('get_conversation', {'messager2Id': user.id}) }}">
                 <i class="fas fa-comment" style="font-size: 20px; color: #5A5A5A;"></i>
             </a>

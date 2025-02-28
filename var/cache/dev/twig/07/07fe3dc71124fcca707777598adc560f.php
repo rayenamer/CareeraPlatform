@@ -116,13 +116,15 @@ class __TwigTemplate_debb5a0e206069b5e8747b7521d99e75 extends Template
             // line 14
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "Prenom", [], "any", false, false, false, 14), "html", null, true);
             yield "</strong>  
+            <small> - expertise - </small>
             <small>";
-            // line 15
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "domaine", [], "any", false, false, false, 15), "html", null, true);
-            yield "</small>
-            <a class=\"text-primary\" href=\"";
             // line 16
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("get_conversation", ["messager2Id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 16)]), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "domaine", [], "any", false, false, false, 16), "html", null, true);
+            yield "</small>
+            <small> - contact - </small>
+            <a class=\"text-primary\" href=\"";
+            // line 18
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("get_conversation", ["messager2Id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 18)]), "html", null, true);
             yield "\">
                 <i class=\"fas fa-comment\" style=\"font-size: 20px; color: #5A5A5A;\"></i>
             </a>
@@ -136,7 +138,7 @@ class __TwigTemplate_debb5a0e206069b5e8747b7521d99e75 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['user'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 25
+        // line 27
         yield "
 ";
         
@@ -169,7 +171,7 @@ class __TwigTemplate_debb5a0e206069b5e8747b7521d99e75 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  140 => 25,  125 => 16,  121 => 15,  117 => 14,  111 => 11,  107 => 9,  103 => 8,  100 => 7,  87 => 6,  64 => 3,  41 => 1,);
+        return array (  142 => 27,  127 => 18,  122 => 16,  117 => 14,  111 => 11,  107 => 9,  103 => 8,  100 => 7,  87 => 6,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -188,7 +190,9 @@ class __TwigTemplate_debb5a0e206069b5e8747b7521d99e75 extends Template
              style=\"width: 45px; height: 45px;\">
         <div class=\"ps-3\"> 
             <strong>{{ user.Prenom }}</strong>  
+            <small> - expertise - </small>
             <small>{{ user.domaine}}</small>
+            <small> - contact - </small>
             <a class=\"text-primary\" href=\"{{ path('get_conversation', {'messager2Id': user.id}) }}\">
                 <i class=\"fas fa-comment\" style=\"font-size: 20px; color: #5A5A5A;\"></i>
             </a>

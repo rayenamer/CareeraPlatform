@@ -15,7 +15,6 @@ use App\Entity\User;
 use App\Entity\Chercheur;
 use App\Entity\Freelancer;
 use App\Repository\UserRepository;
-
 final class MessageController extends AbstractController
 {
     public function getAuthUser(Security $security): ?User
@@ -85,7 +84,7 @@ public function getConversation(
         Request $request,
         ManagerRegistry $m,
         Security $security,
-        UserRepository $userrep
+        UserRepository $userrep,
     ): Response {
         $user = $this->getAuthUser($security);
         $messager1Id = $user->getId();
@@ -136,6 +135,8 @@ public function getConversation(
 
             return $this->redirectToRoute('get_conversation', ['messager2Id' => $messager2Id]);
         }
+    
+
 
         $this->addFlash('error', 'Erreur lors de l\'envoi du message.');
         return $this->redirectToRoute('get_conversation', ['messager2Id' => $messager2Id]);

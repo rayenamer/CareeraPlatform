@@ -54,7 +54,7 @@ class ForumController extends AbstractController
     #[Route('/addDiscussion', name: 'app_addDiscussion')]
     public function addDiscussion(ManagerRegistry $m, Request $request,DiscussionRepository $repDiscussion,Security $security): Response
     {
-        $user = $this->getAuthUser($security);
+        $user = $this->getAuthUser($security); 
 
         $manager = $m->getManager();
         $Discussion = new Discussion();
@@ -78,9 +78,6 @@ class ForumController extends AbstractController
             }
         }
         //BLOCKED USERS 
-
-        
-    
         // $Discussion->setUserId($id);
         $Discussion->setUserId($user->getId());  // Set user ID, adjust accordingly
         $Discussion->setCreatedAt(new \DateTimeImmutable('now', new \DateTimeZone('UTC')));

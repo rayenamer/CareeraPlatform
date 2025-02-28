@@ -123,19 +123,23 @@ return [
                 .')'
                 .'|/forum/details/([^/]++)(*:937)'
                 .'|/messages/([^/]++)(*:963)'
-                .'|/send/([^/]++)(*:985)'
-                .'|/(en|fr)/offre(*:1007)'
-                .'|/postuler/([^/]++)(*:1034)'
-                .'|/modifoffre/([^/]++)(*:1063)'
-                .'|/supprimeroffre/([^/]++)(*:1096)'
-                .'|/reset\\-password/reset(?:/([^/]++))?(*:1141)'
+                .'|/se(?'
+                    .'|nd/([^/]++)(*:988)'
+                    .'|tNotificationTrue/([^/]++)(*:1022)'
+                .')'
+                .'|/notification/([^/]++)(*:1054)'
+                .'|/(en|fr)/offre(*:1077)'
+                .'|/postuler/([^/]++)(*:1104)'
+                .'|/modifoffre/([^/]++)(*:1133)'
+                .'|/supprimeroffre/([^/]++)(*:1166)'
+                .'|/reset\\-password/reset(?:/([^/]++))?(*:1211)'
                 .'|/updatetype(?'
-                    .'|contrat/([^/]++)(*:1180)'
-                    .'|offre/([^/]++)(*:1203)'
+                    .'|contrat/([^/]++)(*:1250)'
+                    .'|offre/([^/]++)(*:1273)'
                 .')'
                 .'|/deletetype(?'
-                    .'|contrat/([^/]++)(*:1243)'
-                    .'|offre/([^/]++)(*:1266)'
+                    .'|contrat/([^/]++)(*:1313)'
+                    .'|offre/([^/]++)(*:1336)'
                 .')'
             .')/?$}sDu',
     ],
@@ -174,16 +178,18 @@ return [
         904 => [[['_route' => 'app_AdddisLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddDisLike'], ['id'], null, null, false, true, null]],
         937 => [[['_route' => 'app_forum_details', '_controller' => 'App\\Controller\\ForumDetailsController::index'], ['id'], null, null, false, true, null]],
         963 => [[['_route' => 'get_conversation', '_controller' => 'App\\Controller\\MessageController::getConversation'], ['messager2Id'], ['GET' => 0], null, false, true, null]],
-        985 => [[['_route' => 'send_message', '_controller' => 'App\\Controller\\MessageController::sendMessage'], ['messager2Id'], ['POST' => 0], null, false, true, null]],
-        1007 => [[['_route' => 'app_offre', '_controller' => 'App\\Controller\\OffreController::index'], ['_locale'], null, null, false, false, null]],
-        1034 => [[['_route' => 'app_postuler', '_controller' => 'App\\Controller\\OffreController::postuler'], ['id'], null, null, false, true, null]],
-        1063 => [[['_route' => 'app_modifoffre', '_controller' => 'App\\Controller\\OffremodController::modifoffre'], ['id'], null, null, false, true, null]],
-        1096 => [[['_route' => 'app_supprimeroffre', '_controller' => 'App\\Controller\\OffremodController::supprimeroffre'], ['id'], null, null, false, true, null]],
-        1141 => [[['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null]],
-        1180 => [[['_route' => 'app_updatetypecontrat', '_controller' => 'App\\Controller\\TypecontratController::updatetypecontrat'], ['id'], null, null, false, true, null]],
-        1203 => [[['_route' => 'app_updatetypeoffre', '_controller' => 'App\\Controller\\TypeoffreController::updatetypeoffre'], ['id'], null, null, false, true, null]],
-        1243 => [[['_route' => 'app_deletetypecontrat', '_controller' => 'App\\Controller\\TypecontratController::deletetypecontrat'], ['id'], null, null, false, true, null]],
-        1266 => [
+        988 => [[['_route' => 'send_message', '_controller' => 'App\\Controller\\MessageController::sendMessage'], ['messager2Id'], ['POST' => 0], null, false, true, null]],
+        1022 => [[['_route' => 'app_setNotificationTrue', '_controller' => 'App\\Controller\\NotificationController::markAsRead'], ['id'], null, null, false, true, null]],
+        1054 => [[['_route' => 'app_notification', '_controller' => 'App\\Controller\\NotificationController::index'], ['userId'], null, null, false, true, null]],
+        1077 => [[['_route' => 'app_offre', '_controller' => 'App\\Controller\\OffreController::index'], ['_locale'], null, null, false, false, null]],
+        1104 => [[['_route' => 'app_postuler', '_controller' => 'App\\Controller\\OffreController::postuler'], ['id'], null, null, false, true, null]],
+        1133 => [[['_route' => 'app_modifoffre', '_controller' => 'App\\Controller\\OffremodController::modifoffre'], ['id'], null, null, false, true, null]],
+        1166 => [[['_route' => 'app_supprimeroffre', '_controller' => 'App\\Controller\\OffremodController::supprimeroffre'], ['id'], null, null, false, true, null]],
+        1211 => [[['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null]],
+        1250 => [[['_route' => 'app_updatetypecontrat', '_controller' => 'App\\Controller\\TypecontratController::updatetypecontrat'], ['id'], null, null, false, true, null]],
+        1273 => [[['_route' => 'app_updatetypeoffre', '_controller' => 'App\\Controller\\TypeoffreController::updatetypeoffre'], ['id'], null, null, false, true, null]],
+        1313 => [[['_route' => 'app_deletetypecontrat', '_controller' => 'App\\Controller\\TypecontratController::deletetypecontrat'], ['id'], null, null, false, true, null]],
+        1336 => [
             [['_route' => 'app_deletetypeoffre', '_controller' => 'App\\Controller\\TypeoffreController::deletetypeoffre'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
