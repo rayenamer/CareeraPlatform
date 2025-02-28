@@ -388,6 +388,13 @@
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\ChercheurController"/>
       </call>
     </service>
+    <service id="App\Controller\CommunityController" class="App\Controller\CommunityController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\CommunityController"/>
+      </call>
+    </service>
     <service id="App\Controller\ForumController" class="App\Controller\ForumController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -599,7 +606,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator._dfx2Hh"/>
+      <argument type="service" id=".service_locator.B541oV9"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3584,7 +3591,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator._dfx2Hh"/>
+      <argument type="service" id=".service_locator.B541oV9"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -7536,6 +7543,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ChercheurController" class="App\Controller\ChercheurController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ChercheurController" class="App\Controller\ChercheurController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ChercheurController" class="App\Controller\ChercheurController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CommunityController" class="App\Controller\CommunityController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CommunityController" class="App\Controller\CommunityController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CommunityController" class="App\Controller\CommunityController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -8104,6 +8114,13 @@
         <argument key="security" type="service_closure" id="security.helper"/>
       </argument>
     </service>
+    <service id=".service_locator.kT4GQRH" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="security" type="service_closure" id="security.helper"/>
+        <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.aPy9iWU" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8289,7 +8306,7 @@
         <argument key="rep" type="service_closure" id="App\Repository\TypeOffreRepository"/>
       </argument>
     </service>
-    <service id=".service_locator._dfx2Hh" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.B541oV9" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BlockedUsersController::blockedUsers" type="service_closure" id=".service_locator.3CdAD2B"/>
@@ -8307,6 +8324,8 @@
         <argument key="App\Controller\ChercheurController::index" type="service_closure" id=".service_locator.ESajd_W"/>
         <argument key="App\Controller\ChercheurController::profile" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\ChercheurController::updatechercheur" type="service_closure" id=".service_locator.ESajd_W"/>
+        <argument key="App\Controller\CommunityController::getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
+        <argument key="App\Controller\CommunityController::index" type="service_closure" id=".service_locator.kT4GQRH"/>
         <argument key="App\Controller\ForumController::AddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController::AddLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController::UnAddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
@@ -8379,6 +8398,8 @@
         <argument key="App\Controller\ChercheurController:index" type="service_closure" id=".service_locator.ESajd_W"/>
         <argument key="App\Controller\ChercheurController:profile" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\ChercheurController:updatechercheur" type="service_closure" id=".service_locator.ESajd_W"/>
+        <argument key="App\Controller\CommunityController:getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
+        <argument key="App\Controller\CommunityController:index" type="service_closure" id=".service_locator.kT4GQRH"/>
         <argument key="App\Controller\ForumController:AddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController:AddLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController:UnAddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
@@ -9095,6 +9116,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\CommunityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CommunityController"/>
+      <argument>App\Controller\CommunityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
     <service id=".service_locator.O2p6Lk7.App\Controller\ForumController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ForumController"/>
       <argument>App\Controller\ForumController</argument>
@@ -9362,6 +9389,7 @@
           <argument>App\Controller\BlockedUsersController</argument>
           <argument>App\Controller\CandidatureController</argument>
           <argument>App\Controller\ChercheurController</argument>
+          <argument>App\Controller\CommunityController</argument>
           <argument>App\Controller\ForumController</argument>
           <argument>App\Controller\ForumDetailsController</argument>
           <argument>App\Controller\FreelancerController</argument>
@@ -10776,7 +10804,7 @@
     <service id="SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface" alias="symfonycasts.reset_password.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.w7.f4fT" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator._dfx2Hh"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.B541oV9"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -10801,6 +10829,7 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~PO73HkR"/>
     <service id=".service_locator.bJ.4HC5" alias=".service_locator.w7.f4fT"/>
+    <service id=".service_locator.CElJlu_" alias=".service_locator.kT4GQRH"/>
     <service id=".service_locator.ENs9muz" alias=".service_locator.cIsJMT5"/>
     <service id=".service_locator.a_sRj94" alias=".service_locator.dD6jg49"/>
     <service id=".service_locator.vhzeMEP" alias=".service_locator.SIstSqo"/>
@@ -10810,7 +10839,7 @@
     <service id=".service_locator.URbPMvW" alias=".service_locator.SYR8TMY"/>
     <service id=".service_locator.T56SSFL" alias=".service_locator.uLMoH09"/>
     <service id=".service_locator.qrNhk2c" alias=".service_locator.ESgEUJd"/>
-    <service id=".service_locator.RLGUh9x" alias=".service_locator._dfx2Hh"/>
+    <service id=".service_locator.LxPfxTP" alias=".service_locator.B541oV9"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
     <service id=".service_locator.ckOz29w" alias=".service_locator.c_H7V7L"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
@@ -10845,6 +10874,7 @@
     <service id=".service_locator.eQ296SW" alias=".service_locator.o6sN0hZ"/>
     <service id=".service_locator.jZ84U_V" alias=".service_locator.ESajd_W"/>
     <service id=".service_locator.yArDdtI" alias=".service_locator.ATt7aga"/>
+    <service id=".service_locator.j3CwlUb" alias=".service_locator.kT4GQRH"/>
     <service id=".service_locator.2NTQ.42" alias=".service_locator.aPy9iWU"/>
     <service id=".service_locator.Kz6sWVT" alias=".service_locator.u7w2iHv"/>
     <service id=".service_locator.W6jSe7." alias=".service_locator.cIsJMT5"/>

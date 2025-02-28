@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Community of Hustlers{% endblock %}
+
+
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    {% for user in users %}
+    <div class="d-flex align-items-center">
+        <img class="img-fluid flex-shrink-0 rounded" 
+             src="{{ asset('uploads/images/' ~ user.Photo) }}" 
+             style="width: 45px; height: 45px;">
+        <div class="ps-3"> 
+            <strong>{{ user.Prenom }}</strong>  
+            <small>{{ user.domaine}}</small>
+            <a class="text-primary" href="{{ path('get_conversation', {'messager2Id': user.id}) }}">
+                <i class="fas fa-comment" style="font-size: 20px; color: #5A5A5A;"></i>
+            </a>
+        </div>          
+        </a>
+    </div>
+    <!-- Fine line separating messages -->
+    <hr style="border-top: 1px solid #ddd; margin: 10px 0;">
+{% endfor %}
+
+{% endblock %}
