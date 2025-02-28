@@ -196,10 +196,7 @@ class __TwigTemplate_12be0b4e50003c23d9b22de01521ae63 extends Template
                 yield "        <form action=\"";
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accepter_refuser_candidature", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 45), "action" => "accepter"]), "html", null, true);
                 yield "\" method=\"post\" style=\"display:inline;\">
-            <button type=\"submit\" class=\"btn btn-success btn-sm\" id=\"accepter-btn-";
-                // line 46
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 46), "html", null, true);
-                yield "\">Accepter</button>
+            <button type=\"submit\" class=\"btn btn-success btn-sm\">Accepter</button>
         </form>
         <form action=\"";
                 // line 48
@@ -212,41 +209,26 @@ class __TwigTemplate_12be0b4e50003c23d9b22de01521ae63 extends Template
             // line 52
             yield "</td>
 
-<script>
-    // Si l'état de la candidature est accepté, appliquez un style vert au bouton d'acceptation.
-    ";
-            // line 56
-            if ((CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "etat", [], "any", false, false, false, 56) == "ACCEPTEE")) {
-                // line 57
-                yield "        document.getElementById(\"accepter-btn-";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 57), "html", null, true);
-                yield "\").classList.add('btn-success');
-    ";
-            }
-            // line 59
-            yield "</script>
-
-
                             <td>
                                 <a href=\"";
-            // line 63
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("voir_demande_details", ["id" => CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "demande", [], "any", false, false, false, 63), "id", [], "any", false, false, false, 63)]), "html", null, true);
+            // line 55
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("voir_demande_details", ["id" => CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "demande", [], "any", false, false, false, 55), "id", [], "any", false, false, false, 55)]), "html", null, true);
             yield "\">
                                     <button type=\"button\" class=\"btn btn-info btn-sm\">Voir plus</button>
                                 </a>
                             </td>
                             <td>
                                 <form action=\"";
-            // line 68
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("evaluer_candidature", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 68)]), "html", null, true);
+            // line 60
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("evaluer_candidature", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 60)]), "html", null, true);
             yield "\" method=\"post\" style=\"display:inline;\">
                                     <select name=\"score\" class=\"form-select form-select-sm d-inline w-auto\" required>
                                         ";
-            // line 70
+            // line 62
             $context['_parent'] = $context;
             $context['_seq'] = CoreExtension::ensureTraversable(range(1, 10));
             foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                // line 71
+                // line 63
                 yield "                                            <option value=\"";
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["i"], "html", null, true);
                 yield "\">";
@@ -257,7 +239,7 @@ class __TwigTemplate_12be0b4e50003c23d9b22de01521ae63 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['i'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 73
+            // line 65
             yield "                                    </select>
                                     <button type=\"submit\" class=\"btn btn-primary btn-sm\">Évaluer</button>
                                 </form>
@@ -266,9 +248,9 @@ class __TwigTemplate_12be0b4e50003c23d9b22de01521ae63 extends Template
                     ";
             $context['_iterated'] = true;
         }
-        // line 82
+        // line 74
         if (!$context['_iterated']) {
-            // line 79
+            // line 71
             yield "                        <tr>
                             <td colspan=\"6\" class=\"text-center\">Aucune candidature disponible.</td>
                         </tr>
@@ -277,7 +259,7 @@ class __TwigTemplate_12be0b4e50003c23d9b22de01521ae63 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['candidature'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 83
+        // line 75
         yield "                </tbody>
             </table>
         </div>
@@ -313,7 +295,7 @@ class __TwigTemplate_12be0b4e50003c23d9b22de01521ae63 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  281 => 83,  272 => 79,  270 => 82,  261 => 73,  250 => 71,  246 => 70,  241 => 68,  233 => 63,  227 => 59,  221 => 57,  219 => 56,  213 => 52,  206 => 48,  201 => 46,  196 => 45,  192 => 43,  190 => 42,  183 => 38,  173 => 37,  169 => 35,  165 => 34,  161 => 33,  158 => 32,  153 => 31,  143 => 23,  134 => 16,  125 => 14,  121 => 13,  118 => 12,  109 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  263 => 75,  254 => 71,  252 => 74,  243 => 65,  232 => 63,  228 => 62,  223 => 60,  215 => 55,  210 => 52,  203 => 48,  196 => 45,  192 => 43,  190 => 42,  183 => 38,  173 => 37,  169 => 35,  165 => 34,  161 => 33,  158 => 32,  153 => 31,  143 => 23,  134 => 16,  125 => 14,  121 => 13,  118 => 12,  109 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -363,21 +345,13 @@ class __TwigTemplate_12be0b4e50003c23d9b22de01521ae63 extends Template
         <button class=\"btn btn-success btn-sm\" disabled>Accepté</button>
     {% else %}
         <form action=\"{{ path('accepter_refuser_candidature', {'id': candidature.id, 'action': 'accepter'}) }}\" method=\"post\" style=\"display:inline;\">
-            <button type=\"submit\" class=\"btn btn-success btn-sm\" id=\"accepter-btn-{{ candidature.id }}\">Accepter</button>
+            <button type=\"submit\" class=\"btn btn-success btn-sm\">Accepter</button>
         </form>
         <form action=\"{{ path('accepter_refuser_candidature', {'id': candidature.id, 'action': 'refuser'}) }}\" method=\"post\" style=\"display:inline;\">
             <button type=\"submit\" class=\"btn btn-danger btn-sm\">Refuser</button>
         </form>
     {% endif %}
 </td>
-
-<script>
-    // Si l'état de la candidature est accepté, appliquez un style vert au bouton d'acceptation.
-    {% if candidature.etat == 'ACCEPTEE' %}
-        document.getElementById(\"accepter-btn-{{ candidature.id }}\").classList.add('btn-success');
-    {% endif %}
-</script>
-
 
                             <td>
                                 <a href=\"{{ path('voir_demande_details', {'id': candidature.demande.id}) }}\">

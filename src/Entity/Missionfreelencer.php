@@ -50,6 +50,9 @@ class Missionfreelencer
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $date = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $userid = null;
+
     
 
   
@@ -195,6 +198,18 @@ class Missionfreelencer
     public function setDate(?\DateTimeInterface $date): static
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getUserid(): ?string
+    {
+        return $this->userid;
+    }
+
+    public function setUserid(string $userid): static
+    {
+        $this->userid = $userid;
 
         return $this;
     }

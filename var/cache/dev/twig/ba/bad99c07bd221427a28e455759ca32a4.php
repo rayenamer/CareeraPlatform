@@ -73,7 +73,7 @@ class __TwigTemplate_e86fee9d9c73da2d52d946076b6e8eb3 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Hello CandidaturemissionController!";
+        yield "Voir les Candidatures";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -97,23 +97,162 @@ class __TwigTemplate_e86fee9d9c73da2d52d946076b6e8eb3 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        yield "    <div class=\"container mt-4\">
+        <h1 class=\"mb-4 text-center\">Toutes les candidatures</h1>
 
-<div class=\"example-wrapper\">
-    <h1>Hello ";
+        ";
+        // line 9
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 9, $this->source); })()), "flashes", ["success"], "method", false, false, false, 9));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 10
+            yield "            <div class=\"alert alert-success\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
+            yield "</div>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 12
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        yield "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/wiem/Desktop/CareeraPlatform/src/Controller/CandidaturemissionController.php</code></li>
-        <li>Your template at <code>C:/Users/wiem/Desktop/CareeraPlatform/templates/candidaturemission/index.html.twig</code></li>
-    </ul>
-</div>
+        yield "
+        ";
+        // line 13
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "flashes", ["error"], "method", false, false, false, 13));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 14
+            yield "            <div class=\"alert alert-danger\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
+            yield "</div>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 16
+        yield "
+        <div class=\"table-responsive\">
+            <table class=\"table table-striped table-bordered text-center\">
+                <thead class=\"table-dark\">
+                    <tr>
+                        <th>ID</th>
+                        <th>fs</th>
+                        <th>nom utilisateur</th>
+                        <th>État</th>
+                        <th>Action</th>
+                        <th>Voir plus</th>
+                        <th>Évaluer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ";
+        // line 31
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["candidatures"]) || array_key_exists("candidatures", $context) ? $context["candidatures"] : (function () { throw new RuntimeError('Variable "candidatures" does not exist.', 31, $this->source); })()));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["candidature"]) {
+            // line 32
+            yield "                        <tr>
+                            <td>";
+            // line 33
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 33), "html", null, true);
+            yield "</td>
+                            <td>";
+            // line 34
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "mission", [], "any", false, false, false, 34), "titre", [], "any", false, false, false, 34), "html", null, true);
+            yield "</td>
+                             <td>";
+            // line 35
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "utilisateur", [], "any", false, false, false, 35), "html", null, true);
+            yield "</td>
+                            <td>
+                                <span class=\"badge ";
+            // line 37
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "etat", [], "any", false, false, false, 37) == "EN_ATTENTE")) {
+                yield "bg-warning";
+            } elseif ((CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "etat", [], "any", false, false, false, 37) == "ACCEPTEE")) {
+                yield "bg-success";
+            } else {
+                yield "bg-danger";
+            }
+            yield "\">
+                                    ";
+            // line 38
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "etat", [], "any", false, false, false, 38), "html", null, true);
+            yield "
+                                </span>
+                            </td>
+                            <td>
+                                <form action=\"";
+            // line 42
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accepter_refuser_candidature", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 42), "action" => "accepter"]), "html", null, true);
+            yield "\" method=\"post\" style=\"display:inline;\">
+                                    <button type=\"submit\" class=\"btn btn-success btn-sm\">Accepter</button>
+                                </form>
+                                <form action=\"";
+            // line 45
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accepter_refuser_candidature", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 45), "action" => "refuser"]), "html", null, true);
+            yield "\" method=\"post\" style=\"display:inline;\">
+                                    <button type=\"submit\" class=\"btn btn-danger btn-sm\">Refuser</button>
+                                </form>
+                            </td>
+                                     <td>
+                        <a href=\"";
+            // line 50
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("voir_demande_details", ["id" => CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "demande", [], "any", false, false, false, 50), "id", [], "any", false, false, false, 50)]), "html", null, true);
+            yield "\">
+                            <button type=\"button\">Voir plus</button>
+                        </a>
+                    </td>
+                            <td>
+                                <form action=\"";
+            // line 55
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("evaluer_candidature", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "id", [], "any", false, false, false, 55)]), "html", null, true);
+            yield "\" method=\"post\" style=\"display:inline;\">
+                                    <select name=\"score\" class=\"form-select form-select-sm d-inline w-auto\" required>
+                                        ";
+            // line 57
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable(range(1, 10));
+            foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
+                // line 58
+                yield "                                            <option value=\"";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["i"], "html", null, true);
+                yield "\">";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["i"], "html", null, true);
+                yield "</option>
+                                        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['i'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 60
+            yield "                                    </select>
+                                    <button type=\"submit\" class=\"btn btn-primary btn-sm\">Évaluer</button>
+                                </form>
+                            </td>
+                    
+                        </tr>
+                    ";
+            $context['_iterated'] = true;
+        }
+        // line 70
+        if (!$context['_iterated']) {
+            // line 67
+            yield "                        <tr>
+                            <td colspan=\"5\" class=\"text-center\">Aucune candidature disponible.</td>
+                        </tr>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['candidature'], $context['_parent'], $context['_iterated']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 71
+        yield "                </tbody>
+            </table>
+        </div>
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -145,30 +284,85 @@ class __TwigTemplate_e86fee9d9c73da2d52d946076b6e8eb3 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  108 => 12,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  252 => 71,  243 => 67,  241 => 70,  231 => 60,  220 => 58,  216 => 57,  211 => 55,  203 => 50,  195 => 45,  189 => 42,  182 => 38,  172 => 37,  167 => 35,  163 => 34,  159 => 33,  156 => 32,  151 => 31,  134 => 16,  125 => 14,  121 => 13,  118 => 12,  109 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello CandidaturemissionController!{% endblock %}
+{% block title %}Voir les Candidatures{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class=\"container mt-4\">
+        <h1 class=\"mb-4 text-center\">Toutes les candidatures</h1>
 
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        {% for message in app.flashes('success') %}
+            <div class=\"alert alert-success\">{{ message }}</div>
+        {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/wiem/Desktop/CareeraPlatform/src/Controller/CandidaturemissionController.php</code></li>
-        <li>Your template at <code>C:/Users/wiem/Desktop/CareeraPlatform/templates/candidaturemission/index.html.twig</code></li>
-    </ul>
-</div>
+        {% for message in app.flashes('error') %}
+            <div class=\"alert alert-danger\">{{ message }}</div>
+        {% endfor %}
+
+        <div class=\"table-responsive\">
+            <table class=\"table table-striped table-bordered text-center\">
+                <thead class=\"table-dark\">
+                    <tr>
+                        <th>ID</th>
+                        <th>fs</th>
+                        <th>nom utilisateur</th>
+                        <th>État</th>
+                        <th>Action</th>
+                        <th>Voir plus</th>
+                        <th>Évaluer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candidature in candidatures %}
+                        <tr>
+                            <td>{{ candidature.id }}</td>
+                            <td>{{ candidature.mission.titre }}</td>
+                             <td>{{ candidature.utilisateur }}</td>
+                            <td>
+                                <span class=\"badge {% if candidature.etat == 'EN_ATTENTE' %}bg-warning{% elseif candidature.etat == 'ACCEPTEE' %}bg-success{% else %}bg-danger{% endif %}\">
+                                    {{ candidature.etat }}
+                                </span>
+                            </td>
+                            <td>
+                                <form action=\"{{ path('accepter_refuser_candidature', {'id': candidature.id, 'action': 'accepter'}) }}\" method=\"post\" style=\"display:inline;\">
+                                    <button type=\"submit\" class=\"btn btn-success btn-sm\">Accepter</button>
+                                </form>
+                                <form action=\"{{ path('accepter_refuser_candidature', {'id': candidature.id, 'action': 'refuser'}) }}\" method=\"post\" style=\"display:inline;\">
+                                    <button type=\"submit\" class=\"btn btn-danger btn-sm\">Refuser</button>
+                                </form>
+                            </td>
+                                     <td>
+                        <a href=\"{{ path('voir_demande_details', {'id': candidature.demande.id}) }}\">
+                            <button type=\"button\">Voir plus</button>
+                        </a>
+                    </td>
+                            <td>
+                                <form action=\"{{ path('evaluer_candidature', {'id': candidature.id}) }}\" method=\"post\" style=\"display:inline;\">
+                                    <select name=\"score\" class=\"form-select form-select-sm d-inline w-auto\" required>
+                                        {% for i in 1..10 %}
+                                            <option value=\"{{ i }}\">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <button type=\"submit\" class=\"btn btn-primary btn-sm\">Évaluer</button>
+                                </form>
+                            </td>
+                    
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan=\"5\" class=\"text-center\">Aucune candidature disponible.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}
 ", "candidaturemission/index.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\candidaturemission\\index.html.twig");
     }

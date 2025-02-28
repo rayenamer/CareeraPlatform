@@ -22,9 +22,7 @@ class Candidaturemission
     #[ORM\Column(type: 'string')]
     private string $etat;
 
-    // #[ORM\ManyToOne(inversedBy: 'candidaturemissions')]
-    // private ?Utilisateur $utilisateur = null; // Supprimé car la table utilisateur n'existe plus
-
+    
     #[ORM\ManyToOne(inversedBy: 'candidaturemissions')]
     private ?Missionfreelencer $mission = null;
 
@@ -34,6 +32,9 @@ class Candidaturemission
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $score = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $userid = null;
 
     public function getId(): ?int
     {
@@ -51,16 +52,7 @@ class Candidaturemission
         return $this;
     }
 
-    // public function getUtilisateur(): ?Utilisateur
-    // {
-    //     return $this->utilisateur; // Supprimé car la table utilisateur n'existe plus
-    // }
-
-    // public function setUtilisateur(?Utilisateur $utilisateur): static
-    // {
-    //     $this->utilisateur = $utilisateur;
-    //     return $this;
-    // }
+   
 
     public function getMission(): ?Missionfreelencer
     {
@@ -107,6 +99,18 @@ class Candidaturemission
     public function setScore(?int $score): self
     {
         $this->score = $score;
+        return $this;
+    }
+
+    public function getUserid(): ?string
+    {
+        return $this->userid;
+    }
+
+    public function setUserid(string $userid): static
+    {
+        $this->userid = $userid;
+
         return $this;
     }
 }

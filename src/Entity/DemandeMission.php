@@ -39,6 +39,9 @@ class DemandeMission
     )]
     private ?string $status = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $userid = null;
+
 
  // #[ORM\ManyToOne(inversedBy: 'demandeMissions')]
     // private ?Utilisateur $utilisateur = null; // Supprimé car la table utilisateur n'existe plus
@@ -126,6 +129,18 @@ class DemandeMission
     //     $this->utilisateur = $utilisateur;
     //     return $this;
     // }
+
+    public function getUserid(): ?string
+    {
+        return $this->userid;
+    }
+
+    public function setUserid(string $userid): static
+    {
+        $this->userid = $userid;
+
+        return $this;
+    }
 
    
 }
