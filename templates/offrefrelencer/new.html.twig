@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Offre{% endblock %}
+{% block title %}Modifier Missions{% endblock %}
 
 {% block body %}
-    <h1>nouvelle Offre</h1>
+    <h1>Nouvelle Mission</h1>
 
     <style>
         .form-container {
@@ -86,7 +86,11 @@
                     {{ form_errors(field) }}
                 </div>
             {% endfor %}
-            <button type="submit" class="btn">{{ button_label|default('Enregistrer') }}</button>
+            <button type="submit" class="btn">{{ button_label|default('Postuler') }}</button>
+
+            {% if candidature is defined and candidature %}
+                <a href="{{ path('app_consulter_candidature', {'id': candidature.id}) }}" class="filled-button">Consulter ma candidature</a>
+            {% endif %}
         {{ form_end(form) }}
     </div>
 

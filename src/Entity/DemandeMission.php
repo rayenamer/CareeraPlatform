@@ -3,18 +3,21 @@
 namespace App\Entity;
 
 use App\Repository\DemandeMissionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DemandeMissionRepository::class)]
 class DemandeMission
 {
+      
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'demandeMissions')]
-    private ?Offre $Offremission = null;
+    private ?Missionfreelencer $Offremission = null;
 
     #[ORM\Column(type: 'text', nullable: true)]
     #[Assert\NotBlank(message: "Le message ne peut pas être vide.")]
@@ -37,17 +40,28 @@ class DemandeMission
     private ?string $status = null;
 
 
+ // #[ORM\ManyToOne(inversedBy: 'demandeMissions')]
+    // private ?Utilisateur $utilisateur = null; // Supprimé car la table utilisateur n'existe plus
+
+   
+
+    public function __construct()
+    {
+        $this->candidatures = new ArrayCollection();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getOffremission(): ?Offre
+    public function getOffremission(): ?Missionfreelencer
     {
         return $this->Offremission;
     }
 
-    public function setOffremission(?Offre $Offremission): static
+    public function setOffremission(?Missionfreelencer $Offremission): static
     {
         $this->Offremission = $Offremission;
 
@@ -89,4 +103,29 @@ class DemandeMission
 
         return $this;
     }
+
+    public function getEvaluation(): ?Evaluation
+    {
+        return $this->evaluation;
+    }
+
+    public function setEvaluation(?Evaluation $evaluation): static
+    {
+        $this->evaluation = $evaluation;
+
+        return $this;
+    }
+
+   // public function getUtilisateur(): ?Utilisateur
+    // {
+    //     return $this->utilisateur; // Supprimé car la table utilisateur n'existe plus
+    // }
+
+    // public function setUtilisateur(?Utilisateur $utilisateur): static
+    // {
+    //     $this->utilisateur = $utilisateur;
+    //     return $this;
+    // }
+
+   
 }

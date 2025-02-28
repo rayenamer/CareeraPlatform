@@ -352,6 +352,20 @@
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
+    <service id="App\Controller\CandidaturemissionController" class="App\Controller\CandidaturemissionController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\CandidaturemissionController"/>
+      </call>
+    </service>
+    <service id="App\Controller\ChercheroffreController" class="App\Controller\ChercheroffreController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\ChercheroffreController"/>
+      </call>
+    </service>
     <service id="App\Controller\DemandeMissionController" class="App\Controller\DemandeMissionController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -373,27 +387,56 @@
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\IndexController"/>
       </call>
     </service>
-    <service id="App\Controller\OffrefrelencerController" class="App\Controller\OffrefrelencerController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\MissionfreelencerController" class="App\Controller\MissionfreelencerController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\OffrefrelencerController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\MissionfreelencerController"/>
+      </call>
+    </service>
+    <service id="App\Controller\NotificationsController" class="App\Controller\NotificationsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\NotificationsController"/>
       </call>
     </service>
     <service id="App\Form\DemandeMissionType" class="App\Form\DemandeMissionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\OffreType" class="App\Form\OffreType" autowire="true" autoconfigure="true">
+    <service id="App\Form\EvaluationType" class="App\Form\EvaluationType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\OffrefreelencerformType" class="App\Form\OffrefreelencerformType" autowire="true" autoconfigure="true">
+    <service id="App\Form\MissionfreelencerType" class="App\Form\MissionfreelencerType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Form\OffreformType" class="App\Form\OffreformType" autowire="true" autoconfigure="true">
+      <tag name="container.error" message="The autoloader expected class &quot;App\Form\OffreformType&quot; to be defined in file &quot;C:\Users\wiem\Desktop\CareeraPlatform\vendor\composer/../../src\Form\OffreformType.php&quot;. The file was found but the class was not in it, the class name or namespace probably has a typo."/>
+    </service>
+    <service id="App\Form\RechercheoffreType" class="App\Form\RechercheoffreType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\CandidaturemissionRepository" class="App\Repository\CandidaturemissionRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\DemandeMissionRepository" class="App\Repository\DemandeMissionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\OffreRepository" class="App\Repository\OffreRepository" autowire="true" autoconfigure="true">
+    <service id="App\Repository\MissionRepository" class="App\Repository\MissionRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\MissionfreelencerRepository" class="App\Repository\MissionfreelencerRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -424,7 +467,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.eolEXa."/>
+      <argument type="service" id=".service_locator.X2jVyU7"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1346,8 +1389,9 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\DemandeMissionType</argument>
-        <argument>App\Form\OffreType</argument>
-        <argument>App\Form\OffrefreelencerformType</argument>
+        <argument>App\Form\EvaluationType</argument>
+        <argument>App\Form\MissionfreelencerType</argument>
+        <argument>App\Form\RechercheoffreType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3312,7 +3356,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.eolEXa."/>
+      <argument type="service" id=".service_locator.X2jVyU7"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -3801,7 +3845,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.g2hpVaF"/>
+      <argument type="service" id=".service_locator.RQpGdgj"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5062,7 +5106,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.hgjGDzP"/>
+      <argument type="service" id=".service_locator.DeVrr97"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -7047,6 +7091,12 @@
       <argument type="service" id="maker.file_manager"/>
       <argument type="service" id="maker.generator"/>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CandidaturemissionController" class="App\Controller\CandidaturemissionController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CandidaturemissionController" class="App\Controller\CandidaturemissionController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CandidaturemissionController" class="App\Controller\CandidaturemissionController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ChercheroffreController" class="App\Controller\ChercheroffreController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ChercheroffreController" class="App\Controller\ChercheroffreController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ChercheroffreController" class="App\Controller\ChercheroffreController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DemandeMissionController" class="App\Controller\DemandeMissionController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DemandeMissionController" class="App\Controller\DemandeMissionController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DemandeMissionController" class="App\Controller\DemandeMissionController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7056,19 +7106,32 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OffrefrelencerController" class="App\Controller\OffrefrelencerController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OffrefrelencerController" class="App\Controller\OffrefrelencerController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\OffrefrelencerController" class="App\Controller\OffrefrelencerController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MissionfreelencerController" class="App\Controller\MissionfreelencerController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MissionfreelencerController" class="App\Controller\MissionfreelencerController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MissionfreelencerController" class="App\Controller\MissionfreelencerController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NotificationsController" class="App\Controller\NotificationsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NotificationsController" class="App\Controller\NotificationsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NotificationsController" class="App\Controller\NotificationsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DemandeMissionType" class="App\Form\DemandeMissionType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\DemandeMissionType" class="App\Form\DemandeMissionType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\OffreType" class="App\Form\OffreType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\OffreType" class="App\Form\OffreType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\OffrefreelencerformType" class="App\Form\OffrefreelencerformType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\OffrefreelencerformType" class="App\Form\OffrefreelencerformType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EvaluationType" class="App\Form\EvaluationType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\EvaluationType" class="App\Form\EvaluationType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MissionfreelencerType" class="App\Form\MissionfreelencerType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MissionfreelencerType" class="App\Form\MissionfreelencerType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RechercheoffreType" class="App\Form\RechercheoffreType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RechercheoffreType" class="App\Form\RechercheoffreType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CandidaturemissionRepository" class="App\Repository\CandidaturemissionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CandidaturemissionRepository" class="App\Repository\CandidaturemissionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DemandeMissionRepository" class="App\Repository\DemandeMissionRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DemandeMissionRepository" class="App\Repository\DemandeMissionRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\OffreRepository" class="App\Repository\OffreRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\OffreRepository" class="App\Repository\OffreRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MissionRepository" class="App\Repository\MissionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MissionRepository" class="App\Repository\MissionRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MissionfreelencerRepository" class="App\Repository\MissionfreelencerRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MissionfreelencerRepository" class="App\Repository\MissionfreelencerRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.w7.f4fT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7492,22 +7555,38 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.bFxUUhQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="demandeMissionRepository" type="service_closure" id="App\Repository\DemandeMissionRepository"/>
-      </argument>
-    </service>
     <service id=".service_locator.CsMkqUa" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.9Piphk6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.PSeVlgB" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="demandeMission" type="service_closure" id=".errored..service_locator.9Piphk6.App\Entity\DemandeMission"/>
+        <argument key="candidature" type="service_closure" id=".errored..service_locator.PSeVlgB.App\Entity\Candidaturemission"/>
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".errored.wchyjDp" class="App\Controller\CandidaturemissionRepository">
+      <tag name="container.error" message="Cannot determine controller argument for &quot;App\Controller\CandidaturemissionController::consulterCandidatures()&quot;: the $candidaturemissionRepository argument is type-hinted with the non-existent class or interface: &quot;App\Controller\CandidaturemissionRepository&quot;. Did you forget to add a use statement?"/>
+    </service>
+    <service id=".service_locator.wmXC7oJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="candidaturemissionRepository" type="service_closure" id=".errored.wchyjDp"/>
+      </argument>
+    </service>
+    <service id=".service_locator.aKZl18R" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="offreRepository" type="service_closure" id="App\Repository\MissionfreelencerRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.bFxUUhQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="demandeMissionRepository" type="service_closure" id="App\Repository\DemandeMissionRepository"/>
       </argument>
     </service>
     <service id=".service_locator.yGmjiG4" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7517,52 +7596,107 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.kjLqtAK" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.9Piphk6" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="offreRepository" type="service_closure" id="App\Repository\OffreRepository"/>
+        <argument key="demandeMission" type="service_closure" id=".errored..service_locator.9Piphk6.App\Entity\DemandeMission"/>
       </argument>
     </service>
-    <service id=".service_locator.0uzROk4" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.9kKwU2t" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="offre" type="service_closure" id=".errored..service_locator.0uzROk4.App\Entity\Offre"/>
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.V6favct" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.GBaGYvS" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="MissionfreelencerRepository" type="service_closure" id="App\Repository\MissionfreelencerRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.WeuR7V2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="offre" type="service_closure" id=".errored..service_locator.WeuR7V2.App\Entity\Missionfreelencer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.enkFUQ_" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-        <argument key="offre" type="service_closure" id=".errored..service_locator.V6favct.App\Entity\Offre"/>
+        <argument key="offre" type="service_closure" id=".errored..service_locator.enkFUQ_.App\Entity\Missionfreelencer"/>
       </argument>
     </service>
-    <service id=".service_locator.eolEXa." class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".errored.Oql2goT" class="App\Controller\OffreMissionRepository">
+      <tag name="container.error" message="Cannot determine controller argument for &quot;App\Controller\MissionfreelencerController::searchByCategory()&quot;: the $offreMissionRepository argument is type-hinted with the non-existent class or interface: &quot;App\Controller\OffreMissionRepository&quot;. Did you forget to add a use statement?"/>
+    </service>
+    <service id=".service_locator.ASiCa.5" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="offreMissionRepository" type="service_closure" id=".errored.Oql2goT"/>
+      </argument>
+    </service>
+    <service id=".service_locator.eD04aH." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="notificationRepository" type="service_closure" id="App\Repository\NotificationRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.X2jVyU7" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\CandidaturemissionController::accepterOuRefuserCandidature" type="service_closure" id=".service_locator.PSeVlgB"/>
+        <argument key="App\Controller\CandidaturemissionController::consulterCandidatures" type="service_closure" id=".service_locator.wmXC7oJ"/>
+        <argument key="App\Controller\CandidaturemissionController::evaluerCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController::listerToutesCandidatures" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController::postulerAOffre" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController::showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController::voirDemandeDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\ChercheroffreController::recherche" type="service_closure" id=".service_locator.aKZl18R"/>
+        <argument key="App\Controller\DemandeMissionController::calculerSommeNotes" type="service_closure" id=".service_locator.9Piphk6"/>
+        <argument key="App\Controller\DemandeMissionController::create" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DemandeMissionController::delete" type="service_closure" id=".service_locator.yGmjiG4"/>
         <argument key="App\Controller\DemandeMissionController::edit" type="service_closure" id=".service_locator.yGmjiG4"/>
         <argument key="App\Controller\DemandeMissionController::index" type="service_closure" id=".service_locator.bFxUUhQ"/>
         <argument key="App\Controller\DemandeMissionController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\DemandeMissionController::show" type="service_closure" id=".service_locator.9Piphk6"/>
-        <argument key="App\Controller\OffrefrelencerController::delete" type="service_closure" id=".service_locator.V6favct"/>
-        <argument key="App\Controller\OffrefrelencerController::edit" type="service_closure" id=".service_locator.V6favct"/>
-        <argument key="App\Controller\OffrefrelencerController::index" type="service_closure" id=".service_locator.kjLqtAK"/>
-        <argument key="App\Controller\OffrefrelencerController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\OffrefrelencerController::show" type="service_closure" id=".service_locator.0uzROk4"/>
+        <argument key="App\Controller\MissionfreelencerController::consulterCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\MissionfreelencerController::delete" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController::edit" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController::index" type="service_closure" id=".service_locator.GBaGYvS"/>
+        <argument key="App\Controller\MissionfreelencerController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\MissionfreelencerController::publierOffre" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController::searchByCategory" type="service_closure" id=".service_locator.ASiCa.5"/>
+        <argument key="App\Controller\MissionfreelencerController::show" type="service_closure" id=".service_locator.WeuR7V2"/>
+        <argument key="App\Controller\MissionfreelencerController::showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\NotificationsController::notifications" type="service_closure" id=".service_locator.eD04aH."/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
+        <argument key="App\Controller\CandidaturemissionController:accepterOuRefuserCandidature" type="service_closure" id=".service_locator.PSeVlgB"/>
+        <argument key="App\Controller\CandidaturemissionController:consulterCandidatures" type="service_closure" id=".service_locator.wmXC7oJ"/>
+        <argument key="App\Controller\CandidaturemissionController:evaluerCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController:listerToutesCandidatures" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController:postulerAOffre" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController:showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController:voirDemandeDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\ChercheroffreController:recherche" type="service_closure" id=".service_locator.aKZl18R"/>
+        <argument key="App\Controller\DemandeMissionController:calculerSommeNotes" type="service_closure" id=".service_locator.9Piphk6"/>
+        <argument key="App\Controller\DemandeMissionController:create" type="service_closure" id=".service_locator.9kKwU2t"/>
         <argument key="App\Controller\DemandeMissionController:delete" type="service_closure" id=".service_locator.yGmjiG4"/>
         <argument key="App\Controller\DemandeMissionController:edit" type="service_closure" id=".service_locator.yGmjiG4"/>
         <argument key="App\Controller\DemandeMissionController:index" type="service_closure" id=".service_locator.bFxUUhQ"/>
         <argument key="App\Controller\DemandeMissionController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\DemandeMissionController:show" type="service_closure" id=".service_locator.9Piphk6"/>
-        <argument key="App\Controller\OffrefrelencerController:delete" type="service_closure" id=".service_locator.V6favct"/>
-        <argument key="App\Controller\OffrefrelencerController:edit" type="service_closure" id=".service_locator.V6favct"/>
-        <argument key="App\Controller\OffrefrelencerController:index" type="service_closure" id=".service_locator.kjLqtAK"/>
-        <argument key="App\Controller\OffrefrelencerController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\OffrefrelencerController:show" type="service_closure" id=".service_locator.0uzROk4"/>
+        <argument key="App\Controller\MissionfreelencerController:consulterCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\MissionfreelencerController:delete" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController:edit" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController:index" type="service_closure" id=".service_locator.GBaGYvS"/>
+        <argument key="App\Controller\MissionfreelencerController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\MissionfreelencerController:publierOffre" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController:searchByCategory" type="service_closure" id=".service_locator.ASiCa.5"/>
+        <argument key="App\Controller\MissionfreelencerController:show" type="service_closure" id=".service_locator.WeuR7V2"/>
+        <argument key="App\Controller\MissionfreelencerController:showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\NotificationsController:notifications" type="service_closure" id=".service_locator.eD04aH."/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
       </argument>
@@ -7724,12 +7858,13 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.g2hpVaF" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.RQpGdgj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\DemandeMissionType" type="service_closure" id="App\Form\DemandeMissionType"/>
-        <argument key="App\Form\OffreType" type="service_closure" id="App\Form\OffreType"/>
-        <argument key="App\Form\OffrefreelencerformType" type="service_closure" id="App\Form\OffrefreelencerformType"/>
+        <argument key="App\Form\EvaluationType" type="service_closure" id="App\Form\EvaluationType"/>
+        <argument key="App\Form\MissionfreelencerType" type="service_closure" id="App\Form\MissionfreelencerType"/>
+        <argument key="App\Form\RechercheoffreType" type="service_closure" id="App\Form\RechercheoffreType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -7855,11 +7990,15 @@
         <argument key="turbo.doctrine.event_listener" type="service_closure" id="turbo.doctrine.event_listener"/>
       </argument>
     </service>
-    <service id=".service_locator.hgjGDzP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.DeVrr97" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\CandidatureRepository" type="service_closure" id="App\Repository\CandidatureRepository"/>
+        <argument key="App\Repository\CandidaturemissionRepository" type="service_closure" id="App\Repository\CandidaturemissionRepository"/>
         <argument key="App\Repository\DemandeMissionRepository" type="service_closure" id="App\Repository\DemandeMissionRepository"/>
-        <argument key="App\Repository\OffreRepository" type="service_closure" id="App\Repository\OffreRepository"/>
+        <argument key="App\Repository\MissionRepository" type="service_closure" id="App\Repository\MissionRepository"/>
+        <argument key="App\Repository\MissionfreelencerRepository" type="service_closure" id="App\Repository\MissionfreelencerRepository"/>
+        <argument key="App\Repository\NotificationRepository" type="service_closure" id="App\Repository\NotificationRepository"/>
       </argument>
     </service>
     <service id=".service_locator.KLVvNIq" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -8177,6 +8316,18 @@
         <argument key="web_link.http_header_serializer" type="service_closure" id="web_link.http_header_serializer" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\CandidaturemissionController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CandidaturemissionController"/>
+      <argument>App\Controller\CandidaturemissionController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\ChercheroffreController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ChercheroffreController"/>
+      <argument>App\Controller\ChercheroffreController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
     <service id=".service_locator.O2p6Lk7.App\Controller\DemandeMissionController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\DemandeMissionController"/>
       <argument>App\Controller\DemandeMissionController</argument>
@@ -8195,9 +8346,15 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\OffrefrelencerController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\OffrefrelencerController"/>
-      <argument>App\Controller\OffrefrelencerController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\MissionfreelencerController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MissionfreelencerController"/>
+      <argument>App\Controller\MissionfreelencerController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\NotificationsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NotificationsController"/>
+      <argument>App\Controller\NotificationsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
@@ -8375,10 +8532,13 @@
       <call method="allowControllers">
         <argument type="collection">
           <argument>App\Kernel</argument>
+          <argument>App\Controller\CandidaturemissionController</argument>
+          <argument>App\Controller\ChercheroffreController</argument>
           <argument>App\Controller\DemandeMissionController</argument>
           <argument>App\Controller\HomeController</argument>
           <argument>App\Controller\IndexController</argument>
-          <argument>App\Controller\OffrefrelencerController</argument>
+          <argument>App\Controller\MissionfreelencerController</argument>
+          <argument>App\Controller\NotificationsController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>
@@ -8580,17 +8740,20 @@
     <service id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.y4_Zrx.&quot;: it needs an instance of &quot;Symfony\Component\Config\Loader\LoaderInterface&quot; but this type has been excluded from autowiring."/>
     </service>
-    <service id=".errored..service_locator.9Piphk6.App\Entity\DemandeMission" class="App\Entity\DemandeMission">
-      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.9Piphk6&quot;: it needs an instance of &quot;App\Entity\DemandeMission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    <service id=".errored..service_locator.PSeVlgB.App\Entity\Candidaturemission" class="App\Entity\Candidaturemission">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.PSeVlgB&quot;: it needs an instance of &quot;App\Entity\Candidaturemission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".errored..service_locator.yGmjiG4.App\Entity\DemandeMission" class="App\Entity\DemandeMission">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.yGmjiG4&quot;: it needs an instance of &quot;App\Entity\DemandeMission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
-    <service id=".errored..service_locator.0uzROk4.App\Entity\Offre" class="App\Entity\Offre">
-      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.0uzROk4&quot;: it needs an instance of &quot;App\Entity\Offre&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    <service id=".errored..service_locator.9Piphk6.App\Entity\DemandeMission" class="App\Entity\DemandeMission">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.9Piphk6&quot;: it needs an instance of &quot;App\Entity\DemandeMission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
-    <service id=".errored..service_locator.V6favct.App\Entity\Offre" class="App\Entity\Offre">
-      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.V6favct&quot;: it needs an instance of &quot;App\Entity\Offre&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    <service id=".errored..service_locator.WeuR7V2.App\Entity\Missionfreelencer" class="App\Entity\Missionfreelencer">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.WeuR7V2&quot;: it needs an instance of &quot;App\Entity\Missionfreelencer&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.enkFUQ_.App\Entity\Missionfreelencer" class="App\Entity\Missionfreelencer">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.enkFUQ_&quot;: it needs an instance of &quot;App\Entity\Missionfreelencer&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
@@ -9776,7 +9939,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.w7.f4fT" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.eolEXa."/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.X2jVyU7"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9800,10 +9963,10 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.bJ.4HC5" alias=".service_locator.w7.f4fT"/>
-    <service id=".service_locator.3.sg1hS" alias=".service_locator.V6favct"/>
-    <service id=".service_locator.FvwwBSX" alias=".service_locator.eolEXa."/>
+    <service id=".service_locator.IZFtKRV" alias=".service_locator.enkFUQ_"/>
+    <service id=".service_locator.IKKAVUB" alias=".service_locator.X2jVyU7"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
-    <service id=".service_locator.pj2m4wD" alias=".service_locator.g2hpVaF"/>
+    <service id=".service_locator.Lnytun7" alias=".service_locator.RQpGdgj"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.jUv.zyj" alias=".service_locator.O2p6Lk7"/>
@@ -9827,13 +9990,17 @@
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id="security.event_dispatcher.main" alias="debug.security.event_dispatcher.main"/>
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
-    <service id=".service_locator.uyu.nWK" alias=".service_locator.bFxUUhQ"/>
     <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
-    <service id=".service_locator.TArSDF8" alias=".service_locator.9Piphk6"/>
+    <service id=".service_locator.qnRrxAz" alias=".service_locator.PSeVlgB"/>
+    <service id=".service_locator.w3YHrKK" alias=".service_locator.aKZl18R"/>
+    <service id=".service_locator.uyu.nWK" alias=".service_locator.bFxUUhQ"/>
     <service id=".service_locator.jpjnWpZ" alias=".service_locator.yGmjiG4"/>
-    <service id=".service_locator.qKPDMPG" alias=".service_locator.kjLqtAK"/>
-    <service id=".service_locator.8LfxfNT" alias=".service_locator.0uzROk4"/>
-    <service id=".service_locator.qFC67iW" alias=".service_locator.V6favct"/>
+    <service id=".service_locator.TArSDF8" alias=".service_locator.9Piphk6"/>
+    <service id=".service_locator.gaTSUXr" alias=".service_locator.9kKwU2t"/>
+    <service id=".service_locator.kNV1EUD" alias=".service_locator.GBaGYvS"/>
+    <service id=".service_locator.4TUkK3V" alias=".service_locator.WeuR7V2"/>
+    <service id=".service_locator.X5yrVD5" alias=".service_locator.enkFUQ_"/>
+    <service id=".service_locator.Ti5lv3v" alias=".service_locator.eD04aH."/>
     <service id=".service_locator.Q1z.f9O" alias=".service_locator.O2p6Lk7"/>
     <service id=".service_locator.dGUCsbe" alias=".service_locator.oR77BOj"/>
     <service id=".service_locator._kIAbz1" alias=".service_locator.TpoC7U9"/>

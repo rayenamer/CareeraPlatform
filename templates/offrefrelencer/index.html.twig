@@ -27,7 +27,29 @@
             display: inline-block;
             margin-top: 10px;
         }
+.search-bar {
+            margin-bottom: 20px;
+        }
 
+        .search-input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #0056b3;
+        }
         .filled-button:hover {
             background-color: #45a049;
         }
@@ -40,6 +62,15 @@
                     <div class="section-heading">
                         <h2>Freelance <em>Services</em></h2>
                         <span>Consultez toutes les offres disponibles</span>
+                         <!-- Ajouter le bouton de notification ici -->
+                        <button class="notification-button" onclick="window.location.href='{{ path('app_notifications') }}'">🔔</button>
+                    </div>
+                       <div>
+                       <form action="{{ path('app_recherche_offre_mission') }}" method="get" class="search-bar">
+
+                            <input type="text" placeholder="Rechercher..." name="query" class="search-input">
+                            <button type="submit" class="search-button">🔍</button>
+                        </form>
                     </div>
                 </div>
 
@@ -51,8 +82,8 @@
                                 <h4>{{ offre.titre }}</h4>
                                 <p><strong>Prix :</strong> {{ offre.prix }} dt</p>
                                 <p><strong>Description :</strong> {{ offre.description }}</p>
-                                <p><strong>Date limite :</strong> {{ offre.datelimite}}</p>
-                                <p><strong>Spécialité :</strong> {{ offre.specialite }}</p>
+                               
+                                <p><strong>Date :</strong> {{ offre.Date|date('d/m/Y H:i')  }}</p>
                                 <div class="actions">
                                     <a href="{{ path('app_offrefrelencer_show', {'id': offre.id}) }}" class="filled-button">Voir plus</a>
                                     <a href="{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}" class="filled-button">Modifier</a>
@@ -69,9 +100,20 @@
         </div>
     </div>
 
-    <div class="text-center">
+   <div class="text-center">
+  {#  {% if isModerator %}  #}
         <a href="{{ path('app_offrefrelencer_new') }}" class="filled-button">Créer une nouvelle offre</a>
+        <a href="{{ path('app_lister_toutes_candidatures') }}" class="filled-button">Consulter les candidatures</a>
+ {#   {% endif %}#}
+
+   {#  {% if isFreelancer %}  #}
         <br><br>
-        <a href="{{ path('app_demande_mission_new') }}" class="filled-button">Postuler</a>
-    </div>
+        <div>
+            <a href="{{ path('app_demande_mission_new') }}" class="filled-button">Postuler</a>
+            <a href="{{ path('app_mes_candidatures') }}" class="filled-button">consulter ma candidature</a>
+
+        </div>
+    {#{% endif %} #}
+</div>
+
 {% endblock %}

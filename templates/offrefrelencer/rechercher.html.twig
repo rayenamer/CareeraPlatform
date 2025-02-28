@@ -1,0 +1,37 @@
+<!-- templates/offre_mission/recherche.html.twig -->
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche Offre Mission{% endblock %}
+
+{% block body %}
+    <h1>Recherche par spécialité</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.specialite) }}
+        <button type="submit">Rechercher</button>
+    {{ form_end(form) }}
+
+    <h2>Résultats de la recherche</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Spécialité</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for offreMission in offreMissions %}
+                <tr>
+                    <td>{{ offreMission.id }}</td>
+                    <td>{{ offreMission.specialite }}</td>
+                    <td>{{ offreMission.description }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune offre trouvée</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

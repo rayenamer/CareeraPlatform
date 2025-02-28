@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Form;
-
+use App\Entity\Missionfreelencer;
 use App\Entity\DemandeMission;
-use App\Entity\Offre;
+use App\Entity\Rechercheoffre;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -41,7 +41,7 @@ class DemandeMissionType extends AbstractType
             ],
         ])            ->add('status')
             ->add('Offremission', EntityType::class, [
-                'class' => Offre::class,
+                'class' => Missionfreelencer::class,
                 'choice_label' => 'titre',
             ])
         ;

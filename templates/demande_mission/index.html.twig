@@ -12,7 +12,10 @@
                 <th>Message</th>
                 <th>Portfolio</th>
                 <th>Status</th>
+                 <th>date de publication</th>
                 <th>actions</th>
+
+               
             </tr>
         </thead>
         <tbody>
@@ -22,6 +25,15 @@
                 <td>{{ demande_mission.message }}</td>
                 <td>{{ demande_mission.portfolio }}</td>
                 <td>{{ demande_mission.status }}</td>
+                
+
+         <td>
+    {% if demande_mission.evaluation %}
+        {{ demande_mission.evaluation.note }}
+    {% else %}
+        Pas d'évaluation
+    {% endif %}
+</td>
                 <td>
                     <a href="{{ path('app_demande_mission_show', {'id': demande_mission.id}) }}">show</a>
                     <a href="{{ path('app_demande_mission_edit', {'id': demande_mission.id}) }}">edit</a>

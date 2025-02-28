@@ -1,0 +1,18 @@
+{# templates/demande_mission/mes_candidatures.html.twig #}
+
+<h1>Mes candidatures</h1>
+
+{% if candidatures is not empty %}
+    <ul>
+        {% for candidature in candidatures %}
+            <li>
+                <strong>{{ candidature.mission.titre }}</strong><br>
+                Statut: {{ candidature.etat|capitalize }}<br>
+                Score: {{ candidature.score is not null ? candidature.score : 'N/A' }}<br>
+                <small>Demande envoyée le : {{ candidature.demande.createdAt|date('d/m/Y') }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucune candidature trouvée.</p>
+{% endif %}
