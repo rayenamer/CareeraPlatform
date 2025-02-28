@@ -22,3 +22,12 @@ b68f57,127.0.0.1,GET,http://127.0.0.1:8000/setNotificationTrue/6,1740760755,,500
 7e80d1,127.0.0.1,GET,http://127.0.0.1:8000/setNotificationTrue/6,1740760767,,500,request
 a762f2,127.0.0.1,GET,http://127.0.0.1:8000/setNotificationTrue/6,1740760818,,302,request
 2cc393,127.0.0.1,GET,http://127.0.0.1:8000/notification/2,1740760818,,200,request
+7a2354,127.0.0.1,GET,http://127.0.0.1:8000/,1740785201,,404,request
+a027a1,127.0.0.1,GET,http://127.0.0.1:8000/,1740785202,,404,request
+4e71c1,127.0.0.1,GET,http://127.0.0.1:8000/,1740785202,,404,request
+b29fbb,127.0.0.1,GET,http://127.0.0.1:8000/login,1740785209,,200,request
+936310,127.0.0.1,POST,http://127.0.0.1:8000/login,1740785255,,302,request
+445617,127.0.0.1,GET,http://127.0.0.1:8000/home,1740785256,,200,request
+b2d71b,127.0.0.1,GET,http://127.0.0.1:8000/forum,1740785261,,200,request
+8c89ae,127.0.0.1,POST,http://127.0.0.1:8000/addDiscussion,1740785271,,302,request
+dcf903,127.0.0.1,GET,http://127.0.0.1:8000/forum,1740785272,,200,request
