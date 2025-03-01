@@ -16,15 +16,14 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/candidature' => [[['_route' => 'app_candidature', '_controller' => 'App\\Controller\\CandidaturemissionController::index'], null, null, null, false, false, null]],
         '/candidatures' => [[['_route' => 'app_lister_toutes_candidatures', '_controller' => 'App\\Controller\\CandidaturemissionController::listerToutesCandidatures'], null, null, null, false, false, null]],
-        '/mes-candidatures' => [[['_route' => 'app_mes_candidatures', '_controller' => 'App\\Controller\\CandidaturemissionController::consulterCandidatures'], null, null, null, false, false, null]],
-        '/recherche-offre-mission' => [[['_route' => 'app_recherche_offre_mission', '_controller' => 'App\\Controller\\ChercheroffreController::recherche'], null, null, null, false, false, null]],
+        '/recherche-offre-mission' => [[['_route' => 'app_recherche_offre_mission', '_controller' => 'App\\Controller\\CherchermissionController::recherche'], null, null, null, false, false, null]],
         '/demande/mission' => [[['_route' => 'app_demande_mission_index', '_controller' => 'App\\Controller\\DemandeMissionController::index'], null, ['GET' => 0], null, false, false, null]],
         '/demande/mission/new' => [[['_route' => 'app_demande_mission_new', '_controller' => 'App\\Controller\\DemandeMissionController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
         '/offrefrelencer' => [[['_route' => 'app_offrefrelencer_index', '_controller' => 'App\\Controller\\MissionfreelencerController::index'], null, ['GET' => 0], null, false, false, null]],
         '/offrefrelencer/new' => [[['_route' => 'app_offrefrelencer_new', '_controller' => 'App\\Controller\\MissionfreelencerController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/notifications' => [[['_route' => 'app_notifications', '_controller' => 'App\\Controller\\NotificationsController::notifications'], null, null, null, false, false, null]],
+        '/notificationfreelencer' => [[['_route' => 'app_notificationfreelencer', '_controller' => 'App\\Controller\\NotificationfreelencerController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -57,19 +56,20 @@ return [
                         .'|/edit(*:343)'
                         .'|(*:351)'
                     .')'
+                    .'|mes\\-candidatures(*:377)'
                 .')'
                 .'|/offrefrelencer/(?'
                     .'|([^/]++)(?'
-                        .'|(*:391)'
-                        .'|/edit(*:404)'
-                        .'|(*:412)'
+                        .'|(*:416)'
+                        .'|/edit(*:429)'
+                        .'|(*:437)'
                     .')'
-                    .'|recherche_offre(*:436)'
+                    .'|recherche_offre(*:461)'
                     .'|offre/(?'
-                        .'|([^/]++)(*:461)'
-                        .'|publier/([^/]++)(*:485)'
+                        .'|([^/]++)(*:486)'
+                        .'|publier/([^/]++)(*:510)'
                     .')'
-                    .'|candidature/([^/]++)(*:514)'
+                    .'|candidature/([^/]++)(*:539)'
                 .')'
             .')/?$}sDu',
     ],
@@ -88,13 +88,14 @@ return [
         319 => [[['_route' => 'voir_demande_details', '_controller' => 'App\\Controller\\CandidaturemissionController::voirDemandeDetails'], ['id'], null, null, false, true, null]],
         343 => [[['_route' => 'app_demande_mission_edit', '_controller' => 'App\\Controller\\DemandeMissionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         351 => [[['_route' => 'app_demande_mission_delete', '_controller' => 'App\\Controller\\DemandeMissionController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        391 => [[['_route' => 'app_offrefrelencer_show', '_controller' => 'App\\Controller\\MissionfreelencerController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        404 => [[['_route' => 'app_offrefrelencer_edit', '_controller' => 'App\\Controller\\MissionfreelencerController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        412 => [[['_route' => 'app_offrefrelencer_delete', '_controller' => 'App\\Controller\\MissionfreelencerController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        436 => [[['_route' => 'app_recherche_offre', '_controller' => 'App\\Controller\\MissionfreelencerController::recherche'], [], null, null, false, false, null]],
-        461 => [[['_route' => 'app_offre_details', '_controller' => 'App\\Controller\\MissionfreelencerController::showOfferDetails'], ['id'], null, null, false, true, null]],
-        485 => [[['_route' => 'app_offre_publier', '_controller' => 'App\\Controller\\MissionfreelencerController::publierOffre'], ['id'], null, null, false, true, null]],
-        514 => [
+        377 => [[['_route' => 'app_mes_candidatures', '_controller' => 'App\\Controller\\DemandeMissionController::consulterCandidatures'], [], null, null, false, false, null]],
+        416 => [[['_route' => 'app_offrefrelencer_show', '_controller' => 'App\\Controller\\MissionfreelencerController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        429 => [[['_route' => 'app_offrefrelencer_edit', '_controller' => 'App\\Controller\\MissionfreelencerController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        437 => [[['_route' => 'app_offrefrelencer_delete', '_controller' => 'App\\Controller\\MissionfreelencerController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        461 => [[['_route' => 'app_recherche_offre', '_controller' => 'App\\Controller\\MissionfreelencerController::recherche'], [], null, null, false, false, null]],
+        486 => [[['_route' => 'app_offre_details', '_controller' => 'App\\Controller\\MissionfreelencerController::showOfferDetails'], ['id'], null, null, false, true, null]],
+        510 => [[['_route' => 'app_offre_publier', '_controller' => 'App\\Controller\\MissionfreelencerController::publierOffre'], ['id'], null, null, false, true, null]],
+        539 => [
             [['_route' => 'app_consulter_candidature', '_controller' => 'App\\Controller\\MissionfreelencerController::consulterCandidature'], ['id'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

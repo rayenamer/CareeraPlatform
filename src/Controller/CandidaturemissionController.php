@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Candidaturemission;
 use App\Entity\Missionfreelencer;
 use App\Entity\Utilisateur;
-
+use App\Repository\CandidaturemissionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -158,21 +158,27 @@ public function showOfferDetails(int $id, EntityManagerInterface $entityManager)
 #[Route('/mes-candidatures', name: 'app_mes_candidatures')]
 public function consulterCandidatures(CandidaturemissionRepository $candidaturemissionRepository): Response
 {
+    // Récupérer l'utilisateur connecté via Symfony Security
     $utilisateur = $this->getUser();
     
     if (!$utilisateur) {
         throw $this->createAccessDeniedException('Utilisateur non authentifié.');
     }
 
+    // Récupérer les candidatures de l'utilisateur connecté
     $candidatures = $candidaturemissionRepository->findByUtilisateur($utilisateur);
 
     if (empty($candidatures)) {
         $this->addFlash('warning', 'Vous n\'avez pas encore de candidatures.');
     }
 
+    // Retourner la réponse avec les candidatures
     return $this->render('demande_mission/mes_candidatures.html.twig', [
         'candidatures' => $candidatures,
     ]);
 }
+
+
+
     }
 

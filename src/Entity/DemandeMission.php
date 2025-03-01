@@ -6,11 +6,11 @@ use App\Repository\DemandeMissionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DemandeMissionRepository::class)]
 class DemandeMission
 {
-      
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -22,7 +22,7 @@ class DemandeMission
     #[ORM\Column(type: 'text', nullable: true)]
     #[Assert\NotBlank(message: "Le message ne peut pas être vide.")]
     #[Assert\Length(
-        min: 100,
+        min: 10,
         minMessage: "Le message doit contenir au moins {{ limit }} caractères."
     )]
     private ?string $message = null;
@@ -33,26 +33,18 @@ class DemandeMission
 
     #[ORM\Column(length: 20)]
     #[Assert\NotBlank(message: "Le statut est obligatoire.")]
-    #[Assert\Choice(
-        choices: ['en attente', 'validé', 'refusé'],
-        message: "Le statut doit être 'en attente', 'validé' ou 'refusé'."
-    )]
+   
+    
     private ?string $status = null;
 
     #[ORM\Column(length: 255)]
     private ?string $userid = null;
 
-
- // #[ORM\ManyToOne(inversedBy: 'demandeMissions')]
-    // private ?Utilisateur $utilisateur = null; // Supprimé car la table utilisateur n'existe plus
-
-   
-
     public function __construct()
     {
-        $this->candidatures = new ArrayCollection();
+        // Initialisation si nécessaire
+        // $this->candidatures = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -107,26 +99,16 @@ class DemandeMission
         return $this;
     }
 
-    public function getEvaluation(): ?Evaluation
-    {
-        return $this->evaluation;
-    }
-
-    public function setEvaluation(?Evaluation $evaluation): static
-    {
-        $this->evaluation = $evaluation;
-
-        return $this;
-    }
-
-   // public function getUtilisateur(): ?Utilisateur
+    // Si vous avez une évaluation associée, décommentez et complétez ce code
+    // public function getEvaluation(): ?Evaluation
     // {
-    //     return $this->utilisateur; // Supprimé car la table utilisateur n'existe plus
+    //     return $this->evaluation;
     // }
 
-    // public function setUtilisateur(?Utilisateur $utilisateur): static
+    // public function setEvaluation(?Evaluation $evaluation): static
     // {
-    //     $this->utilisateur = $utilisateur;
+    //     $this->evaluation = $evaluation;
+
     //     return $this;
     // }
 
@@ -141,6 +123,4 @@ class DemandeMission
 
         return $this;
     }
-
-   
 }

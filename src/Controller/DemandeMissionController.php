@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\CandidaturemissionRepository;
 
 #[Route('/demande/mission')]
 final class DemandeMissionController extends AbstractController
@@ -26,45 +27,53 @@ final class DemandeMissionController extends AbstractController
     }
 
     #[Route('/new', name: 'app_demande_mission_new', methods: ['GET', 'POST'])]
-public function new(Request $request, EntityManagerInterface $entityManager): Response
-{
-    $utilisateur = $this->getUser(); 
-    $demandeMission = new DemandeMission();
-    $form = $this->createForm(DemandeMissionType::class, $demandeMission);
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-        // Associer l'utilisateur à la demande
-        $demandeMission->setUtilisateur($utilisateur);
-        
-        $entityManager->persist($demandeMission);
-        $entityManager->flush();
-
-        // Récupérer l'offre liée à la demande (exemple, à adapter selon ton modèle)
-        $offreMission = $demandeMission->getOffreMission();
-        
-        // Créer la candidature
-        $candidature = new Candidaturemission();
-        $candidature->setUtilisateur($utilisateur);
-        $candidature->setMission($offreMission);
-        $candidature->setDemande($demandeMission);  // Correction ici
-        $candidature->setEtat('En attente');
-
-        $entityManager->persist($candidature);
-        $entityManager->flush();
-
-        $this->addFlash('success', 'Votre candidature a été envoyée.');
-
-        return $this->redirectToRoute('app_offrefrelencer_index', [], Response::HTTP_SEE_OTHER);
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        // Créer un utilisateur statique (exemple simple, sans base de données)
+        $utilisateur = new \stdClass();
+        $utilisateur->id = 1; // ID statique
+        $utilisateur->nom = 'Test';  // Nom fictif
+        $utilisateur->email = 'test@example.com';  // Email fictif
+        $utilisateur->password = 'password123';  // Mot de passe fictif
+    // Simuler l'authentification
+    $this->get('security.token_storage')->setToken(new UsernamePasswordToken(
+        $utilisateur, 'password123', 'main', $utilisateur->getRoles()
+    ));
+        $demandeMission = new DemandeMission();
+        $form = $this->createForm(DemandeMissionType::class, $demandeMission);
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Passer uniquement l'ID de l'utilisateur statique
+            $demandeMission->setUserid((string) $utilisateur->id);  // ID en tant que string
+            
+            $entityManager->persist($demandeMission);
+            $entityManager->flush();
+    
+            // Récupérer l'offre liée à la demande (exemple, à adapter selon ton modèle)
+            $offreMission = $demandeMission->getOffreMission();
+            
+            // Créer la candidature
+            $candidature = new Candidaturemission();
+            $candidature->setUserid((string) $utilisateur->id);  // ID de l'utilisateur statique en tant que string
+            $candidature->setMission($offreMission);
+            $candidature->setDemande($demandeMission);  // Correction ici
+            $candidature->setEtat('En attente');
+    
+            $entityManager->persist($candidature);
+            $entityManager->flush();
+    
+            $this->addFlash('success', 'Votre candidature a été envoyée.');
+    
+            return $this->redirectToRoute('app_offrefrelencer_index', [], Response::HTTP_SEE_OTHER);
+        }
+    
+        return $this->render('demande_mission/new.html.twig', [
+            'demande_mission' => $demandeMission,
+            'form' => $form,
+        ]);
     }
-
-    return $this->render('demande_mission/new.html.twig', [
-        'demande_mission' => $demandeMission,
-        'form' => $form,
-    ]);
-}
-
-
+    
    
     
 
@@ -143,5 +152,27 @@ public function create(Request $request, EntityManagerInterface $em): Response
         'form' => $form->createView(),
     ]);
 }
+#[Route('/mes-candidatures', name: 'app_mes_candidatures')]
+public function consulterCandidatures(CandidaturemissionRepository $candidaturemissionRepository): Response
+{
+    // Créer un utilisateur statique
+    $utilisateur = new \stdClass();
+    $utilisateur->id = 1; // ID statique
+    $utilisateur->nom = 'Test';  // Nom fictif
+    $utilisateur->email = 'test@example.com';  // Email fictif
+    $utilisateur->password = 'password123';  // Mot de passe fictif
+
+    // Récupérer les candidatures de cet utilisateur
+    $candidatures = $candidaturemissionRepository->findBy(['utilisateur' => $utilisateur]);
+
+    if (empty($candidatures)) {
+        $this->addFlash('warning', 'Vous n\'avez pas encore de candidatures.');
+    }
+
+    return $this->render('demande_mission/mes_candidatures.html.twig', [
+        'candidatures' => $candidatures,
+    ]);
+}
+
 
 }

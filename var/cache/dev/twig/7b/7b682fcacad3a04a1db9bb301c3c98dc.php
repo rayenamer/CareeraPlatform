@@ -157,11 +157,9 @@ class __TwigTemplate_3900303639393443900ef5177c4c1df4 extends Template
                         <h2>Freelance <em>Services</em></h2>
                         <span>Consultez toutes les offres disponibles</span>
                          <!-- Ajouter le bouton de notification ici -->
-                        <button class=\"notification-button\" onclick=\"window.location.href='";
-        // line 66
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_notifications");
-        yield "'\">🔔</button>
-                    </div>
+                       ";
+        // line 67
+        yield "                    </div>
                        <div>
                        <form action=\"";
         // line 69
@@ -296,7 +294,7 @@ class __TwigTemplate_3900303639393443900ef5177c4c1df4 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  266 => 117,  260 => 113,  256 => 112,  252 => 110,  249 => 108,  245 => 106,  240 => 105,  233 => 99,  224 => 95,  222 => 98,  212 => 89,  208 => 88,  203 => 86,  198 => 84,  194 => 83,  190 => 82,  184 => 78,  179 => 77,  168 => 69,  162 => 66,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  264 => 117,  258 => 113,  254 => 112,  250 => 110,  247 => 108,  243 => 106,  238 => 105,  231 => 99,  222 => 95,  220 => 98,  210 => 89,  206 => 88,  201 => 86,  196 => 84,  192 => 83,  188 => 82,  182 => 78,  177 => 77,  166 => 69,  162 => 67,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -366,7 +364,7 @@ class __TwigTemplate_3900303639393443900ef5177c4c1df4 extends Template
                         <h2>Freelance <em>Services</em></h2>
                         <span>Consultez toutes les offres disponibles</span>
                          <!-- Ajouter le bouton de notification ici -->
-                        <button class=\"notification-button\" onclick=\"window.location.href='{{ path('app_notifications') }}'\">🔔</button>
+                       {#  <button class=\"notification-button\" onclick=\"window.location.href='{{ path('app_notifications') }}'\">🔔</button>#}
                     </div>
                        <div>
                        <form action=\"{{ path('app_recherche_offre_mission') }}\" method=\"get\" class=\"search-bar\">
