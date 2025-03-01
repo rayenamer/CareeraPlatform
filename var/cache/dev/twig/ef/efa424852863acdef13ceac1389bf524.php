@@ -198,52 +198,14 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
                         </div>
 
                         <div class=\"mt-3\">
-                            ";
-            // line 69
-            if (CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 69, $this->source); })()), "user", [], "any", false, false, false, 69)) {
-                // line 70
-                yield "                                ";
-                // line 71
-                yield "                                ";
-                if (CoreExtension::inFilter(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 71, $this->source); })()), "user", [], "any", false, false, false, 71), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "utilisateurs", [], "any", false, false, false, 71))) {
-                    // line 72
-                    yield "                                    ";
-                    // line 73
-                    yield "                                    <a href=\"";
-                    yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("evenement_annuler", ["idevenement" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 73), "iduser" => CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 73, $this->source); })()), "user", [], "any", false, false, false, 73), "id", [], "any", false, false, false, 73)]), "html", null, true);
-                    yield "\" class=\"btn btn-danger btn-sm w-100\">
-                                        Annuler participation
-                                    </a>
-                                ";
-                } else {
-                    // line 77
-                    yield "                                    ";
-                    // line 78
-                    yield "                                    <a href=\"";
-                    yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("evenement_postuler", ["idevenement" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 78), "iduser" => CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 78, $this->source); })()), "user", [], "any", false, false, false, 78), "id", [], "any", false, false, false, 78)]), "html", null, true);
-                    yield "\" class=\"btn btn-primary btn-sm w-100\">
-                                        Participer
-                                    </a>
-                                ";
-                }
-                // line 82
-                yield "                            ";
-            } else {
-                // line 83
-                yield "                                ";
-                // line 84
-                yield "                                <p class=\"text-center\">Connectez-vous pour participer.</p>
-                            ";
-            }
-            // line 85
-            yield " 
+                            
                             <!-- Bouton \"Voir les détails\" -->
-    <a href=\"";
-            // line 87
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 87)]), "html", null, true);
+                            <a href=\"";
+            // line 71
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 71)]), "html", null, true);
             yield "\" class=\"btn btn-info btn-sm w-100\">
-        Voir les détails
-    </a>
+                                Voir les détails
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -251,9 +213,9 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
         ";
             $context['_iterated'] = true;
         }
-        // line 94
+        // line 78
         if (!$context['_iterated']) {
-            // line 95
+            // line 79
             yield "            <div class=\"col-12 text-center\">
                 <p class=\"text-muted\">Aucun événement disponible.</p>
             </div>
@@ -262,7 +224,7 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['event'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 99
+        // line 83
         yield "    </div>
 </div>
 
@@ -549,7 +511,7 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  266 => 99,  257 => 95,  255 => 94,  243 => 87,  239 => 85,  235 => 84,  233 => 83,  230 => 82,  222 => 78,  220 => 77,  212 => 73,  210 => 72,  207 => 71,  205 => 70,  203 => 69,  195 => 64,  191 => 63,  186 => 60,  182 => 58,  174 => 55,  169 => 53,  164 => 50,  162 => 49,  155 => 44,  151 => 43,  147 => 42,  142 => 40,  137 => 37,  132 => 36,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  228 => 83,  219 => 79,  217 => 78,  205 => 71,  195 => 64,  191 => 63,  186 => 60,  182 => 58,  174 => 55,  169 => 53,  164 => 50,  162 => 49,  155 => 44,  151 => 43,  147 => 42,  142 => 40,  137 => 37,  132 => 36,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -622,27 +584,11 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
                         </div>
 
                         <div class=\"mt-3\">
-                            {% if app.user %}
-                                {# Si l'utilisateur est connecté #}
-                                {% if app.user in event.utilisateurs %}
-                                    {# Si l'utilisateur participe déjà, afficher \"Annuler participation\" #}
-                                    <a href=\"{{ path('evenement_annuler', { idevenement: event.id, iduser: app.user.id }) }}\" class=\"btn btn-danger btn-sm w-100\">
-                                        Annuler participation
-                                    </a>
-                                {% else %}
-                                    {# Sinon, afficher \"Participer\" #}
-                                    <a href=\"{{ path('evenement_postuler', { idevenement: event.id, iduser: app.user.id }) }}\" class=\"btn btn-primary btn-sm w-100\">
-                                        Participer
-                                    </a>
-                                {% endif %}
-                            {% else %}
-                                {# Si l'utilisateur n'est pas connecté, afficher un message #}
-                                <p class=\"text-center\">Connectez-vous pour participer.</p>
-                            {% endif %} 
+                            
                             <!-- Bouton \"Voir les détails\" -->
-    <a href=\"{{ path('app_event_show', { id: event.id }) }}\" class=\"btn btn-info btn-sm w-100\">
-        Voir les détails
-    </a>
+                            <a href=\"{{ path('app_event_show', { id: event.id }) }}\" class=\"btn btn-info btn-sm w-100\">
+                                Voir les détails
+                            </a>
                         </div>
                     </div>
                 </div>

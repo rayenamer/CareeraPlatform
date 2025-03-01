@@ -175,58 +175,26 @@ class __TwigTemplate_d19583959a87e0223c9f0a17add4219e extends Template
                                 <td>
                                     ";
             // line 58
-            if ( !Twig\Extension\CoreExtension::testEmpty(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "utilisateurs", [], "any", false, false, false, 58))) {
-                // line 59
-                yield "                                        <button class=\"btn btn-link p-0\" 
-                                                data-bs-toggle=\"popover\" 
-                                                data-bs-trigger=\"hover\" 
-                                                data-bs-html=\"true\"
-                                                data-bs-content=\"";
-                // line 63
-                $context['_parent'] = $context;
-                $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "utilisateurs", [], "any", false, false, false, 63));
-                foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-                    yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "nom", [], "any", false, false, false, 63), "html", null, true);
-                    yield " ";
-                    yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "prenom", [], "any", false, false, false, 63), "html", null, true);
-                    yield "<br>";
-                }
-                $_parent = $context['_parent'];
-                unset($context['_seq'], $context['_key'], $context['user'], $context['_parent']);
-                $context = array_intersect_key($context, $_parent) + $_parent;
-                yield "\">
-                                            ";
-                // line 64
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "utilisateurs", [], "any", false, false, false, 64)), "html", null, true);
-                yield " participant";
-                yield (((Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "utilisateurs", [], "any", false, false, false, 64)) > 1)) ? ("s") : (""));
-                yield "
-                                        </button>
-                                    ";
-            } else {
-                // line 67
-                yield "                                        <span class=\"text-muted\">Aucun</span>
-                                    ";
-            }
-            // line 69
-            yield "                                </td>
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "participantsIds", [], "any", false, false, false, 58)), "html", null, true);
+            yield "
+                                </td>
                                 <td>
                                     <div class=\"btn-group\" role=\"group\">
                                         <a href=\"edit/";
-            // line 72
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 72), "html", null, true);
+            // line 62
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 62), "html", null, true);
             yield "\"
                                            class=\"btn btn-outline-primary btn-sm\">
                                             <i class=\"fas fa-edit\"></i>
                                         </a>
                                         <a href=\"delEvent/";
-            // line 76
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 76), "html", null, true);
+            // line 66
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 66), "html", null, true);
             yield "\"
                                            class=\"btn btn-outline-danger btn-sm\"
                                            onclick=\"return confirm('Confirmez-vous la suppression de « ";
-            // line 78
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "description", [], "any", false, false, false, 78), "html", null, true);
+            // line 68
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "description", [], "any", false, false, false, 68), "html", null, true);
             yield " » ?');\">
                                             <i class=\"fas fa-trash\"></i>
                                         </a>
@@ -236,9 +204,9 @@ class __TwigTemplate_d19583959a87e0223c9f0a17add4219e extends Template
                         ";
             $context['_iterated'] = true;
         }
-        // line 84
+        // line 74
         if (!$context['_iterated']) {
-            // line 85
+            // line 75
             yield "                            <tr>
                                 <td colspan=\"7\" class=\"text-center py-4 text-muted\">
                                     <i class=\"fas fa-calendar-times me-2\"></i>Aucun événement trouvé
@@ -249,7 +217,7 @@ class __TwigTemplate_d19583959a87e0223c9f0a17add4219e extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['event'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 91
+        // line 81
         yield "                    </tbody>
                 </table>
             </div>
@@ -319,7 +287,7 @@ class __TwigTemplate_d19583959a87e0223c9f0a17add4219e extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  253 => 91,  242 => 85,  240 => 84,  229 => 78,  224 => 76,  217 => 72,  212 => 69,  208 => 67,  200 => 64,  186 => 63,  180 => 59,  178 => 58,  171 => 54,  167 => 53,  161 => 50,  156 => 48,  152 => 47,  148 => 46,  145 => 45,  140 => 44,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  221 => 81,  210 => 75,  208 => 74,  197 => 68,  192 => 66,  185 => 62,  178 => 58,  171 => 54,  167 => 53,  161 => 50,  156 => 48,  152 => 47,  148 => 46,  145 => 45,  140 => 44,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -381,17 +349,7 @@ class __TwigTemplate_d19583959a87e0223c9f0a17add4219e extends Template
                                     </span>
                                 </td>
                                 <td>
-                                    {% if event.utilisateurs is not empty %}
-                                        <button class=\"btn btn-link p-0\" 
-                                                data-bs-toggle=\"popover\" 
-                                                data-bs-trigger=\"hover\" 
-                                                data-bs-html=\"true\"
-                                                data-bs-content=\"{% for user in event.utilisateurs %}{{ user.nom }} {{ user.prenom }}<br>{% endfor %}\">
-                                            {{ event.utilisateurs|length }} participant{{ event.utilisateurs|length > 1 ? 's' : '' }}
-                                        </button>
-                                    {% else %}
-                                        <span class=\"text-muted\">Aucun</span>
-                                    {% endif %}
+                                    {{ event.participantsIds|length }}
                                 </td>
                                 <td>
                                     <div class=\"btn-group\" role=\"group\">
