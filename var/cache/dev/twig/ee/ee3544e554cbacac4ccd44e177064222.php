@@ -380,6 +380,6 @@ class __TwigTemplate_172f892d4c1fa4eba33e93af3fb1cde6 extends Template
     }
 </style>
 {% endblock %}
-", "offre/test.html.twig", "C:\\careera\\templates\\offre\\test.html.twig");
+", "offre/test.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offre\\test.html.twig");
     }
 }

@@ -1582,6 +1582,6 @@ class __TwigTemplate_bec8884af65499751925298686545c5f extends Template
         </div>
         <!-- Testimonial End -->
 {% endblock %} 
-", "index/index.html.twig", "C:\\careera\\templates\\index\\index.html.twig");
+", "index/index.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\index\\index.html.twig");
     }
 }

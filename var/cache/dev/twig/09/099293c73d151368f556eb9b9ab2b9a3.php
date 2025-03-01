@@ -266,6 +266,6 @@ class __TwigTemplate_dd0371ac1c2fb464757faff6d43ccd2f extends Template
 
 
 {% endblock %}
-", "message/index.html.twig", "C:\\careera\\templates\\message\\index.html.twig");
+", "message/index.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\message\\index.html.twig");
     }
 }

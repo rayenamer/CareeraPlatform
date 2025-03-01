@@ -541,6 +541,6 @@ class __TwigTemplate_55c1764ef887e8b32126bf7a45b307e9 extends Template
     <script src=\"{{ asset('js/main.js') }}\"></script>
 </body>
 
-</html>", "base.html.twig", "C:\\careera\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\base.html.twig");
     }
 }

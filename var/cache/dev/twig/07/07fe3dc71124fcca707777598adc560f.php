@@ -204,6 +204,6 @@ class __TwigTemplate_debb5a0e206069b5e8747b7521d99e75 extends Template
 {% endfor %}
 
 {% endblock %}
-", "community/index.html.twig", "C:\\careera\\templates\\community\\index.html.twig");
+", "community/index.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\community\\index.html.twig");
     }
 }

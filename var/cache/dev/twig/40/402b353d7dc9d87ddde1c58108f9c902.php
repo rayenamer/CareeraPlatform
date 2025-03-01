@@ -210,6 +210,6 @@ class __TwigTemplate_dfdaadd7d1c6ae61d98fea187b2249c4 extends Template
         </div>
     </div>
 {% endblock %}
-", "reset_password/request.html.twig", "C:\\careera\\templates\\reset_password\\request.html.twig");
+", "reset_password/request.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\reset_password\\request.html.twig");
     }
 }

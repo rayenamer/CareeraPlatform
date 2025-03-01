@@ -49,4 +49,11 @@ class CandidaturemissionRepository extends ServiceEntityRepository
         ->getResult();
 }
 
+
+// Méthode pour récupérer les candidatures d'un utilisateur par son ID
+public function findByUserId(int $userid)
+{
+    return $this->findBy(['userid' => $userid]);
+}
+
 }

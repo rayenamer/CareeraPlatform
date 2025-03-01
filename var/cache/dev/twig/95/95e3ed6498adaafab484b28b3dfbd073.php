@@ -170,6 +170,6 @@ class __TwigTemplate_ecd5da729513ad96fbd2f0e3ac93e810 extends Template
     </ul>
 </div>
 {% endblock %}
-", "chercheur/index.html.twig", "C:\\careera\\templates\\chercheur\\index.html.twig");
+", "chercheur/index.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\chercheur\\index.html.twig");
     }
 }

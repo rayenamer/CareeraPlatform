@@ -30,11 +30,15 @@ final class MissionfreelencerController extends AbstractController
     #[Route('/new', name: 'app_offrefrelencer_new', methods: ['GET', 'POST'])]
 public function new(Request $request, EntityManagerInterface $entityManager,Security $security): Response
 {
-    $user = $this->getAuthUser($security); 
-    // Créer une nouvelle instance de l'entité Offre
-    $offre = new Missionfreelencer();
-    
-    
+     // Récupérer l'utilisateur connecté
+     $user = $security->getUser();
+     if (!$user) {
+         throw $this->createAccessDeniedException("Vous devez être connecté pour créer une mission.");
+     }
+
+   // Créer une nouvelle mission
+   $offre = new Missionfreelencer();
+   $offre->setUserId($user->getUserIdentifier()); // Assigner l'ID de l'utilisateur connecté
 
     // Créer le formulaire en utilisant le type de formulaire OffreType
     $form = $this->createForm(MissionfreelencerType::class, $offre);

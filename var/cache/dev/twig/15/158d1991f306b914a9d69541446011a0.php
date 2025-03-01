@@ -334,6 +334,6 @@ class __TwigTemplate_c5b060a15f646036364a553efd61a28b extends Template
 </style>
 
 {% endblock %}
-", "offre/statistiques.html.twig", "C:\\careera\\templates\\offre\\statistiques.html.twig");
+", "offre/statistiques.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offre\\statistiques.html.twig");
     }
 }

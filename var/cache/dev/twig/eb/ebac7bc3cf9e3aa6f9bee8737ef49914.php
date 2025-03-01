@@ -435,6 +435,6 @@ class __TwigTemplate_0f7fb9b6d351c374612eed2e2508892c extends Template
     </div>
 </div>
 {% endblock %}
-", "offre/ajoutoffre.html.twig", "C:\\careera\\templates\\offre\\ajoutoffre.html.twig");
+", "offre/ajoutoffre.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offre\\ajoutoffre.html.twig");
     }
 }

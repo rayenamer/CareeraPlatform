@@ -201,6 +201,6 @@ class __TwigTemplate_b5a2b261333948d551b8d4bb9a10788e extends Template
 </div>
 
 {% endblock %}
-", "forum/UpdateDiscussion.html.twig", "C:\\careera\\templates\\forum\\UpdateDiscussion.html.twig");
+", "forum/UpdateDiscussion.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\forum\\UpdateDiscussion.html.twig");
     }
 }
