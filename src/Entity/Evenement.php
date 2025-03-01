@@ -41,7 +41,7 @@ class Evenement
     private ?int $user_id = null;
 
     #[ORM\Column(type: Types::JSON, nullable: true)]
-    private ?array $participantsIds = [];
+    public ?array $participantsIds = [];
 
     public function getId(): ?int
     {

@@ -49,8 +49,10 @@ final class EventModController extends AbstractController
 
 
     #[Route('/events', name: 'evenement_index')]
-    public function index(EvenementRepository $rep): Response
+    public function index(EvenementRepository $rep,Security $security): Response
     {
+        $user = $this->getAuthUser($security); 
+        $userId = $user->getId();
         // Récupérer tous les événements
         $events = $rep->findAll();
     
@@ -64,6 +66,7 @@ final class EventModController extends AbstractController
     
         // Passer les données au template
         return $this->render('evenements/index.html.twig', [
+            'userId' => $userId,
             'tabevent' => $events,
             'weatherData' => $weatherData, // Passer les données météo au template
         ]);

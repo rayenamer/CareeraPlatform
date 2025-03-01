@@ -34,144 +34,76 @@
 <div class="container mt-5">
     <div class="row" id="eventList">
         {% for event in tabevent %}
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm d-flex flex-column">
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <h5 class="card-title text-center">{{ event.description }}</h5>
-                        <p class="card-text text-center">
-                            <strong>Date:</strong> {{ event.date|date('Y-m-d H:i') }}<br>
-                            <strong>Lieu:</strong> {{ event.lieu }}<br> 
-                            <strong>Type:</strong> {{ event.TypeEvent.nom }}<br>
-                        </p>
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm d-flex flex-column">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class="card-title text-center">{{ event.description }}</h5>
+                <p class="card-text text-center">
+                    <strong>Date:</strong> {{ event.date|date('Y-m-d H:i') }}<br>
+                    <strong>Lieu:</strong> {{ event.lieu }}<br> 
+                    <strong>Type:</strong> {{ event.TypeEvent.nom }}<br>
+                </p>
 
-                       
-{# Afficher la météo #}
-{% if weatherData[event.id] %}
-    <div class="text-center">
-        <strong>Météo :</strong><br>
-        <div style="font-size: 24px;">
-            {{ weatherData[event.id]['icon'] }}
+                {# Afficher la météo si disponible #}
+                {% if weatherData[event.id] is defined %}
+                    <div class="text-center">
+                        <strong>Météo :</strong><br>
+                        <div style="font-size: 24px;">
+                            {{ weatherData[event.id]['icon'] }}
+                        </div>
+                        Température : {{ weatherData[event.id]['temperature_max']|round(0) }}°C / {{ weatherData[event.id]['temperature_min']|round(0) }}°C<br>
+                    </div>
+                {% else %}
+                    <p class="text-center text-muted">Données météo non disponibles.</p>
+                {% endif %}
+
+                {# Indication de disponibilité #}
+                <div class="d-flex justify-content-center">
+                    <span class="badge {{ event.disponibilite ? 'bg-success' : 'bg-danger' }}">
+                        {{ event.disponibilite ? 'Disponible' : 'Non disponible' }}
+                    </span>
+                </div>
+
+                {# Actions: Participation et Détails #}
+                <div class="mt-3">
+                    {% if userId in event.getParticipantsIds %}
+                        <form action="{{ path('evenement_annuler', { id: event.id }) }}" method="post">
+                            <button type="submit" class="btn btn-danger btn-sm w-100">Annuler participation</button>
+                        </form>
+                    {% else %}
+                        <form action="{{ path('evenement_participer', { id: event.id }) }}" method="post">
+                            <button type="submit" class="btn btn-primary btn-sm w-100">Participer</button>
+                        </form>
+                    {% endif %}
+
+                    <a href="{{ path('app_event_show', { id: event.id }) }}" class="btn btn-info btn-sm w-100 mt-2">
+                        Voir les détails
+                    </a>
+                </div>
+            </div>
         </div>
-        Température : {{ weatherData[event.id]['temperature_max']|round(0) }}°C / {{ weatherData[event.id]['temperature_min']|round(0) }}°C<br>
     </div>
 {% else %}
-    <p class="text-center text-muted">Données météo non disponibles.</p>
-{% endif %}
-                        
-
-                        <div class="d-flex justify-content-center">
-                            <span class="badge {{ event.disponibilite ? 'bg-success' : 'bg-danger' }}">
-                                {{ event.disponibilite ? 'Disponible' : 'Non disponible' }}
-                            </span>
-                        </div>
-
-                        <div class="mt-3">
-                            
-                            
-                            {% if userId in event.participantIds %}
-    {# Si l'utilisateur participe déjà, afficher "Annuler participation" #}
-    <form action="{{ path('evenement_annuler', { id: event.id }) }}" method="post">
-        <button type="submit" class="btn btn-danger btn-sm w-100">Annuler participation</button>
-    </form>
-{% else %}
-    {# Sinon, afficher "Participer" #}
-    <form action="{{ path('evenement_participer', { id: event.id }) }}" method="post">
-        <button type="submit" class="btn btn-primary btn-sm w-100">Participer</button>
-    </form>
-{% endif %}
-                 
-                            <!-- Bouton "Voir les détails" -->
-                            <a href="{{ path('app_event_show', { id: event.id }) }}" class="btn btn-info btn-sm w-100">
+    <div class="col-12 text-center">
+        <p class="text-muted">Aucun événement disponible.</p>
+    </div>
+     <a href="{{ path('app_event_show', { id: event.id }) }}" class="btn btn-info btn-sm w-100">
                                 Voir les détails
                             </a>
+{% endfor %}
+
+                 
+                            <!-- Bouton "Voir les détails" -->
+                           
                         </div>
                     </div>
                 </div>
             </div>
-        {% else %}
+        
             <div class="col-12 text-center">
                 <p class="text-muted">Aucun événement disponible.</p>
             </div>
-        {% endfor %}
-    </div>
-</div>
-
-<script>
-    // Gérer la soumission du formulaire de recherche
-    document.getElementById('searchForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêcher la soumission du formulaire
-
-        const searchTerm = document.getElementById('searchInput').value;
-
-        // Envoyer une requête AJAX à l'API
-        fetch(`/api/evenements/recherche?search=${encodeURIComponent(searchTerm)}`)
-            .then(response => response.json())
-            .then(data => {
-                const eventList = document.getElementById('eventList');
-                eventList.innerHTML = ''; // Effacer les résultats précédents
-
-                // Afficher les nouveaux résultats
-                data.forEach(event => {
-                    const eventCard = 
-                        <div class="col-md-4 mb-4">
-                <div class="card shadow-sm d-flex flex-column">
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <h5 class="card-title text-center">{{ event.description }}</h5>
-                        <p class="card-text text-center">
-                            <strong>Date:</strong> {{ event.date|date('Y-m-d H:i') }}<br>
-                            <strong>Lieu:</strong> {{ event.lieu }}<br> 
-                            <strong>Type:</strong> {{ event.TypeEvent.nom }}<br>
-                        </p>
-
-                       
-{# Afficher la météo #}
-{% if weatherData[event.id] %}
-    <div class="text-center">
-        <strong>Météo :</strong><br>
-        <div style="font-size: 24px;">
-            {{ weatherData[event.id]['icon'] }}
-        </div>
-        Température : {{ weatherData[event.id]['temperature_max']|round(0) }}°C / {{ weatherData[event.id]['temperature_min']|round(0) }}°C<br>
-    </div>
-{% else %}
-    <p class="text-center text-muted">Données météo non disponibles.</p>
-{% endif %}
-                        
-
-                        <div class="d-flex justify-content-center">
-                            <span class="badge {{ event.disponibilite ? 'bg-success' : 'bg-danger' }}">
-                                {{ event.disponibilite ? 'Disponible' : 'Non disponible' }}
-                            </span>
-                        </div>
-
-                        <div class="mt-3">
-                            
-                            
-                            {% if userId in event.participantIds %}
-    {# Si l'utilisateur participe déjà, afficher "Annuler participation" #}
-    <form action="{{ path('evenement_annuler', { id: event.id }) }}" method="post">
-        <button type="submit" class="btn btn-danger btn-sm w-100">Annuler participation</button>
-    </form>
-{% else %}
-    {# Sinon, afficher "Participer" #}
-    <form action="{{ path('evenement_participer', { id: event.id }) }}" method="post">
-        <button type="submit" class="btn btn-primary btn-sm w-100">Participer</button>
-    </form>
-{% endif %}
-                 
-                            <!-- Bouton "Voir les détails" -->
-                            <a href="{{ path('app_event_show', { id: event.id }) }}" class="btn btn-info btn-sm w-100">
-                                Voir les détails
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% else %}
-            <div class="col-12 text-center">
-                <p class="text-muted">Aucun événement disponible.</p>
-            </div>
-        {% endfor %}
+        
     </div>
 </div>
                     eventList.innerHTML += eventCard;

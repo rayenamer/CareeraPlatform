@@ -19,7 +19,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class EvenementsController extends AbstractController
 {
-    
+    private Security $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
     
     public function getAuthUser(Security $security): ?User
     {
@@ -35,8 +40,8 @@ final class EvenementsController extends AbstractController
     
         return $user;
     }
-   
-
+    
+    
     #[Route('/event', name: 'app_event')]
     public function index(EvenementRepository $rep, Security $security): Response
     { // Récupérer l'utilisateur connecté
@@ -47,6 +52,7 @@ final class EvenementsController extends AbstractController
             // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
             //return $this->redirectToRoute('app_login');
         //}
+        $userId = $user->getId();
 
 
         // Récupérer les événements créés par l'utilisateur connecté
@@ -54,9 +60,10 @@ final class EvenementsController extends AbstractController
 
         return $this->render('evenements/eventmod.html.twig', [
             'tabevent' => $events,
+            'userId' => $userId,
         ]);
     }
-
+    //solve error here !!!!!!!!!!!!!!!!!!!!!!!
     #[Route('/event/{id}', name: 'app_event_show')]
     public function show(EvenementRepository $rep, int $id): Response
     {

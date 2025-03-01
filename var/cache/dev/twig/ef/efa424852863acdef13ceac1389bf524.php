@@ -134,147 +134,140 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["event"]) {
             // line 37
-            yield "            <div class=\"col-md-4 mb-4\">
-                <div class=\"card shadow-sm d-flex flex-column\">
-                    <div class=\"card-body d-flex flex-column justify-content-between\">
-                        <h5 class=\"card-title text-center\">";
+            yield "    <div class=\"col-md-4 mb-4\">
+        <div class=\"card shadow-sm d-flex flex-column\">
+            <div class=\"card-body d-flex flex-column justify-content-between\">
+                <h5 class=\"card-title text-center\">";
             // line 40
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "description", [], "any", false, false, false, 40), "html", null, true);
             yield "</h5>
-                        <p class=\"card-text text-center\">
-                            <strong>Date:</strong> ";
+                <p class=\"card-text text-center\">
+                    <strong>Date:</strong> ";
             // line 42
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "date", [], "any", false, false, false, 42), "Y-m-d H:i"), "html", null, true);
             yield "<br>
-                            <strong>Lieu:</strong> ";
+                    <strong>Lieu:</strong> ";
             // line 43
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["event"], "lieu", [], "any", false, false, false, 43), "html", null, true);
             yield "<br> 
-                            <strong>Type:</strong> ";
+                    <strong>Type:</strong> ";
             // line 44
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["event"], "TypeEvent", [], "any", false, false, false, 44), "nom", [], "any", false, false, false, 44), "html", null, true);
             yield "<br>
-                        </p>
+                </p>
 
-                       
-";
-            // line 49
-            if (CoreExtension::getAttribute($this->env, $this->source, (isset($context["weatherData"]) || array_key_exists("weatherData", $context) ? $context["weatherData"] : (function () { throw new RuntimeError('Variable "weatherData" does not exist.', 49, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 49), [], "array", false, false, false, 49)) {
-                // line 50
-                yield "    <div class=\"text-center\">
-        <strong>Météo :</strong><br>
-        <div style=\"font-size: 24px;\">
-            ";
-                // line 53
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["weatherData"]) || array_key_exists("weatherData", $context) ? $context["weatherData"] : (function () { throw new RuntimeError('Variable "weatherData" does not exist.', 53, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 53), [], "array", false, false, false, 53), "icon", [], "array", false, false, false, 53), "html", null, true);
+                ";
+            // line 48
+            yield "                ";
+            if (CoreExtension::getAttribute($this->env, $this->source, ($context["weatherData"] ?? null), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 48), [], "array", true, true, false, 48)) {
+                // line 49
+                yield "                    <div class=\"text-center\">
+                        <strong>Météo :</strong><br>
+                        <div style=\"font-size: 24px;\">
+                            ";
+                // line 52
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["weatherData"]) || array_key_exists("weatherData", $context) ? $context["weatherData"] : (function () { throw new RuntimeError('Variable "weatherData" does not exist.', 52, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 52), [], "array", false, false, false, 52), "icon", [], "array", false, false, false, 52), "html", null, true);
                 yield "
-        </div>
-        Température : ";
-                // line 55
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::round(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["weatherData"]) || array_key_exists("weatherData", $context) ? $context["weatherData"] : (function () { throw new RuntimeError('Variable "weatherData" does not exist.', 55, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 55), [], "array", false, false, false, 55), "temperature_max", [], "array", false, false, false, 55), 0), "html", null, true);
+                        </div>
+                        Température : ";
+                // line 54
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::round(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["weatherData"]) || array_key_exists("weatherData", $context) ? $context["weatherData"] : (function () { throw new RuntimeError('Variable "weatherData" does not exist.', 54, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 54), [], "array", false, false, false, 54), "temperature_max", [], "array", false, false, false, 54), 0), "html", null, true);
                 yield "°C / ";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::round(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["weatherData"]) || array_key_exists("weatherData", $context) ? $context["weatherData"] : (function () { throw new RuntimeError('Variable "weatherData" does not exist.', 55, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 55), [], "array", false, false, false, 55), "temperature_min", [], "array", false, false, false, 55), 0), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::round(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["weatherData"]) || array_key_exists("weatherData", $context) ? $context["weatherData"] : (function () { throw new RuntimeError('Variable "weatherData" does not exist.', 54, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 54), [], "array", false, false, false, 54), "temperature_min", [], "array", false, false, false, 54), 0), "html", null, true);
                 yield "°C<br>
+                    </div>
+                ";
+            } else {
+                // line 57
+                yield "                    <p class=\"text-center text-muted\">Données météo non disponibles.</p>
+                ";
+            }
+            // line 59
+            yield "
+                ";
+            // line 61
+            yield "                <div class=\"d-flex justify-content-center\">
+                    <span class=\"badge ";
+            // line 62
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["event"], "disponibilite", [], "any", false, false, false, 62)) ? ("bg-success") : ("bg-danger"));
+            yield "\">
+                        ";
+            // line 63
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["event"], "disponibilite", [], "any", false, false, false, 63)) ? ("Disponible") : ("Non disponible"));
+            yield "
+                    </span>
+                </div>
+
+                ";
+            // line 68
+            yield "                <div class=\"mt-3\">
+                    ";
+            // line 69
+            if (CoreExtension::inFilter((isset($context["userId"]) || array_key_exists("userId", $context) ? $context["userId"] : (function () { throw new RuntimeError('Variable "userId" does not exist.', 69, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["event"], "getParticipantsIds", [], "any", false, false, false, 69))) {
+                // line 70
+                yield "                        <form action=\"";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("evenement_annuler", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 70)]), "html", null, true);
+                yield "\" method=\"post\">
+                            <button type=\"submit\" class=\"btn btn-danger btn-sm w-100\">Annuler participation</button>
+                        </form>
+                    ";
+            } else {
+                // line 74
+                yield "                        <form action=\"";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("evenement_participer", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 74)]), "html", null, true);
+                yield "\" method=\"post\">
+                            <button type=\"submit\" class=\"btn btn-primary btn-sm w-100\">Participer</button>
+                        </form>
+                    ";
+            }
+            // line 78
+            yield "
+                    <a href=\"";
+            // line 79
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 79)]), "html", null, true);
+            yield "\" class=\"btn btn-info btn-sm w-100 mt-2\">
+                        Voir les détails
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 ";
-            } else {
-                // line 58
-                yield "    <p class=\"text-center text-muted\">Données météo non disponibles.</p>
-";
-            }
-            // line 60
-            yield "                        
-
-                        <div class=\"d-flex justify-content-center\">
-                            <span class=\"badge ";
-            // line 63
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["event"], "disponibilite", [], "any", false, false, false, 63)) ? ("bg-success") : ("bg-danger"));
-            yield "\">
-                                ";
-            // line 64
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["event"], "disponibilite", [], "any", false, false, false, 64)) ? ("Disponible") : ("Non disponible"));
-            yield "
-                            </span>
-                        </div>
-
-                        <div class=\"mt-3\">
-                            
-                            <!-- Bouton \"Voir les détails\" -->
-                            <a href=\"";
-            // line 71
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 71)]), "html", null, true);
+            $context['_iterated'] = true;
+        }
+        // line 86
+        if (!$context['_iterated']) {
+            // line 87
+            yield "    <div class=\"col-12 text-center\">
+        <p class=\"text-muted\">Aucun événement disponible.</p>
+    </div>
+     <a href=\"";
+            // line 90
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 90)]), "html", null, true);
             yield "\" class=\"btn btn-info btn-sm w-100\">
                                 Voir les détails
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        ";
-            $context['_iterated'] = true;
-        }
-        // line 78
-        if (!$context['_iterated']) {
-            // line 79
-            yield "            <div class=\"col-12 text-center\">
-                <p class=\"text-muted\">Aucun événement disponible.</p>
-            </div>
-        ";
+";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['event'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 83
-        yield "    </div>
-</div>
-
-<script>
-    // Gérer la soumission du formulaire de recherche
-    document.getElementById('searchForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêcher la soumission du formulaire
-
-        const searchTerm = document.getElementById('searchInput').value;
-
-        // Envoyer une requête AJAX à l'API
-        fetch(`/api/evenements/recherche?search=\${encodeURIComponent(searchTerm)}`)
-            .then(response => response.json())
-            .then(data => {
-                const eventList = document.getElementById('eventList');
-                eventList.innerHTML = ''; // Effacer les résultats précédents
-
-                // Afficher les nouveaux résultats
-                data.forEach(event => {
-                    const eventCard = `
-                        <div class=\"col-md-4 mb-4\">
-                            <div class=\"card shadow-sm d-flex flex-column\">
-                                <div class=\"card-body d-flex flex-column justify-content-between\">
-                                    <h5 class=\"card-title text-center\">\${event.description}</h5>
-                                    <p class=\"card-text text-center\">
-                                        <strong>Date:</strong> \${event.date}<br>
-                                        <strong>Lieu:</strong> \${event.lieu}<br> 
-                                        <strong>Type:</strong> \${event.type}<br>
-                                    </p>
-
-                                    <div class=\"d-flex justify-content-center\">
-                                        <span class=\"badge \${event.disponibilite === 'Disponible' ? 'bg-success' : 'bg-danger'}\">
-                                            \${event.disponibilite}
-                                        </span>
-                                    </div>
-
-                                    <div class=\"mt-3\">
-                                        \${event.isParticipating ?
-                                            `<a href=\"/evenement/\${event.id}/annuler/\${event.userId}\" class=\"btn btn-danger btn-sm w-100\">
-                                                Annuler participation
-                                            </a>` :
-                                            `<a href=\"/evenement/\${event.id}/postuler/\${event.userId}\" class=\"btn btn-primary btn-sm w-100\">
-                                                Participer
-                                            </a>`
-                                        }
-                                    </div>
-                                </div>
-                            </div>
+        // line 94
+        yield "
+                 
+                            <!-- Bouton \"Voir les détails\" -->
+                           
                         </div>
-                    `;
+                    </div>
+                </div>
+            </div>
+        
+            <div class=\"col-12 text-center\">
+                <p class=\"text-muted\">Aucun événement disponible.</p>
+            </div>
+        
+    </div>
+</div>
                     eventList.innerHTML += eventCard;
                 });
 
@@ -511,7 +504,7 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  228 => 83,  219 => 79,  217 => 78,  205 => 71,  195 => 64,  191 => 63,  186 => 60,  182 => 58,  174 => 55,  169 => 53,  164 => 50,  162 => 49,  155 => 44,  151 => 43,  147 => 42,  142 => 40,  137 => 37,  132 => 36,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  256 => 94,  246 => 90,  241 => 87,  239 => 86,  227 => 79,  224 => 78,  216 => 74,  208 => 70,  206 => 69,  203 => 68,  196 => 63,  192 => 62,  189 => 61,  186 => 59,  182 => 57,  174 => 54,  169 => 52,  164 => 49,  161 => 48,  155 => 44,  151 => 43,  147 => 42,  142 => 40,  137 => 37,  132 => 36,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -552,102 +545,78 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
 <div class=\"container mt-5\">
     <div class=\"row\" id=\"eventList\">
         {% for event in tabevent %}
-            <div class=\"col-md-4 mb-4\">
-                <div class=\"card shadow-sm d-flex flex-column\">
-                    <div class=\"card-body d-flex flex-column justify-content-between\">
-                        <h5 class=\"card-title text-center\">{{ event.description }}</h5>
-                        <p class=\"card-text text-center\">
-                            <strong>Date:</strong> {{ event.date|date('Y-m-d H:i') }}<br>
-                            <strong>Lieu:</strong> {{ event.lieu }}<br> 
-                            <strong>Type:</strong> {{ event.TypeEvent.nom }}<br>
-                        </p>
+    <div class=\"col-md-4 mb-4\">
+        <div class=\"card shadow-sm d-flex flex-column\">
+            <div class=\"card-body d-flex flex-column justify-content-between\">
+                <h5 class=\"card-title text-center\">{{ event.description }}</h5>
+                <p class=\"card-text text-center\">
+                    <strong>Date:</strong> {{ event.date|date('Y-m-d H:i') }}<br>
+                    <strong>Lieu:</strong> {{ event.lieu }}<br> 
+                    <strong>Type:</strong> {{ event.TypeEvent.nom }}<br>
+                </p>
 
-                       
-{# Afficher la météo #}
-{% if weatherData[event.id] %}
-    <div class=\"text-center\">
-        <strong>Météo :</strong><br>
-        <div style=\"font-size: 24px;\">
-            {{ weatherData[event.id]['icon'] }}
+                {# Afficher la météo si disponible #}
+                {% if weatherData[event.id] is defined %}
+                    <div class=\"text-center\">
+                        <strong>Météo :</strong><br>
+                        <div style=\"font-size: 24px;\">
+                            {{ weatherData[event.id]['icon'] }}
+                        </div>
+                        Température : {{ weatherData[event.id]['temperature_max']|round(0) }}°C / {{ weatherData[event.id]['temperature_min']|round(0) }}°C<br>
+                    </div>
+                {% else %}
+                    <p class=\"text-center text-muted\">Données météo non disponibles.</p>
+                {% endif %}
+
+                {# Indication de disponibilité #}
+                <div class=\"d-flex justify-content-center\">
+                    <span class=\"badge {{ event.disponibilite ? 'bg-success' : 'bg-danger' }}\">
+                        {{ event.disponibilite ? 'Disponible' : 'Non disponible' }}
+                    </span>
+                </div>
+
+                {# Actions: Participation et Détails #}
+                <div class=\"mt-3\">
+                    {% if userId in event.getParticipantsIds %}
+                        <form action=\"{{ path('evenement_annuler', { id: event.id }) }}\" method=\"post\">
+                            <button type=\"submit\" class=\"btn btn-danger btn-sm w-100\">Annuler participation</button>
+                        </form>
+                    {% else %}
+                        <form action=\"{{ path('evenement_participer', { id: event.id }) }}\" method=\"post\">
+                            <button type=\"submit\" class=\"btn btn-primary btn-sm w-100\">Participer</button>
+                        </form>
+                    {% endif %}
+
+                    <a href=\"{{ path('app_event_show', { id: event.id }) }}\" class=\"btn btn-info btn-sm w-100 mt-2\">
+                        Voir les détails
+                    </a>
+                </div>
+            </div>
         </div>
-        Température : {{ weatherData[event.id]['temperature_max']|round(0) }}°C / {{ weatherData[event.id]['temperature_min']|round(0) }}°C<br>
     </div>
 {% else %}
-    <p class=\"text-center text-muted\">Données météo non disponibles.</p>
-{% endif %}
-                        
-
-                        <div class=\"d-flex justify-content-center\">
-                            <span class=\"badge {{ event.disponibilite ? 'bg-success' : 'bg-danger' }}\">
-                                {{ event.disponibilite ? 'Disponible' : 'Non disponible' }}
-                            </span>
-                        </div>
-
-                        <div class=\"mt-3\">
-                            
-                            <!-- Bouton \"Voir les détails\" -->
-                            <a href=\"{{ path('app_event_show', { id: event.id }) }}\" class=\"btn btn-info btn-sm w-100\">
+    <div class=\"col-12 text-center\">
+        <p class=\"text-muted\">Aucun événement disponible.</p>
+    </div>
+     <a href=\"{{ path('app_event_show', { id: event.id }) }}\" class=\"btn btn-info btn-sm w-100\">
                                 Voir les détails
                             </a>
+{% endfor %}
+
+                 
+                            <!-- Bouton \"Voir les détails\" -->
+                           
                         </div>
                     </div>
                 </div>
             </div>
-        {% else %}
+        
             <div class=\"col-12 text-center\">
                 <p class=\"text-muted\">Aucun événement disponible.</p>
             </div>
-        {% endfor %}
+        
     </div>
 </div>
-
-<script>
-    // Gérer la soumission du formulaire de recherche
-    document.getElementById('searchForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêcher la soumission du formulaire
-
-        const searchTerm = document.getElementById('searchInput').value;
-
-        // Envoyer une requête AJAX à l'API
-        fetch(`/api/evenements/recherche?search=\${encodeURIComponent(searchTerm)}`)
-            .then(response => response.json())
-            .then(data => {
-                const eventList = document.getElementById('eventList');
-                eventList.innerHTML = ''; // Effacer les résultats précédents
-
-                // Afficher les nouveaux résultats
-                data.forEach(event => {
-                    const eventCard = `
-                        <div class=\"col-md-4 mb-4\">
-                            <div class=\"card shadow-sm d-flex flex-column\">
-                                <div class=\"card-body d-flex flex-column justify-content-between\">
-                                    <h5 class=\"card-title text-center\">\${event.description}</h5>
-                                    <p class=\"card-text text-center\">
-                                        <strong>Date:</strong> \${event.date}<br>
-                                        <strong>Lieu:</strong> \${event.lieu}<br> 
-                                        <strong>Type:</strong> \${event.type}<br>
-                                    </p>
-
-                                    <div class=\"d-flex justify-content-center\">
-                                        <span class=\"badge \${event.disponibilite === 'Disponible' ? 'bg-success' : 'bg-danger'}\">
-                                            \${event.disponibilite}
-                                        </span>
-                                    </div>
-
-                                    <div class=\"mt-3\">
-                                        \${event.isParticipating ?
-                                            `<a href=\"/evenement/\${event.id}/annuler/\${event.userId}\" class=\"btn btn-danger btn-sm w-100\">
-                                                Annuler participation
-                                            </a>` :
-                                            `<a href=\"/evenement/\${event.id}/postuler/\${event.userId}\" class=\"btn btn-primary btn-sm w-100\">
-                                                Participer
-                                            </a>`
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
                     eventList.innerHTML += eventCard;
                 });
 
