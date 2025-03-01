@@ -311,7 +311,7 @@ public function participer(Evenement $event, EntityManagerInterface $em, Securit
 
     $this->addFlash('success', 'Vous participez maintenant à cet événement !');
 
-    return $this->redirectToRoute('evenement_details', [
+    return $this->redirectToRoute('evenement_index', [
         'id' => $event->getId(),
         'userId' => $user->getId(), // On passe l'ID de l'utilisateur à la vue
     ]);
@@ -328,7 +328,7 @@ public function annuler(Evenement $event, EntityManagerInterface $em, Security $
 
     $this->addFlash('success', 'Vous ne participez plus à cet événement.');
 
-    return $this->redirectToRoute('evenement_details', [
+    return $this->redirectToRoute('evenement_index', [
         'id' => $event->getId(),
         'userId' => $user->getId(), // On passe l'ID de l'utilisateur à la vue
     ]);

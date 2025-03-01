@@ -268,15 +268,7 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
         
     </div>
 </div>
-                    eventList.innerHTML += eventCard;
-                });
-
-                if (data.length === 0) {
-                    eventList.innerHTML = '<div class=\"col-12 text-center\"><p class=\"text-muted\">Aucun événement trouvé.</p></div>';
-                }
-            })
-            .catch(error => console.error('Erreur lors de la recherche:', error));
-    });
+                    
 </script>
 
 
@@ -617,15 +609,7 @@ class __TwigTemplate_b71ca4fd3fb3de4fb2a8decf47905720 extends Template
         
     </div>
 </div>
-                    eventList.innerHTML += eventCard;
-                });
-
-                if (data.length === 0) {
-                    eventList.innerHTML = '<div class=\"col-12 text-center\"><p class=\"text-muted\">Aucun événement trouvé.</p></div>';
-                }
-            })
-            .catch(error => console.error('Erreur lors de la recherche:', error));
-    });
+                    
 </script>
 
 

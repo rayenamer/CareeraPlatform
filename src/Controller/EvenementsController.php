@@ -65,8 +65,12 @@ final class EvenementsController extends AbstractController
     }
     //solve error here !!!!!!!!!!!!!!!!!!!!!!!
     #[Route('/event/{id}', name: 'app_event_show')]
-    public function show(EvenementRepository $rep, int $id): Response
+    public function show(EvenementRepository $rep, int $id, Security $security): Response
     {
+        $user = $this->getAuthUser($security); 
+
+        $userId = $user->getId();
+
         $event = $rep->find($id);
 
         if (!$event) {
@@ -75,6 +79,7 @@ final class EvenementsController extends AbstractController
 
         return $this->render('evenements/event_detail.html.twig', [
             'event' => $event,
+            'userId' => $userId,
         ]);
     }
 
