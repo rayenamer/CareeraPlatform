@@ -3,19 +3,27 @@
 {% block title %}Détails de l'événement - {{ event.description }}{% endblock %}
 
 {% block body %}
-<div class="container mt-5 mb-5">
-    <div class="row g-4"> <!-- Ajout de g-4 pour espacement consistent -->
+<div class="container mt-5 mb-5"> 
+<div class="text-end mb-3">
+    <label for="languageSelect" class="me-2">Langue :</label>
+    <select id="languageSelect" class="form-select w-auto d-inline-block">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+    </select>
+</div>
+    <div class="row g-4">
         <div class="col-lg-8">
-            <!-- Card principale pour un effet visuel moderne -->
+        <!-- Sélecteur de langue -->
+
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4">
-                    <!-- Titre avec badge pour le type -->
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h1 class="h2 fw-bold">{{ event.description }}</h1>
                         <span class="badge bg-primary">{{ event.TypeEvent.nom }}</span>
                     </div>
 
-                    <!-- Image avec effet de chargement progressif -->
                     {% if event.imageUrl %}
                         <div class="position-relative overflow-hidden rounded-3 mb-4">
                             <img src="{{ event.imageUrl }}" 
@@ -31,13 +39,11 @@
                         </div>
                     {% endif %}
 
-                    <!-- Description avec mise en forme améliorée -->
                     <section class="mb-4">
                         <h3 class="h4 fw-semibold border-bottom pb-2">Description</h3>
                         <p class="text-muted">{{ event.Description|nl2br }}</p>
                     </section>
 
-                    <!-- Informations avec icônes -->
                     <section class="mb-4">
                         <h3 class="h4 fw-semibold border-bottom pb-2">Détails</h3>
                         <ul class="list-group list-group-flush">
@@ -61,95 +67,116 @@
             </div>
         </div>
 
-        <!-- Partie "Participer" dans le template Twig -->
+         <!-- Partie "Participer" dans le template Twig -->
 <div class="card shadow-sm border-0 mb-4">
     <div class="card-body p-4">
         <h5 class="fw-semibold mb-3">Participer</h5>
-        {% if app.user %}
-            {% if app.user.id in event.participantsIds %}
-                <form action="{{ path('evenement_annuler', { id: event.id }) }}" method="POST" class="d-grid">
-                    <button type="submit" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2">
-                        <i class="fas fa-times"></i> Annuler ma participation
-                    </button>
-                </form>
-            {% else %}
-                <form action="{{ path('evenement_participer', { id: event.id }) }}" method="POST" class="d-grid">
-                    <button type="submit" class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
-                        <i class="fas fa-check"></i> Je participe
-                    </button>
-                </form>
-            {% endif %}
-        {% else %}
-            <a href="{}" 
-               class="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center gap-2">
-                <i class="fas fa-sign-in-alt"></i> Connexion requise
-            </a>
-        {% endif %}
-    </div>
-</div>
+        
+            {% if userId in event.participantsIds %}
+    <form action="{{ path('evenement_annuler', { id: event.id }) }}" method="POST" class="d-grid">
+        <button type="submit" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2">
+            <i class="fas fa-times"></i> Annuler ma participation
+        </button>
+    </form>
+{% else %}
+    <form action="{{ path('evenement_participer', { id: event.id }) }}" method="POST" class="d-grid">
+        <button type="submit" class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+            <i class="fas fa-check"></i> Je participe
+        </button>
+    </form>
+{% endif %}
 
-
-               <!-- Card partage -->
-<div class="card shadow-sm border-0">
-    <div class="card-body p-4">
-        <h5 class="fw-semibold mb-3">Partager cet événement</h5>
-        <div class="d-flex justify-content-around">
-            <!-- Lien pour partager sur Facebook -->
-            <a href="#" 
-               class="btn btn-outline-primary rounded-circle share-facebook" 
-               target="_blank" 
-               title="Partager sur Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <!-- Lien pour partager sur Twitter -->
-            <a href="#" 
-               class="btn btn-outline-primary rounded-circle share-twitter" 
-               target="_blank" 
-               title="Partager sur Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <!-- Lien pour partager sur LinkedIn -->
-            <a href="#" 
-               class="btn btn-outline-primary rounded-circle share-linkedin" 
-               target="_blank" 
-               title="Partager sur LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-        </div>
-    </div>
-</div>
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <h5 class="fw-semibold mb-3">Partager cet événement</h5>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="btn btn-outline-primary rounded-circle share-facebook" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary rounded-circle share-twitter" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary rounded-circle share-linkedin" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 
-<!-- Script pour générer les URLs de partage dynamiquement -->
+
+<!-- Script pour la traduction -->
 <script>
-    // Récupérer l'URL actuelle de la page
-    const currentUrl = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(document.title); // Titre de la page
+    async function translateText(text, sourceLang, targetLang) {
+        if (sourceLang === targetLang) {
+            return text;
+        }
 
-    // Mettre à jour les liens de partage
+        const apiUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`;
+
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            return data.responseData && data.responseData.translatedText ? data.responseData.translatedText : text;
+        } catch (error) {
+            console.error('Erreur de traduction :', error);
+            return text;
+        }
+    }
+
+    async function translatePage(targetLang) {
+        const sourceLang = 'fr';
+        const elementsToTranslate = document.querySelectorAll(
+            'h1, h5.card-title, p.card-text, span.badge, a.btn, p.text-center, p.text-muted, button.btn'
+        );
+
+        for (const element of elementsToTranslate) {
+            if (!element.hasAttribute('data-original-text')) {
+                element.setAttribute('data-original-text', element.innerText.trim());
+            }
+
+            const originalText = element.getAttribute('data-original-text');
+            if (originalText) {
+                if (sourceLang === targetLang) {
+                    element.innerText = originalText;
+                } else {
+                    element.innerText = await translateText(originalText, sourceLang, targetLang);
+                }
+            }
+        }
+
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            if (!searchInput.hasAttribute('data-original-placeholder')) {
+                searchInput.setAttribute('data-original-placeholder', searchInput.getAttribute('placeholder'));
+            }
+
+            const originalPlaceholder = searchInput.getAttribute('data-original-placeholder');
+            if (originalPlaceholder) {
+                searchInput.setAttribute('placeholder', targetLang === sourceLang ? originalPlaceholder : await translateText(originalPlaceholder, sourceLang, targetLang));
+            }
+        }
+    }
+
+    document.getElementById('languageSelect').addEventListener('change', async function() {
+        await translatePage(this.value);
+    });
+</script>
+
+<script>
+    const currentUrl = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
     document.querySelector('.share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
     document.querySelector('.share-twitter').href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${title}`;
     document.querySelector('.share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
 </script>
 
-
-
 <style>
-    .card {
-        transition: transform 0.2s;
-    }
-    .card:hover {
-        transform: translateY(-5px);
-    }
-    .btn {
-        transition: all 0.3s;
-    }
-    .btn:hover {
-        transform: scale(1.05);
-    }
+    .card { transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    .btn { transition: all 0.3s; }
+    .btn:hover { transform: scale(1.05); }
 </style>
 {% endblock %}

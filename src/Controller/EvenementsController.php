@@ -6,8 +6,10 @@ use App\Repository\EvenementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\SecurityBundle\Security;
+
 use App\Entity\User;
+use Symfony\Bundle\SecurityBundle\Security;
+
 use App\Entity\Evenement;
 use App\Form\OffreType;
 use Doctrine\ORM\EntityManager;
@@ -17,13 +19,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class EvenementsController extends AbstractController
 {
-   
     
-
-    public function __construct()
-    {
-        
-    }
+    
     public function getAuthUser(Security $security): ?User
     {
         $user = $security->getUser();
@@ -38,13 +35,21 @@ final class EvenementsController extends AbstractController
     
         return $user;
     }
+   
 
     #[Route('/event', name: 'app_event')]
-    public function index(EvenementRepository $rep,Security $security): Response
-    {
-        // Récupérer l'utilisateur connecté
+    public function index(EvenementRepository $rep, Security $security): Response
+    { // Récupérer l'utilisateur connecté
         $user = $this->getAuthUser($security); 
-       
+
+
+        //if (!$user) {
+            // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+            //return $this->redirectToRoute('app_login');
+        //}
+
+
+        // Récupérer les événements créés par l'utilisateur connecté
         $events = $rep->findByUserId($user->getId());
 
         return $this->render('evenements/eventmod.html.twig', [

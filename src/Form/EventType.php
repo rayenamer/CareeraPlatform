@@ -34,7 +34,7 @@ class EventType extends AbstractType
 
         ->add('id') 
         ->add('nom', TextType::class, [
-            'label' => 'description',
+            'label' => 'nom',
             'required' => true,
             'attr' => ['placeholder' => 'évènement'],
             'constraints' => [

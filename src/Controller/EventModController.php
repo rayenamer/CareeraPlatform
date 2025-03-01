@@ -3,13 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Evenement; 
+use App\Entity\User; 
 
 
 use Doctrine\Persistence\ManagerRegistry;
 
-use App\Form\EventType; 
-
-use App\Form\EventaddType;
+use App\Form\EventaddType; 
+use Symfony\Bundle\SecurityBundle\Security;
 
 use App\Repository\EvenementRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,8 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\HttpClient\HttpClient;
 
-use Symfony\Bundle\SecurityBundle\Security;
-use App\Entity\User;
+
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -30,6 +29,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 final class EventModController extends AbstractController
 {
+   
     public function getAuthUser(Security $security): ?User
     {
         $user = $security->getUser();
@@ -44,7 +44,10 @@ final class EventModController extends AbstractController
     
         return $user;
     }
-    
+
+
+
+
     #[Route('/events', name: 'evenement_index')]
     public function index(EvenementRepository $rep): Response
     {
@@ -76,13 +79,16 @@ final class EventModController extends AbstractController
     #[Route('/new', name: 'evenement_new')]
 public function new(Request $request, EntityManagerInterface $entityManager, Security $security): Response
 {
-    $user = $this->getAuthUser($security); 
-
     $evenement = new Evenement();
     
+    // Récupérer l'utilisateur connecté
+        $user = $this->getAuthUser($security); 
     
-    
-    $evenement->setUserId($user->getId());
+    // Si un utilisateur est connecté, assigner son ID à l'événement
+    if ($user) {
+        $evenement->setUserId($user->getId());
+    }
+
     $form = $this->createForm(EventaddType::class, $evenement);
     $form->handleRequest($request);
 
@@ -102,10 +108,8 @@ public function new(Request $request, EntityManagerInterface $entityManager, Sec
     
 
     #[Route('/edit/{id}', name: 'evenement_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Evenement $evenement, EntityManagerInterface $entityManager,Security $security): Response
+    public function edit(Request $request, Evenement $evenement, EntityManagerInterface $entityManager): Response
     {
-        $user = $this->getAuthUser($security); 
-
         $form = $this->createForm(EventaddType::class, $evenement);
         $form->handleRequest($request);
 
@@ -292,54 +296,40 @@ private function getCoordinates(string $city): ?array
     return null;
 }
 
-private $security;
-
-public function __construct(Security $security)
-{
-    $this->security = $security;
-}
 
 #[Route('/participer/{id}', name: 'evenement_participer', methods: ['POST'])]
-public function participer(Evenement $event, EntityManagerInterface $em): Response
+public function participer(Evenement $event, EntityManagerInterface $em, Security $security): Response
 {
-    // Récupérer l'utilisateur authentifié
-    $user = $this->security->getUser();
+    $user = $this->getAuthUser($security);
 
-    // Vérifier si l'utilisateur est authentifié
-    if (!$user) {
-        return $this->redirectToRoute('app_login'); // Rediriger vers la connexion si l'utilisateur n'est pas connecté
-    }
-
-    // Ajouter l'ID de l'utilisateur à la liste des participants
-    $event->addParticipantId(3);
+    $event->addParticipantId($user->getId());
     $em->persist($event);
     $em->flush();
 
     $this->addFlash('success', 'Vous participez maintenant à cet événement !');
-    return $this->redirectToRoute('evenement_details', ['id' => $event->getId()]);
+
+    return $this->redirectToRoute('evenement_details', [
+        'id' => $event->getId(),
+        'userId' => $user->getId(), // On passe l'ID de l'utilisateur à la vue
+    ]);
 }
 
 #[Route('/annuler/{id}', name: 'evenement_annuler', methods: ['POST'])]
-public function annuler(Evenement $event, EntityManagerInterface $em): Response
+public function annuler(Evenement $event, EntityManagerInterface $em, Security $security): Response
 {
-    // Récupérer l'utilisateur authentifié
-    $user = $this->security->getUser();
+    $user = $this->getAuthUser($security);
 
-    // Vérifier si l'utilisateur est authentifié
-    if (!$user) {
-        return $this->redirectToRoute('app_login'); // Rediriger vers la connexion si l'utilisateur n'est pas connecté
-    }
-
-    // Supprimer l'ID de l'utilisateur de la liste des participants
-    $event->removeParticipantId(3);
+    $event->removeParticipantId($user->getId());
     $em->persist($event);
     $em->flush();
 
     $this->addFlash('success', 'Vous ne participez plus à cet événement.');
-    return $this->redirectToRoute('evenement_details', ['id' => $event->getId()]);
+
+    return $this->redirectToRoute('evenement_details', [
+        'id' => $event->getId(),
+        'userId' => $user->getId(), // On passe l'ID de l'utilisateur à la vue
+    ]);
 }
-
-
 
 
 
