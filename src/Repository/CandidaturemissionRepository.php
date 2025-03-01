@@ -40,20 +40,12 @@ class CandidaturemissionRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
-    public function findByUtilisateur(Utilisateur $utilisateur): array
-{
-    return $this->createQueryBuilder('c')
-        ->andWhere('c.utilisateur = :utilisateur')
-        ->setParameter('utilisateur', $utilisateur)
-        ->getQuery()
-        ->getResult();
-}
+  
 
 
-// Méthode pour récupérer les candidatures d'un utilisateur par son ID
-public function findByUserId(int $userid)
+public function findByUserId(string $userId): array
 {
-    return $this->findBy(['userid' => $userid]);
+    return $this->findBy(['userId' => $userId]);
 }
 
 }

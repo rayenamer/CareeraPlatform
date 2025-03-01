@@ -29,10 +29,16 @@ class __TwigTemplate_c5c2eb41c6dd200d7f8e1a19d0e01096 extends Template
 
         $this->source = $this->getSourceContext();
 
-        $this->parent = false;
-
         $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'body' => [$this, 'block_body'],
         ];
+    }
+
+    protected function doGetParent(array $context): bool|string|Template|TemplateWrapper
+    {
+        // line 3
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = []): iterable
@@ -44,57 +50,125 @@ class __TwigTemplate_c5c2eb41c6dd200d7f8e1a19d0e01096 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "demande_mission/mes_candidatures.html.twig"));
 
-        // line 2
-        yield "
-<h1>Mes candidatures</h1>
-
-";
-        // line 5
-        if ( !Twig\Extension\CoreExtension::testEmpty((isset($context["candidatures"]) || array_key_exists("candidatures", $context) ? $context["candidatures"] : (function () { throw new RuntimeError('Variable "candidatures" does not exist.', 5, $this->source); })()))) {
-            // line 6
-            yield "    <ul>
-        ";
-            // line 7
-            $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["candidatures"]) || array_key_exists("candidatures", $context) ? $context["candidatures"] : (function () { throw new RuntimeError('Variable "candidatures" does not exist.', 7, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["candidature"]) {
-                // line 8
-                yield "            <li>
-                <strong>";
-                // line 9
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "mission", [], "any", false, false, false, 9), "titre", [], "any", false, false, false, 9), "html", null, true);
-                yield "</strong><br>
-                Statut: ";
-                // line 10
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::capitalize($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "etat", [], "any", false, false, false, 10)), "html", null, true);
-                yield "<br>
-                Score: ";
-                // line 11
-                yield (( !(null === CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "score", [], "any", false, false, false, 11))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "score", [], "any", false, false, false, 11), "html", null, true)) : ("N/A"));
-                yield "<br>
-                <small>Demande envoyée le : ";
-                // line 12
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "demande", [], "any", false, false, false, 12), "createdAt", [], "any", false, false, false, 12), "d/m/Y"), "html", null, true);
-                yield "</small>
-            </li>
-        ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_key'], $context['candidature'], $context['_parent']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 15
-            yield "    </ul>
-";
-        } else {
-            // line 17
-            yield "    <p>Aucune candidature trouvée.</p>
-";
-        }
+        $this->parent = $this->loadTemplate("base.html.twig", "demande_mission/mes_candidatures.html.twig", 3);
+        yield from $this->parent->unwrap()->yield($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 5
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_title(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        yield "Mes Candidatures";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 7
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_body(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        // line 8
+        yield "<div class=\"container mt-5\">
+    <h1 class=\"text-center mb-4\">📌 Mes Candidatures</h1>
+
+    ";
+        // line 11
+        if ( !Twig\Extension\CoreExtension::testEmpty((isset($context["candidatures"]) || array_key_exists("candidatures", $context) ? $context["candidatures"] : (function () { throw new RuntimeError('Variable "candidatures" does not exist.', 11, $this->source); })()))) {
+            // line 12
+            yield "        <div class=\"row\">
+            ";
+            // line 13
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["candidatures"]) || array_key_exists("candidatures", $context) ? $context["candidatures"] : (function () { throw new RuntimeError('Variable "candidatures" does not exist.', 13, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["candidature"]) {
+                // line 14
+                yield "                <div class=\"col-md-6\">
+                    <div class=\"card shadow-sm mb-3\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title text-primary\">";
+                // line 17
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "mission", [], "any", false, false, false, 17), "titre", [], "any", false, false, false, 17), "html", null, true);
+                yield "</h5>
+                            <p class=\"card-text\">
+                                <strong>Statut :</strong> 
+                                <span class=\"badge ";
+                // line 20
+                if ((CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "etat", [], "any", false, false, false, 20) == "acceptée")) {
+                    yield " bg-success ";
+                } elseif ((CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "etat", [], "any", false, false, false, 20) == "refusée")) {
+                    yield " bg-danger ";
+                } else {
+                    yield " bg-warning ";
+                }
+                yield "\">
+                                    ";
+                // line 21
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::capitalize($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "etat", [], "any", false, false, false, 21)), "html", null, true);
+                yield "
+                                </span>
+                            </p>
+                            <p class=\"card-text\">
+                                <strong>Score :</strong> 
+                                ";
+                // line 26
+                yield (( !(null === CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "score", [], "any", false, false, false, 26))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["candidature"], "score", [], "any", false, false, false, 26), "html", null, true)) : ("N/A"));
+                yield "
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['candidature'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 32
+            yield "        </div>
+    ";
+        } else {
+            // line 34
+            yield "        <div class=\"alert alert-info text-center\" role=\"alert\">
+            🎯 Vous n'avez encore postulé à aucune mission.
+        </div>
+    ";
+        }
+        // line 38
+        yield "</div>
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
         yield from [];
     }
@@ -120,29 +194,50 @@ class __TwigTemplate_c5c2eb41c6dd200d7f8e1a19d0e01096 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  90 => 17,  86 => 15,  77 => 12,  73 => 11,  69 => 10,  65 => 9,  62 => 8,  58 => 7,  55 => 6,  53 => 5,  48 => 2,);
+        return array (  165 => 38,  159 => 34,  155 => 32,  143 => 26,  135 => 21,  125 => 20,  119 => 17,  114 => 14,  110 => 13,  107 => 12,  105 => 11,  100 => 8,  87 => 7,  64 => 5,  41 => 3,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{# templates/demande_mission/mes_candidatures.html.twig #}
 
-<h1>Mes candidatures</h1>
+{% extends 'base.html.twig' %}
 
-{% if candidatures is not empty %}
-    <ul>
-        {% for candidature in candidatures %}
-            <li>
-                <strong>{{ candidature.mission.titre }}</strong><br>
-                Statut: {{ candidature.etat|capitalize }}<br>
-                Score: {{ candidature.score is not null ? candidature.score : 'N/A' }}<br>
-                <small>Demande envoyée le : {{ candidature.demande.createdAt|date('d/m/Y') }}</small>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Aucune candidature trouvée.</p>
-{% endif %}
-", "demande_mission/mes_candidatures.html.twig", "C:\\careera\\templates\\demande_mission\\mes_candidatures.html.twig");
+{% block title %}Mes Candidatures{% endblock %}
+
+{% block body %}
+<div class=\"container mt-5\">
+    <h1 class=\"text-center mb-4\">📌 Mes Candidatures</h1>
+
+    {% if candidatures is not empty %}
+        <div class=\"row\">
+            {% for candidature in candidatures %}
+                <div class=\"col-md-6\">
+                    <div class=\"card shadow-sm mb-3\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title text-primary\">{{ candidature.mission.titre }}</h5>
+                            <p class=\"card-text\">
+                                <strong>Statut :</strong> 
+                                <span class=\"badge {% if candidature.etat == 'acceptée' %} bg-success {% elseif candidature.etat == 'refusée' %} bg-danger {% else %} bg-warning {% endif %}\">
+                                    {{ candidature.etat|capitalize }}
+                                </span>
+                            </p>
+                            <p class=\"card-text\">
+                                <strong>Score :</strong> 
+                                {{ candidature.score is not null ? candidature.score : 'N/A' }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class=\"alert alert-info text-center\" role=\"alert\">
+            🎯 Vous n'avez encore postulé à aucune mission.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+", "demande_mission/mes_candidatures.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\demande_mission\\mes_candidatures.html.twig");
     }
 }

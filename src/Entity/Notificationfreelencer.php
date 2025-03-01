@@ -23,6 +23,9 @@ class Notificationfreelencer
     private ?\DateTimeInterface $date = null;
     #[ORM\Column(length: 255)]
     private ?string $userid = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $message = null;
     public function getId(): ?int
     {
         return $this->id;

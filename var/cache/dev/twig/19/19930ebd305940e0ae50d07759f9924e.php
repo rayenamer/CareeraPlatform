@@ -121,8 +121,16 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
             display: inline-block;
             margin-top: 10px;
         }
-.search-bar {
+
+        .filled-button:hover {
+            background-color: #45a049;
+        }
+
+        .search-bar {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .search-input {
@@ -130,6 +138,7 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 300px;
+            margin-right: 10px;
         }
 
         .search-button {
@@ -144,8 +153,11 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
         .search-button:hover {
             background-color: #0056b3;
         }
-        .filled-button:hover {
-            background-color: #45a049;
+
+        .no-results {
+            text-align: center;
+            font-size: 1.2em;
+            color: #888;
         }
     </style>
 
@@ -153,62 +165,63 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
         <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-md-12\">
-                    <div class=\"section-heading\">
+                    <div class=\"section-heading text-center\">
                         <h2>Freelance <em>Services</em></h2>
                         <span>Consultez toutes les offres disponibles</span>
-                         <!-- Ajouter le bouton de notification ici -->
-                       ";
-        // line 67
-        yield "                    </div>
-                       <div>
-                       <form action=\"";
-        // line 69
+                    </div>
+                    
+                    <!-- Formulaire de recherche -->
+                    <div>
+                        <form action=\"";
+        // line 81
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_recherche_offre_mission");
         yield "\" method=\"get\" class=\"search-bar\">
-
-                            <input type=\"text\" placeholder=\"Rechercher...\" name=\"query\" class=\"search-input\">
-                            <button type=\"submit\" class=\"search-button\">🔍</button>
+                            <input type=\"text\" name=\"query\" class=\"search-input\" placeholder=\"Rechercher...\" aria-label=\"Rechercher une offre\">
+                            <button type=\"submit\" class=\"search-button\" aria-label=\"Lancer la recherche\">🔍</button>
                         </form>
                     </div>
                 </div>
 
                 ";
-        // line 77
+        // line 88
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["offres"]) || array_key_exists("offres", $context) ? $context["offres"] : (function () { throw new RuntimeError('Variable "offres" does not exist.', 77, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["offres"]) || array_key_exists("offres", $context) ? $context["offres"] : (function () { throw new RuntimeError('Variable "offres" does not exist.', 88, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["offre"]) {
-            // line 78
+            // line 89
             yield "                    <div class=\"col-md-4\">
                         <div class=\"service-item\">
-                            <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image de l'offre\">
+                            <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image de l'offre freelance\">
                             <div class=\"down-content\">
                                 <h4>";
-            // line 82
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "titre", [], "any", false, false, false, 82), "html", null, true);
+            // line 93
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "titre", [], "any", false, false, false, 93), "html", null, true);
             yield "</h4>
                                 <p><strong>Prix :</strong> ";
-            // line 83
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "prix", [], "any", false, false, false, 83), "html", null, true);
+            // line 94
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "prix", [], "any", false, false, false, 94), "html", null, true);
             yield " dt</p>
                                 <p><strong>Description :</strong> ";
-            // line 84
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "description", [], "any", false, false, false, 84), "html", null, true);
+            // line 95
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "description", [], "any", false, false, false, 95), "html", null, true);
             yield "</p>
-                               
                                 <p><strong>Date :</strong> ";
-            // line 86
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "Date", [], "any", false, false, false, 86), "d/m/Y H:i"), "html", null, true);
+            // line 96
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "Date", [], "any", false, false, false, 96), "d/m/Y H:i"), "html", null, true);
             yield "</p>
                                 <div class=\"actions\">
                                     <a href=\"";
-            // line 88
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 88)]), "html", null, true);
+            // line 98
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 98)]), "html", null, true);
             yield "\" class=\"filled-button\">Voir plus</a>
                                     <a href=\"";
-            // line 89
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 89)]), "html", null, true);
+            // line 99
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "id", [], "any", false, false, false, 99)]), "html", null, true);
             yield "\" class=\"filled-button\">Modifier</a>
+                                    <a href=\"";
+            // line 100
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_new");
+            yield "\" class=\"filled-button\">Postuler</a>
                                 </div>
                             </div>
                         </div>
@@ -216,10 +229,10 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
                 ";
             $context['_iterated'] = true;
         }
-        // line 94
+        // line 105
         if (!$context['_iterated']) {
-            // line 95
-            yield "                    <div class=\"col-md-12\">
+            // line 106
+            yield "                    <div class=\"col-md-12 no-results\">
                         <p>Aucune offre trouvée.</p>
                     </div>
                 ";
@@ -227,41 +240,39 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['offre'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 99
+        // line 110
         yield "            </div>
         </div>
     </div>
 
-   <div class=\"text-center\">
-  ";
-        // line 105
-        yield "        <a href=\"";
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_new");
-        yield "\" class=\"filled-button\">Créer une nouvelle offre</a>
-        <a href=\"";
-        // line 106
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_lister_toutes_candidatures");
-        yield "\" class=\"filled-button\">Consulter les candidatures</a>
- ";
-        // line 108
-        yield "
-   ";
-        // line 110
-        yield "        <br><br>
-        <div>
-            <a href=\"";
-        // line 112
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_new");
-        yield "\" class=\"filled-button\">Postuler</a>
-            <a href=\"";
-        // line 113
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mes_candidatures");
-        yield "\" class=\"filled-button\">consulter ma candidature</a>
+    <div class=\"text-center\">
+          ";
+        // line 115
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_MODERATOR")) {
+            // line 116
+            yield "         <a href=\"";
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_new");
+            yield "\" class=\"filled-button\">Créer une nouvelle offre</a>
+             <a href=\"";
+            // line 117
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_lister_toutes_candidatures");
+            yield "\" class=\"filled-button\">Consulter les candidatures</a>
+          
+        ";
+        }
+        // line 120
+        yield "    </div>
 
-        </div>
-    ";
-        // line 117
-        yield "</div>
+    <div class=\"text-center\">
+        <a href=\"";
+        // line 123
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mes_candidatures");
+        yield "\" class=\"filled-button\">Consulter ma candidature</a>
+          <a href=\"";
+        // line 124
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_index");
+        yield "\" class=\"filled-button\">supprimer demande</a> 
+    </div>
 
 ";
         
@@ -294,7 +305,7 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  264 => 117,  258 => 113,  254 => 112,  250 => 110,  247 => 108,  243 => 106,  238 => 105,  231 => 99,  222 => 95,  220 => 94,  210 => 89,  206 => 88,  201 => 86,  196 => 84,  192 => 83,  188 => 82,  182 => 78,  177 => 77,  166 => 69,  162 => 67,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  273 => 124,  269 => 123,  264 => 120,  258 => 117,  253 => 116,  251 => 115,  244 => 110,  235 => 106,  233 => 105,  223 => 100,  219 => 99,  215 => 98,  210 => 96,  206 => 95,  202 => 94,  198 => 93,  192 => 89,  187 => 88,  177 => 81,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -328,8 +339,16 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
             display: inline-block;
             margin-top: 10px;
         }
-.search-bar {
+
+        .filled-button:hover {
+            background-color: #45a049;
+        }
+
+        .search-bar {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .search-input {
@@ -337,6 +356,7 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 300px;
+            margin-right: 10px;
         }
 
         .search-button {
@@ -351,8 +371,11 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
         .search-button:hover {
             background-color: #0056b3;
         }
-        .filled-button:hover {
-            background-color: #45a049;
+
+        .no-results {
+            text-align: center;
+            font-size: 1.2em;
+            color: #888;
         }
     </style>
 
@@ -360,17 +383,16 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
         <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-md-12\">
-                    <div class=\"section-heading\">
+                    <div class=\"section-heading text-center\">
                         <h2>Freelance <em>Services</em></h2>
                         <span>Consultez toutes les offres disponibles</span>
-                         <!-- Ajouter le bouton de notification ici -->
-                       {#  <button class=\"notification-button\" onclick=\"window.location.href='{{ path('app_notifications') }}'\">🔔</button>#}
                     </div>
-                       <div>
-                       <form action=\"{{ path('app_recherche_offre_mission') }}\" method=\"get\" class=\"search-bar\">
-
-                            <input type=\"text\" placeholder=\"Rechercher...\" name=\"query\" class=\"search-input\">
-                            <button type=\"submit\" class=\"search-button\">🔍</button>
+                    
+                    <!-- Formulaire de recherche -->
+                    <div>
+                        <form action=\"{{ path('app_recherche_offre_mission') }}\" method=\"get\" class=\"search-bar\">
+                            <input type=\"text\" name=\"query\" class=\"search-input\" placeholder=\"Rechercher...\" aria-label=\"Rechercher une offre\">
+                            <button type=\"submit\" class=\"search-button\" aria-label=\"Lancer la recherche\">🔍</button>
                         </form>
                     </div>
                 </div>
@@ -378,22 +400,22 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
                 {% for offre in offres %}
                     <div class=\"col-md-4\">
                         <div class=\"service-item\">
-                            <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image de l'offre\">
+                            <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image de l'offre freelance\">
                             <div class=\"down-content\">
                                 <h4>{{ offre.titre }}</h4>
                                 <p><strong>Prix :</strong> {{ offre.prix }} dt</p>
                                 <p><strong>Description :</strong> {{ offre.description }}</p>
-                               
-                                <p><strong>Date :</strong> {{ offre.Date|date('d/m/Y H:i')  }}</p>
+                                <p><strong>Date :</strong> {{ offre.Date|date('d/m/Y H:i') }}</p>
                                 <div class=\"actions\">
                                     <a href=\"{{ path('app_offrefrelencer_show', {'id': offre.id}) }}\" class=\"filled-button\">Voir plus</a>
                                     <a href=\"{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}\" class=\"filled-button\">Modifier</a>
+                                    <a href=\"{{ path('app_demande_mission_new') }}\" class=\"filled-button\">Postuler</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 {% else %}
-                    <div class=\"col-md-12\">
+                    <div class=\"col-md-12 no-results\">
                         <p>Aucune offre trouvée.</p>
                     </div>
                 {% endfor %}
@@ -401,23 +423,20 @@ class __TwigTemplate_0afee71d329cffb21cd5d436ca2a22c0 extends Template
         </div>
     </div>
 
-   <div class=\"text-center\">
-  {#  {% if isModerator %}  #}
-        <a href=\"{{ path('app_offrefrelencer_new') }}\" class=\"filled-button\">Créer une nouvelle offre</a>
-        <a href=\"{{ path('app_lister_toutes_candidatures') }}\" class=\"filled-button\">Consulter les candidatures</a>
- {#   {% endif %}#}
+    <div class=\"text-center\">
+          {% if is_granted('ROLE_MODERATOR') %}
+         <a href=\"{{ path('app_offrefrelencer_new') }}\" class=\"filled-button\">Créer une nouvelle offre</a>
+             <a href=\"{{ path('app_lister_toutes_candidatures') }}\" class=\"filled-button\">Consulter les candidatures</a>
+          
+        {% endif %}
+    </div>
 
-   {#  {% if isFreelancer %}  #}
-        <br><br>
-        <div>
-            <a href=\"{{ path('app_demande_mission_new') }}\" class=\"filled-button\">Postuler</a>
-            <a href=\"{{ path('app_mes_candidatures') }}\" class=\"filled-button\">consulter ma candidature</a>
-
-        </div>
-    {#{% endif %} #}
-</div>
+    <div class=\"text-center\">
+        <a href=\"{{ path('app_mes_candidatures') }}\" class=\"filled-button\">Consulter ma candidature</a>
+          <a href=\"{{ path('app_demande_mission_index') }}\" class=\"filled-button\">supprimer demande</a> 
+    </div>
 
 {% endblock %}
-", "offrefrelencer/index.html.twig", "C:\\careera\\templates\\offrefrelencer\\index.html.twig");
+", "offrefrelencer/index.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offrefrelencer\\index.html.twig");
     }
 }

@@ -27,8 +27,16 @@
             display: inline-block;
             margin-top: 10px;
         }
-.search-bar {
+
+        .filled-button:hover {
+            background-color: #45a049;
+        }
+
+        .search-bar {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .search-input {
@@ -36,6 +44,7 @@
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 300px;
+            margin-right: 10px;
         }
 
         .search-button {
@@ -50,8 +59,11 @@
         .search-button:hover {
             background-color: #0056b3;
         }
-        .filled-button:hover {
-            background-color: #45a049;
+
+        .no-results {
+            text-align: center;
+            font-size: 1.2em;
+            color: #888;
         }
     </style>
 
@@ -59,17 +71,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-heading">
+                    <div class="section-heading text-center">
                         <h2>Freelance <em>Services</em></h2>
                         <span>Consultez toutes les offres disponibles</span>
-                         <!-- Ajouter le bouton de notification ici -->
-                       {#  <button class="notification-button" onclick="window.location.href='{{ path('app_notifications') }}'">🔔</button>#}
                     </div>
-                       <div>
-                       <form action="{{ path('app_recherche_offre_mission') }}" method="get" class="search-bar">
-
-                            <input type="text" placeholder="Rechercher..." name="query" class="search-input">
-                            <button type="submit" class="search-button">🔍</button>
+                    
+                    <!-- Formulaire de recherche -->
+                    <div>
+                        <form action="{{ path('app_recherche_offre_mission') }}" method="get" class="search-bar">
+                            <input type="text" name="query" class="search-input" placeholder="Rechercher..." aria-label="Rechercher une offre">
+                            <button type="submit" class="search-button" aria-label="Lancer la recherche">🔍</button>
                         </form>
                     </div>
                 </div>
@@ -77,22 +88,22 @@
                 {% for offre in offres %}
                     <div class="col-md-4">
                         <div class="service-item">
-                            <img src="https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg" alt="Image de l'offre">
+                            <img src="https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg" alt="Image de l'offre freelance">
                             <div class="down-content">
                                 <h4>{{ offre.titre }}</h4>
                                 <p><strong>Prix :</strong> {{ offre.prix }} dt</p>
                                 <p><strong>Description :</strong> {{ offre.description }}</p>
-                               
-                                <p><strong>Date :</strong> {{ offre.Date|date('d/m/Y H:i')  }}</p>
+                                <p><strong>Date :</strong> {{ offre.Date|date('d/m/Y H:i') }}</p>
                                 <div class="actions">
                                     <a href="{{ path('app_offrefrelencer_show', {'id': offre.id}) }}" class="filled-button">Voir plus</a>
                                     <a href="{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}" class="filled-button">Modifier</a>
+                                    <a href="{{ path('app_demande_mission_new') }}" class="filled-button">Postuler</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 {% else %}
-                    <div class="col-md-12">
+                    <div class="col-md-12 no-results">
                         <p>Aucune offre trouvée.</p>
                     </div>
                 {% endfor %}
@@ -100,20 +111,16 @@
         </div>
     </div>
 
-   <div class="text-center">
-  {#  {% if isModerator %}  #}
-        <a href="{{ path('app_offrefrelencer_new') }}" class="filled-button">Créer une nouvelle offre</a>
-        <a href="{{ path('app_lister_toutes_candidatures') }}" class="filled-button">Consulter les candidatures</a>
- {#   {% endif %}#}
+    <div class="text-center">
+          {% if is_granted('ROLE_MODERATOR') %}
+         <a href="{{ path('app_offrefrelencer_new') }}" class="filled-button">Créer une nouvelle offre</a>
+             <a href="{{ path('app_lister_toutes_candidatures') }}" class="filled-button">Consulter les candidatures</a>
+          
+        {% endif %}
+    </div>
 
-   {#  {% if isFreelancer %}  #}
-        <br><br>
-        <div>
-            <a href="{{ path('app_demande_mission_new') }}" class="filled-button">Postuler</a>
-            <a href="{{ path('app_mes_candidatures') }}" class="filled-button">consulter ma candidature</a>
-
-        </div>
-    {#{% endif %} #}
-</div>
+    <div class="text-center">
+        <a href="{{ path('app_mes_candidatures') }}" class="filled-button">Consulter ma candidature</a>
+    </div>
 
 {% endblock %}

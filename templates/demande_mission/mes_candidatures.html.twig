@@ -1,18 +1,39 @@
 {# templates/demande_mission/mes_candidatures.html.twig #}
 
-<h1>Mes candidatures</h1>
+{% extends 'base.html.twig' %}
 
-{% if candidatures is not empty %}
-    <ul>
-        {% for candidature in candidatures %}
-            <li>
-                <strong>{{ candidature.mission.titre }}</strong><br>
-                Statut: {{ candidature.etat|capitalize }}<br>
-                Score: {{ candidature.score is not null ? candidature.score : 'N/A' }}<br>
-                <small>Demande envoyée le : {{ candidature.demande.createdAt|date('d/m/Y') }}</small>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Aucune candidature trouvée.</p>
-{% endif %}
+{% block title %}Mes Candidatures{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">📌 Mes Candidatures</h1>
+
+    {% if candidatures is not empty %}
+        <div class="row">
+            {% for candidature in candidatures %}
+                <div class="col-md-6">
+                    <div class="card shadow-sm mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">{{ candidature.mission.titre }}</h5>
+                            <p class="card-text">
+                                <strong>Statut :</strong> 
+                                <span class="badge {% if candidature.etat == 'acceptée' %} bg-success {% elseif candidature.etat == 'refusée' %} bg-danger {% else %} bg-warning {% endif %}">
+                                    {{ candidature.etat|capitalize }}
+                                </span>
+                            </p>
+                            <p class="card-text">
+                                <strong>Score :</strong> 
+                                {{ candidature.score is not null ? candidature.score : 'N/A' }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center" role="alert">
+            🎯 Vous n'avez encore postulé à aucune mission.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

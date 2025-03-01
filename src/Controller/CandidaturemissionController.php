@@ -41,7 +41,7 @@ final class CandidaturemissionController extends AbstractController
         $candidature = new Candidaturemission();
         $candidature->setUtilisateur($utilisateur);
         $candidature->setMission($offre);
-        $candidature->setEtat(EtatCandidature::EN_ATTENTE); // Utilise l'énumération
+       
 
         // Sauvegarder la candidature
         $entityManager->persist($candidature);
