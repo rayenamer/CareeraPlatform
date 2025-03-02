@@ -1,10 +1,14 @@
 <?php
 
+<<<<<<<< HEAD:var/cache/prod/ContainerMlC0NKC/getForm_FactoryService.php
 <<<<<<<< HEAD:var/cache/dev/ContainerE2q9PZJ/getForm_FactoryService.php
 namespace ContainerE2q9PZJ;
 ========
 namespace ContainerMlC0NKC;
 >>>>>>>> origin/HechBackUp:var/cache/prod/ContainerMlC0NKC/getForm_FactoryService.php
+========
+namespace Container98L4R2C;
+>>>>>>>> origin/MainTestWiem:var/cache/dev/Container98L4R2C/getForm_FactoryService.php
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
@@ -23,6 +27,9 @@ class getForm_FactoryService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'FormFactoryInterface.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'FormFactory.php';
+
         return $container->privates['form.factory'] = new \Symfony\Component\Form\FormFactory(($container->privates['form.registry'] ?? $container->load('getForm_RegistryService')));
     }
 }

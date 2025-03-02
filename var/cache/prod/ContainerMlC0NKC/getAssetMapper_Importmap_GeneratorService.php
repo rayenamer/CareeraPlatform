@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<<< HEAD:var/cache/prod/ContainerMlC0NKC/getAssetMapper_Importmap_GeneratorService.php
 namespace ContainerMlC0NKC;
+========
+namespace Container98L4R2C;
+>>>>>>>> origin/MainTestWiem:var/cache/dev/Container98L4R2C/getAssetMapper_Importmap_GeneratorService.php
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
@@ -19,6 +23,12 @@ class getAssetMapper_Importmap_GeneratorService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
+<<<<<<<< HEAD:var/cache/prod/ContainerMlC0NKC/getAssetMapper_Importmap_GeneratorService.php
         return $container->privates['asset_mapper.importmap.generator'] = new \Symfony\Component\AssetMapper\ImportMap\ImportMapGenerator(($container->privates['asset_mapper'] ?? $container->load('getAssetMapperService')), ($container->privates['asset_mapper.compiled_asset_mapper_config_reader'] ??= new \Symfony\Component\AssetMapper\CompiledAssetMapperConfigReader((\dirname(__DIR__, 4).'/public/assets'))), ($container->privates['asset_mapper.importmap.config_reader'] ?? $container->load('getAssetMapper_Importmap_ConfigReaderService')));
+========
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'asset-mapper'.\DIRECTORY_SEPARATOR.'ImportMap'.\DIRECTORY_SEPARATOR.'ImportMapGenerator.php';
+
+        return $container->privates['asset_mapper.importmap.generator'] = new \Symfony\Component\AssetMapper\ImportMap\ImportMapGenerator(($container->privates['asset_mapper'] ?? self::getAssetMapperService($container)), ($container->privates['asset_mapper.compiled_asset_mapper_config_reader'] ??= new \Symfony\Component\AssetMapper\CompiledAssetMapperConfigReader((\dirname(__DIR__, 4).'/public/assets'))), ($container->privates['asset_mapper.importmap.config_reader'] ?? $container->load('getAssetMapper_Importmap_ConfigReaderService')));
+>>>>>>>> origin/MainTestWiem:var/cache/dev/Container98L4R2C/getAssetMapper_Importmap_GeneratorService.php
     }
 }

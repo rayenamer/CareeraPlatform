@@ -1,0 +1,18 @@
+{{ form_start(form) }}
+
+    {{ form_row(form.message) }}
+    {{ form_errors(form.message) }}
+{{ form_row(form.imageurl) }}
+    {{ form_errors(form.imageurl) }}
+    {{ form_row(form.portfolio) }}
+    {{ form_errors(form.portfolio) }}
+
+    {{ form_row(form.status) }}
+    {{ form_errors(form.status) }}
+
+    {{ form_row(form.Offremission) }}
+    {{ form_errors(form.Offremission) }}
+
+    <button type="submit">Enregistrer</button>
+
+{{ form_end(form) }}

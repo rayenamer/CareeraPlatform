@@ -389,6 +389,9 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Entity" class="App\Entity" abstract="true">
+      <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
+    </service>
     <service id="App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -428,11 +431,25 @@
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\CandidatureController"/>
       </call>
     </service>
+    <service id="App\Controller\CandidaturemissionController" class="App\Controller\CandidaturemissionController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\CandidaturemissionController"/>
+      </call>
+    </service>
     <service id="App\Controller\ChatbotController" class="App\Controller\ChatbotController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\ChatbotController"/>
+      </call>
+    </service>
+    <service id="App\Controller\CherchermissionController" class="App\Controller\CherchermissionController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\CherchermissionController"/>
       </call>
     </service>
     <service id="App\Controller\ChercheurController" class="App\Controller\ChercheurController" public="true" autowire="true" autoconfigure="true">
@@ -447,6 +464,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\CommunityController"/>
+      </call>
+    </service>
+    <service id="App\Controller\DemandeMissionController" class="App\Controller\DemandeMissionController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\DemandeMissionController"/>
       </call>
     </service>
     <service id="App\Controller\EvenementsController" class="App\Controller\EvenementsController" public="true" autowire="true" autoconfigure="true">
@@ -511,6 +535,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\MessageController"/>
+      </call>
+    </service>
+    <service id="App\Controller\MissionfreelencerController" class="App\Controller\MissionfreelencerController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\MissionfreelencerController"/>
       </call>
     </service>
     <service id="App\Controller\ModerateurController" class="App\Controller\ModerateurController" public="true" autowire="true" autoconfigure="true">
@@ -589,107 +620,138 @@
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\UserDataController"/>
       </call>
     </service>
-    <service id="App\Entity" class="App\Entity" abstract="true">
-      <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
-    </service>
-    <service id="App\Form\CandidatureType" class="App\Form\CandidatureType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\CandidatureType" class="App\Form\CandidatureType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\CandidatureaddType" class="App\Form\CandidatureaddType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\CandidatureaddType" class="App\Form\CandidatureaddType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\DiscussionType" class="App\Form\DiscussionType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\DemandeMissionType" class="App\Form\DemandeMissionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\EventType" class="App\Form\EventType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\DiscussionType" class="App\Form\DiscussionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\EventaddType" class="App\Form\EventaddType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\EventType" class="App\Form\EventType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\MessageType" class="App\Form\MessageType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\EventaddType" class="App\Form\EventaddType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\OffreType" class="App\Form\OffreType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\MessageType" class="App\Form\MessageType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\ReplyType" class="App\Form\ReplyType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\MissionfreelencerType" class="App\Form\MissionfreelencerType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\OffreType" class="App\Form\OffreType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\TypeContratType" class="App\Form\TypeContratType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\RechercheoffreType" class="App\Form\RechercheoffreType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\TypeEvenementType" class="App\Form\TypeEvenementType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\ReplyType" class="App\Form\ReplyType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\TypeEventaddType" class="App\Form\TypeEventaddType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\TypeOffreType" class="App\Form\TypeOffreType" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\TypeContratType" class="App\Form\TypeContratType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Repository\BlockedUserRepository" class="App\Repository\BlockedUserRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Form\TypeEvenementType" class="App\Form\TypeEvenementType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\TypeEventaddType" class="App\Form\TypeEventaddType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\TypeOffreType" class="App\Form\TypeOffreType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Repository\BlockedUserRepository" class="App\Repository\BlockedUserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\DiscussionRepository" class="App\Repository\DiscussionRepository" public="true" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-      <argument type="service" id="doctrine.orm.default_entity_manager"/>
-    </service>
-    <service id="App\Repository\EvenementRepository" class="App\Repository\EvenementRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\CandidaturemissionRepository" class="App\Repository\CandidaturemissionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\MessageRepository" class="App\Repository\MessageRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\DemandeMissionRepository" class="App\Repository\DemandeMissionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" public="true" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\OffreRepository" class="App\Repository\OffreRepository" public="true" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\ReplyRepository" class="App\Repository\ReplyRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\DiscussionRepository" class="App\Repository\DiscussionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
-    <service id="App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\EvenementRepository" class="App\Repository\EvenementRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\TypeContratRepository" class="App\Repository\TypeContratRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\MessageRepository" class="App\Repository\MessageRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\TypeEventRepository" class="App\Repository\TypeEventRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\MissionRepository" class="App\Repository\MissionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\TypeOffreRepository" class="App\Repository\TypeOffreRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\MissionfreelencerRepository" class="App\Repository\MissionfreelencerRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="Dompdf\Dompdf" class="Dompdf\Dompdf" public="true" autowire="true" autoconfigure="true"/>
-    <service id="App\Entity\Offre" class="App\Entity\Offre" public="true" autowire="true" autoconfigure="true"/>
+    <service id="App\Repository\NotificationfreelencerRepository" class="App\Repository\NotificationfreelencerRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\OffreRepository" class="App\Repository\OffreRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ReplyRepository" class="App\Repository\ReplyRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TypeContratRepository" class="App\Repository\TypeContratRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TypeEventRepository" class="App\Repository\TypeEventRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TypeOffreRepository" class="App\Repository\TypeOffreRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Service\SmsService" class="App\Service\SmsService" autowire="true" autoconfigure="true">
+      <argument>%env(TWILIO_ACCOUNT_SID)%</argument>
+      <argument>%env(TWILIO_AUTH_TOKEN)%</argument>
+      <argument>%env(TWILIO_PHONE_NUMBER)%</argument>
+    </service>
+    <service id="Dompdf\Dompdf" class="Dompdf\Dompdf" autowire="true" autoconfigure="true"/>
+    <service id="App\Entity\Offre" class="App\Entity\Offre" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">
       <tag priority="100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">controller.argument_value_resolver</tag>
@@ -720,7 +782,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.w8LxJru"/>
+      <argument type="service" id=".service_locator.dONwZyJ"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1690,11 +1752,14 @@
         <argument>App\Form\CandidatureType</argument>
         <argument>App\Form\CandidatureaddType</argument>
         <argument>App\Form\ChangePasswordFormType</argument>
+        <argument>App\Form\DemandeMissionType</argument>
         <argument>App\Form\DiscussionType</argument>
         <argument>App\Form\EventType</argument>
         <argument>App\Form\EventaddType</argument>
         <argument>App\Form\MessageType</argument>
+        <argument>App\Form\MissionfreelencerType</argument>
         <argument>App\Form\OffreType</argument>
+        <argument>App\Form\RechercheoffreType</argument>
         <argument>App\Form\ReplyType</argument>
         <argument>App\Form\ResetPasswordRequestFormType</argument>
         <argument>App\Form\TypeContratType</argument>
@@ -2285,6 +2350,11 @@
         <argument type="service" id="monolog.logger.http_client" on-invalid="ignore"/>
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
+    </service>
+    <service id="psr18.http_client" class="Symfony\Component\HttpClient\Psr18Client">
+      <argument type="service" id=".debug.http_client"/>
+      <argument>null</argument>
+      <argument>null</argument>
     </service>
     <service id="http_client.abstract_retry_strategy" class="Symfony\Component\HttpClient\Retry\GenericRetryStrategy" abstract="true">
       <argument type="abstract">http codes</argument>
@@ -3846,7 +3916,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.w8LxJru"/>
+      <argument type="service" id=".service_locator.dONwZyJ"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -4357,7 +4427,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.tICBPnH"/>
+      <argument type="service" id=".service_locator.7HLA13h"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5640,7 +5710,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.lvyo6na"/>
+      <argument type="service" id=".service_locator.xSK9hPm"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -8327,143 +8397,171 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Twig\Component\Alert" class="EasyCorp\Bundle\EasyAdminBundle\Twig\Component\Alert" shared="false">
       <tag name="twig.component"/>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\DashboardControllerInterface.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BlockedUsersController" class="App\Controller\BlockedUsersController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BlockedUsersController" class="App\Controller\BlockedUsersController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\BlockedUsersController" class="App\Controller\BlockedUsersController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CandidatureController" class="App\Controller\CandidatureController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CandidatureController" class="App\Controller\CandidatureController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\CandidatureController" class="App\Controller\CandidatureController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ChatbotController" class="App\Controller\ChatbotController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ChatbotController" class="App\Controller\ChatbotController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ChatbotController" class="App\Controller\ChatbotController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ChercheurController" class="App\Controller\ChercheurController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ChercheurController" class="App\Controller\ChercheurController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ChercheurController" class="App\Controller\ChercheurController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CommunityController" class="App\Controller\CommunityController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CommunityController" class="App\Controller\CommunityController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\CommunityController" class="App\Controller\CommunityController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EvenementsController" class="App\Controller\EvenementsController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EvenementsController" class="App\Controller\EvenementsController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\EvenementsController" class="App\Controller\EvenementsController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EventModController" class="App\Controller\EventModController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EventModController" class="App\Controller\EventModController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\EventModController" class="App\Controller\EventModController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EventTypeController" class="App\Controller\EventTypeController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EventTypeController" class="App\Controller\EventTypeController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\EventTypeController" class="App\Controller\EventTypeController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ForumController" class="App\Controller\ForumController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ForumController" class="App\Controller\ForumController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ForumController" class="App\Controller\ForumController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\FreelancerController" class="App\Controller\FreelancerController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FreelancerController" class="App\Controller\FreelancerController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\FreelancerController" class="App\Controller\FreelancerController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IndexController" class="App\Controller\IndexController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IndexController" class="App\Controller\IndexController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MessageController" class="App\Controller\MessageController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MessageController" class="App\Controller\MessageController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\MessageController" class="App\Controller\MessageController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ModerateurController" class="App\Controller\ModerateurController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ModerateurController" class="App\Controller\ModerateurController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ModerateurController" class="App\Controller\ModerateurController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NotificationController" class="App\Controller\NotificationController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NotificationController" class="App\Controller\NotificationController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\NotificationController" class="App\Controller\NotificationController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OffreController" class="App\Controller\OffreController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OffreController" class="App\Controller\OffreController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\OffreController" class="App\Controller\OffreController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OffremodController" class="App\Controller\OffremodController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OffremodController" class="App\Controller\OffremodController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\OffremodController" class="App\Controller\OffremodController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TypecontratController" class="App\Controller\TypecontratController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TypecontratController" class="App\Controller\TypecontratController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\TypecontratController" class="App\Controller\TypecontratController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserDataController" class="App\Controller\UserDataController" public="true" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserDataController" class="App\Controller\UserDataController" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\UserDataController" class="App\Controller\UserDataController" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CandidatureType" class="App\Form\CandidatureType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CandidatureType" class="App\Form\CandidatureType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CandidatureaddType" class="App\Form\CandidatureaddType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CandidatureaddType" class="App\Form\CandidatureaddType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DiscussionType" class="App\Form\DiscussionType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\DiscussionType" class="App\Form\DiscussionType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EventType" class="App\Form\EventType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\EventType" class="App\Form\EventType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EventaddType" class="App\Form\EventaddType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\EventaddType" class="App\Form\EventaddType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MessageType" class="App\Form\MessageType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\MessageType" class="App\Form\MessageType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\OffreType" class="App\Form\OffreType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\OffreType" class="App\Form\OffreType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReplyType" class="App\Form\ReplyType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\ReplyType" class="App\Form\ReplyType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeContratType" class="App\Form\TypeContratType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\TypeContratType" class="App\Form\TypeContratType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeEvenementType" class="App\Form\TypeEvenementType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\TypeEvenementType" class="App\Form\TypeEvenementType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeEventaddType" class="App\Form\TypeEventaddType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\TypeEventaddType" class="App\Form\TypeEventaddType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeOffreType" class="App\Form\TypeOffreType" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\TypeOffreType" class="App\Form\TypeOffreType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BlockedUserRepository" class="App\Repository\BlockedUserRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\BlockedUserRepository" class="App\Repository\BlockedUserRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DiscussionRepository" class="App\Repository\DiscussionRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\DiscussionRepository" class="App\Repository\DiscussionRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EvenementRepository" class="App\Repository\EvenementRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\EvenementRepository" class="App\Repository\EvenementRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MessageRepository" class="App\Repository\MessageRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\MessageRepository" class="App\Repository\MessageRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\OffreRepository" class="App\Repository\OffreRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\OffreRepository" class="App\Repository\OffreRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReplyRepository" class="App\Repository\ReplyRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\ReplyRepository" class="App\Repository\ReplyRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeContratRepository" class="App\Repository\TypeContratRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\TypeContratRepository" class="App\Repository\TypeContratRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeEventRepository" class="App\Repository\TypeEventRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\TypeEventRepository" class="App\Repository\TypeEventRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeOffreRepository" class="App\Repository\TypeOffreRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\TypeOffreRepository" class="App\Repository\TypeOffreRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" abstract="true"/>
+    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\DashboardControllerInterface.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BlockedUsersController" class="App\Controller\BlockedUsersController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BlockedUsersController" class="App\Controller\BlockedUsersController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\BlockedUsersController" class="App\Controller\BlockedUsersController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CandidatureController" class="App\Controller\CandidatureController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CandidatureController" class="App\Controller\CandidatureController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CandidatureController" class="App\Controller\CandidatureController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CandidaturemissionController" class="App\Controller\CandidaturemissionController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CandidaturemissionController" class="App\Controller\CandidaturemissionController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CandidaturemissionController" class="App\Controller\CandidaturemissionController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ChatbotController" class="App\Controller\ChatbotController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ChatbotController" class="App\Controller\ChatbotController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ChatbotController" class="App\Controller\ChatbotController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CherchermissionController" class="App\Controller\CherchermissionController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CherchermissionController" class="App\Controller\CherchermissionController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CherchermissionController" class="App\Controller\CherchermissionController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ChercheurController" class="App\Controller\ChercheurController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ChercheurController" class="App\Controller\ChercheurController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ChercheurController" class="App\Controller\ChercheurController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CommunityController" class="App\Controller\CommunityController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CommunityController" class="App\Controller\CommunityController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CommunityController" class="App\Controller\CommunityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DemandeMissionController" class="App\Controller\DemandeMissionController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DemandeMissionController" class="App\Controller\DemandeMissionController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DemandeMissionController" class="App\Controller\DemandeMissionController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EvenementsController" class="App\Controller\EvenementsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EvenementsController" class="App\Controller\EvenementsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EvenementsController" class="App\Controller\EvenementsController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EventModController" class="App\Controller\EventModController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EventModController" class="App\Controller\EventModController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EventModController" class="App\Controller\EventModController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EventTypeController" class="App\Controller\EventTypeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EventTypeController" class="App\Controller\EventTypeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EventTypeController" class="App\Controller\EventTypeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ForumController" class="App\Controller\ForumController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ForumDetailsController" class="App\Controller\ForumDetailsController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\FreelancerController" class="App\Controller\FreelancerController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FreelancerController" class="App\Controller\FreelancerController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\FreelancerController" class="App\Controller\FreelancerController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MessageController" class="App\Controller\MessageController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MessageController" class="App\Controller\MessageController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MessageController" class="App\Controller\MessageController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MissionfreelencerController" class="App\Controller\MissionfreelencerController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MissionfreelencerController" class="App\Controller\MissionfreelencerController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MissionfreelencerController" class="App\Controller\MissionfreelencerController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ModerateurController" class="App\Controller\ModerateurController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ModerateurController" class="App\Controller\ModerateurController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ModerateurController" class="App\Controller\ModerateurController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NotificationController" class="App\Controller\NotificationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NotificationController" class="App\Controller\NotificationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NotificationController" class="App\Controller\NotificationController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OffreController" class="App\Controller\OffreController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OffreController" class="App\Controller\OffreController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\OffreController" class="App\Controller\OffreController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OffremodController" class="App\Controller\OffremodController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OffremodController" class="App\Controller\OffremodController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\OffremodController" class="App\Controller\OffremodController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TypecontratController" class="App\Controller\TypecontratController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TypecontratController" class="App\Controller\TypecontratController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TypecontratController" class="App\Controller\TypecontratController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TypeoffreController" class="App\Controller\TypeoffreController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserDataController" class="App\Controller\UserDataController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserDataController" class="App\Controller\UserDataController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\UserDataController" class="App\Controller\UserDataController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CandidatureType" class="App\Form\CandidatureType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CandidatureType" class="App\Form\CandidatureType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CandidatureaddType" class="App\Form\CandidatureaddType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CandidatureaddType" class="App\Form\CandidatureaddType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DemandeMissionType" class="App\Form\DemandeMissionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\DemandeMissionType" class="App\Form\DemandeMissionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DiscussionType" class="App\Form\DiscussionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\DiscussionType" class="App\Form\DiscussionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EventType" class="App\Form\EventType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\EventType" class="App\Form\EventType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EventaddType" class="App\Form\EventaddType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\EventaddType" class="App\Form\EventaddType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MessageType" class="App\Form\MessageType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MessageType" class="App\Form\MessageType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MissionfreelencerType" class="App\Form\MissionfreelencerType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MissionfreelencerType" class="App\Form\MissionfreelencerType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\OffreType" class="App\Form\OffreType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\OffreType" class="App\Form\OffreType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RechercheoffreType" class="App\Form\RechercheoffreType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RechercheoffreType" class="App\Form\RechercheoffreType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReplyType" class="App\Form\ReplyType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ReplyType" class="App\Form\ReplyType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeContratType" class="App\Form\TypeContratType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TypeContratType" class="App\Form\TypeContratType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeEvenementType" class="App\Form\TypeEvenementType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TypeEvenementType" class="App\Form\TypeEvenementType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeEventaddType" class="App\Form\TypeEventaddType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TypeEventaddType" class="App\Form\TypeEventaddType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeOffreType" class="App\Form\TypeOffreType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TypeOffreType" class="App\Form\TypeOffreType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BlockedUserRepository" class="App\Repository\BlockedUserRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\BlockedUserRepository" class="App\Repository\BlockedUserRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CandidatureRepository" class="App\Repository\CandidatureRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CandidaturemissionRepository" class="App\Repository\CandidaturemissionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CandidaturemissionRepository" class="App\Repository\CandidaturemissionRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DemandeMissionRepository" class="App\Repository\DemandeMissionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\DemandeMissionRepository" class="App\Repository\DemandeMissionRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DiscussionRepository" class="App\Repository\DiscussionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\DiscussionRepository" class="App\Repository\DiscussionRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EvenementRepository" class="App\Repository\EvenementRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\EvenementRepository" class="App\Repository\EvenementRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MessageRepository" class="App\Repository\MessageRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MessageRepository" class="App\Repository\MessageRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MissionRepository" class="App\Repository\MissionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MissionRepository" class="App\Repository\MissionRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MissionfreelencerRepository" class="App\Repository\MissionfreelencerRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MissionfreelencerRepository" class="App\Repository\MissionfreelencerRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\NotificationRepository" class="App\Repository\NotificationRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NotificationfreelencerRepository" class="App\Repository\NotificationfreelencerRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\NotificationfreelencerRepository" class="App\Repository\NotificationfreelencerRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\OffreRepository" class="App\Repository\OffreRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\OffreRepository" class="App\Repository\OffreRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReplyRepository" class="App\Repository\ReplyRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ReplyRepository" class="App\Repository\ReplyRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeContratRepository" class="App\Repository\TypeContratRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\TypeContratRepository" class="App\Repository\TypeContratRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeEventRepository" class="App\Repository\TypeEventRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\TypeEventRepository" class="App\Repository\TypeEventRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeOffreRepository" class="App\Repository\TypeOffreRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\TypeOffreRepository" class="App\Repository\TypeOffreRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Filter\FilterConfiguratorInterface.0.EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" abstract="true"/>
     <service id=".abstract.instanceof.EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Filter\FilterConfiguratorInterface.0.EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\CommonConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\CommonConfigurator" abstract="true"/>
@@ -9074,6 +9172,33 @@
         <argument key="rep" type="service_closure" id="App\Repository\CandidatureRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.J2r0Nrg" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="security" type="service_closure" id="security.helper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.CiMjcjM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="candidature" type="service_closure" id=".errored..service_locator.CiMjcjM.App\Entity\Candidaturemission"/>
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="smsService" type="service_closure" id="App\Service\SmsService"/>
+      </argument>
+    </service>
+    <service id=".service_locator.xYx9Ad_" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="candidaturemissionRepository" type="service_closure" id="App\Repository\CandidaturemissionRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.aKZl18R" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="offreRepository" type="service_closure" id="App\Repository\MissionfreelencerRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.qgU8LBr" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -9101,17 +9226,36 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.bFxUUhQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="demandeMissionRepository" type="service_closure" id="App\Repository\DemandeMissionRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.9Piphk6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="demandeMission" type="service_closure" id=".errored..service_locator.9Piphk6.App\Entity\DemandeMission"/>
+      </argument>
+    </service>
+    <service id=".service_locator.yGmjiG4" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="demandeMission" type="service_closure" id=".errored..service_locator.yGmjiG4.App\Entity\DemandeMission"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.tXV7NcT" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="candidaturemissionRepository" type="service_closure" id="App\Repository\CandidaturemissionRepository"/>
+        <argument key="security" type="service_closure" id="security.helper"/>
+      </argument>
+    </service>
     <service id=".service_locator.ZXMKID2" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="rep" type="service_closure" id="App\Repository\EvenementRepository"/>
-        <argument key="security" type="service_closure" id="security.helper"/>
-      </argument>
-    </service>
-    <service id=".service_locator.e9C_9eg" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
         <argument key="security" type="service_closure" id="security.helper"/>
       </argument>
     </service>
@@ -9249,6 +9393,34 @@
         <argument key="userrep" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.dIV.Y3Z" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="MissionfreelencerRepository" type="service_closure" id="App\Repository\MissionfreelencerRepository"/>
+        <argument key="security" type="service_closure" id="security.helper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.37uwtuR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="security" type="service_closure" id="security.helper"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
+      </argument>
+    </service>
+    <service id=".service_locator.WeuR7V2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="offre" type="service_closure" id=".errored..service_locator.WeuR7V2.App\Entity\Missionfreelencer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.enkFUQ_" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="offre" type="service_closure" id=".errored..service_locator.enkFUQ_.App\Entity\Missionfreelencer"/>
+      </argument>
+    </service>
     <service id=".service_locator.amcQmha" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -9332,10 +9504,11 @@
         <argument key="translator" type="service_closure" id="translator.data_collector"/>
       </argument>
     </service>
-    <service id=".service_locator.rSTd.nA" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Dssth9k" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
+        <argument key="security" type="service_closure" id="security.helper"/>
       </argument>
     </service>
     <service id=".service_locator.9oQ0dhj" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -9370,7 +9543,7 @@
         <argument key="rep" type="service_closure" id="App\Repository\TypeOffreRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.w8LxJru" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.dONwZyJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\DashboardController::admin" type="service_closure" id=".service_locator.o6sN0hZ"/>
@@ -9407,12 +9580,26 @@
         <argument key="App\Controller\CandidatureController::rejectCandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController::showcandidature" type="service_closure" id=".service_locator.I395fV8"/>
         <argument key="App\Controller\CandidatureController::updatecandidature" type="service_closure" id=".service_locator.x18RzZl"/>
+        <argument key="App\Controller\CandidaturemissionController::accepterOuRefuserCandidature" type="service_closure" id=".service_locator.CiMjcjM"/>
+        <argument key="App\Controller\CandidaturemissionController::consulterCandidatures" type="service_closure" id=".service_locator.xYx9Ad_"/>
+        <argument key="App\Controller\CandidaturemissionController::evaluerCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController::listerToutesCandidatures" type="service_closure" id=".service_locator.J2r0Nrg"/>
+        <argument key="App\Controller\CandidaturemissionController::postulerAOffre" type="service_closure" id=".service_locator.J2r0Nrg"/>
+        <argument key="App\Controller\CandidaturemissionController::showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController::voirDemandeDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CherchermissionController::recherche" type="service_closure" id=".service_locator.aKZl18R"/>
         <argument key="App\Controller\ChercheurController::deletechercheur" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\ChercheurController::index" type="service_closure" id=".service_locator.ESajd_W"/>
         <argument key="App\Controller\ChercheurController::profile" type="service_closure" id=".service_locator.qgU8LBr"/>
         <argument key="App\Controller\ChercheurController::updatechercheur" type="service_closure" id=".service_locator.ESajd_W"/>
         <argument key="App\Controller\CommunityController::getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
         <argument key="App\Controller\CommunityController::index" type="service_closure" id=".service_locator.kT4GQRH"/>
+        <argument key="App\Controller\DemandeMissionController::consulterCandidatures" type="service_closure" id=".service_locator.tXV7NcT"/>
+        <argument key="App\Controller\DemandeMissionController::delete" type="service_closure" id=".service_locator.yGmjiG4"/>
+        <argument key="App\Controller\DemandeMissionController::edit" type="service_closure" id=".service_locator.yGmjiG4"/>
+        <argument key="App\Controller\DemandeMissionController::index" type="service_closure" id=".service_locator.bFxUUhQ"/>
+        <argument key="App\Controller\DemandeMissionController::new" type="service_closure" id=".service_locator.J2r0Nrg"/>
+        <argument key="App\Controller\DemandeMissionController::show" type="service_closure" id=".service_locator.9Piphk6"/>
         <argument key="App\Controller\EvenementsController::getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
         <argument key="App\Controller\EvenementsController::index" type="service_closure" id=".service_locator.ZXMKID2"/>
         <argument key="App\Controller\EvenementsController::show" type="service_closure" id=".service_locator.ZXMKID2"/>
@@ -9420,7 +9607,7 @@
         <argument key="App\Controller\EventModController::edit" type="service_closure" id=".service_locator.JFCU_Ej"/>
         <argument key="App\Controller\EventModController::getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
         <argument key="App\Controller\EventModController::index" type="service_closure" id=".service_locator.ZXMKID2"/>
-        <argument key="App\Controller\EventModController::new" type="service_closure" id=".service_locator.e9C_9eg"/>
+        <argument key="App\Controller\EventModController::new" type="service_closure" id=".service_locator.J2r0Nrg"/>
         <argument key="App\Controller\EventModController::participer" type="service_closure" id=".service_locator.CnBUj_a"/>
         <argument key="App\Controller\EventModController::recherche" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\EventModController::supprimeroffre" type="service_closure" id=".service_locator.YQbdD0B"/>
@@ -9453,6 +9640,14 @@
         <argument key="App\Controller\MessageController::getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
         <argument key="App\Controller\MessageController::getConversation" type="service_closure" id=".service_locator.W3HTCIy"/>
         <argument key="App\Controller\MessageController::sendMessage" type="service_closure" id=".service_locator.tm54W.H"/>
+        <argument key="App\Controller\MissionfreelencerController::consulterCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\MissionfreelencerController::delete" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController::edit" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController::index" type="service_closure" id=".service_locator.dIV.Y3Z"/>
+        <argument key="App\Controller\MissionfreelencerController::new" type="service_closure" id=".service_locator.37uwtuR"/>
+        <argument key="App\Controller\MissionfreelencerController::publierOffre" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController::show" type="service_closure" id=".service_locator.WeuR7V2"/>
+        <argument key="App\Controller\MissionfreelencerController::showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\ModerateurController::deletemoderateur" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\ModerateurController::index" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\ModerateurController::profile" type="service_closure" id=".service_locator.JwEoUGO"/>
@@ -9473,7 +9668,7 @@
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.ESgEUJd"/>
         <argument key="App\Controller\ResetPasswordController::request" type="service_closure" id=".service_locator.EE0.cm9"/>
         <argument key="App\Controller\ResetPasswordController::reset" type="service_closure" id=".service_locator.Z9ydiC1"/>
-        <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.rSTd.nA"/>
+        <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.Dssth9k"/>
         <argument key="App\Controller\SecurityController::profile" type="service_closure" id=".service_locator.kT4GQRH"/>
         <argument key="App\Controller\TypecontratController::addtypecontrat" type="service_closure" id=".service_locator.C5aMZSX"/>
         <argument key="App\Controller\TypecontratController::deletetypecontrat" type="service_closure" id=".service_locator.q2iQt7w"/>
@@ -9524,12 +9719,26 @@
         <argument key="App\Controller\CandidatureController:rejectCandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController:showcandidature" type="service_closure" id=".service_locator.I395fV8"/>
         <argument key="App\Controller\CandidatureController:updatecandidature" type="service_closure" id=".service_locator.x18RzZl"/>
+        <argument key="App\Controller\CandidaturemissionController:accepterOuRefuserCandidature" type="service_closure" id=".service_locator.CiMjcjM"/>
+        <argument key="App\Controller\CandidaturemissionController:consulterCandidatures" type="service_closure" id=".service_locator.xYx9Ad_"/>
+        <argument key="App\Controller\CandidaturemissionController:evaluerCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController:listerToutesCandidatures" type="service_closure" id=".service_locator.J2r0Nrg"/>
+        <argument key="App\Controller\CandidaturemissionController:postulerAOffre" type="service_closure" id=".service_locator.J2r0Nrg"/>
+        <argument key="App\Controller\CandidaturemissionController:showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController:voirDemandeDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CherchermissionController:recherche" type="service_closure" id=".service_locator.aKZl18R"/>
         <argument key="App\Controller\ChercheurController:deletechercheur" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\ChercheurController:index" type="service_closure" id=".service_locator.ESajd_W"/>
         <argument key="App\Controller\ChercheurController:profile" type="service_closure" id=".service_locator.qgU8LBr"/>
         <argument key="App\Controller\ChercheurController:updatechercheur" type="service_closure" id=".service_locator.ESajd_W"/>
         <argument key="App\Controller\CommunityController:getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
         <argument key="App\Controller\CommunityController:index" type="service_closure" id=".service_locator.kT4GQRH"/>
+        <argument key="App\Controller\DemandeMissionController:consulterCandidatures" type="service_closure" id=".service_locator.tXV7NcT"/>
+        <argument key="App\Controller\DemandeMissionController:delete" type="service_closure" id=".service_locator.yGmjiG4"/>
+        <argument key="App\Controller\DemandeMissionController:edit" type="service_closure" id=".service_locator.yGmjiG4"/>
+        <argument key="App\Controller\DemandeMissionController:index" type="service_closure" id=".service_locator.bFxUUhQ"/>
+        <argument key="App\Controller\DemandeMissionController:new" type="service_closure" id=".service_locator.J2r0Nrg"/>
+        <argument key="App\Controller\DemandeMissionController:show" type="service_closure" id=".service_locator.9Piphk6"/>
         <argument key="App\Controller\EvenementsController:getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
         <argument key="App\Controller\EvenementsController:index" type="service_closure" id=".service_locator.ZXMKID2"/>
         <argument key="App\Controller\EvenementsController:show" type="service_closure" id=".service_locator.ZXMKID2"/>
@@ -9537,7 +9746,7 @@
         <argument key="App\Controller\EventModController:edit" type="service_closure" id=".service_locator.JFCU_Ej"/>
         <argument key="App\Controller\EventModController:getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
         <argument key="App\Controller\EventModController:index" type="service_closure" id=".service_locator.ZXMKID2"/>
-        <argument key="App\Controller\EventModController:new" type="service_closure" id=".service_locator.e9C_9eg"/>
+        <argument key="App\Controller\EventModController:new" type="service_closure" id=".service_locator.J2r0Nrg"/>
         <argument key="App\Controller\EventModController:participer" type="service_closure" id=".service_locator.CnBUj_a"/>
         <argument key="App\Controller\EventModController:recherche" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\EventModController:supprimeroffre" type="service_closure" id=".service_locator.YQbdD0B"/>
@@ -9570,6 +9779,14 @@
         <argument key="App\Controller\MessageController:getAuthUser" type="service_closure" id=".service_locator.ATt7aga"/>
         <argument key="App\Controller\MessageController:getConversation" type="service_closure" id=".service_locator.W3HTCIy"/>
         <argument key="App\Controller\MessageController:sendMessage" type="service_closure" id=".service_locator.tm54W.H"/>
+        <argument key="App\Controller\MissionfreelencerController:consulterCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\MissionfreelencerController:delete" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController:edit" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController:index" type="service_closure" id=".service_locator.dIV.Y3Z"/>
+        <argument key="App\Controller\MissionfreelencerController:new" type="service_closure" id=".service_locator.37uwtuR"/>
+        <argument key="App\Controller\MissionfreelencerController:publierOffre" type="service_closure" id=".service_locator.enkFUQ_"/>
+        <argument key="App\Controller\MissionfreelencerController:show" type="service_closure" id=".service_locator.WeuR7V2"/>
+        <argument key="App\Controller\MissionfreelencerController:showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\ModerateurController:deletemoderateur" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\ModerateurController:index" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\ModerateurController:profile" type="service_closure" id=".service_locator.JwEoUGO"/>
@@ -9590,7 +9807,7 @@
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.ESgEUJd"/>
         <argument key="App\Controller\ResetPasswordController:request" type="service_closure" id=".service_locator.EE0.cm9"/>
         <argument key="App\Controller\ResetPasswordController:reset" type="service_closure" id=".service_locator.Z9ydiC1"/>
-        <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.rSTd.nA"/>
+        <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.Dssth9k"/>
         <argument key="App\Controller\SecurityController:profile" type="service_closure" id=".service_locator.kT4GQRH"/>
         <argument key="App\Controller\TypecontratController:addtypecontrat" type="service_closure" id=".service_locator.C5aMZSX"/>
         <argument key="App\Controller\TypecontratController:deletetypecontrat" type="service_closure" id=".service_locator.q2iQt7w"/>
@@ -9776,17 +9993,20 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.tICBPnH" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.7HLA13h" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CandidatureType" type="service_closure" id="App\Form\CandidatureType"/>
         <argument key="App\Form\CandidatureaddType" type="service_closure" id="App\Form\CandidatureaddType"/>
         <argument key="App\Form\ChangePasswordFormType" type="service_closure" id="App\Form\ChangePasswordFormType"/>
+        <argument key="App\Form\DemandeMissionType" type="service_closure" id="App\Form\DemandeMissionType"/>
         <argument key="App\Form\DiscussionType" type="service_closure" id="App\Form\DiscussionType"/>
         <argument key="App\Form\EventType" type="service_closure" id="App\Form\EventType"/>
         <argument key="App\Form\EventaddType" type="service_closure" id="App\Form\EventaddType"/>
         <argument key="App\Form\MessageType" type="service_closure" id="App\Form\MessageType"/>
+        <argument key="App\Form\MissionfreelencerType" type="service_closure" id="App\Form\MissionfreelencerType"/>
         <argument key="App\Form\OffreType" type="service_closure" id="App\Form\OffreType"/>
+        <argument key="App\Form\RechercheoffreType" type="service_closure" id="App\Form\RechercheoffreType"/>
         <argument key="App\Form\ReplyType" type="service_closure" id="App\Form\ReplyType"/>
         <argument key="App\Form\ResetPasswordRequestFormType" type="service_closure" id="App\Form\ResetPasswordRequestFormType"/>
         <argument key="App\Form\TypeContratType" type="service_closure" id="App\Form\TypeContratType"/>
@@ -9921,15 +10141,20 @@
         <argument key="turbo.doctrine.event_listener" type="service_closure" id="turbo.doctrine.event_listener"/>
       </argument>
     </service>
-    <service id=".service_locator.lvyo6na" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.xSK9hPm" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\BlockedUserRepository" type="service_closure" id="App\Repository\BlockedUserRepository"/>
         <argument key="App\Repository\CandidatureRepository" type="service_closure" id="App\Repository\CandidatureRepository"/>
+        <argument key="App\Repository\CandidaturemissionRepository" type="service_closure" id="App\Repository\CandidaturemissionRepository"/>
+        <argument key="App\Repository\DemandeMissionRepository" type="service_closure" id="App\Repository\DemandeMissionRepository"/>
         <argument key="App\Repository\DiscussionRepository" type="service_closure" id="App\Repository\DiscussionRepository"/>
         <argument key="App\Repository\EvenementRepository" type="service_closure" id="App\Repository\EvenementRepository"/>
         <argument key="App\Repository\MessageRepository" type="service_closure" id="App\Repository\MessageRepository"/>
+        <argument key="App\Repository\MissionRepository" type="service_closure" id="App\Repository\MissionRepository"/>
+        <argument key="App\Repository\MissionfreelencerRepository" type="service_closure" id="App\Repository\MissionfreelencerRepository"/>
         <argument key="App\Repository\NotificationRepository" type="service_closure" id="App\Repository\NotificationRepository"/>
+        <argument key="App\Repository\NotificationfreelencerRepository" type="service_closure" id="App\Repository\NotificationfreelencerRepository"/>
         <argument key="App\Repository\OffreRepository" type="service_closure" id="App\Repository\OffreRepository"/>
         <argument key="App\Repository\ReplyRepository" type="service_closure" id="App\Repository\ReplyRepository"/>
         <argument key="App\Repository\ResetPasswordRequestRepository" type="service_closure" id="App\Repository\ResetPasswordRequestRepository"/>
@@ -10381,9 +10606,21 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\CandidaturemissionController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CandidaturemissionController"/>
+      <argument>App\Controller\CandidaturemissionController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
     <service id=".service_locator.O2p6Lk7.App\Controller\ChatbotController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ChatbotController"/>
       <argument>App\Controller\ChatbotController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\CherchermissionController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CherchermissionController"/>
+      <argument>App\Controller\CherchermissionController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
@@ -10396,6 +10633,12 @@
     <service id=".service_locator.O2p6Lk7.App\Controller\CommunityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\CommunityController"/>
       <argument>App\Controller\CommunityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\DemandeMissionController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\DemandeMissionController"/>
+      <argument>App\Controller\DemandeMissionController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
@@ -10450,6 +10693,12 @@
     <service id=".service_locator.O2p6Lk7.App\Controller\MessageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MessageController"/>
       <argument>App\Controller\MessageController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\MissionfreelencerController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MissionfreelencerController"/>
+      <argument>App\Controller\MissionfreelencerController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
@@ -10707,9 +10956,12 @@
           <argument>App\Controller\Admin\UserCrudController</argument>
           <argument>App\Controller\BlockedUsersController</argument>
           <argument>App\Controller\CandidatureController</argument>
+          <argument>App\Controller\CandidaturemissionController</argument>
           <argument>App\Controller\ChatbotController</argument>
+          <argument>App\Controller\CherchermissionController</argument>
           <argument>App\Controller\ChercheurController</argument>
           <argument>App\Controller\CommunityController</argument>
+          <argument>App\Controller\DemandeMissionController</argument>
           <argument>App\Controller\EvenementsController</argument>
           <argument>App\Controller\EventModController</argument>
           <argument>App\Controller\EventTypeController</argument>
@@ -10719,6 +10971,7 @@
           <argument>App\Controller\HomeController</argument>
           <argument>App\Controller\IndexController</argument>
           <argument>App\Controller\MessageController</argument>
+          <argument>App\Controller\MissionfreelencerController</argument>
           <argument>App\Controller\ModerateurController</argument>
           <argument>App\Controller\NotificationController</argument>
           <argument>App\Controller\OffreController</argument>
@@ -10990,6 +11243,15 @@
     <service id=".errored..service_locator.vMUOjiq.EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore" class="EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.vMUOjiq&quot;: it references class &quot;EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore&quot; but no such service exists."/>
     </service>
+    <service id=".errored..service_locator.CiMjcjM.App\Entity\Candidaturemission" class="App\Entity\Candidaturemission">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.CiMjcjM&quot;: it needs an instance of &quot;App\Entity\Candidaturemission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.9Piphk6.App\Entity\DemandeMission" class="App\Entity\DemandeMission">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.9Piphk6&quot;: it needs an instance of &quot;App\Entity\DemandeMission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.yGmjiG4.App\Entity\DemandeMission" class="App\Entity\DemandeMission">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.yGmjiG4&quot;: it needs an instance of &quot;App\Entity\DemandeMission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
     <service id=".errored..service_locator.JFCU_Ej.App\Entity\Evenement" class="App\Entity\Evenement">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.JFCU_Ej&quot;: it needs an instance of &quot;App\Entity\Evenement&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
@@ -10998,6 +11260,12 @@
     </service>
     <service id=".errored..service_locator.tKS5olJ.App\Entity\TypeEvent" class="App\Entity\TypeEvent">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.tKS5olJ&quot;: it needs an instance of &quot;App\Entity\TypeEvent&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.WeuR7V2.App\Entity\Missionfreelencer" class="App\Entity\Missionfreelencer">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.WeuR7V2&quot;: it needs an instance of &quot;App\Entity\Missionfreelencer&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.enkFUQ_.App\Entity\Missionfreelencer" class="App\Entity\Missionfreelencer">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.enkFUQ_&quot;: it needs an instance of &quot;App\Entity\Missionfreelencer&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
@@ -12107,6 +12375,7 @@
     <service id="asset_mapper.http_client" alias=".debug.http_client"/>
     <service id="Symfony\Component\AssetMapper\ImportMap\ImportMapManager" alias="asset_mapper.importmap.manager"/>
     <service id="Symfony\Contracts\HttpClient\HttpClientInterface" alias=".debug.http_client"/>
+    <service id="Psr\Http\Client\ClientInterface" alias="psr18.http_client"/>
     <service id="mailer" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\MailerInterface" alias="mailer.mailer"/>
     <service id="mailer.default_transport" alias="mailer.transports"/>
@@ -12252,7 +12521,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Contracts\Orm\EntityPaginatorInterface" alias="EasyCorp\Bundle\EasyAdminBundle\Orm\EntityPaginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.w7.f4fT" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.w8LxJru"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.dONwZyJ"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -12282,6 +12551,7 @@
     <service id=".service_locator.twrFs.m" alias=".service_locator.jwjltq_"/>
     <service id=".service_locator.lng3o3t" alias=".service_locator.yR6jqeD"/>
     <service id=".service_locator.Lazlz4J" alias=".service_locator.jG5xrFj"/>
+    <service id=".service_locator.e9C_9eg" alias=".service_locator.J2r0Nrg"/>
     <service id=".service_locator.CElJlu_" alias=".service_locator.kT4GQRH"/>
     <service id=".service_locator.HuHdp3s" alias=".service_locator.JFCU_Ej"/>
     <service id=".service_locator.Z_dVNBp" alias=".service_locator.CnBUj_a"/>
@@ -12290,15 +12560,16 @@
     <service id=".service_locator.a_sRj94" alias=".service_locator.dD6jg49"/>
     <service id=".service_locator.vhzeMEP" alias=".service_locator.SIstSqo"/>
     <service id=".service_locator.HQ_VbjW" alias=".service_locator.W3HTCIy"/>
+    <service id=".service_locator.IZFtKRV" alias=".service_locator.enkFUQ_"/>
     <service id=".service_locator.161_wLo" alias=".service_locator.yQ7hiXW"/>
     <service id=".service_locator.ctTTze6" alias=".service_locator.e.WdNsj"/>
     <service id=".service_locator.YecQ1sB" alias=".service_locator.TGr8Pa1"/>
     <service id=".service_locator.URbPMvW" alias=".service_locator.SYR8TMY"/>
     <service id=".service_locator.T56SSFL" alias=".service_locator.uLMoH09"/>
     <service id=".service_locator.qrNhk2c" alias=".service_locator.ESgEUJd"/>
-    <service id=".service_locator.bizxAtq" alias=".service_locator.w8LxJru"/>
+    <service id=".service_locator.UaNL9Hx" alias=".service_locator.dONwZyJ"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
-    <service id=".service_locator.11UbafX" alias=".service_locator.tICBPnH"/>
+    <service id=".service_locator.s_aRGQI" alias=".service_locator.7HLA13h"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
     <service id=".service_locator.KQS8tm0" alias=".service_locator.nIg6JWH"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
@@ -12344,12 +12615,19 @@
     <service id=".service_locator.7nnftmT" alias=".service_locator.x18RzZl"/>
     <service id=".service_locator.GObR.ZS" alias=".service_locator.5FQ7ubt"/>
     <service id=".service_locator.RlV8BPL" alias=".service_locator.ZXaK3cG"/>
+    <service id=".service_locator.ZbiNKp0" alias=".service_locator.J2r0Nrg"/>
+    <service id=".service_locator.4CwhCFS" alias=".service_locator.CiMjcjM"/>
+    <service id=".service_locator.N9S6VJa" alias=".service_locator.xYx9Ad_"/>
+    <service id=".service_locator.w3YHrKK" alias=".service_locator.aKZl18R"/>
     <service id=".service_locator.tqEqiJk" alias=".service_locator.qgU8LBr"/>
     <service id=".service_locator.jZ84U_V" alias=".service_locator.ESajd_W"/>
     <service id=".service_locator.yArDdtI" alias=".service_locator.ATt7aga"/>
     <service id=".service_locator.j3CwlUb" alias=".service_locator.kT4GQRH"/>
+    <service id=".service_locator.uyu.nWK" alias=".service_locator.bFxUUhQ"/>
+    <service id=".service_locator.TArSDF8" alias=".service_locator.9Piphk6"/>
+    <service id=".service_locator.jpjnWpZ" alias=".service_locator.yGmjiG4"/>
+    <service id=".service_locator.FjFAT1D" alias=".service_locator.tXV7NcT"/>
     <service id=".service_locator.K8HwV0w" alias=".service_locator.ZXMKID2"/>
-    <service id=".service_locator.ZbiNKp0" alias=".service_locator.e9C_9eg"/>
     <service id=".service_locator.AUCwrUD" alias=".service_locator.JFCU_Ej"/>
     <service id=".service_locator.z2Y_njt" alias=".service_locator.YQbdD0B"/>
     <service id=".service_locator.2xthbG_" alias=".service_locator.CnBUj_a"/>
@@ -12366,6 +12644,10 @@
     <service id=".service_locator.8vFw8BO" alias=".service_locator.JwEoUGO"/>
     <service id=".service_locator.cz.uGBB" alias=".service_locator.W3HTCIy"/>
     <service id=".service_locator.LPLKQes" alias=".service_locator.tm54W.H"/>
+    <service id=".service_locator.a6pPYa." alias=".service_locator.dIV.Y3Z"/>
+    <service id=".service_locator.K27L_.1" alias=".service_locator.37uwtuR"/>
+    <service id=".service_locator.4TUkK3V" alias=".service_locator.WeuR7V2"/>
+    <service id=".service_locator.X5yrVD5" alias=".service_locator.enkFUQ_"/>
     <service id=".service_locator.yOH.fcX" alias=".service_locator.amcQmha"/>
     <service id=".service_locator.p5IQ_EM" alias=".service_locator.8mITsNT"/>
     <service id=".service_locator.aYlI6JX" alias=".service_locator.yQ7hiXW"/>
@@ -12378,7 +12660,7 @@
     <service id=".service_locator.GEFQPA3" alias=".service_locator.ESgEUJd"/>
     <service id=".service_locator.ostNlSn" alias=".service_locator.EE0.cm9"/>
     <service id=".service_locator.uPguXMt" alias=".service_locator.Z9ydiC1"/>
-    <service id=".service_locator.7NIAq8D" alias=".service_locator.rSTd.nA"/>
+    <service id=".service_locator.FhAKeKE" alias=".service_locator.Dssth9k"/>
     <service id=".service_locator.RKuD_AK" alias=".service_locator.9oQ0dhj"/>
     <service id=".service_locator.hiHWJg3" alias=".service_locator.C5aMZSX"/>
     <service id=".service_locator.h8lOIOC" alias=".service_locator.q2iQt7w"/>

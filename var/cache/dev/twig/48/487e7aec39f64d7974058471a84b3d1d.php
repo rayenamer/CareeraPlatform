@@ -108,10 +108,7 @@ class __TwigTemplate_206f332f05cc12f005408719ae1ee6cc extends Template
                 <div class=\"col-md-6 p-5 mt-lg-5\">
                     <h1 class=\"display-5 animated fadeIn mb-4 mt-5\">Plateforme <span class=\"text-primary\">des opportunités</span></h1>
                     <h3 class=\"animated fadeIn mb-4 pb-3\">pour les étudiants et jeunes professionnels.</h3>
-                  <a href=\"";
-        // line 17
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        yield "\" class=\"btn btn-primary py-3 px-5 me-3 animated fadeIn\">Se connecter</a>
+                  
                 </div>
              <div class=\"col-lg-6 animated fadeIn\">
                 <div class=\"owl-carousel header-carousel\">
@@ -878,7 +875,7 @@ class __TwigTemplate_206f332f05cc12f005408719ae1ee6cc extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  837 => 639,  822 => 627,  807 => 615,  773 => 584,  754 => 568,  735 => 552,  716 => 536,  684 => 507,  646 => 472,  624 => 453,  602 => 434,  580 => 415,  551 => 389,  529 => 370,  507 => 351,  485 => 332,  463 => 313,  433 => 286,  411 => 267,  389 => 248,  367 => 229,  345 => 210,  323 => 191,  273 => 144,  251 => 125,  237 => 114,  223 => 103,  209 => 92,  195 => 81,  181 => 70,  167 => 59,  153 => 48,  127 => 25,  121 => 22,  113 => 17,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  834 => 639,  819 => 627,  804 => 615,  770 => 584,  751 => 568,  732 => 552,  713 => 536,  681 => 507,  643 => 472,  621 => 453,  599 => 434,  577 => 415,  548 => 389,  526 => 370,  504 => 351,  482 => 332,  460 => 313,  430 => 286,  408 => 267,  386 => 248,  364 => 229,  342 => 210,  320 => 191,  270 => 144,  248 => 125,  234 => 114,  220 => 103,  206 => 92,  192 => 81,  178 => 70,  164 => 59,  150 => 48,  124 => 25,  118 => 22,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -899,7 +896,7 @@ class __TwigTemplate_206f332f05cc12f005408719ae1ee6cc extends Template
                 <div class=\"col-md-6 p-5 mt-lg-5\">
                     <h1 class=\"display-5 animated fadeIn mb-4 mt-5\">Plateforme <span class=\"text-primary\">des opportunités</span></h1>
                     <h3 class=\"animated fadeIn mb-4 pb-3\">pour les étudiants et jeunes professionnels.</h3>
-                  <a href=\"{{ path('app_login') }}\" class=\"btn btn-primary py-3 px-5 me-3 animated fadeIn\">Se connecter</a>
+                  
                 </div>
              <div class=\"col-lg-6 animated fadeIn\">
                 <div class=\"owl-carousel header-carousel\">

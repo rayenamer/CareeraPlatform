@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DemandeMission{% endblock %}
+
+{% block body %}
+    <h1>DemandeMission</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ demande_mission.id }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ demande_mission.message }}</td>
+            </tr>
+            <tr>
+                <th>Portfolio</th>
+                <td>{{ demande_mission.portfolio }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ demande_mission.status }}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_demande_mission_index') }}">back to list</a>
+
+    <a href="{{ path('app_demande_mission_edit', {'id': demande_mission.id}) }}">edit</a>
+
+    {{ include('demande_mission/_delete_form.html.twig') }}
+{% endblock %}

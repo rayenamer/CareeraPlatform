@@ -83,7 +83,7 @@ class __TwigTemplate_720c7f5ea8509817398502ef821e1ab5 extends Template
         yield from [];
     }
 
-    // line 6
+    // line 5
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -96,50 +96,111 @@ class __TwigTemplate_720c7f5ea8509817398502ef821e1ab5 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 7
+        // line 6
         yield "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\">
+
+<style>
+    .community-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .user-card {
+        display: flex;
+        align-items: center;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 500px;
+        margin-bottom: 15px;
+    }
+
+    .user-card img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-info {
+        flex-grow: 1;
+        padding-left: 15px;
+    }
+
+    .user-info strong {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .user-info small {
+        display: block;
+        color: #666;
+    }
+
+    .chat-icon {
+        font-size: 22px;
+        color: #5A5A5A;
+        transition: color 0.3s ease;
+    }
+
+    .chat-icon:hover {
+        color: #007bff;
+    }
+
+    .separator {
+        width: 80%;
+        max-width: 500px;
+        border-top: 1px solid #ddd;
+        margin: 10px 0;
+    }
+</style>
+
+<div class=\"community-container\">
     ";
-        // line 8
+        // line 72
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 8, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 72, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 9
-            yield "    <div class=\"d-flex align-items-center\">
-        <img class=\"img-fluid flex-shrink-0 rounded\" 
-             src=\"";
-            // line 11
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["user"], "Photo", [], "any", false, false, false, 11))), "html", null, true);
-            yield "\" 
-             style=\"width: 45px; height: 45px;\">
-        <div class=\"ps-3\"> 
-            <strong>";
-            // line 14
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "Prenom", [], "any", false, false, false, 14), "html", null, true);
-            yield "</strong>  
-            <small> - expertise - </small>
-            <small>";
-            // line 16
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "domaine", [], "any", false, false, false, 16), "html", null, true);
+            // line 73
+            yield "        <div class=\"user-card\">
+            <img src=\"";
+            // line 74
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["user"], "Photo", [], "any", false, false, false, 74))), "html", null, true);
+            yield "\" alt=\"User Photo\">
+            <div class=\"user-info\">
+                <strong>";
+            // line 76
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "Prenom", [], "any", false, false, false, 76), "html", null, true);
+            yield "</strong>
+                <small>- expertise - ";
+            // line 77
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "domaine", [], "any", false, false, false, 77), "html", null, true);
             yield "</small>
-            <small> - contact - </small>
-            <a class=\"text-primary\" href=\"";
-            // line 18
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("get_conversation", ["messager2Id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 18)]), "html", null, true);
+                <small>- contact -</small>
+            </div>
+            <a href=\"";
+            // line 80
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("get_conversation", ["messager2Id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 80)]), "html", null, true);
             yield "\">
-                <i class=\"fas fa-comment\" style=\"font-size: 20px; color: #5A5A5A;\"></i>
+                <i class=\"fas fa-comment chat-icon\"></i>
             </a>
-        </div>          
-        </a>
-    </div>
-    <!-- Fine line separating messages -->
-    <hr style=\"border-top: 1px solid #ddd; margin: 10px 0;\">
-";
+        </div>
+        <hr class=\"separator\">
+    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['user'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 27
-        yield "
+        // line 86
+        yield "</div>
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -171,7 +232,7 @@ class __TwigTemplate_720c7f5ea8509817398502ef821e1ab5 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  142 => 27,  127 => 18,  122 => 16,  117 => 14,  111 => 11,  107 => 9,  103 => 8,  100 => 7,  87 => 6,  64 => 3,  41 => 1,);
+        return array (  202 => 86,  190 => 80,  184 => 77,  180 => 76,  175 => 74,  172 => 73,  168 => 72,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -180,28 +241,88 @@ class __TwigTemplate_720c7f5ea8509817398502ef821e1ab5 extends Template
 
 {% block title %}Community of Hustlers{% endblock %}
 
-
 {% block body %}
 <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\">
+
+<style>
+    .community-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .user-card {
+        display: flex;
+        align-items: center;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 500px;
+        margin-bottom: 15px;
+    }
+
+    .user-card img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-info {
+        flex-grow: 1;
+        padding-left: 15px;
+    }
+
+    .user-info strong {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .user-info small {
+        display: block;
+        color: #666;
+    }
+
+    .chat-icon {
+        font-size: 22px;
+        color: #5A5A5A;
+        transition: color 0.3s ease;
+    }
+
+    .chat-icon:hover {
+        color: #007bff;
+    }
+
+    .separator {
+        width: 80%;
+        max-width: 500px;
+        border-top: 1px solid #ddd;
+        margin: 10px 0;
+    }
+</style>
+
+<div class=\"community-container\">
     {% for user in users %}
-    <div class=\"d-flex align-items-center\">
-        <img class=\"img-fluid flex-shrink-0 rounded\" 
-             src=\"{{ asset('uploads/images/' ~ user.Photo) }}\" 
-             style=\"width: 45px; height: 45px;\">
-        <div class=\"ps-3\"> 
-            <strong>{{ user.Prenom }}</strong>  
-            <small> - expertise - </small>
-            <small>{{ user.domaine}}</small>
-            <small> - contact - </small>
-            <a class=\"text-primary\" href=\"{{ path('get_conversation', {'messager2Id': user.id}) }}\">
-                <i class=\"fas fa-comment\" style=\"font-size: 20px; color: #5A5A5A;\"></i>
+        <div class=\"user-card\">
+            <img src=\"{{ asset('uploads/images/' ~ user.Photo) }}\" alt=\"User Photo\">
+            <div class=\"user-info\">
+                <strong>{{ user.Prenom }}</strong>
+                <small>- expertise - {{ user.domaine }}</small>
+                <small>- contact -</small>
+            </div>
+            <a href=\"{{ path('get_conversation', {'messager2Id': user.id}) }}\">
+                <i class=\"fas fa-comment chat-icon\"></i>
             </a>
-        </div>          
-        </a>
-    </div>
-    <!-- Fine line separating messages -->
-    <hr style=\"border-top: 1px solid #ddd; margin: 10px 0;\">
-{% endfor %}
+        </div>
+        <hr class=\"separator\">
+    {% endfor %}
+</div>
 
 {% endblock %}
 ", "community/index.html.twig", "C:\\careera\\templates\\community\\index.html.twig");

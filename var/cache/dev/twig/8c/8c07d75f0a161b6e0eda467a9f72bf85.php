@@ -100,8 +100,10 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
 ";
         // line 50
         yield from $this->unwrap()->yieldBlock('navbar', $context, $blocks);
-        // line 86
-        yield "        <main>";
+        // line 89
+        yield "
+        <main>";
+        // line 90
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
         yield "</main>
          <!-- Footer Start -->
@@ -174,26 +176,26 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
     <script src=\"https://code.jquery.com/jquery-3.4.1.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js\"></script>
     <script src=\"";
-        // line 156
+        // line 160
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/wow/wow.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 157
+        // line 161
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/easing/easing.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 158
+        // line 162
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/waypoints/waypoints.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 159
+        // line 163
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/owlcarousel/owl.carousel.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
 
     <!-- Template Javascript -->
     <script src=\"";
-        // line 163
+        // line 167
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
         yield "\"></script>
 </body>
@@ -290,64 +292,104 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
 
         // line 51
-        yield "        <!-- Navbar Start -->
-        <div class=\"container-fluid nav-bar bg-transparent\">
-            <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
-                <a href=\"";
+        yield "<!-- Navbar Start -->
+<div class=\"container-fluid nav-bar bg-transparent\">
+    <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
+        <a href=\"";
         // line 54
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_indexhome");
         yield "\" class=\"navbar-brand d-flex align-items-center text-center\">
-                    
-                    <img class=\"img-fluid\" src=\"";
-        // line 56
+            <img class=\"img-fluid\" src=\"";
+        // line 55
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/transparentcareera.png"), "html", null, true);
         yield "\" alt=\"Icon\" style=\"width: 150px; height: 100px;\">
-                </a>
-                <button type=\"button\" class=\"navbar-toggler\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\">
-                    <span class=\"navbar-toggler-icon\"></span>
-                </button>
-                <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
-                    <div class=\"navbar-nav ms-auto\">
-                        <a href=\"";
-        // line 63
+        </a>
+        <button type=\"button\" class=\"navbar-toggler\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
+            <div class=\"navbar-nav ms-auto\">
+                <a href=\"";
+        // line 62
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_indexhome");
-        yield "\" class=\"nav-item nav-link active\">Acceuil</a>
-                        <a href=\"";
-        // line 64
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 62, $this->source); })()), "request", [], "any", false, false, false, 62), "get", ["_route"], "method", false, false, false, 62) == "app_indexhome")) {
+            yield "active";
+        }
+        yield "\">Acceuil</a>
+                <a href=\"";
+        // line 63
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offre");
-        yield "\" class=\"nav-item nav-link\">Offres d'emploi</a>
-                        <a href=\"";
-        // line 65
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 63, $this->source); })()), "request", [], "any", false, false, false, 63), "get", ["_route"], "method", false, false, false, 63) == "app_offre")) {
+            yield "active text-primary fw-bold";
+        }
+        yield "\">Offres d'emploi</a>
+                <a href=\"";
+        // line 64
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_events");
-        yield "\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
-                        <a href=\"";
-        // line 67
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 64, $this->source); })()), "request", [], "any", false, false, false, 64), "get", ["_route"], "method", false, false, false, 64) == "app_events")) {
+            yield "active";
+        }
+        yield "\">Evénements</a>
+                <a href=\"";
+        // line 65
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 65, $this->source); })()), "request", [], "any", false, false, false, 65), "get", ["_route"], "method", false, false, false, 65) == "app_offrefrelencer_index")) {
+            yield "active";
+        }
+        yield "\">Mission freelance</a>
+                <a href=\"";
+        // line 66
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forum");
-        yield "\" class=\"nav-item nav-link\">Forum</a>
-                    </div>
-                    <div class=\"dropdown\">
-                    <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
-                        <i class=\"fa-solid fa-user-circle fa-2x\"></i>
-                    </a>
-                    <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                        <li><a class=\"dropdown-item\" href=\"";
-        // line 74
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 66, $this->source); })()), "request", [], "any", false, false, false, 66), "get", ["_route"], "method", false, false, false, 66) == "app_forum")) {
+            yield "active";
+        }
+        yield "\">Forum</a>
+                <a href=\"";
+        // line 67
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_community");
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 67, $this->source); })()), "request", [], "any", false, false, false, 67), "get", ["_route"], "method", false, false, false, 67) == "app_community")) {
+            yield "active";
+        }
+        yield "\">Community</a>
+                <a href=\"";
+        // line 68
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_notification");
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 68, $this->source); })()), "request", [], "any", false, false, false, 68), "get", ["_route"], "method", false, false, false, 68) == "app_notification")) {
+            yield "active";
+        }
+        yield "\">
+                    <i class=\"fa-solid fa-bell\"></i> 
+                    <span class=\"badge bg-danger\">5</span> 
+                </a>
+            </div>
+            <div class=\"dropdown\">
+                <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+                    <i class=\"fa-solid fa-user-circle fa-2x\"></i>
+                </a>
+                <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                    <li><a class=\"dropdown-item\" href=\"";
+        // line 78
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile");
         yield "\">Profile</a></li>
-                        <li>
-                            <a class=\"dropdown-item\" href=\"";
-        // line 76
+                    <li>
+                        <a class=\"dropdown-item\" href=\"";
+        // line 80
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         yield "\">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-
-                </div>
-            </nav>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- Navbar End -->
+    </nav>
+</div>
+<!-- Navbar End -->
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -358,7 +400,7 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
         yield from [];
     }
 
-    // line 86
+    // line 90
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -401,7 +443,7 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  362 => 86,  341 => 76,  336 => 74,  326 => 67,  321 => 65,  317 => 64,  313 => 63,  303 => 56,  298 => 54,  293 => 51,  280 => 50,  267 => 35,  261 => 32,  255 => 29,  251 => 28,  248 => 27,  235 => 26,  212 => 6,  197 => 163,  190 => 159,  186 => 158,  182 => 157,  178 => 156,  104 => 86,  102 => 50,  87 => 37,  85 => 26,  68 => 12,  59 => 6,  52 => 1,);
+        return array (  404 => 90,  384 => 80,  379 => 78,  362 => 68,  354 => 67,  346 => 66,  338 => 65,  330 => 64,  322 => 63,  314 => 62,  304 => 55,  300 => 54,  295 => 51,  282 => 50,  269 => 35,  263 => 32,  257 => 29,  253 => 28,  250 => 27,  237 => 26,  214 => 6,  199 => 167,  192 => 163,  188 => 162,  184 => 161,  180 => 160,  107 => 90,  104 => 89,  102 => 50,  87 => 37,  85 => 26,  68 => 12,  59 => 6,  52 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -456,41 +498,45 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
         <!-- Spinner End -->
 
 {% block navbar %}
-        <!-- Navbar Start -->
-        <div class=\"container-fluid nav-bar bg-transparent\">
-            <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
-                <a href=\"{{ path('app_indexhome') }}\" class=\"navbar-brand d-flex align-items-center text-center\">
-                    
-                    <img class=\"img-fluid\" src=\"{{ asset('img/transparentcareera.png') }}\" alt=\"Icon\" style=\"width: 150px; height: 100px;\">
+<!-- Navbar Start -->
+<div class=\"container-fluid nav-bar bg-transparent\">
+    <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
+        <a href=\"{{ path('app_indexhome') }}\" class=\"navbar-brand d-flex align-items-center text-center\">
+            <img class=\"img-fluid\" src=\"{{ asset('img/transparentcareera.png') }}\" alt=\"Icon\" style=\"width: 150px; height: 100px;\">
+        </a>
+        <button type=\"button\" class=\"navbar-toggler\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
+            <div class=\"navbar-nav ms-auto\">
+                <a href=\"{{ path('app_indexhome') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'app_indexhome' %}active{% endif %}\">Acceuil</a>
+                <a href=\"{{ path('app_offre') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'app_offre' %}active text-primary fw-bold{% endif %}\">Offres d'emploi</a>
+                <a href=\"{{ path('app_events') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'app_events' %}active{% endif %}\">Evénements</a>
+                <a href=\"{{ path('app_offrefrelencer_index') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'app_offrefrelencer_index' %}active{% endif %}\">Mission freelance</a>
+                <a href=\"{{ path('app_forum') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'app_forum' %}active{% endif %}\">Forum</a>
+                <a href=\"{{ path('app_community') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'app_community' %}active{% endif %}\">Community</a>
+                <a href=\"{{ path('app_notification') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'app_notification' %}active{% endif %}\">
+                    <i class=\"fa-solid fa-bell\"></i> 
+                    <span class=\"badge bg-danger\">5</span> 
                 </a>
-                <button type=\"button\" class=\"navbar-toggler\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\">
-                    <span class=\"navbar-toggler-icon\"></span>
-                </button>
-                <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
-                    <div class=\"navbar-nav ms-auto\">
-                        <a href=\"{{ path('app_indexhome') }}\" class=\"nav-item nav-link active\">Acceuil</a>
-                        <a href=\"{{ path('app_offre') }}\" class=\"nav-item nav-link\">Offres d'emploi</a>
-                        <a href=\"{{ path('app_events') }}\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
-                        <a href=\"{{ path('app_forum') }}\" class=\"nav-item nav-link\">Forum</a>
-                    </div>
-                    <div class=\"dropdown\">
-                    <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
-                        <i class=\"fa-solid fa-user-circle fa-2x\"></i>
-                    </a>
-                    <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                        <li><a class=\"dropdown-item\" href=\"{{ path('app_profile') }}\">Profile</a></li>
-                        <li>
-                            <a class=\"dropdown-item\" href=\"{{ path('app_logout') }}\">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-
-                </div>
-            </nav>
+            </div>
+            <div class=\"dropdown\">
+                <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+                    <i class=\"fa-solid fa-user-circle fa-2x\"></i>
+                </a>
+                <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                    <li><a class=\"dropdown-item\" href=\"{{ path('app_profile') }}\">Profile</a></li>
+                    <li>
+                        <a class=\"dropdown-item\" href=\"{{ path('app_logout') }}\">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- Navbar End -->
+    </nav>
+</div>
+<!-- Navbar End -->
 {% endblock %}
+
         <main>{% block body %}{% endblock %}</main>
          <!-- Footer Start -->
         <div class=\"container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn\" data-wow-delay=\"0.1s\">

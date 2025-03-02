@@ -14,6 +14,7 @@ use App\Entity\User;
 
 final class NotificationController extends AbstractController
 {
+    private $managerRegistry;
     public function getAuthUser(Security $security): ?User
     {
         $user = $security->getUser();
@@ -28,11 +29,14 @@ final class NotificationController extends AbstractController
     
         return $user;
     }
+
+
+    // Constructor that injects the ManagerRegistry
     public function __construct(ManagerRegistry $managerRegistry)
     {
-            $this->managerRegistry = $managerRegistry;
+        $this->managerRegistry = $managerRegistry;
     }
-    #[Route('/notification/{userId}', name: 'app_notification')]
+    #[Route('/notification', name: 'app_notification')]
     public function index(NotificationRepository $notificationRepository,Security $security): Response
     {
         $userId = $this->getAuthUser($security)->getId();

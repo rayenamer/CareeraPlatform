@@ -1,10 +1,14 @@
 <?php
 
+<<<<<<<< HEAD:var/cache/prod/ContainerMlC0NKC/getForm_RegistryService.php
 <<<<<<<< HEAD:var/cache/dev/ContainerAf3Rx11/getForm_RegistryService.php
 namespace ContainerAf3Rx11;
 ========
 namespace ContainerMlC0NKC;
 >>>>>>>> origin/HechBackUp:var/cache/prod/ContainerMlC0NKC/getForm_RegistryService.php
+========
+namespace Container98L4R2C;
+>>>>>>>> origin/MainTestWiem:var/cache/dev/Container98L4R2C/getForm_RegistryService.php
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
@@ -23,14 +27,25 @@ class getForm_RegistryService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'FormRegistryInterface.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'FormRegistry.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'FormExtensionInterface.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'Extension'.\DIRECTORY_SEPARATOR.'DependencyInjection'.\DIRECTORY_SEPARATOR.'DependencyInjectionExtension.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'ResolvedFormTypeFactoryInterface.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'Extension'.\DIRECTORY_SEPARATOR.'DataCollector'.\DIRECTORY_SEPARATOR.'Proxy'.\DIRECTORY_SEPARATOR.'ResolvedTypeFactoryDataCollectorProxy.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'form'.\DIRECTORY_SEPARATOR.'ResolvedFormTypeFactory.php';
+
         return $container->privates['form.registry'] = new \Symfony\Component\Form\FormRegistry([new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension(new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($container->getService ??= $container->getService(...), [
 <<<<<<<< HEAD:var/cache/dev/ContainerAf3Rx11/getForm_RegistryService.php
             'App\\Form\\CandidatureType' => ['privates', 'App\\Form\\CandidatureType', 'getCandidatureTypeService', true],
             'App\\Form\\CandidatureaddType' => ['privates', 'App\\Form\\CandidatureaddType', 'getCandidatureaddTypeService', true],
             'App\\Form\\ChangePasswordFormType' => ['privates', 'App\\Form\\ChangePasswordFormType', 'getChangePasswordFormTypeService', true],
+            'App\\Form\\DemandeMissionType' => ['privates', 'App\\Form\\DemandeMissionType', 'getDemandeMissionTypeService', true],
             'App\\Form\\DiscussionType' => ['privates', 'App\\Form\\DiscussionType', 'getDiscussionTypeService', true],
             'App\\Form\\MessageType' => ['privates', 'App\\Form\\MessageType', 'getMessageTypeService', true],
+            'App\\Form\\MissionfreelencerType' => ['privates', 'App\\Form\\MissionfreelencerType', 'getMissionfreelencerTypeService', true],
             'App\\Form\\OffreType' => ['privates', 'App\\Form\\OffreType', 'getOffreTypeService', true],
+            'App\\Form\\RechercheoffreType' => ['privates', 'App\\Form\\RechercheoffreType', 'getRechercheoffreTypeService', true],
             'App\\Form\\ReplyType' => ['privates', 'App\\Form\\ReplyType', 'getReplyTypeService', true],
             'App\\Form\\ResetPasswordRequestFormType' => ['privates', 'App\\Form\\ResetPasswordRequestFormType', 'getResetPasswordRequestFormTypeService', true],
             'App\\Form\\TypeContratType' => ['privates', 'App\\Form\\TypeContratType', 'getTypeContratTypeService', true],
@@ -50,9 +65,12 @@ class getForm_RegistryService extends App_KernelProdContainer
             'App\\Form\\CandidatureType' => '?',
             'App\\Form\\CandidatureaddType' => '?',
             'App\\Form\\ChangePasswordFormType' => '?',
+            'App\\Form\\DemandeMissionType' => '?',
             'App\\Form\\DiscussionType' => '?',
             'App\\Form\\MessageType' => '?',
+            'App\\Form\\MissionfreelencerType' => '?',
             'App\\Form\\OffreType' => '?',
+            'App\\Form\\RechercheoffreType' => '?',
             'App\\Form\\ReplyType' => '?',
             'App\\Form\\ResetPasswordRequestFormType' => '?',
             'App\\Form\\TypeContratType' => '?',

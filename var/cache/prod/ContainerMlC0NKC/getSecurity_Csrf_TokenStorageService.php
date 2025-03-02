@@ -1,10 +1,14 @@
 <?php
 
+<<<<<<<< HEAD:var/cache/prod/ContainerMlC0NKC/getSecurity_Csrf_TokenStorageService.php
 <<<<<<<< HEAD:var/cache/dev/ContainerAf3Rx11/getSecurity_Csrf_TokenStorageService.php
 namespace ContainerAf3Rx11;
 ========
 namespace ContainerMlC0NKC;
 >>>>>>>> origin/HechBackUp:var/cache/prod/ContainerMlC0NKC/getSecurity_Csrf_TokenStorageService.php
+========
+namespace Container98L4R2C;
+>>>>>>>> origin/MainTestWiem:var/cache/dev/Container98L4R2C/getSecurity_Csrf_TokenStorageService.php
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
@@ -23,6 +27,10 @@ class getSecurity_Csrf_TokenStorageService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'security-csrf'.\DIRECTORY_SEPARATOR.'TokenStorage'.\DIRECTORY_SEPARATOR.'TokenStorageInterface.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'security-csrf'.\DIRECTORY_SEPARATOR.'TokenStorage'.\DIRECTORY_SEPARATOR.'ClearableTokenStorageInterface.php';
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'security-csrf'.\DIRECTORY_SEPARATOR.'TokenStorage'.\DIRECTORY_SEPARATOR.'SessionTokenStorage.php';
+
         return $container->privates['security.csrf.token_storage'] = new \Symfony\Component\Security\Csrf\TokenStorage\SessionTokenStorage(($container->services['request_stack'] ??= new \Symfony\Component\HttpFoundation\RequestStack()));
     }
 }

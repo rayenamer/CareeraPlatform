@@ -141,7 +141,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                         <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                             <li><a class=\"dropdown-item\" href=\"";
         // line 29
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profilemoderateur");
         yield "\">Profile</a></li>
                             <li>
                                 <a class=\"dropdown-item\" href=\"";
@@ -377,7 +377,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                             <i class=\"fa-solid fa-user-circle fa-2x\"></i>
                         </a>
                         <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                            <li><a class=\"dropdown-item\" href=\"{{ path('app_profile') }}\">Profile</a></li>
+                            <li><a class=\"dropdown-item\" href=\"{{ path('app_profilemoderateur') }}\">Profile</a></li>
                             <li>
                                 <a class=\"dropdown-item\" href=\"{{ path('app_logout') }}\">Logout</a>
                             </li>

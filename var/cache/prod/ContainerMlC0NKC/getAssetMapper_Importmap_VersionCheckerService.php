@@ -1,10 +1,14 @@
 <?php
 
+<<<<<<<< HEAD:var/cache/prod/ContainerMlC0NKC/getAssetMapper_Importmap_VersionCheckerService.php
 <<<<<<<< HEAD:var/cache/dev/ContainerAf3Rx11/getAssetMapper_Importmap_VersionCheckerService.php
 namespace ContainerAf3Rx11;
 ========
 namespace ContainerMlC0NKC;
 >>>>>>>> origin/HechBackUp:var/cache/prod/ContainerMlC0NKC/getAssetMapper_Importmap_VersionCheckerService.php
+========
+namespace ContainerFbC0vUQ;
+>>>>>>>> origin/MainTestWiem:var/cache/dev/ContainerFbC0vUQ/getAssetMapper_Importmap_VersionCheckerService.php
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
@@ -23,6 +27,8 @@ class getAssetMapper_Importmap_VersionCheckerService extends App_KernelProdConta
      */
     public static function do($container, $lazyLoad = true)
     {
+        include_once \dirname(__DIR__, 4).''.\DIRECTORY_SEPARATOR.'vendor'.\DIRECTORY_SEPARATOR.'symfony'.\DIRECTORY_SEPARATOR.'asset-mapper'.\DIRECTORY_SEPARATOR.'ImportMap'.\DIRECTORY_SEPARATOR.'ImportMapVersionChecker.php';
+
         return $container->privates['asset_mapper.importmap.version_checker'] = new \Symfony\Component\AssetMapper\ImportMap\ImportMapVersionChecker(($container->privates['asset_mapper.importmap.config_reader'] ?? $container->load('getAssetMapper_Importmap_ConfigReaderService')), ($container->privates['asset_mapper.importmap.remote_package_downloader'] ?? $container->load('getAssetMapper_Importmap_RemotePackageDownloaderService')));
     }
 }

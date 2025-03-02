@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Moderateur;
+use App\Entity\User;
 use App\Entity\Recruteur;
 use App\Entity\ResetPasswordRequest;
 use App\Repository\UserRepository;
@@ -18,17 +20,40 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ModerateurController extends AbstractController
 { 
     #[Route('/profilemoderateur', name: 'app_profilemoderateur')]
-    public function profile(ManagerRegistry $doctrine,Security $security,UserRepository $userRepository): Response
+    public function profile(ManagerRegistry $doctrine, Security $security, UserRepository $userRepository): Response
     {
         $user = $security->getUser();
-        if (!$user instanceof Moderateur) {
-            return $this->redirectToRoute('app_login'); 
+    
+        // Vérification si l'utilisateur est authentifié
+        if (!$user) {
+            return new Response('User not authenticated', 401);
         }
-        $profile = $doctrine->getRepository(Moderateur::class)->find($user->getId());
-        return $this->render('security/profilemoderateur.html.twig', [
-            'tabprofile' => $profile,
-        ]);
+    
+        // Vérification si l'objet user est valide
+        if (!$user instanceof User) {
+            return new Response('Invalid user object', 500);
+        }
+    
+        // Vérifier si l'utilisateur est un moderateur
+        if ($user instanceof Moderateur) {
+            // Charger le profil du modérateur
+            $profile = $doctrine->getRepository(Moderateur::class)->find($user->getId());
+    
+            // Vérifier si le profil existe
+            if (!$profile) {
+                return new Response('Profil not found', 404);
+            }
+    
+            // Afficher la page du profil du modérateur
+            return $this->render('security/profilemoderateur.html.twig', [
+                'tabprofile' => $profile,
+            ]);
+        }
+    
+        // Si l'utilisateur n'est pas un modérateur, rediriger vers la page d'accueil
+        return $this->redirectToRoute('app_index');
     }
+    
     #[Route('/moderateur', name: 'app_moderateur')]
     public function index(ManagerRegistry $doctrine, Request $request): Response
     {
@@ -56,7 +81,7 @@ class ModerateurController extends AbstractController
             // par exemple via une contrainte de validation côté entité ou dans le contrôleur.
 
             // Sauvegarder les données dans la base
-            $entityManager = $doctrine->getManager();
+            $entityManager = $doctrine->getManager();   
             $entityManager->persist($recruteur);
             $entityManager->flush();
 

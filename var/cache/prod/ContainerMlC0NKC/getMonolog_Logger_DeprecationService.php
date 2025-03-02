@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<<< HEAD:var/cache/prod/ContainerMlC0NKC/getMonolog_Logger_DeprecationService.php
 namespace ContainerMlC0NKC;
+========
+namespace ContainerFbC0vUQ;
+>>>>>>>> origin/MainTestWiem:var/cache/dev/ContainerFbC0vUQ/getMonolog_Logger_DeprecationService.php
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
