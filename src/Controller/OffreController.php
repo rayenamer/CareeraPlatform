@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Candidature;
 use App\Entity\Offre;
 use App\Form\OffreType;
+
+
 use App\Repository\CandidatureRepository;
 use App\Repository\OffreRepository;
 use Doctrine\ORM\EntityManager;
@@ -25,7 +27,7 @@ final class OffreController extends AbstractController
         $this->translator = $translator;
     }
 
-    #[Route('/{_locale}/offre', name: 'app_offre', requirements: ['_locale' => 'en|fr'])]
+    #[Route('/{_locale}/offre', name: 'app_offre', requirements: ['_locale' => 'en|fr'], defaults: ['_locale' => 'fr'])]
     public function index(OffreRepository $rep): Response
     {
         $offres = $rep->findAll();

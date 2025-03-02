@@ -8,22 +8,33 @@
 return [
     false, // $matchHost
     [ // $staticRoutes
+        '/admin/user' => [[['_route' => '_user_index', '_locale' => 'en', '_controller' => 'App\\Controller\\Admin\\UserCrudController::index', 'routeCreatedByEasyAdmin' => true, 'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController', 'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController', 'crudAction' => 'index'], null, ['GET' => 0], null, false, false, null]],
+        '/admin/user/new' => [[['_route' => '_user_new', '_locale' => 'en', '_controller' => 'App\\Controller\\Admin\\UserCrudController::new', 'routeCreatedByEasyAdmin' => true, 'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController', 'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController', 'crudAction' => 'new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/user/batch-delete' => [[['_route' => '_user_batch_delete', '_locale' => 'en', '_controller' => 'App\\Controller\\Admin\\UserCrudController::batchDelete', 'routeCreatedByEasyAdmin' => true, 'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController', 'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController', 'crudAction' => 'batchDelete'], null, ['POST' => 0], null, false, false, null]],
+        '/admin/user/autocomplete' => [[['_route' => '_user_autocomplete', '_locale' => 'en', '_controller' => 'App\\Controller\\Admin\\UserCrudController::autocomplete', 'routeCreatedByEasyAdmin' => true, 'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController', 'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController', 'crudAction' => 'autocomplete'], null, ['GET' => 0], null, false, false, null]],
+        '/admin/user/render-filters' => [[['_route' => '_user_render_filters', '_locale' => 'en', '_controller' => 'App\\Controller\\Admin\\UserCrudController::renderFilters', 'routeCreatedByEasyAdmin' => true, 'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController', 'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController', 'crudAction' => 'renderFilters'], null, ['GET' => 0], null, false, false, null]],
         '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
         '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/admin' => [
+            [['_route' => 'app_admin', '_controller' => 'App\\Controller\\AdminController::index'], null, null, null, false, false, null],
+            [['_route' => 'admin_dashboard', '_controller' => 'App\\Controller\\Admin\\DashboardController::admin'], null, null, null, false, false, null],
+            [['_route' => 'app_admin_dashboard_index', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null],
+        ],
         '/admin/blocked-users' => [[['_route' => 'admin_blocked_users', '_controller' => 'App\\Controller\\BlockedUsersController::blockedUsers'], null, null, null, false, false, null]],
         '/candidature' => [[['_route' => 'app_candidature', '_controller' => 'App\\Controller\\CandidatureController::index'], null, null, null, false, false, null]],
         '/showcandidature' => [[['_route' => 'app_showcandidature', '_controller' => 'App\\Controller\\CandidatureController::showcandidature'], null, null, null, false, false, null]],
         '/acceptes' => [[['_route' => 'app_acceptees', '_controller' => 'App\\Controller\\CandidatureController::Acceptees'], null, null, null, false, false, null]],
         '/rejetes' => [[['_route' => 'app_rejetees', '_controller' => 'App\\Controller\\CandidatureController::Rejetees'], null, null, null, false, false, null]],
+        '/chatbot' => [[['_route' => 'chatbot', '_controller' => 'App\\Controller\\ChatbotController::chatbot'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/profilechercheur' => [[['_route' => 'app_chercheurprofile', '_controller' => 'App\\Controller\\ChercheurController::profile'], null, null, null, false, false, null]],
         '/chercheur' => [[['_route' => 'app_chercheur', '_controller' => 'App\\Controller\\ChercheurController::index'], null, null, null, false, false, null]],
         '/community' => [[['_route' => 'app_community', '_controller' => 'App\\Controller\\CommunityController::index'], null, null, null, false, false, null]],
         '/event' => [[['_route' => 'app_event', '_controller' => 'App\\Controller\\EvenementsController::index'], null, null, null, false, false, null]],
-        '/events' => [[['_route' => 'evenement_index', '_controller' => 'App\\Controller\\EventModController::index'], null, null, null, false, false, null]],
+        '/events' => [[['_route' => 'app_events', '_controller' => 'App\\Controller\\EventModController::index'], null, null, null, false, false, null]],
         '/new' => [[['_route' => 'evenement_new', '_controller' => 'App\\Controller\\EventModController::new'], null, null, null, false, false, null]],
         '/api/evenements/recherche' => [[['_route' => 'api_evenements_recherche', '_controller' => 'App\\Controller\\EventModController::recherche'], null, ['GET' => 0], null, false, false, null]],
         '/type' => [[['_route' => 'type_index', '_controller' => 'App\\Controller\\EventTypeController::index'], null, null, null, false, false, null]],
@@ -47,6 +58,8 @@ return [
         '/reset-password' => [[['_route' => 'app_forgot_password_request', '_controller' => 'App\\Controller\\ResetPasswordController::request'], null, null, null, false, false, null]],
         '/reset-password/check-email' => [[['_route' => 'app_check_email', '_controller' => 'App\\Controller\\ResetPasswordController::checkEmail'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/profile' => [[['_route' => 'app_profile', '_controller' => 'App\\Controller\\SecurityController::profile'], null, null, null, false, false, null]],
+        '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/typecontrat' => [[['_route' => 'app_typecontrat', '_controller' => 'App\\Controller\\TypecontratController::index'], null, null, null, false, false, null]],
         '/showtypecontrat' => [[['_route' => 'app_showtypecontrat', '_controller' => 'App\\Controller\\TypecontratController::showtypecontrat'], null, null, null, false, false, null]],
         '/addtypecontrat' => [[['_route' => 'app_addtypecontrat', '_controller' => 'App\\Controller\\TypecontratController::addtypecontrat'], null, null, null, false, false, null]],
@@ -57,165 +70,177 @@ return [
     ],
     [ // $regexpList
         0 => '{^(?'
+                .'|/a(?'
+                    .'|d(?'
+                        .'|min/user/([^/]++)(?'
+                            .'|/(?'
+                                .'|edit(*:44)'
+                                .'|delete(*:57)'
+                            .')'
+                            .'|(*:65)'
+                        .')'
+                        .'|d(?'
+                            .'|candidature/([^/]++)(*:97)'
+                            .'|Reply/([^/]++)(*:118)'
+                        .')'
+                    .')'
+                    .'|ccept/([^/]++)(*:142)'
+                    .'|nnuler/([^/]++)(*:165)'
+                .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:38)'
-                    .'|wdt/([^/]++)(*:57)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:205)'
+                    .'|wdt/([^/]++)(*:225)'
                     .'|profiler/(?'
-                        .'|font/([^/\\.]++)\\.woff2(*:98)'
+                        .'|font/([^/\\.]++)\\.woff2(*:267)'
                         .'|([^/]++)(?'
                             .'|/(?'
-                                .'|search/results(*:134)'
-                                .'|router(*:148)'
+                                .'|search/results(*:304)'
+                                .'|router(*:318)'
                                 .'|exception(?'
-                                    .'|(*:168)'
-                                    .'|\\.css(*:181)'
+                                    .'|(*:338)'
+                                    .'|\\.css(*:351)'
                                 .')'
                             .')'
-                            .'|(*:191)'
+                            .'|(*:361)'
                         .')'
                     .')'
                 .')'
-                .'|/a(?'
-                    .'|dd(?'
-                        .'|candidature/([^/]++)(*:232)'
-                        .'|Reply/([^/]++)(*:254)'
-                    .')'
-                    .'|ccept/([^/]++)(*:277)'
-                    .'|nnuler/([^/]++)(*:300)'
-                .')'
                 .'|/update(?'
                     .'|c(?'
-                        .'|andidature/([^/]++)(*:342)'
-                        .'|hercheur/([^/]++)(*:367)'
+                        .'|andidature/([^/]++)(*:405)'
+                        .'|hercheur/([^/]++)(*:430)'
                     .')'
-                    .'|freelancer/([^/]++)(*:395)'
-                    .'|moderateur/([^/]++)(*:422)'
+                    .'|freelancer/([^/]++)(*:458)'
+                    .'|moderateur/([^/]++)(*:485)'
                 .')'
                 .'|/del(?'
                     .'|ete(?'
                         .'|c(?'
-                            .'|andidature/([^/]++)(*:467)'
-                            .'|hercheur/([^/]++)(*:492)'
+                            .'|andidature/([^/]++)(*:530)'
+                            .'|hercheur/([^/]++)(*:555)'
                         .')'
-                        .'|freelancer/([^/]++)(*:520)'
-                        .'|moderateur/([^/]++)(*:547)'
+                        .'|freelancer/([^/]++)(*:583)'
+                        .'|moderateur/([^/]++)(*:610)'
                     .')'
-                    .'|Event/([^/]++)(*:570)'
-                    .'|typeEvent/([^/]++)(*:596)'
+                    .'|Event/([^/]++)(*:633)'
+                    .'|typeEvent/([^/]++)(*:659)'
                 .')'
-                .'|/reject/([^/]++)(*:621)'
+                .'|/reject/([^/]++)(*:684)'
                 .'|/e(?'
-                    .'|xport/pdf/([^/]++)(*:652)'
-                    .'|vent/([^/]++)(*:673)'
+                    .'|xport/pdf/([^/]++)(*:715)'
+                    .'|vent/([^/]++)(*:736)'
                     .'|dit(?'
-                        .'|/([^/]++)(*:696)'
-                        .'|Type/([^/]++)(*:717)'
+                        .'|/([^/]++)(*:759)'
+                        .'|Type/([^/]++)(*:780)'
                     .')'
                 .')'
-                .'|/participer/([^/]++)(*:747)'
+                .'|/participer/([^/]++)(*:810)'
                 .'|/Delete(?'
-                    .'|Discussion/([^/]++)(*:784)'
-                    .'|Reply/([^/]++)/([^/]++)(*:815)'
+                    .'|Discussion/([^/]++)(*:847)'
+                    .'|Reply/([^/]++)/([^/]++)(*:878)'
                 .')'
                 .'|/U(?'
                     .'|pdate(?'
-                        .'|Discussion/([^/]++)(*:856)'
-                        .'|Reply/([^/]++)/([^/]++)(*:887)'
+                        .'|Discussion/([^/]++)(*:919)'
+                        .'|Reply/([^/]++)/([^/]++)(*:950)'
                     .')'
                     .'|nAdd(?'
-                        .'|Like/([^/]++)(*:916)'
+                        .'|Like/([^/]++)(*:979)'
                         .'|DisLike(?'
-                            .'|/([^/]++)(*:943)'
-                            .'|ToReply/([^/]++)(*:967)'
+                            .'|/([^/]++)(*:1006)'
+                            .'|ToReply/([^/]++)(*:1031)'
                         .')'
                     .')'
                 .')'
                 .'|/Add(?'
                     .'|Like(?'
-                        .'|/([^/]++)(*:1001)'
-                        .'|ToReply/([^/]++)(*:1026)'
+                        .'|/([^/]++)(*:1066)'
+                        .'|ToReply/([^/]++)(*:1091)'
                     .')'
                     .'|DisLike(?'
-                        .'|/([^/]++)(*:1055)'
-                        .'|ToReply/([^/]++)(*:1080)'
+                        .'|/([^/]++)(*:1120)'
+                        .'|ToReply/([^/]++)(*:1145)'
                     .')'
                 .')'
-                .'|/forum/details/([^/]++)(*:1114)'
-                .'|/messages/([^/]++)(*:1141)'
+                .'|/forum/details/([^/]++)(*:1179)'
+                .'|/messages/([^/]++)(*:1206)'
                 .'|/se(?'
-                    .'|nd/([^/]++)(*:1167)'
-                    .'|tNotificationTrue/([^/]++)(*:1202)'
+                    .'|nd/([^/]++)(*:1232)'
+                    .'|tNotificationTrue/([^/]++)(*:1267)'
                 .')'
-                .'|/notification/([^/]++)(*:1234)'
-                .'|/(en|fr)/offre(*:1257)'
-                .'|/postuler/([^/]++)(*:1284)'
-                .'|/modifoffre/([^/]++)(*:1313)'
-                .'|/supprimeroffre/([^/]++)(*:1346)'
-                .'|/reset\\-password/reset(?:/([^/]++))?(*:1391)'
+                .'|/notification/([^/]++)(*:1299)'
+                .'|/(en|fr)/offre(*:1322)'
+                .'|/postuler/([^/]++)(*:1349)'
+                .'|/modifoffre/([^/]++)(*:1378)'
+                .'|/supprimeroffre/([^/]++)(*:1411)'
+                .'|/reset\\-password/reset(?:/([^/]++))?(*:1456)'
                 .'|/updatetype(?'
-                    .'|contrat/([^/]++)(*:1430)'
-                    .'|offre/([^/]++)(*:1453)'
+                    .'|contrat/([^/]++)(*:1495)'
+                    .'|offre/([^/]++)(*:1518)'
                 .')'
                 .'|/deletetype(?'
-                    .'|contrat/([^/]++)(*:1493)'
-                    .'|offre/([^/]++)(*:1516)'
+                    .'|contrat/([^/]++)(*:1558)'
+                    .'|offre/([^/]++)(*:1581)'
                 .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
-        38 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        57 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        98 => [[['_route' => '_profiler_font', '_controller' => 'web_profiler.controller.profiler::fontAction'], ['fontName'], null, null, false, false, null]],
-        134 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        148 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        232 => [[['_route' => 'app_addcandidature', '_controller' => 'App\\Controller\\CandidatureController::addcandidature'], ['id'], null, null, false, true, null]],
-        254 => [[['_route' => 'app_addReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddReply'], ['id'], null, null, false, true, null]],
-        277 => [[['_route' => 'app_accept', '_controller' => 'App\\Controller\\CandidatureController::accept'], ['id'], null, null, false, true, null]],
-        300 => [[['_route' => 'evenement_annuler', '_controller' => 'App\\Controller\\EventModController::annuler'], ['id'], ['POST' => 0], null, false, true, null]],
-        342 => [[['_route' => 'app_updatecandidature', '_controller' => 'App\\Controller\\CandidatureController::updatecandidature'], ['id'], null, null, false, true, null]],
-        367 => [[['_route' => 'app_updatechercheur', '_controller' => 'App\\Controller\\ChercheurController::updatechercheur'], ['id'], null, null, false, true, null]],
-        395 => [[['_route' => 'app_updatefreelancer', '_controller' => 'App\\Controller\\FreelancerController::updatefreelancer'], ['id'], null, null, false, true, null]],
-        422 => [[['_route' => 'app_updatemoderateur', '_controller' => 'App\\Controller\\ModerateurController::updatemoderateur'], ['id'], null, null, false, true, null]],
-        467 => [[['_route' => 'app_deletecandidature', '_controller' => 'App\\Controller\\CandidatureController::deletecandidature'], ['id'], null, null, false, true, null]],
-        492 => [[['_route' => 'app_deletechercheur', '_controller' => 'App\\Controller\\ChercheurController::deletechercheur'], ['id'], null, null, false, true, null]],
-        520 => [[['_route' => 'app_deletefreelancer', '_controller' => 'App\\Controller\\FreelancerController::deletefreelancer'], ['id'], null, null, false, true, null]],
-        547 => [[['_route' => 'app_deletemoderateur', '_controller' => 'App\\Controller\\ModerateurController::deletemoderateur'], ['id'], null, null, false, true, null]],
-        570 => [[['_route' => 'event_del', '_controller' => 'App\\Controller\\EventModController::supprimeroffre'], ['id'], null, null, false, true, null]],
-        596 => [[['_route' => 'typeEvent_delete', '_controller' => 'App\\Controller\\EventTypeController::supprimeroffre'], ['id'], null, null, false, true, null]],
-        621 => [[['_route' => 'app_reject', '_controller' => 'App\\Controller\\CandidatureController::rejectCandidature'], ['id'], null, null, false, true, null]],
-        652 => [[['_route' => 'app_export_pdf', '_controller' => 'App\\Controller\\CandidatureController::exportToPdf'], ['id'], null, null, false, true, null]],
-        673 => [[['_route' => 'app_event_show', '_controller' => 'App\\Controller\\EvenementsController::show'], ['id'], null, null, false, true, null]],
-        696 => [[['_route' => 'evenement_edit', '_controller' => 'App\\Controller\\EventModController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        717 => [[['_route' => 'type_edit', '_controller' => 'App\\Controller\\EventTypeController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        747 => [[['_route' => 'evenement_participer', '_controller' => 'App\\Controller\\EventModController::participer'], ['id'], ['POST' => 0], null, false, true, null]],
-        784 => [[['_route' => 'app_deleteDiscussion', '_controller' => 'App\\Controller\\ForumController::deleteDiscussion'], ['id'], null, null, false, true, null]],
-        815 => [[['_route' => 'app_deleteReply', '_controller' => 'App\\Controller\\ForumDetailsController::deleteReply'], ['discussionId', 'replyId'], null, null, false, true, null]],
-        856 => [[['_route' => 'app_updateDiscussion', '_controller' => 'App\\Controller\\ForumController::updateDiscussion'], ['id'], null, null, false, true, null]],
-        887 => [[['_route' => 'app_UpdateReply', '_controller' => 'App\\Controller\\ForumDetailsController::UpdateReply'], ['discussionId', 'replyId'], null, null, false, true, null]],
-        916 => [[['_route' => 'app_UnAddLike', '_controller' => 'App\\Controller\\ForumController::UnAddLike'], ['id'], null, null, false, true, null]],
-        943 => [[['_route' => 'app_UnAddDisLike', '_controller' => 'App\\Controller\\ForumController::UnAddDisLike'], ['id'], null, null, false, true, null]],
-        967 => [[['_route' => 'app_UnAddDisLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::UnAddDisLike'], ['id'], null, null, false, true, null]],
-        1001 => [[['_route' => 'app_AddLike', '_controller' => 'App\\Controller\\ForumController::AddLike'], ['id'], null, null, false, true, null]],
-        1026 => [[['_route' => 'app_AddLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddLike'], ['id'], null, null, false, true, null]],
-        1055 => [[['_route' => 'app_AddDisLike', '_controller' => 'App\\Controller\\ForumController::AddDisLike'], ['id'], null, null, false, true, null]],
-        1080 => [[['_route' => 'app_AdddisLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddDisLike'], ['id'], null, null, false, true, null]],
-        1114 => [[['_route' => 'app_forum_details', '_controller' => 'App\\Controller\\ForumDetailsController::index'], ['id'], null, null, false, true, null]],
-        1141 => [[['_route' => 'get_conversation', '_controller' => 'App\\Controller\\MessageController::getConversation'], ['messager2Id'], ['GET' => 0], null, false, true, null]],
-        1167 => [[['_route' => 'send_message', '_controller' => 'App\\Controller\\MessageController::sendMessage'], ['messager2Id'], ['POST' => 0], null, false, true, null]],
-        1202 => [[['_route' => 'app_setNotificationTrue', '_controller' => 'App\\Controller\\NotificationController::markAsRead'], ['id'], null, null, false, true, null]],
-        1234 => [[['_route' => 'app_notification', '_controller' => 'App\\Controller\\NotificationController::index'], ['userId'], null, null, false, true, null]],
-        1257 => [[['_route' => 'app_offre', '_controller' => 'App\\Controller\\OffreController::index'], ['_locale'], null, null, false, false, null]],
-        1284 => [[['_route' => 'app_postuler', '_controller' => 'App\\Controller\\OffreController::postuler'], ['id'], null, null, false, true, null]],
-        1313 => [[['_route' => 'app_modifoffre', '_controller' => 'App\\Controller\\OffremodController::modifoffre'], ['id'], null, null, false, true, null]],
-        1346 => [[['_route' => 'app_supprimeroffre', '_controller' => 'App\\Controller\\OffremodController::supprimeroffre'], ['id'], null, null, false, true, null]],
-        1391 => [[['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null]],
-        1430 => [[['_route' => 'app_updatetypecontrat', '_controller' => 'App\\Controller\\TypecontratController::updatetypecontrat'], ['id'], null, null, false, true, null]],
-        1453 => [[['_route' => 'app_updatetypeoffre', '_controller' => 'App\\Controller\\TypeoffreController::updatetypeoffre'], ['id'], null, null, false, true, null]],
-        1493 => [[['_route' => 'app_deletetypecontrat', '_controller' => 'App\\Controller\\TypecontratController::deletetypecontrat'], ['id'], null, null, false, true, null]],
-        1516 => [
+        44 => [[['_route' => '_user_edit', '_locale' => 'en', '_controller' => 'App\\Controller\\Admin\\UserCrudController::edit', 'routeCreatedByEasyAdmin' => true, 'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController', 'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController', 'crudAction' => 'edit'], ['entityId'], ['GET' => 0, 'POST' => 1, 'PATCH' => 2], null, false, false, null]],
+        57 => [[['_route' => '_user_delete', '_locale' => 'en', '_controller' => 'App\\Controller\\Admin\\UserCrudController::delete', 'routeCreatedByEasyAdmin' => true, 'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController', 'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController', 'crudAction' => 'delete'], ['entityId'], ['POST' => 0], null, false, false, null]],
+        65 => [[['_route' => '_user_detail', '_locale' => 'en', '_controller' => 'App\\Controller\\Admin\\UserCrudController::detail', 'routeCreatedByEasyAdmin' => true, 'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController', 'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController', 'crudAction' => 'detail'], ['entityId'], ['GET' => 0], null, false, true, null]],
+        97 => [[['_route' => 'app_addcandidature', '_controller' => 'App\\Controller\\CandidatureController::addcandidature'], ['id'], null, null, false, true, null]],
+        118 => [[['_route' => 'app_addReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddReply'], ['id'], null, null, false, true, null]],
+        142 => [[['_route' => 'app_accept', '_controller' => 'App\\Controller\\CandidatureController::accept'], ['id'], null, null, false, true, null]],
+        165 => [[['_route' => 'evenement_annuler', '_controller' => 'App\\Controller\\EventModController::annuler'], ['id'], ['POST' => 0], null, false, true, null]],
+        205 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        225 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        267 => [[['_route' => '_profiler_font', '_controller' => 'web_profiler.controller.profiler::fontAction'], ['fontName'], null, null, false, false, null]],
+        304 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        318 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        338 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        351 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        361 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        405 => [[['_route' => 'app_updatecandidature', '_controller' => 'App\\Controller\\CandidatureController::updatecandidature'], ['id'], null, null, false, true, null]],
+        430 => [[['_route' => 'app_updatechercheur', '_controller' => 'App\\Controller\\ChercheurController::updatechercheur'], ['id'], null, null, false, true, null]],
+        458 => [[['_route' => 'app_updatefreelancer', '_controller' => 'App\\Controller\\FreelancerController::updatefreelancer'], ['id'], null, null, false, true, null]],
+        485 => [[['_route' => 'app_updatemoderateur', '_controller' => 'App\\Controller\\ModerateurController::updatemoderateur'], ['id'], null, null, false, true, null]],
+        530 => [[['_route' => 'app_deletecandidature', '_controller' => 'App\\Controller\\CandidatureController::deletecandidature'], ['id'], null, null, false, true, null]],
+        555 => [[['_route' => 'app_deletechercheur', '_controller' => 'App\\Controller\\ChercheurController::deletechercheur'], ['id'], null, null, false, true, null]],
+        583 => [[['_route' => 'app_deletefreelancer', '_controller' => 'App\\Controller\\FreelancerController::deletefreelancer'], ['id'], null, null, false, true, null]],
+        610 => [[['_route' => 'app_deletemoderateur', '_controller' => 'App\\Controller\\ModerateurController::deletemoderateur'], ['id'], null, null, false, true, null]],
+        633 => [[['_route' => 'event_del', '_controller' => 'App\\Controller\\EventModController::supprimeroffre'], ['id'], null, null, false, true, null]],
+        659 => [[['_route' => 'typeEvent_delete', '_controller' => 'App\\Controller\\EventTypeController::supprimeroffre'], ['id'], null, null, false, true, null]],
+        684 => [[['_route' => 'app_reject', '_controller' => 'App\\Controller\\CandidatureController::rejectCandidature'], ['id'], null, null, false, true, null]],
+        715 => [[['_route' => 'app_export_pdf', '_controller' => 'App\\Controller\\CandidatureController::exportToPdf'], ['id'], null, null, false, true, null]],
+        736 => [[['_route' => 'app_event_show', '_controller' => 'App\\Controller\\EvenementsController::show'], ['id'], null, null, false, true, null]],
+        759 => [[['_route' => 'evenement_edit', '_controller' => 'App\\Controller\\EventModController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        780 => [[['_route' => 'type_edit', '_controller' => 'App\\Controller\\EventTypeController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        810 => [[['_route' => 'evenement_participer', '_controller' => 'App\\Controller\\EventModController::participer'], ['id'], ['POST' => 0], null, false, true, null]],
+        847 => [[['_route' => 'app_deleteDiscussion', '_controller' => 'App\\Controller\\ForumController::deleteDiscussion'], ['id'], null, null, false, true, null]],
+        878 => [[['_route' => 'app_deleteReply', '_controller' => 'App\\Controller\\ForumDetailsController::deleteReply'], ['discussionId', 'replyId'], null, null, false, true, null]],
+        919 => [[['_route' => 'app_updateDiscussion', '_controller' => 'App\\Controller\\ForumController::updateDiscussion'], ['id'], null, null, false, true, null]],
+        950 => [[['_route' => 'app_UpdateReply', '_controller' => 'App\\Controller\\ForumDetailsController::UpdateReply'], ['discussionId', 'replyId'], null, null, false, true, null]],
+        979 => [[['_route' => 'app_UnAddLike', '_controller' => 'App\\Controller\\ForumController::UnAddLike'], ['id'], null, null, false, true, null]],
+        1006 => [[['_route' => 'app_UnAddDisLike', '_controller' => 'App\\Controller\\ForumController::UnAddDisLike'], ['id'], null, null, false, true, null]],
+        1031 => [[['_route' => 'app_UnAddDisLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::UnAddDisLike'], ['id'], null, null, false, true, null]],
+        1066 => [[['_route' => 'app_AddLike', '_controller' => 'App\\Controller\\ForumController::AddLike'], ['id'], null, null, false, true, null]],
+        1091 => [[['_route' => 'app_AddLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddLike'], ['id'], null, null, false, true, null]],
+        1120 => [[['_route' => 'app_AddDisLike', '_controller' => 'App\\Controller\\ForumController::AddDisLike'], ['id'], null, null, false, true, null]],
+        1145 => [[['_route' => 'app_AdddisLikeToReply', '_controller' => 'App\\Controller\\ForumDetailsController::AddDisLike'], ['id'], null, null, false, true, null]],
+        1179 => [[['_route' => 'app_forum_details', '_controller' => 'App\\Controller\\ForumDetailsController::index'], ['id'], null, null, false, true, null]],
+        1206 => [[['_route' => 'get_conversation', '_controller' => 'App\\Controller\\MessageController::getConversation'], ['messager2Id'], ['GET' => 0], null, false, true, null]],
+        1232 => [[['_route' => 'send_message', '_controller' => 'App\\Controller\\MessageController::sendMessage'], ['messager2Id'], ['POST' => 0], null, false, true, null]],
+        1267 => [[['_route' => 'app_setNotificationTrue', '_controller' => 'App\\Controller\\NotificationController::markAsRead'], ['id'], null, null, false, true, null]],
+        1299 => [[['_route' => 'app_notification', '_controller' => 'App\\Controller\\NotificationController::index'], ['userId'], null, null, false, true, null]],
+        1322 => [[['_route' => 'app_offre', '_locale' => 'fr', '_controller' => 'App\\Controller\\OffreController::index'], ['_locale'], null, null, false, false, null]],
+        1349 => [[['_route' => 'app_postuler', '_controller' => 'App\\Controller\\OffreController::postuler'], ['id'], null, null, false, true, null]],
+        1378 => [[['_route' => 'app_modifoffre', '_controller' => 'App\\Controller\\OffremodController::modifoffre'], ['id'], null, null, false, true, null]],
+        1411 => [[['_route' => 'app_supprimeroffre', '_controller' => 'App\\Controller\\OffremodController::supprimeroffre'], ['id'], null, null, false, true, null]],
+        1456 => [[['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null]],
+        1495 => [[['_route' => 'app_updatetypecontrat', '_controller' => 'App\\Controller\\TypecontratController::updatetypecontrat'], ['id'], null, null, false, true, null]],
+        1518 => [[['_route' => 'app_updatetypeoffre', '_controller' => 'App\\Controller\\TypeoffreController::updatetypeoffre'], ['id'], null, null, false, true, null]],
+        1558 => [[['_route' => 'app_deletetypecontrat', '_controller' => 'App\\Controller\\TypecontratController::deletetypecontrat'], ['id'], null, null, false, true, null]],
+        1581 => [
             [['_route' => 'app_deletetypeoffre', '_controller' => 'App\\Controller\\TypeoffreController::deletetypeoffre'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

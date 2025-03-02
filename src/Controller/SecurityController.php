@@ -1,11 +1,19 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Chercheur;
+use App\Entity\Freelancer;
+use App\Entity\Moderateur;
+use App\Entity\User;
+use App\Repository\UserRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
 
 class SecurityController extends AbstractController
 {
@@ -28,12 +36,32 @@ class SecurityController extends AbstractController
         ]); 
         
     }
+    #[Route('/profile', name: 'app_profile')]
+public function profile(Security $security, UserRepository $userRepository): Response
+{
+    // Récupère l'utilisateur connecté
+    $user = $security->getUser();
 
+    // Vérifie si un utilisateur est connecté
+    if (!$user instanceof User) {
+        return $this->redirectToRoute('app_login');  // Redirect to login if the user is not authenticated
+    }
 
-    /**
-     * @Route("/logout", name="app_logout")
-     */
-    public function logout(): void
+    // Vérifie le type d'utilisateur et redirige vers la bonne page de profil
+    if ($user instanceof Chercheur) {
+        return $this->redirectToRoute('app_chercheurprofile');  // Redirect to chercheur profile
+    } elseif ($user instanceof Freelancer) {
+        return $this->redirectToRoute('app_profilefreelancer');  // Redirect to freelancer profile
+    } elseif ($user instanceof Moderateur) {
+        return $this->redirectToRoute('app_profilemoderateur');  // Redirect to moderateur profile
+    }
+
+    // If no match, redirect to login (or handle accordingly)
+    return $this->redirectToRoute('app_login');
+}
+
+#[Route('/logout', name: 'app_logout')]
+public function logout(): void
     {
         throw new \Exception('Logout is handled by Symfony.');
     }

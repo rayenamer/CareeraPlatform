@@ -62,13 +62,22 @@
                     <div class="navbar-nav ms-auto">
                         <a href="{{ path('app_indexhome') }}" class="nav-item nav-link active">Acceuil</a>
                         <a href="{{ path('app_offre') }}" class="nav-item nav-link">Offres d'emploi</a>
-                        <a href="event/event.html" class="nav-item nav-link">Evénements</a>
+                        <a href="{{ path('app_events') }}" class="nav-item nav-link">Evénements</a>
                         <a href="mission/freelance.html" class="nav-item nav-link">Mission freelance</a>
-                        <a href="forum.html" class="nav-item nav-link">Forum</a>
+                        <a href="{{ path('app_forum') }}" class="nav-item nav-link">Forum</a>
                     </div>
-                     <a href="" class="nav-link">
+                    <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user-circle fa-2x"></i>
                     </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ path('app_profile') }}">Profile</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
                 </div>
             </nav>
         </div>

@@ -48,7 +48,7 @@ final class EventModController extends AbstractController
 
 
 
-    #[Route('/events', name: 'evenement_index')]
+    #[Route('/events', name: 'app_events')]
     public function index(EvenementRepository $rep,Security $security): Response
     {
         $user = $this->getAuthUser($security); 
@@ -99,7 +99,7 @@ public function new(Request $request, EntityManagerInterface $entityManager, Sec
         $entityManager->persist($evenement);
         $entityManager->flush();
 
-        return $this->redirectToRoute('evenement_index');
+        return $this->redirectToRoute('app_events');
     }
 
     return $this->render('evenements/ajoutevent.html.twig', [
@@ -119,7 +119,7 @@ public function new(Request $request, EntityManagerInterface $entityManager, Sec
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('evenement_index');
+            return $this->redirectToRoute('app_events');
         }
 
         return $this->render('evenements/editEvent.html.twig', [
@@ -135,7 +135,7 @@ public function new(Request $request, EntityManagerInterface $entityManager, Sec
         $offre = $rep->find($id);
         $em->remove($offre);
         $em->flush();
-        return $this->redirectToRoute('evenement_index');
+        return $this->redirectToRoute('app_events');
     }
 
 
@@ -311,7 +311,7 @@ public function participer(Evenement $event, EntityManagerInterface $em, Securit
 
     $this->addFlash('success', 'Vous participez maintenant à cet événement !');
 
-    return $this->redirectToRoute('evenement_index', [
+    return $this->redirectToRoute('app_events', [
         'id' => $event->getId(),
         'userId' => $user->getId(), // On passe l'ID de l'utilisateur à la vue
     ]);
@@ -328,7 +328,7 @@ public function annuler(Evenement $event, EntityManagerInterface $em, Security $
 
     $this->addFlash('success', 'Vous ne participez plus à cet événement.');
 
-    return $this->redirectToRoute('evenement_index', [
+    return $this->redirectToRoute('app_events', [
         'id' => $event->getId(),
         'userId' => $user->getId(), // On passe l'ID de l'utilisateur à la vue
     ]);

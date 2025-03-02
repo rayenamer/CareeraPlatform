@@ -19,6 +19,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@hotwired/turbo": "^8.0.12"
+        "@hotwired/turbo": "^8.0.12",
+        "admin-lte": "^4.0.0-beta3",
+        "chart.js": "^4.4.8"
     }
 }

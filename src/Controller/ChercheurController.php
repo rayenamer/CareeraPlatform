@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Chercheur;
 use App\Entity\JeuneSeniorDiplome;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Doctrine\ManagerRegistry as DoctrineManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,13 +18,30 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 class ChercheurController extends AbstractController
 { 
     #[Route('/profilechercheur', name: 'app_chercheurprofile')]
-    public function profile(ManagerRegistry $doctrine): Response
-    {
-        $profile = $doctrine->getRepository(Chercheur::class)->findAll();
-        return $this->render('security/profilechercheur.html.twig', [
-            'tabprofile' => $profile,
-        ]);
+public function profile(ManagerRegistry $doctrine, Security $security): Response
+{
+    // Récupère l'utilisateur connecté
+    $user = $security->getUser();
+
+    // Vérifie si un utilisateur est connecté et s'il est un Chercheur
+    if (!$user instanceof Chercheur) {
+        return $this->redirectToRoute('app_login');  // Redirige vers la page de login si l'utilisateur n'est pas un Chercheur
     }
+
+    // Récupère le profil du Chercheur depuis la base de données
+    $profile = $doctrine->getRepository(Chercheur::class)->find($user->getId());
+
+    // Vérifie si le profil existe
+    if (!$profile) {
+        throw $this->createNotFoundException('Profil de Chercheur non trouvé');
+    }
+
+    // Rendu du profil de l'utilisateur Chercheur
+    return $this->render('security/profilechercheur.html.twig', [
+        'tabprofile' => $profile,
+    ]);
+}
+
     #[Route('/chercheur', name: 'app_chercheur')]
     public function index(ManagerRegistry $doctrine, Request $request, SluggerInterface $slugger): Response
     {

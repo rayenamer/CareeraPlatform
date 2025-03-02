@@ -32,10 +32,8 @@ security:
                 enable_csrf: true             # Enable CSRF protection for the login form
 
             logout:
-                path: app_logout             # Route to handle user logout (app_logout must be defined)
-                # Optionally specify a target after logout
-                # target: app_home
-
+                path: /logout
+                target: app_index 
     # Access control rules allow you to restrict access to certain parts of your site
     access_control:
         # Uncomment and customize the rules below as needed
@@ -50,4 +48,4 @@ when@test:
                 algorithm: auto
                 cost: 4         # Lower bcrypt cost for tests
                 time_cost: 3    # Lower Argon2 time cost for tests
-                memory_cost: 10 # Lower Argon2 memory cost for tests
+                memory_cost: 10 

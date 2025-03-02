@@ -5,8 +5,10 @@ namespace App\Controller;
 use App\Entity\Moderateur;
 use App\Entity\Recruteur;
 use App\Entity\ResetPasswordRequest;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,9 +18,13 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ModerateurController extends AbstractController
 { 
     #[Route('/profilemoderateur', name: 'app_profilemoderateur')]
-    public function profile(ManagerRegistry $doctrine): Response
+    public function profile(ManagerRegistry $doctrine,Security $security,UserRepository $userRepository): Response
     {
-        $profile = $doctrine->getRepository(Moderateur::class)->findAll();
+        $user = $security->getUser();
+        if (!$user instanceof Moderateur) {
+            return $this->redirectToRoute('app_login'); 
+        }
+        $profile = $doctrine->getRepository(Moderateur::class)->find($user->getId());
         return $this->render('security/profilemoderateur.html.twig', [
             'tabprofile' => $profile,
         ]);
@@ -82,16 +88,16 @@ public function updatemoderateur($id, ManagerRegistry $doctrine, Request $reques
 
 
         // Gestion du fichier CV
-        $cvFile = $request->files->get('cv');
-        if ($cvFile) {
-            $newFilename = uniqid() . '.' . $cvFile->guessExtension();
-            try {
-                $cvFile->move($this->getParameter('images_directory'), $newFilename);
-                $moderateur->setCv($newFilename);
-            } catch (FileException $e) {
-                $this->addFlash('error', 'Impossible de télécharger le CV.');
-            }
-        }
+        //$cvFile = $request->files->get('cv');
+        //if ($cvFile) {
+          //  $newFilename = uniqid() . '.' . $cvFile->guessExtension();
+           // try {
+             //   $cvFile->move($this->getParameter('images_directory'), $newFilename);
+               // $moderateur->setCv($newFilename);
+           // } catch (FileException $e) {
+            //    $this->addFlash('error', 'Impossible de télécharger le CV.');
+           // }
+       // }
 
         $em->persist($moderateur);
         $em->flush();

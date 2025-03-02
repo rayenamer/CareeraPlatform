@@ -10,13 +10,17 @@ parameters:
   locale: 'fr'
 
 services:
-  # default configuration for services in *this* file
+  # Default configuration for services in *this* file
   _defaults:
     autowire: true # Automatically injects dependencies in your services.
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    public: true 
+  # Automatically register controllers
+  App\Controller\:
+    resource: '../src/Controller'
+    tags: ['controller.service_arguments']
 
-  # makes classes in src/ available to be used as services
-  # this creates a service per class whose id is the fully-qualified class name
+  # Automatically register services except specific directories
   App\:
     resource: "../src/"
     exclude:
@@ -24,16 +28,17 @@ services:
       - "../src/Entity/"
       - "../src/Kernel.php"
 
-  # New services added in HedireZraga branch
+  # Third-party services
   Dompdf\Dompdf: ~
-  App\Entity\Offre:
-    autowire: true
-    autoconfigure: true
-  App\Repository\OffreRepository:
-    autowire: true
-    autoconfigure: true
-  App\Controller\OffremodController:
-    tags: ['controller.service_arguments']
 
-  # add more service definitions when explicit configuration is needed
-  # please note that last definitions always *replace* previous ones
+
+  # Registering specific Entity and Repository services (if necessary)
+  App\Entity\Offre: ~
+  App\Repository\OffreRepository: ~
+
+  # Explicitly registering controllers if needed
+  App\Controller\OffremodController: ~
+ 
+
+  # Symfony HTTP Client
+  # Symfony\Contracts\HttpClient\HttpClientInterface: '@http_client'
