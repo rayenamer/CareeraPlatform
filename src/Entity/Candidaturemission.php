@@ -5,7 +5,7 @@ use App\Entity\Missionfreelencer;
 use App\enum\EtatCandidature;
 use App\Repository\CandidaturemissionRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use App\Entity\Freelancer;
 #[ORM\Entity(repositoryClass: CandidaturemissionRepository::class)]
 class Candidaturemission
 {
@@ -35,6 +35,9 @@ class Candidaturemission
 
     #[ORM\Column(length: 255)]
     private ?string $userid = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $user = null;
 
     public function getId(): ?int
     {
@@ -110,6 +113,18 @@ class Candidaturemission
     public function setUserid(string $userid): static
     {
         $this->userid = $userid;
+
+        return $this;
+    }
+
+    public function getUser(): ?string
+    {
+        return $this->user;
+    }
+
+    public function setUser(string $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

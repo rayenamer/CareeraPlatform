@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\CandidaturemissionRepository;
+use App\Service\Cloudinarymissionfreelencer;
 use Symfony\Bundle\SecurityBundle\Security;
-
 #[Route('/demande/mission')]
 final class DemandeMissionController extends AbstractController
 {
@@ -26,46 +26,68 @@ final class DemandeMissionController extends AbstractController
             'demande_missions' => $demandeMissions,
         ]);
     }
+    #[Route('/demande/{id}', name: 'app_demande_mission_show', methods: ['GET'])]
+public function show(DemandeMission $demandeMission): Response
+{
+    return $this->render('demande_mission/show.html.twig', [
+        'demande_mission' => $demandeMission,
+    ]);
+}
+
+    
+
 
     #[Route('/new', name: 'app_demande_mission_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, Security $security): Response
-    {
-        $user = $security->getUser();
-        if (!$user) {
-            throw $this->createAccessDeniedException("Vous devez être connecté pour créer une demande de mission.");
-        }
-
-        $demandeMission = new DemandeMission();
-        $demandeMission->setUserid($user->getId());
-        
-        $form = $this->createForm(DemandeMissionType::class, $demandeMission);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($demandeMission);
-            $entityManager->flush();
-
-            $offreMission = $demandeMission->getOffreMission();
-
-            $candidature = new Candidaturemission();
-            $candidature->setUserid($user->getId());
-            $candidature->setMission($offreMission);
-            $candidature->setDemande($demandeMission);
-            $candidature->setEtat('En attente');
-
-            $entityManager->persist($candidature);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Votre candidature a été envoyée.');
-
-            return $this->redirectToRoute('app_offrefrelencer_index');
-        }
-
-        return $this->render('demande_mission/new.html.twig', [
-            'demande_mission' => $demandeMission,
-            'form' => $form->createView(),
-        ]);
+public function new(Request $request, EntityManagerInterface $entityManager, Security $security): Response
+{
+    // Check if the user is authenticated
+    if (!$security->isGranted('IS_AUTHENTICATED_FULLY')) {
+        throw $this->createAccessDeniedException('You must be logged in to access this page.');
     }
+
+    $user = $security->getUser();
+    if (!$user) {
+        throw new \RuntimeException('User not found.');
+    }
+
+    $demandeMission = new DemandeMission();
+    $demandeMission->setUserid($user->getId());
+    $form = $this->createForm(DemandeMissionType::class, $demandeMission);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager->persist($demandeMission);
+        $entityManager->flush();
+
+       // Création automatique de la candidature
+$offreMission = $demandeMission->getOffreMission();
+$candidature = new Candidaturemission();
+$candidature->setUserid($user->getId());
+$candidature->setUser($user->getUserIdentifier()); // Ajouté pour éviter l'erreur
+$candidature->setMission($offreMission);
+$candidature->setDemande($demandeMission);
+$candidature->setEtat('En attente');
+
+$entityManager->persist($candidature);
+$entityManager->flush();
+
+        $this->addFlash('success', 'Votre candidature a été envoyée.');
+
+        return $this->redirectToRoute('app_offrefrelencer_index');
+    }
+
+    return $this->render('demande_mission/new.html.twig', [
+        'form' => $form->createView(),
+    ]);
+
+
+
+    return $this->render('demande_mission/new.html.twig', [
+        'demande_mission' => $demandeMission,
+        'form' => $form->createView(),
+    ]);
+}
+
 
     #[Route('/{id}/edit', name: 'app_demande_mission_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, DemandeMission $demandeMission, EntityManagerInterface $entityManager): Response
@@ -92,7 +114,7 @@ final class DemandeMissionController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_demande_mission_index');
+        return $this->redirectToRoute('app_demande_mission_show');
     }
 
     #[Route('/mes-candidatures', name: 'app_mes_candidatures', methods: ['GET'])]

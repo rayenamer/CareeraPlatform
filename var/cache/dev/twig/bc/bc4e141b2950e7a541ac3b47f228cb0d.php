@@ -106,14 +106,27 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
                         <span>Détails de l'offre sélectionnée</span>
                     </div>
                  
-                <div class=\"col-md-4\">
+                    div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image de l'offre\">
-                        <div class=\"down-content\">
+                        ";
+        // line 17
+        if (CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 17, $this->source); })()), "imageUrl", [], "any", false, false, false, 17)) {
+            // line 18
+            yield "                            <img src=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 18, $this->source); })()), "imageUrl", [], "any", false, false, false, 18), "html", null, true);
+            yield "\" alt=\"Image de l'offre\">
+                        ";
+        } else {
+            // line 20
+            yield "                            <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image par défaut\">
+                        ";
+        }
+        // line 22
+        yield "                        <div class=\"down-content\">
                             <h4>ID</h4>
                             <p>";
-        // line 20
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 20, $this->source); })()), "id", [], "any", false, false, false, 20), "html", null, true);
+        // line 24
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 24, $this->source); })()), "id", [], "any", false, false, false, 24), "html", null, true);
         yield "</p>
                         </div>
                     </div>
@@ -124,8 +137,8 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
                         <div class=\"down-content\">
                             <h4>Titre</h4>
                             <p>";
-        // line 29
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 29, $this->source); })()), "titre", [], "any", false, false, false, 29), "html", null, true);
+        // line 33
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 33, $this->source); })()), "titre", [], "any", false, false, false, 33), "html", null, true);
         yield "</p>
                         </div>
                     </div>
@@ -136,8 +149,8 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
                         <div class=\"down-content\">
                             <h4>Prix</h4>
                             <p>";
-        // line 38
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 38, $this->source); })()), "prix", [], "any", false, false, false, 38), "html", null, true);
+        // line 42
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 42, $this->source); })()), "prix", [], "any", false, false, false, 42), "html", null, true);
         yield " dt</p>
                         </div>
                     </div>
@@ -148,8 +161,8 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
                         <div class=\"down-content\">
                             <h4>Description</h4>
                             <p>";
-        // line 47
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 47, $this->source); })()), "description", [], "any", false, false, false, 47), "html", null, true);
+        // line 51
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 51, $this->source); })()), "description", [], "any", false, false, false, 51), "html", null, true);
         yield "</p>
                         </div>
                     </div>
@@ -168,8 +181,8 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
                         <div class=\"down-content\">
                             <h4>Spécialité</h4>
                             <p>";
-        // line 64
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 64, $this->source); })()), "specialite", [], "any", false, false, false, 64), "html", null, true);
+        // line 68
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 68, $this->source); })()), "specialite", [], "any", false, false, false, 68), "html", null, true);
         yield "</p>
                         </div>
                     </div>
@@ -180,15 +193,15 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
 
     <div class=\"text-center\">
         <a href=\"";
-        // line 73
+        // line 77
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
         yield "\" class=\"filled-button\">Retour à la liste</a>
         <a href=\"";
-        // line 74
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 74, $this->source); })()), "id", [], "any", false, false, false, 74)]), "html", null, true);
+        // line 78
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 78, $this->source); })()), "id", [], "any", false, false, false, 78)]), "html", null, true);
         yield "\" class=\"filled-button\">Modifier</a>
         ";
-        // line 75
+        // line 79
         yield Twig\Extension\CoreExtension::include($this->env, $context, "offrefrelencer/_delete_form.html.twig");
         yield "
     </div>
@@ -223,7 +236,7 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  192 => 75,  188 => 74,  184 => 73,  172 => 64,  152 => 47,  140 => 38,  128 => 29,  116 => 20,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  205 => 79,  201 => 78,  197 => 77,  185 => 68,  165 => 51,  153 => 42,  141 => 33,  129 => 24,  125 => 22,  121 => 20,  115 => 18,  113 => 17,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -242,9 +255,13 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
                         <span>Détails de l'offre sélectionnée</span>
                     </div>
                  
-                <div class=\"col-md-4\">
+                    div class=\"col-md-4\">
                     <div class=\"service-item\">
-                        <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image de l'offre\">
+                        {% if offre.imageUrl %}
+                            <img src=\"{{ offre.imageUrl }}\" alt=\"Image de l'offre\">
+                        {% else %}
+                            <img src=\"https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg\" alt=\"Image par défaut\">
+                        {% endif %}
                         <div class=\"down-content\">
                             <h4>ID</h4>
                             <p>{{ offre.id }}</p>
@@ -305,6 +322,6 @@ class __TwigTemplate_c6349b384d3a5074f463b0ff113f814e extends Template
         {{ include('offrefrelencer/_delete_form.html.twig') }}
     </div>
 {% endblock %}
-", "offrefrelencer/show.html.twig", "C:\\careera\\templates\\offrefrelencer\\show.html.twig");
+", "offrefrelencer/show.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offrefrelencer\\show.html.twig");
     }
 }

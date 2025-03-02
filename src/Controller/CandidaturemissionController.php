@@ -13,7 +13,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\DemandeMission;
-
+use App\Service\SmsService;
+use App\Entity\Freelancer;
+use App\Entity\Moderateur;
+use Symfony\Bundle\SecurityBundle\Security;
 
 final class CandidaturemissionController extends AbstractController
 {
@@ -53,17 +56,27 @@ final class CandidaturemissionController extends AbstractController
 
     // src/Controller/CandidatureController.php
 
-#[Route('/candidatures', name: 'app_lister_toutes_candidatures')]
-public function listerToutesCandidatures(EntityManagerInterface $entityManager): Response
-{
-    // Récupérer toutes les candidatures
-    $candidatures = $entityManager->getRepository(Candidaturemission::class)->findAll();
+    #[Route('/candidatures', name: 'app_lister_toutes_candidatures')]
+    public function listerToutesCandidatures(Security $security, EntityManagerInterface $entityManager): Response
+    {
+        $user = $security->getUser();
+        dump($user); // Vérifiez que l'utilisateur est bien récupéré
+        dump($user->getRoles()); // Vérifiez les rôles de l'utilisateur
 
-    return $this->render('candidaturemission/voir_candidatures.html.twig', [
-        'candidatures' => $candidatures,
-    ]);
+        if (!$security->isGranted('ROLE_MODERATEUR')) {
+            // Rediriger l'utilisateur vers une page d'erreur
+            return $this->render('error/access_denied.html.twig');
+        }
 
-}
+        // Récupérer toutes les candidatures
+        $candidatures = $entityManager->getRepository(Candidaturemission::class)->findAll();
+
+        return $this->render('candidaturemission/voir_candidatures.html.twig', [
+            'candidatures' => $candidatures,
+        ]);
+    }
+
+
 #[Route('/candidature/{id}/evaluer', name: 'evaluer_candidature', methods: ['POST'])]
 public function evaluerCandidature(int $id, Request $request, EntityManagerInterface $entityManager): Response
 {
@@ -100,20 +113,41 @@ public function evaluerCandidature(int $id, Request $request, EntityManagerInter
 public function accepterOuRefuserCandidature(
     Candidaturemission $candidature,
     string $action,
-    EntityManagerInterface $em
+    EntityManagerInterface $em,
+    SmsService $smsService
 ): RedirectResponse {
     try {
+        $message = '';
+        $freelancerId = $candidature->getUserid(); // Récupérer l'ID du freelancer stocké dans la candidature
+
+        // Trouver le Freelancer à partir de l'ID
+        $moderateur = $em->getRepository(Moderateur::class)->find($freelancerId);
+
+        if (!$moderateur) {
+            throw new \Exception('Freelancer non trouvé.');
+        }
+
+        $phoneNumber = $moderateur->getTel(); // Assurez-vous que cette méthode existe dans Freelancer
+
         if ($action === 'accepter') {
-            $candidature->accepter(); // Accepte la candidature sans condition
+            $candidature->accepter();
             $this->addFlash('success', 'Candidature acceptée avec succès.');
+            $message = "Votre candidature pour la mission {$candidature->getMission()->getTitre()} a été acceptée.";
         } elseif ($action === 'refuser') {
-            $candidature->refuser(); // Refuse la candidature (vous pouvez aussi supprimer la condition ici si nécessaire)
+            $candidature->refuser();
             $this->addFlash('success', 'Candidature refusée avec succès.');
+            $message = "Votre candidature pour la mission {$candidature->getMission()->getTitre()} a été refusée.";
         } else {
             throw new \InvalidArgumentException('Action non valide.');
         }
 
         $em->flush();
+
+        // Envoi du SMS
+        if (!empty($phoneNumber)) {
+            $smsService->sendSms($phoneNumber, $message);
+        }
+
     } catch (\Exception $e) {
         $this->addFlash('error', $e->getMessage());
     }

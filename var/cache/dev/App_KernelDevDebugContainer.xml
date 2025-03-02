@@ -653,6 +653,11 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Service\SmsService" class="App\Service\SmsService" autowire="true" autoconfigure="true">
+      <argument>%env(TWILIO_ACCOUNT_SID)%</argument>
+      <argument>%env(TWILIO_AUTH_TOKEN)%</argument>
+      <argument>%env(TWILIO_PHONE_NUMBER)%</argument>
+    </service>
     <service id="Dompdf\Dompdf" class="Dompdf\Dompdf" autowire="true" autoconfigure="true"/>
     <service id="App\Entity\Offre" class="App\Entity\Offre" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
@@ -682,7 +687,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.pOYw1yy"/>
+      <argument type="service" id=".service_locator.0rAGMb8"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -2210,6 +2215,11 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id="psr18.http_client" class="Symfony\Component\HttpClient\Psr18Client">
+      <argument type="service" id=".debug.http_client"/>
+      <argument>null</argument>
+      <argument>null</argument>
+    </service>
     <service id="http_client.abstract_retry_strategy" class="Symfony\Component\HttpClient\Retry\GenericRetryStrategy" abstract="true">
       <argument type="abstract">http codes</argument>
       <argument type="abstract">delay ms</argument>
@@ -3670,7 +3680,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.pOYw1yy"/>
+      <argument type="service" id=".service_locator.0rAGMb8"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -8216,11 +8226,19 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.PSeVlgB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.J2r0Nrg" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="candidature" type="service_closure" id=".errored..service_locator.PSeVlgB.App\Entity\Candidaturemission"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="security" type="service_closure" id="security.helper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.CiMjcjM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="candidature" type="service_closure" id=".errored..service_locator.CiMjcjM.App\Entity\Candidaturemission"/>
         <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="smsService" type="service_closure" id="App\Service\SmsService"/>
       </argument>
     </service>
     <service id=".service_locator.xYx9Ad_" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -8267,11 +8285,10 @@
         <argument key="demandeMissionRepository" type="service_closure" id="App\Repository\DemandeMissionRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.e9C_9eg" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.9Piphk6" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-        <argument key="security" type="service_closure" id="security.helper"/>
+        <argument key="demandeMission" type="service_closure" id=".errored..service_locator.9Piphk6.App\Entity\DemandeMission"/>
       </argument>
     </service>
     <service id=".service_locator.yGmjiG4" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -8377,6 +8394,14 @@
       <argument type="collection">
         <argument key="MissionfreelencerRepository" type="service_closure" id="App\Repository\MissionfreelencerRepository"/>
         <argument key="security" type="service_closure" id="security.helper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.37uwtuR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="security" type="service_closure" id="security.helper"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
       </argument>
     </service>
     <service id=".service_locator.WeuR7V2" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -8513,7 +8538,7 @@
         <argument key="rep" type="service_closure" id="App\Repository\TypeOffreRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.pOYw1yy" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.0rAGMb8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BlockedUsersController::blockedUsers" type="service_closure" id=".service_locator.3CdAD2B"/>
@@ -8527,10 +8552,10 @@
         <argument key="App\Controller\CandidatureController::rejectCandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController::showcandidature" type="service_closure" id=".service_locator.I395fV8"/>
         <argument key="App\Controller\CandidatureController::updatecandidature" type="service_closure" id=".service_locator.x18RzZl"/>
-        <argument key="App\Controller\CandidaturemissionController::accepterOuRefuserCandidature" type="service_closure" id=".service_locator.PSeVlgB"/>
+        <argument key="App\Controller\CandidaturemissionController::accepterOuRefuserCandidature" type="service_closure" id=".service_locator.CiMjcjM"/>
         <argument key="App\Controller\CandidaturemissionController::consulterCandidatures" type="service_closure" id=".service_locator.xYx9Ad_"/>
         <argument key="App\Controller\CandidaturemissionController::evaluerCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\CandidaturemissionController::listerToutesCandidatures" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController::listerToutesCandidatures" type="service_closure" id=".service_locator.J2r0Nrg"/>
         <argument key="App\Controller\CandidaturemissionController::postulerAOffre" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\CandidaturemissionController::showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\CandidaturemissionController::voirDemandeDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
@@ -8545,7 +8570,8 @@
         <argument key="App\Controller\DemandeMissionController::delete" type="service_closure" id=".service_locator.yGmjiG4"/>
         <argument key="App\Controller\DemandeMissionController::edit" type="service_closure" id=".service_locator.yGmjiG4"/>
         <argument key="App\Controller\DemandeMissionController::index" type="service_closure" id=".service_locator.bFxUUhQ"/>
-        <argument key="App\Controller\DemandeMissionController::new" type="service_closure" id=".service_locator.e9C_9eg"/>
+        <argument key="App\Controller\DemandeMissionController::new" type="service_closure" id=".service_locator.J2r0Nrg"/>
+        <argument key="App\Controller\DemandeMissionController::show" type="service_closure" id=".service_locator.9Piphk6"/>
         <argument key="App\Controller\ForumController::AddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController::AddLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController::UnAddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
@@ -8575,7 +8601,7 @@
         <argument key="App\Controller\MissionfreelencerController::delete" type="service_closure" id=".service_locator.enkFUQ_"/>
         <argument key="App\Controller\MissionfreelencerController::edit" type="service_closure" id=".service_locator.enkFUQ_"/>
         <argument key="App\Controller\MissionfreelencerController::index" type="service_closure" id=".service_locator.dIV.Y3Z"/>
-        <argument key="App\Controller\MissionfreelencerController::new" type="service_closure" id=".service_locator.e9C_9eg"/>
+        <argument key="App\Controller\MissionfreelencerController::new" type="service_closure" id=".service_locator.37uwtuR"/>
         <argument key="App\Controller\MissionfreelencerController::publierOffre" type="service_closure" id=".service_locator.enkFUQ_"/>
         <argument key="App\Controller\MissionfreelencerController::show" type="service_closure" id=".service_locator.WeuR7V2"/>
         <argument key="App\Controller\MissionfreelencerController::showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
@@ -8626,10 +8652,10 @@
         <argument key="App\Controller\CandidatureController:rejectCandidature" type="service_closure" id=".service_locator.5FQ7ubt"/>
         <argument key="App\Controller\CandidatureController:showcandidature" type="service_closure" id=".service_locator.I395fV8"/>
         <argument key="App\Controller\CandidatureController:updatecandidature" type="service_closure" id=".service_locator.x18RzZl"/>
-        <argument key="App\Controller\CandidaturemissionController:accepterOuRefuserCandidature" type="service_closure" id=".service_locator.PSeVlgB"/>
+        <argument key="App\Controller\CandidaturemissionController:accepterOuRefuserCandidature" type="service_closure" id=".service_locator.CiMjcjM"/>
         <argument key="App\Controller\CandidaturemissionController:consulterCandidatures" type="service_closure" id=".service_locator.xYx9Ad_"/>
         <argument key="App\Controller\CandidaturemissionController:evaluerCandidature" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\CandidaturemissionController:listerToutesCandidatures" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CandidaturemissionController:listerToutesCandidatures" type="service_closure" id=".service_locator.J2r0Nrg"/>
         <argument key="App\Controller\CandidaturemissionController:postulerAOffre" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\CandidaturemissionController:showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\CandidaturemissionController:voirDemandeDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
@@ -8644,7 +8670,8 @@
         <argument key="App\Controller\DemandeMissionController:delete" type="service_closure" id=".service_locator.yGmjiG4"/>
         <argument key="App\Controller\DemandeMissionController:edit" type="service_closure" id=".service_locator.yGmjiG4"/>
         <argument key="App\Controller\DemandeMissionController:index" type="service_closure" id=".service_locator.bFxUUhQ"/>
-        <argument key="App\Controller\DemandeMissionController:new" type="service_closure" id=".service_locator.e9C_9eg"/>
+        <argument key="App\Controller\DemandeMissionController:new" type="service_closure" id=".service_locator.J2r0Nrg"/>
+        <argument key="App\Controller\DemandeMissionController:show" type="service_closure" id=".service_locator.9Piphk6"/>
         <argument key="App\Controller\ForumController:AddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController:AddLike" type="service_closure" id=".service_locator.xW26Ner"/>
         <argument key="App\Controller\ForumController:UnAddDisLike" type="service_closure" id=".service_locator.xW26Ner"/>
@@ -8674,7 +8701,7 @@
         <argument key="App\Controller\MissionfreelencerController:delete" type="service_closure" id=".service_locator.enkFUQ_"/>
         <argument key="App\Controller\MissionfreelencerController:edit" type="service_closure" id=".service_locator.enkFUQ_"/>
         <argument key="App\Controller\MissionfreelencerController:index" type="service_closure" id=".service_locator.dIV.Y3Z"/>
-        <argument key="App\Controller\MissionfreelencerController:new" type="service_closure" id=".service_locator.e9C_9eg"/>
+        <argument key="App\Controller\MissionfreelencerController:new" type="service_closure" id=".service_locator.37uwtuR"/>
         <argument key="App\Controller\MissionfreelencerController:publierOffre" type="service_closure" id=".service_locator.enkFUQ_"/>
         <argument key="App\Controller\MissionfreelencerController:show" type="service_closure" id=".service_locator.WeuR7V2"/>
         <argument key="App\Controller\MissionfreelencerController:showOfferDetails" type="service_closure" id=".service_locator.CsMkqUa"/>
@@ -9914,8 +9941,11 @@
     <service id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.y4_Zrx.&quot;: it needs an instance of &quot;Symfony\Component\Config\Loader\LoaderInterface&quot; but this type has been excluded from autowiring."/>
     </service>
-    <service id=".errored..service_locator.PSeVlgB.App\Entity\Candidaturemission" class="App\Entity\Candidaturemission">
-      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.PSeVlgB&quot;: it needs an instance of &quot;App\Entity\Candidaturemission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    <service id=".errored..service_locator.CiMjcjM.App\Entity\Candidaturemission" class="App\Entity\Candidaturemission">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.CiMjcjM&quot;: it needs an instance of &quot;App\Entity\Candidaturemission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.9Piphk6.App\Entity\DemandeMission" class="App\Entity\DemandeMission">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.9Piphk6&quot;: it needs an instance of &quot;App\Entity\DemandeMission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".errored..service_locator.yGmjiG4.App\Entity\DemandeMission" class="App\Entity\DemandeMission">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.yGmjiG4&quot;: it needs an instance of &quot;App\Entity\DemandeMission&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
@@ -10990,6 +11020,7 @@
     <service id="asset_mapper.http_client" alias=".debug.http_client"/>
     <service id="Symfony\Component\AssetMapper\ImportMap\ImportMapManager" alias="asset_mapper.importmap.manager"/>
     <service id="Symfony\Contracts\HttpClient\HttpClientInterface" alias=".debug.http_client"/>
+    <service id="Psr\Http\Client\ClientInterface" alias="psr18.http_client"/>
     <service id="mailer" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\MailerInterface" alias="mailer.mailer"/>
     <service id="mailer.default_transport" alias="mailer.transports"/>
@@ -11124,7 +11155,7 @@
     <service id="SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface" alias="symfonycasts.reset_password.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.w7.f4fT" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.pOYw1yy"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.0rAGMb8"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -11149,6 +11180,7 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~rWEvN4b"/>
     <service id=".service_locator.bJ.4HC5" alias=".service_locator.w7.f4fT"/>
+    <service id=".service_locator.e9C_9eg" alias=".service_locator.J2r0Nrg"/>
     <service id=".service_locator.CElJlu_" alias=".service_locator.kT4GQRH"/>
     <service id=".service_locator.ENs9muz" alias=".service_locator.cIsJMT5"/>
     <service id=".service_locator.a_sRj94" alias=".service_locator.dD6jg49"/>
@@ -11161,7 +11193,7 @@
     <service id=".service_locator.URbPMvW" alias=".service_locator.SYR8TMY"/>
     <service id=".service_locator.T56SSFL" alias=".service_locator.uLMoH09"/>
     <service id=".service_locator.qrNhk2c" alias=".service_locator.ESgEUJd"/>
-    <service id=".service_locator.OUHu6m0" alias=".service_locator.pOYw1yy"/>
+    <service id=".service_locator.9JbVOf6" alias=".service_locator.0rAGMb8"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
     <service id=".service_locator.hNgGRO9" alias=".service_locator.uhBBdTM"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
@@ -11194,7 +11226,8 @@
     <service id=".service_locator.GObR.ZS" alias=".service_locator.5FQ7ubt"/>
     <service id=".service_locator.RlV8BPL" alias=".service_locator.ZXaK3cG"/>
     <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
-    <service id=".service_locator.qnRrxAz" alias=".service_locator.PSeVlgB"/>
+    <service id=".service_locator.ZbiNKp0" alias=".service_locator.J2r0Nrg"/>
+    <service id=".service_locator.4CwhCFS" alias=".service_locator.CiMjcjM"/>
     <service id=".service_locator.N9S6VJa" alias=".service_locator.xYx9Ad_"/>
     <service id=".service_locator.w3YHrKK" alias=".service_locator.aKZl18R"/>
     <service id=".service_locator.eQ296SW" alias=".service_locator.o6sN0hZ"/>
@@ -11202,7 +11235,7 @@
     <service id=".service_locator.yArDdtI" alias=".service_locator.ATt7aga"/>
     <service id=".service_locator.j3CwlUb" alias=".service_locator.kT4GQRH"/>
     <service id=".service_locator.uyu.nWK" alias=".service_locator.bFxUUhQ"/>
-    <service id=".service_locator.ZbiNKp0" alias=".service_locator.e9C_9eg"/>
+    <service id=".service_locator.TArSDF8" alias=".service_locator.9Piphk6"/>
     <service id=".service_locator.jpjnWpZ" alias=".service_locator.yGmjiG4"/>
     <service id=".service_locator.FjFAT1D" alias=".service_locator.tXV7NcT"/>
     <service id=".service_locator.2NTQ.42" alias=".service_locator.aPy9iWU"/>
@@ -11215,6 +11248,7 @@
     <service id=".service_locator.cz.uGBB" alias=".service_locator.W3HTCIy"/>
     <service id=".service_locator.LPLKQes" alias=".service_locator.tm54W.H"/>
     <service id=".service_locator.a6pPYa." alias=".service_locator.dIV.Y3Z"/>
+    <service id=".service_locator.K27L_.1" alias=".service_locator.37uwtuR"/>
     <service id=".service_locator.4TUkK3V" alias=".service_locator.WeuR7V2"/>
     <service id=".service_locator.X5yrVD5" alias=".service_locator.enkFUQ_"/>
     <service id=".service_locator.yOH.fcX" alias=".service_locator.amcQmha"/>

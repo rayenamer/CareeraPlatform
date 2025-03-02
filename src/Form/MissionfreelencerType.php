@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 class MissionfreelencerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -47,8 +47,20 @@ class MissionfreelencerType extends AbstractType
                 'attr' => [
                     'class' => 'form-control', // Add a class for styling
                 ]
+            ])
+            
+            // Ajoutez d'autres champs ici
+           
+         ->add('image', FileType::class, [
+                'label' => 'Image',
+                'mapped' => false,  // Important si tu ne veux pas lier le champ au modèle
+                'required' => false,
+                'attr' => ['accept' => 'image/*'],
             ]);
+            
     }
+
+    
 
     public function configureOptions(OptionsResolver $resolver)
     {

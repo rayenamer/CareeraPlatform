@@ -139,39 +139,24 @@ class __TwigTemplate_566da55d53ec2dcdc78ccc88657486c5 extends Template
             yield "</td>
                 
 
-         <td>
-    ";
-            // line 31
-            if (CoreExtension::getAttribute($this->env, $this->source, $context["demande_mission"], "evaluation", [], "any", false, false, false, 31)) {
-                // line 32
-                yield "        ";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["demande_mission"], "evaluation", [], "any", false, false, false, 32), "note", [], "any", false, false, false, 32), "html", null, true);
-                yield "
-    ";
-            } else {
-                // line 34
-                yield "        Pas d'évaluation
-    ";
-            }
-            // line 36
-            yield "</td>
+       
                 <td>
                     <a href=\"";
-            // line 38
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["demande_mission"], "id", [], "any", false, false, false, 38)]), "html", null, true);
+            // line 32
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["demande_mission"], "id", [], "any", false, false, false, 32)]), "html", null, true);
             yield "\">show</a>
                     <a href=\"";
-            // line 39
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["demande_mission"], "id", [], "any", false, false, false, 39)]), "html", null, true);
+            // line 33
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["demande_mission"], "id", [], "any", false, false, false, 33)]), "html", null, true);
             yield "\">edit</a>
                 </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
-        // line 42
+        // line 36
         if (!$context['_iterated']) {
-            // line 43
+            // line 37
             yield "            <tr>
                 <td colspan=\"5\">aucune demande trouvé </td>
             </tr>
@@ -180,12 +165,12 @@ class __TwigTemplate_566da55d53ec2dcdc78ccc88657486c5 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['demande_mission'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 47
+        // line 41
         yield "        </tbody>
     </table>
 
     <a href=\"";
-        // line 50
+        // line 44
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_new");
         yield "\">ajouter un nouveau </a>
 ";
@@ -219,7 +204,7 @@ class __TwigTemplate_566da55d53ec2dcdc78ccc88657486c5 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  189 => 50,  184 => 47,  175 => 43,  173 => 42,  165 => 39,  161 => 38,  157 => 36,  153 => 34,  147 => 32,  145 => 31,  138 => 27,  134 => 26,  130 => 25,  126 => 24,  123 => 23,  118 => 22,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  174 => 44,  169 => 41,  160 => 37,  158 => 36,  150 => 33,  146 => 32,  138 => 27,  134 => 26,  130 => 25,  126 => 24,  123 => 23,  118 => 22,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -253,13 +238,7 @@ class __TwigTemplate_566da55d53ec2dcdc78ccc88657486c5 extends Template
                 <td>{{ demande_mission.status }}</td>
                 
 
-         <td>
-    {% if demande_mission.evaluation %}
-        {{ demande_mission.evaluation.note }}
-    {% else %}
-        Pas d'évaluation
-    {% endif %}
-</td>
+       
                 <td>
                     <a href=\"{{ path('app_demande_mission_show', {'id': demande_mission.id}) }}\">show</a>
                     <a href=\"{{ path('app_demande_mission_edit', {'id': demande_mission.id}) }}\">edit</a>
@@ -275,6 +254,6 @@ class __TwigTemplate_566da55d53ec2dcdc78ccc88657486c5 extends Template
 
     <a href=\"{{ path('app_demande_mission_new') }}\">ajouter un nouveau </a>
 {% endblock %}
-", "demande_mission/index.html.twig", "C:\\careera\\templates\\demande_mission\\index.html.twig");
+", "demande_mission/index.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\demande_mission\\index.html.twig");
     }
 }

@@ -44,7 +44,7 @@ class Missionfreelencer
     /**
      * @var Collection<int, Candidaturemission>
      */
-    #[ORM\OneToMany(targetEntity: Candidaturemission::class, mappedBy: 'mission')]
+    #[ORM\OneToMany(targetEntity: Candidaturemission::class, mappedBy: 'mission', cascade: ['remove'], orphanRemoval: true)]
     private Collection $candidaturemissions;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
@@ -55,7 +55,8 @@ class Missionfreelencer
 
     
 
-    
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageUrl = null;
 
   
 
@@ -217,7 +218,17 @@ class Missionfreelencer
     }
 
    
-    
+    public function getImageUrl(): ?string
+{
+    return $this->imageUrl;
+}
 
+public function setImageUrl(?string $imageUrl): self
+{
+    $this->imageUrl = $imageUrl;
+
+    return $this;
+}
+    
     
 }

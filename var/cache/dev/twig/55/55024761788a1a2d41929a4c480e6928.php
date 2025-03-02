@@ -379,6 +379,6 @@ class __TwigTemplate_b14897a8e5debbd56364dcc0539d37e0 extends Template
         </div>
     </div>
 {% endblock %}
-", "candidaturemission/voir_candidatures.html.twig", "C:\\careera\\templates\\candidaturemission\\voir_candidatures.html.twig");
+", "candidaturemission/voir_candidatures.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\candidaturemission\\voir_candidatures.html.twig");
     }
 }

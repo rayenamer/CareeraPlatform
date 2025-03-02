@@ -117,7 +117,7 @@ class DemandeMission
         return $this->userid;
     }
 
-    public function setUserid(string $userid): static
+    public function setUserid(string $userid): self
     {
         $this->userid = $userid;
 

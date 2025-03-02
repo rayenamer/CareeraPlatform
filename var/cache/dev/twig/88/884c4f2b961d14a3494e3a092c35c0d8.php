@@ -360,6 +360,6 @@ class __TwigTemplate_b862bdbd8516bc4280adeac9696697ed extends Template
     </div>
 
     <a class=\"back-link\" href=\"{{ path('app_offrefrelencer_index') }}\">Retourner à la liste</a>
-{% endblock %}", "offrefrelencer/new.html.twig", "C:\\careera\\templates\\offrefrelencer\\new.html.twig");
+{% endblock %}", "offrefrelencer/new.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offrefrelencer\\new.html.twig");
     }
 }

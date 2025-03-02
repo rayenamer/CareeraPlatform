@@ -67,10 +67,15 @@ class __TwigTemplate_70a0c362a81cd82be9a1015a6339474a extends Template
         // line 6
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 6, $this->source); })()), "specialite", [], "any", false, false, false, 6), 'row');
         yield "
+     ";
+        // line 7
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 7, $this->source); })()), "imageUrl", [], "any", false, false, false, 7), 'row');
+        yield "
+
     <button type=\"submit\">Enregistrer</button>
 ";
-        // line 8
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), 'form_end');
+        // line 10
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form_end');
         yield "
 
 
@@ -105,7 +110,7 @@ class __TwigTemplate_70a0c362a81cd82be9a1015a6339474a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  73 => 8,  68 => 6,  64 => 5,  60 => 4,  56 => 3,  52 => 2,  48 => 1,);
+        return array (  78 => 10,  72 => 7,  68 => 6,  64 => 5,  60 => 4,  56 => 3,  52 => 2,  48 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -116,10 +121,12 @@ class __TwigTemplate_70a0c362a81cd82be9a1015a6339474a extends Template
     {{ form_row(form.description) }}
     {{ form_row(form.datelimite) }}
     {{ form_row(form.specialite) }}
+     {{ form_row(form.imageUrl) }}
+
     <button type=\"submit\">Enregistrer</button>
 {{ form_end(form) }}
 
 
-", "offrefrelencer/_form.html.twig", "C:\\careera\\templates\\offrefrelencer\\_form.html.twig");
+", "offrefrelencer/_form.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offrefrelencer\\_form.html.twig");
     }
 }

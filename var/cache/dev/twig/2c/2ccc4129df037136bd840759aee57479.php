@@ -47,10 +47,11 @@ class __TwigTemplate_f7e6ad311f4584a47e7a53d53e1a5954 extends Template
         // line 1
         yield "<form method=\"post\" action=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_demande_mission_delete", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["demande_mission"]) || array_key_exists("demande_mission", $context) ? $context["demande_mission"] : (function () { throw new RuntimeError('Variable "demande_mission" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
-        yield "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        yield "
+\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"";
-        // line 2
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["demande_mission"]) || array_key_exists("demande_mission", $context) ? $context["demande_mission"] : (function () { throw new RuntimeError('Variable "demande_mission" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
+        // line 3
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["demande_mission"]) || array_key_exists("demande_mission", $context) ? $context["demande_mission"] : (function () { throw new RuntimeError('Variable "demande_mission" does not exist.', 3, $this->source); })()), "id", [], "any", false, false, false, 3))), "html", null, true);
         yield "\">
     <button class=\"btn\">Delete</button>
 </form>
@@ -85,15 +86,16 @@ class __TwigTemplate_f7e6ad311f4584a47e7a53d53e1a5954 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  53 => 2,  48 => 1,);
+        return array (  54 => 3,  48 => 1,);
     }
 
     public function getSourceContext(): Source
     {
-        return new Source("<form method=\"post\" action=\"{{ path('app_demande_mission_delete', {'id': demande_mission.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('app_demande_mission_delete', {'id': demande_mission.id}) }}
+\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ demande_mission.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "demande_mission/_delete_form.html.twig", "C:\\careera\\templates\\demande_mission\\_delete_form.html.twig");
+", "demande_mission/_delete_form.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\demande_mission\\_delete_form.html.twig");
     }
 }

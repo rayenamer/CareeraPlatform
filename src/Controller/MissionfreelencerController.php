@@ -14,7 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\SecurityBundle\Security;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\String\Slugger\SluggerInterface;
 #[Route('/offrefrelencer')]
 final class MissionfreelencerController extends AbstractController
 {
@@ -31,29 +32,61 @@ final class MissionfreelencerController extends AbstractController
     }
 
     #[Route('/new', name: 'app_offrefrelencer_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, Security $security): Response
-    {
-        $user = $security->getUser();
-        $isModerateur = $user && in_array('ROLE_MODERATEUR', $user->getRoles());
+public function new(Request $request, EntityManagerInterface $entityManager, Security $security, SluggerInterface $slugger): Response
+{
+    // Vérifier si l'utilisateur est authentifié
+    $user = $security->getUser();
+    if (!$user) {
+        // Si l'utilisateur n'est pas authentifié, vous pouvez rediriger vers la page de connexion
+        return $this->redirectToRoute('app_login');
+    }
 
-        $offre = new Missionfreelencer();
-        $offre->setUserId($user->getUserIdentifier());
+    dump($user); // Vérifiez que l'utilisateur est bien récupéré
 
-        $form = $this->createForm(MissionfreelencerType::class, $offre);
-        $form->handleRequest($request);
+    $offre = new Missionfreelencer();
+    $offre->setUserId($user->getUserIdentifier());
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($offre);
-            $entityManager->flush();
+    $form = $this->createForm(MissionfreelencerType::class, $offre);
+    $form->handleRequest($request);
 
-            return $this->redirectToRoute('app_offrefrelencer_index');
+    if ($form->isSubmitted() && $form->isValid()) {
+        /** @var UploadedFile $imageFile */
+        $imageFile = $form->get('image')->getData();
+
+        if ($imageFile) {
+            // Générer un nom de fichier unique
+            $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($originalFilename);
+            $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+            // Déplacer le fichier dans le répertoire de stockage
+            try {
+                $imageFile->move(
+                    $this->getParameter('images_directory'), // Définir ce paramètre dans services.yaml
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                // Gérer l'exception si le fichier ne peut pas être déplacé
+                $this->addFlash('error', 'Une erreur s\'est produite lors de l\'upload de l\'image.');
+                return $this->redirectToRoute('app_offrefrelencer_new');
+            }
+
+            // Enregistrer le chemin de l'image dans l'entité
+            $offre->setImageUrl($newFilename);
         }
 
-        return $this->render('offrefrelencer/new.html.twig', [
-            'form' => $form->createView(),
-            'isModerateur' => $isModerateur,
-        ]);
+        $entityManager->persist($offre);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'L\'offre a été créée avec succès.');
+        return $this->redirectToRoute('app_offrefrelencer_index');
     }
+
+    return $this->render('offrefrelencer/new.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
+
 
     #[Route('/{id}', name: 'app_offrefrelencer_show', methods: ['GET'])]
     public function show(Missionfreelencer $offre): Response

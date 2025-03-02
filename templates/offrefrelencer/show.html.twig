@@ -12,9 +12,13 @@
                         <span>Détails de l'offre sélectionnée</span>
                     </div>
                  
-                <div class="col-md-4">
+                    div class="col-md-4">
                     <div class="service-item">
-                        <img src="https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg" alt="Image de l'offre">
+                        {% if offre.imageUrl %}
+                            <img src="{{ offre.imageUrl }}" alt="Image de l'offre">
+                        {% else %}
+                            <img src="https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg" alt="Image par défaut">
+                        {% endif %}
                         <div class="down-content">
                             <h4>ID</h4>
                             <p>{{ offre.id }}</p>

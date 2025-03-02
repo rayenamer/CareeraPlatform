@@ -94,6 +94,6 @@ class __TwigTemplate_263c49f6d342551bd3baf65c4151b2d9 extends Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ offre.id) }}\">
     <button class=\"btn\">supprimer</button>
 </form>
-", "offrefrelencer/_delete_form.html.twig", "C:\\careera\\templates\\offrefrelencer\\_delete_form.html.twig");
+", "offrefrelencer/_delete_form.html.twig", "C:\\Users\\wiem\\Desktop\\CareeraPlatform\\templates\\offrefrelencer\\_delete_form.html.twig");
     }
 }

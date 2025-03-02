@@ -4,18 +4,49 @@
 
 {% block body %}
     <style>
+        .services {
+            padding: 50px 0;
+        }
+
         .service-item {
-            background-color: #f0f0f0;
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .service-item img {
-            max-width: 100%;
+            width: 100%;
+            height: 200px; /* Hauteur fixe pour toutes les images */
+            object-fit: cover; /* Pour que l'image couvre toute la zone sans déformation */
             border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .service-item h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .service-item p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
         }
 
         .filled-button {
@@ -24,8 +55,7 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            display: inline-block;
-            margin-top: 10px;
+            transition: background-color 0.3s ease;
         }
 
         .filled-button:hover {
@@ -54,6 +84,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .search-button:hover {
@@ -64,6 +95,16 @@
             text-align: center;
             font-size: 1.2em;
             color: #888;
+            margin-top: 20px;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .text-center .filled-button {
+            margin: 0 10px;
         }
     </style>
 
@@ -88,17 +129,21 @@
                 {% for offre in offres %}
                     <div class="col-md-4">
                         <div class="service-item">
-                            <img src="https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg" alt="Image de l'offre freelance">
-                            <div class="down-content">
-                                <h4>{{ offre.titre }}</h4>
-                                <p><strong>Prix :</strong> {{ offre.prix }} dt</p>
-                                <p><strong>Description :</strong> {{ offre.description }}</p>
-                                <p><strong>Date :</strong> {{ offre.Date|date('d/m/Y H:i') }}</p>
-                                <div class="actions">
-                                    <a href="{{ path('app_offrefrelencer_show', {'id': offre.id}) }}" class="filled-button">Voir plus</a>
-                                    <a href="{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}" class="filled-button">Modifier</a>
-                                    <a href="{{ path('app_demande_mission_new') }}" class="filled-button">Postuler</a>
+                            {% if offre.imageUrl %}
+                                <img src="{{ asset('uploads/images/' ~ offre.imageUrl) }}" alt="Image de l'offre" class="img-fluid">
+                            {% else %}
+                                <div class="no-image" style="height: 200px; background-color: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                    <p>Aucune image disponible</p>
                                 </div>
+                            {% endif %}
+                            <h4>{{ offre.titre }}</h4>
+                            <p><strong>Prix :</strong> {{ offre.prix }} dt</p>
+                            <p><strong>Description :</strong> {{ offre.description }}</p>
+                            <p><strong>Date :</strong> {{ offre.Date|date('d/m/Y H:i') }}</p>
+                            <div class="actions">
+                                <a href="{{ path('app_offrefrelencer_show', {'id': offre.id}) }}" class="filled-button">Voir plus</a>
+                                <a href="{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}" class="filled-button">Modifier</a>
+                                <a href="{{ path('app_demande_mission_new') }}" class="filled-button">Postuler</a>
                             </div>
                         </div>
                     </div>
@@ -112,15 +157,12 @@
     </div>
 
     <div class="text-center">
-          {% if is_granted('ROLE_MODERATOR') %}
-         <a href="{{ path('app_offrefrelencer_new') }}" class="filled-button">Créer une nouvelle offre</a>
-             <a href="{{ path('app_lister_toutes_candidatures') }}" class="filled-button">Consulter les candidatures</a>
-          
-        {% endif %}
+        <a href="{{ path('app_offrefrelencer_new') }}" class="filled-button">Créer une nouvelle offre</a>
+        <a href="{{ path('app_lister_toutes_candidatures') }}" class="filled-button">Consulter les candidatures</a>
     </div>
 
     <div class="text-center">
         <a href="{{ path('app_mes_candidatures') }}" class="filled-button">Consulter ma candidature</a>
+        <a href="{{ path('app_demande_mission_index') }}" class="filled-button">Supprimer demande</a>
     </div>
-
 {% endblock %}
