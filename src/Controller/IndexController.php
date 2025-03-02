@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class IndexController extends AbstractController
 {
+    //page apres login
     #[Route('/index', name: 'app_index')]
     public function index(): Response
     {
@@ -15,7 +16,7 @@ final class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
-    
+    //page chercheur ou freelancer
     #[Route('/indexhome', name: 'app_indexhome')]
     public function indexhome(): Response
     {

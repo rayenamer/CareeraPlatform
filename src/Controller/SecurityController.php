@@ -17,9 +17,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    /**
- * @Route("/login", name="app_login")
- */
+    
 #[Route('/login', name: 'app_login', methods: ['GET', 'POST'])]
 public function login(AuthenticationUtils $authenticationUtils, Security $security): Response
 {
@@ -47,7 +45,24 @@ public function login(AuthenticationUtils $authenticationUtils, Security $securi
         'error' => $error,  // Authentication error message if any
     ]);
 }
+#[Route('/login/redirect', name: 'app_login_redirect')]
+public function redirectAfterLogin(Security $security): Response
+{
+    // Check if the user is authenticated
+    if ($security->isGranted('IS_AUTHENTICATED_FULLY')) {
+        $user = $security->getUser();
 
+        // Redirect based on the user's role
+        if ($user instanceof Moderateur) {
+            return $this->redirectToRoute('app_home');  // Redirect to 'app_home' if the user is a Moderateur
+        } elseif ($user instanceof Chercheur || $user instanceof Freelancer) {
+            return $this->redirectToRoute('app_indexhome');  // Redirect to 'app_indexhome' if the user is a Chercheur or Freelancer
+        }
+    }
+
+    // Default redirect if no role matches
+    return $this->redirectToRoute('app_index');
+}
     #[Route('/profile', name: 'app_profile')]
 public function profile(Security $security, UserRepository $userRepository): Response
 {

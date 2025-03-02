@@ -8,6 +8,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity]
 class Chercheur extends User
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setRoles(['ROLE_CHERCHEUR']); // Assign the role ROLE_CHERCHEUR
+    }
+    
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: "La photo est obligatoire.")]
     private string $photo;
