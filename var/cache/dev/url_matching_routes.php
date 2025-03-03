@@ -30,7 +30,8 @@ return [
         '/rejetes' => [[['_route' => 'app_rejetees', '_controller' => 'App\\Controller\\CandidatureController::Rejetees'], null, null, null, false, false, null]],
         '/candidature' => [[['_route' => 'app_candidature', '_controller' => 'App\\Controller\\CandidaturemissionController::index'], null, null, null, false, false, null]],
         '/candidatures' => [[['_route' => 'app_lister_toutes_candidatures', '_controller' => 'App\\Controller\\CandidaturemissionController::listerToutesCandidatures'], null, null, null, false, false, null]],
-        '/chatbot' => [[['_route' => 'chatbot', '_controller' => 'App\\Controller\\ChatbotController::chatbot'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/chatbot' => [[['_route' => 'chatbot_page', '_controller' => 'App\\Controller\\ChatbotController::chatbotPage'], null, ['GET' => 0], null, false, false, null]],
+        '/chatbot/api' => [[['_route' => 'chatbot_api', '_controller' => 'App\\Controller\\ChatbotController::api'], null, ['POST' => 0], null, false, false, null]],
         '/recherche-offre-mission' => [[['_route' => 'app_recherche_offre_mission', '_controller' => 'App\\Controller\\CherchermissionController::recherche'], null, null, null, false, false, null]],
         '/profilechercheur' => [[['_route' => 'app_chercheurprofile', '_controller' => 'App\\Controller\\ChercheurController::profile'], null, null, null, false, false, null]],
         '/chercheur' => [[['_route' => 'app_chercheur', '_controller' => 'App\\Controller\\ChercheurController::index'], null, null, null, false, false, null]],
@@ -75,6 +76,7 @@ return [
         '/showtypeoffre' => [[['_route' => 'app_showtypeoffre', '_controller' => 'App\\Controller\\TypeoffreController::showtypeoffre'], null, null, null, false, false, null]],
         '/addtypeoffre' => [[['_route' => 'app_addtypeoffre', '_controller' => 'App\\Controller\\TypeoffreController::addtypeoffre'], null, null, null, false, false, null]],
         '/user/data' => [[['_route' => 'user_data', '_controller' => 'App\\Controller\\UserDataController::getUserData'], null, ['GET' => 0], null, false, false, null]],
+        '/profile/chercheur' => [[['_route' => 'app_profilechercheur', '_controller' => 'App\\Controller\\ChercheurController::profile'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -6,38 +6,39 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Psr\Log\LoggerInterface;
 
 class ChatbotController extends AbstractController
 {
-    #[Route("/chatbot", name: "chatbot", methods: ["GET", "POST"])]
-    public function chatbot(Request $request)
+    #[Route('/chatbot', name: 'chatbot_page', methods: ['GET'])]
+    public function chatbotPage(): Response
     {
-        // If it's a POST request (for chat interaction)
-        if ($request->isMethod('POST')) {
-            // Get the user question from the POST request data (JSON body)
-            $data = json_decode($request->getContent(), true);  // Decode JSON payload
-            $question = $data['question'] ?? '';  // Safely access the 'question' key
-
-            // Call the Python script to get the response
-            $output = $this->getChatbotResponse($question);
-
-            // Return the chatbot's response as a JSON response
-            return new JsonResponse(['answer' => $output]);
-        }
-
-        // If it's a GET request, render the chatbot page
         return $this->render('chatbot/index.html.twig');
     }
 
-    private function getChatbotResponse($question)
+    #[Route('/chatbot/api', name: 'chatbot_api', methods: ['POST'])]
+    public function api(Request $request)
     {
-        // Define the Python script path and the command to execute
-        $pythonScript = '/python/chatbot.py';  // Make sure the path is correct
-        $command = escapeshellcmd("python3 $pythonScript \"$question\"");
-        
-        // Execute the command and get the result
-        $output = shell_exec($command);
-        
-        return $output;
+        $data = json_decode($request->getContent(), true);
+        $userInput = $data['question'] ?? '';
+
+        // Process the input to generate the response
+        $response = $this->chatbotResponse($userInput);
+
+        return new JsonResponse(['answer' => $response]);
+    }
+
+    private function chatbotResponse(string $userInput): string
+    {
+        $userInput = strtolower($userInput); // Convert input to lowercase for case-insensitive comparison
+
+        if (strpos($userInput, 'hi') !== false) {
+            return 'Hello, how can I help you?';
+        } elseif (strpos($userInput, 'i want u to help me') !== false) {
+            return 'Just give me your question.';
+        } else {
+            return 'Sorry, I didn\'t understand that. Can you ask something else?';
+        }
     }
 }

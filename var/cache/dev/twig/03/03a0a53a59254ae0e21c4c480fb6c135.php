@@ -155,163 +155,7 @@ class __TwigTemplate_1bd9a22cd13dac4bc36ec8fd0de0bf60 extends Template
     </div>
 
     <!-- Tables below the charts -->
-    <div class=\"mt-5\">
-        <div class=\"row\">
-            <!-- Liste des offres -->
-            <div class=\"col-md-4 mb-4\">
-                <h3 class=\"text-center\">Liste des Offres</h3>
-                <table class=\"table table-striped shadow-sm rounded\">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Poste</th>
-                            <th>Entreprise</th>
-                            <th>Localisation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ";
-        // line 51
-        $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["offre_count"]) || array_key_exists("offre_count", $context) ? $context["offre_count"] : (function () { throw new RuntimeError('Variable "offre_count" does not exist.', 51, $this->source); })()));
-        $context['loop'] = [
-          'parent' => $context['_parent'],
-          'index0' => 0,
-          'index'  => 1,
-          'first'  => true,
-        ];
-        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
-            $length = count($context['_seq']);
-            $context['loop']['revindex0'] = $length - 1;
-            $context['loop']['revindex'] = $length;
-            $context['loop']['length'] = $length;
-            $context['loop']['last'] = 1 === $length;
-        }
-        foreach ($context['_seq'] as $context["_key"] => $context["offre"]) {
-            // line 52
-            yield "                            <tr>
-                                <td>";
-            // line 53
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 53), "html", null, true);
-            yield "</td>
-                                <td>";
-            // line 54
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "nomposte", [], "any", false, false, false, 54), "html", null, true);
-            yield "</td>
-                                <td>";
-            // line 55
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "entreprise", [], "any", false, false, false, 55), "html", null, true);
-            yield "</td>
-                                <td>";
-            // line 56
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["offre"], "localisation", [], "any", false, false, false, 56), "html", null, true);
-            yield "</td>
-                            </tr>
-                        ";
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
-            $context['loop']['first'] = false;
-            if (isset($context['loop']['revindex0'], $context['loop']['revindex'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
-                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
-            }
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_key'], $context['offre'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 59
-        yield "                    </tbody>
-                </table>
-            </div>
-
-            <!-- Liste des Evenements -->
-            <div class=\"col-md-4 mb-4\">
-                <h3 class=\"text-center\">Liste des Evenements</h3>
-                <table class=\"table table-striped shadow-sm rounded\">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nom</th>
-                            <th>Date</th>
-                            <th>Lieu</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ";
-        // line 76
-        $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["evenement_count"]) || array_key_exists("evenement_count", $context) ? $context["evenement_count"] : (function () { throw new RuntimeError('Variable "evenement_count" does not exist.', 76, $this->source); })()));
-        $context['loop'] = [
-          'parent' => $context['_parent'],
-          'index0' => 0,
-          'index'  => 1,
-          'first'  => true,
-        ];
-        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
-            $length = count($context['_seq']);
-            $context['loop']['revindex0'] = $length - 1;
-            $context['loop']['revindex'] = $length;
-            $context['loop']['length'] = $length;
-            $context['loop']['last'] = 1 === $length;
-        }
-        foreach ($context['_seq'] as $context["_key"] => $context["evenement"]) {
-            // line 77
-            yield "                            <tr>
-                                <td>";
-            // line 78
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 78), "html", null, true);
-            yield "</td>
-                                <td>";
-            // line 79
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["evenement"], "nom", [], "any", false, false, false, 79), "html", null, true);
-            yield "</td>
-                                <td>";
-            // line 80
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["evenement"], "date", [], "any", false, false, false, 80), "Y-m-d"), "html", null, true);
-            yield "</td>
-                                <td>";
-            // line 81
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["evenement"], "lieu", [], "any", false, false, false, 81), "html", null, true);
-            yield "</td>
-                            </tr>
-                        ";
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
-            $context['loop']['first'] = false;
-            if (isset($context['loop']['revindex0'], $context['loop']['revindex'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
-                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
-            }
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_key'], $context['evenement'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 84
-        yield "                    </tbody>
-                </table>
-            </div>
-
-            <!-- Liste des Freelance -->
-            <div class=\"col-md-4 mb-4\">
-                <h3 class=\"text-center\">Liste des Freelance</h3>
-                <table class=\"table table-striped shadow-sm rounded\">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nom</th>
-                            <th>Compétence</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ";
-        // line 111
-        yield "                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+   
 
     <!-- Chart.js script inclusion -->
     <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
@@ -322,16 +166,16 @@ class __TwigTemplate_1bd9a22cd13dac4bc36ec8fd0de0bf60 extends Template
     <script>
         // Assurez-vous que les données sont disponibles dans le JavaScript
         var evenementCount = ";
-        // line 125
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("evenement_count", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["evenement_count"]) || array_key_exists("evenement_count", $context) ? $context["evenement_count"] : (function () { throw new RuntimeError('Variable "evenement_count" does not exist.', 125, $this->source); })()), 0)) : (0)), "html", null, true);
+        // line 46
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("evenement_count", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["evenement_count"]) || array_key_exists("evenement_count", $context) ? $context["evenement_count"] : (function () { throw new RuntimeError('Variable "evenement_count" does not exist.', 46, $this->source); })()), 0)) : (0)), "html", null, true);
         yield ";
         var offreCount = ";
-        // line 126
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("offre_count", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["offre_count"]) || array_key_exists("offre_count", $context) ? $context["offre_count"] : (function () { throw new RuntimeError('Variable "offre_count" does not exist.', 126, $this->source); })()), 0)) : (0)), "html", null, true);
+        // line 47
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("offre_count", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["offre_count"]) || array_key_exists("offre_count", $context) ? $context["offre_count"] : (function () { throw new RuntimeError('Variable "offre_count" does not exist.', 47, $this->source); })()), 0)) : (0)), "html", null, true);
         yield ";
         var discussionCount = ";
-        // line 127
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("discussion_count", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["discussion_count"]) || array_key_exists("discussion_count", $context) ? $context["discussion_count"] : (function () { throw new RuntimeError('Variable "discussion_count" does not exist.', 127, $this->source); })()), 0)) : (0)), "html", null, true);
+        // line 48
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("discussion_count", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["discussion_count"]) || array_key_exists("discussion_count", $context) ? $context["discussion_count"] : (function () { throw new RuntimeError('Variable "discussion_count" does not exist.', 48, $this->source); })()), 0)) : (0)), "html", null, true);
         yield ";
       
         // Graphique Evenement (bar)
@@ -457,7 +301,7 @@ class __TwigTemplate_1bd9a22cd13dac4bc36ec8fd0de0bf60 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  334 => 127,  330 => 126,  326 => 125,  310 => 111,  292 => 84,  275 => 81,  271 => 80,  267 => 79,  263 => 78,  260 => 77,  243 => 76,  224 => 59,  207 => 56,  203 => 55,  199 => 54,  195 => 53,  192 => 52,  175 => 51,  141 => 19,  128 => 18,  109 => 9,  105 => 8,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  178 => 48,  174 => 47,  170 => 46,  141 => 19,  128 => 18,  109 => 9,  105 => 8,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -497,86 +341,7 @@ class __TwigTemplate_1bd9a22cd13dac4bc36ec8fd0de0bf60 extends Template
     </div>
 
     <!-- Tables below the charts -->
-    <div class=\"mt-5\">
-        <div class=\"row\">
-            <!-- Liste des offres -->
-            <div class=\"col-md-4 mb-4\">
-                <h3 class=\"text-center\">Liste des Offres</h3>
-                <table class=\"table table-striped shadow-sm rounded\">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Poste</th>
-                            <th>Entreprise</th>
-                            <th>Localisation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for offre in offre_count %}
-                            <tr>
-                                <td>{{ loop.index }}</td>
-                                <td>{{ offre.nomposte }}</td>
-                                <td>{{ offre.entreprise }}</td>
-                                <td>{{ offre.localisation }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Liste des Evenements -->
-            <div class=\"col-md-4 mb-4\">
-                <h3 class=\"text-center\">Liste des Evenements</h3>
-                <table class=\"table table-striped shadow-sm rounded\">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nom</th>
-                            <th>Date</th>
-                            <th>Lieu</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for evenement in evenement_count %}
-                            <tr>
-                                <td>{{ loop.index }}</td>
-                                <td>{{ evenement.nom }}</td>
-                                <td>{{ evenement.date | date('Y-m-d') }}</td>
-                                <td>{{ evenement.lieu }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Liste des Freelance -->
-            <div class=\"col-md-4 mb-4\">
-                <h3 class=\"text-center\">Liste des Freelance</h3>
-                <table class=\"table table-striped shadow-sm rounded\">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nom</th>
-                            <th>Compétence</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {# 
-                        <tbody>
-                            {% for freelance in freelances %}
-                                <tr>
-                                    <td>{{ loop.index }}</td>
-                                    <td>{{ freelance.nom }}</td>
-                                    <td>{{ freelance.competence }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                        #}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+   
 
     <!-- Chart.js script inclusion -->
     <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>

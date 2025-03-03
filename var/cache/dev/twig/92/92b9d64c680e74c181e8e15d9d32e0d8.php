@@ -128,7 +128,10 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
         // line 20
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event");
         yield "\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
+                        <a href=\"";
+        // line 21
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_lister_toutes_candidatures");
+        yield "\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"";
         // line 22
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forum");
@@ -344,7 +347,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  299 => 135,  280 => 119,  265 => 107,  257 => 102,  244 => 92,  236 => 87,  206 => 60,  200 => 57,  183 => 42,  170 => 41,  149 => 31,  144 => 29,  134 => 22,  129 => 20,  125 => 19,  121 => 18,  111 => 11,  106 => 9,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  302 => 135,  283 => 119,  268 => 107,  260 => 102,  247 => 92,  239 => 87,  209 => 60,  203 => 57,  186 => 42,  173 => 41,  152 => 31,  147 => 29,  137 => 22,  133 => 21,  129 => 20,  125 => 19,  121 => 18,  111 => 11,  106 => 9,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -369,7 +372,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                         <a href=\"{{ path('app_home') }}\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"{{ path('app_offremod') }}\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"{{ path('app_event') }}\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"mission/freelance.html\" class=\"nav-item nav-link\">Mission freelance</a>
+                        <a href=\"{{ path('app_lister_toutes_candidatures') }}\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"{{ path('app_forum') }}\" class=\"nav-item nav-link\">Forum</a>
                     </div>
                      <div class=\"dropdown\">

@@ -73,7 +73,7 @@ class __TwigTemplate_883f30003b8e5119c23b4601550069bf extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Profil du RH / Recruteur ";
+        yield "Profil du RH / Recruteur";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -101,50 +101,47 @@ class __TwigTemplate_883f30003b8e5119c23b4601550069bf extends Template
     <div class=\"card shadow-lg p-4\">
         <div class=\"row\">
             <div class=\"col-md-4 text-center\">
-        
+                
             </div>
 
             <div class=\"col-md-8\">
                 ";
         // line 14
-        $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 14, $this->source); })()));
-        $context['_iterated'] = false;
-        foreach ($context['_seq'] as $context["_key"] => $context["profile"]) {
+        if ((array_key_exists("tabprofile", $context) &&  !(null === (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 14, $this->source); })())))) {
             // line 15
             yield "                    <h2 class=\"text-primary\">
                         ";
             // line 16
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "nom", [], "any", true, true, false, 16)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "nom", [], "any", false, false, false, 16), "html", null, true)) : ("Nom indisponible"));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, ($context["tabprofile"] ?? null), "nom", [], "any", true, true, false, 16)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 16, $this->source); })()), "nom", [], "any", false, false, false, 16), "html", null, true)) : ("Nom indisponible"));
             yield "
                         ";
             // line 17
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "prenom", [], "any", true, true, false, 17)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "prenom", [], "any", false, false, false, 17), "html", null, true)) : ("Prénom indisponible"));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, ($context["tabprofile"] ?? null), "prenom", [], "any", true, true, false, 17)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 17, $this->source); })()), "prenom", [], "any", false, false, false, 17), "html", null, true)) : ("Prénom indisponible"));
             yield "
                     </h2>
                     <p><strong>Email :</strong> ";
             // line 19
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "email", [], "any", true, true, false, 19)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "email", [], "any", false, false, false, 19), "html", null, true)) : ("Email indisponible"));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, ($context["tabprofile"] ?? null), "email", [], "any", true, true, false, 19)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 19, $this->source); })()), "email", [], "any", false, false, false, 19), "html", null, true)) : ("Email indisponible"));
             yield "</p>
                     <p><strong>Téléphone :</strong> ";
             // line 20
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "tel", [], "any", true, true, false, 20)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "tel", [], "any", false, false, false, 20), "html", null, true)) : ("Téléphone indisponible"));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, ($context["tabprofile"] ?? null), "tel", [], "any", true, true, false, 20)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 20, $this->source); })()), "tel", [], "any", false, false, false, 20), "html", null, true)) : ("Téléphone indisponible"));
             yield "</p>
                     <p><strong>Domaine :</strong> ";
             // line 21
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "domaine", [], "any", true, true, false, 21)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "domaine", [], "any", false, false, false, 21), "html", null, true)) : ("Domaine indisponible"));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, ($context["tabprofile"] ?? null), "domaine", [], "any", true, true, false, 21)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 21, $this->source); })()), "domaine", [], "any", false, false, false, 21), "html", null, true)) : ("Domaine indisponible"));
             yield "</p>
                     <p><strong>Société :</strong> ";
             // line 22
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "societe", [], "any", true, true, false, 22)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "societe", [], "any", false, false, false, 22), "html", null, true)) : ("societe indisponible"));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, ($context["tabprofile"] ?? null), "societe", [], "any", true, true, false, 22)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 22, $this->source); })()), "societe", [], "any", false, false, false, 22), "html", null, true)) : ("Société indisponible"));
             yield "</p>
 
                     ";
             // line 24
-            if (CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "cv", [], "any", true, true, false, 24)) {
+            if ((CoreExtension::getAttribute($this->env, $this->source, ($context["tabprofile"] ?? null), "cv", [], "any", true, true, false, 24) &&  !(null === CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 24, $this->source); })()), "cv", [], "any", false, false, false, 24)))) {
                 // line 25
                 yield "                        <a href=\"";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/cv/" . CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "cv", [], "any", false, false, false, 25))), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/cv/" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 25, $this->source); })()), "cv", [], "any", false, false, false, 25))), "html", null, true);
                 yield "\" class=\"btn btn-outline-primary mt-3\" download>
                             Télécharger CV
                         </a>
@@ -159,7 +156,7 @@ class __TwigTemplate_883f30003b8e5119c23b4601550069bf extends Template
                     <!-- Bouton Modifier -->
                     <a href=\"";
             // line 33
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatemoderateur", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "id", [], "any", false, false, false, 33)]), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_updatemoderateur", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 33, $this->source); })()), "id", [], "any", false, false, false, 33)]), "html", null, true);
             yield "\" class=\"btn btn-success mt-3\">
                         Modifier
                     </a>
@@ -167,22 +164,16 @@ class __TwigTemplate_883f30003b8e5119c23b4601550069bf extends Template
                     <!-- Bouton Supprimer -->
                     <a href=\"";
             // line 38
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletemoderateur", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["profile"], "id", [], "any", false, false, false, 38)]), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_deletemoderateur", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["tabprofile"]) || array_key_exists("tabprofile", $context) ? $context["tabprofile"] : (function () { throw new RuntimeError('Variable "tabprofile" does not exist.', 38, $this->source); })()), "id", [], "any", false, false, false, 38)]), "html", null, true);
             yield "\" class=\"btn btn-danger mt-3\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce profil ?')\">
                         Supprimer
                     </a>
                 ";
-            $context['_iterated'] = true;
-        }
-        // line 41
-        if (!$context['_iterated']) {
+        } else {
             // line 42
             yield "                    <p>Aucun profil trouvé.</p>
                 ";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_key'], $context['profile'], $context['_parent'], $context['_iterated']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 44
         yield "            </div>
         </div>
@@ -219,36 +210,36 @@ class __TwigTemplate_883f30003b8e5119c23b4601550069bf extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  187 => 44,  180 => 42,  178 => 41,  170 => 38,  162 => 33,  158 => 31,  154 => 29,  146 => 25,  144 => 24,  139 => 22,  135 => 21,  131 => 20,  127 => 19,  122 => 17,  118 => 16,  115 => 15,  110 => 14,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  178 => 44,  174 => 42,  167 => 38,  159 => 33,  155 => 31,  151 => 29,  143 => 25,  141 => 24,  136 => 22,  132 => 21,  128 => 20,  124 => 19,  119 => 17,  115 => 16,  112 => 15,  110 => 14,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Profil du RH / Recruteur {% endblock %}
+{% block title %}Profil du RH / Recruteur{% endblock %}
 
 {% block body %}
 <div class=\"container mt-5\">
     <div class=\"card shadow-lg p-4\">
         <div class=\"row\">
             <div class=\"col-md-4 text-center\">
-        
+                
             </div>
 
             <div class=\"col-md-8\">
-                {% for profile in tabprofile %}
+                {% if tabprofile is defined and tabprofile is not null %}
                     <h2 class=\"text-primary\">
-                        {{ profile.nom is defined ? profile.nom : 'Nom indisponible' }}
-                        {{ profile.prenom is defined ? profile.prenom : 'Prénom indisponible' }}
+                        {{ tabprofile.nom is defined ? tabprofile.nom : 'Nom indisponible' }}
+                        {{ tabprofile.prenom is defined ? tabprofile.prenom : 'Prénom indisponible' }}
                     </h2>
-                    <p><strong>Email :</strong> {{ profile.email is defined ? profile.email : 'Email indisponible' }}</p>
-                    <p><strong>Téléphone :</strong> {{ profile.tel is defined ? profile.tel : 'Téléphone indisponible' }}</p>
-                    <p><strong>Domaine :</strong> {{ profile.domaine is defined ? profile.domaine : 'Domaine indisponible' }}</p>
-                    <p><strong>Société :</strong> {{ profile.societe is defined ? profile.societe : 'societe indisponible' }}</p>
+                    <p><strong>Email :</strong> {{ tabprofile.email is defined ? tabprofile.email : 'Email indisponible' }}</p>
+                    <p><strong>Téléphone :</strong> {{ tabprofile.tel is defined ? tabprofile.tel : 'Téléphone indisponible' }}</p>
+                    <p><strong>Domaine :</strong> {{ tabprofile.domaine is defined ? tabprofile.domaine : 'Domaine indisponible' }}</p>
+                    <p><strong>Société :</strong> {{ tabprofile.societe is defined ? tabprofile.societe : 'Société indisponible' }}</p>
 
-                    {% if profile.cv is defined %}
-                        <a href=\"{{ asset('uploads/cv/' ~ profile.cv) }}\" class=\"btn btn-outline-primary mt-3\" download>
+                    {% if tabprofile.cv is defined and tabprofile.cv is not null %}
+                        <a href=\"{{ asset('uploads/cv/' ~ tabprofile.cv) }}\" class=\"btn btn-outline-primary mt-3\" download>
                             Télécharger CV
                         </a>
                     {% else %}
@@ -256,22 +247,21 @@ class __TwigTemplate_883f30003b8e5119c23b4601550069bf extends Template
                     {% endif %}
 
                     <!-- Bouton Modifier -->
-                    <a href=\"{{ path('app_updatemoderateur', {'id': profile.id}) }}\" class=\"btn btn-success mt-3\">
+                    <a href=\"{{ path('app_updatemoderateur', {'id': tabprofile.id}) }}\" class=\"btn btn-success mt-3\">
                         Modifier
                     </a>
 
                     <!-- Bouton Supprimer -->
-                    <a href=\"{{ path('app_deletemoderateur', {'id': profile.id}) }}\" class=\"btn btn-danger mt-3\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce profil ?')\">
+                    <a href=\"{{ path('app_deletemoderateur', {'id': tabprofile.id}) }}\" class=\"btn btn-danger mt-3\" onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce profil ?')\">
                         Supprimer
                     </a>
                 {% else %}
                     <p>Aucun profil trouvé.</p>
-                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
-{% endblock %}
-", "security/profilemoderateur.html.twig", "C:\\careera\\templates\\security\\profilemoderateur.html.twig");
+{% endblock %}", "security/profilemoderateur.html.twig", "C:\\careera\\templates\\security\\profilemoderateur.html.twig");
     }
 }

@@ -170,10 +170,7 @@ class __TwigTemplate_720c7f5ea8509817398502ef821e1ab5 extends Template
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
             // line 73
             yield "        <div class=\"user-card\">
-            <img src=\"";
-            // line 74
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . CoreExtension::getAttribute($this->env, $this->source, $context["user"], "Photo", [], "any", false, false, false, 74))), "html", null, true);
-            yield "\" alt=\"User Photo\">
+            
             <div class=\"user-info\">
                 <strong>";
             // line 76
@@ -232,7 +229,7 @@ class __TwigTemplate_720c7f5ea8509817398502ef821e1ab5 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  202 => 86,  190 => 80,  184 => 77,  180 => 76,  175 => 74,  172 => 73,  168 => 72,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  199 => 86,  187 => 80,  181 => 77,  177 => 76,  172 => 73,  168 => 72,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -310,7 +307,7 @@ class __TwigTemplate_720c7f5ea8509817398502ef821e1ab5 extends Template
 <div class=\"community-container\">
     {% for user in users %}
         <div class=\"user-card\">
-            <img src=\"{{ asset('uploads/images/' ~ user.Photo) }}\" alt=\"User Photo\">
+            
             <div class=\"user-info\">
                 <strong>{{ user.Prenom }}</strong>
                 <small>- expertise - {{ user.domaine }}</small>

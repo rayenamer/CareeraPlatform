@@ -66,24 +66,16 @@ public function redirectAfterLogin(Security $security): Response
     #[Route('/profile', name: 'app_profile')]
 public function profile(Security $security, UserRepository $userRepository): Response
 {
-    // Récupère l'utilisateur connecté
-    $user = $security->getUser();
+    if ($security->isGranted('IS_AUTHENTICATED_FULLY')) {
+        $user = $security->getUser();
 
-    // Vérifie si un utilisateur est connecté
-    //if (!$user instanceof User) {
-    //    return $this->redirectToRoute('app_login');  // Redirect to login if the user is not authenticated
-    //}
-
-    // Vérifie le type d'utilisateur et redirige vers la bonne page de profil
-   //if ($user instanceof Chercheur) {
-   //    return $this->redirectToRoute('app_chercheurprofile');  // Redirect to chercheur profile
-   //} elseif ($user instanceof Freelancer) {
-   //    return $this->redirectToRoute('app_profilefreelancer');  // Redirect to freelancer profile
-   //} elseif ($user instanceof Moderateur) {
-   //    return $this->redirectToRoute('app_profilemoderateur');  // Redirect to moderateur profile
-   //}
-
-    // If no match, redirect to login (or handle accordingly)
+        // Redirect based on the user's role
+        if ($user instanceof Chercheur) {
+            return $this->redirectToRoute('app_chercheurprofile');  // Redirect to 'app_home' if the user is a Moderateur
+        } elseif ($user instanceof Freelancer) {
+            return $this->redirectToRoute('app_profilefreelancer');  // Redirect to 'app_indexhome' if the user is a Chercheur or Freelancer
+        }
+    }
     return $this->redirectToRoute('app_login');
 }
 
