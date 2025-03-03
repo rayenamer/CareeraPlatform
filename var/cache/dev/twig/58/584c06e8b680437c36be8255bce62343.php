@@ -184,7 +184,7 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                         <div class=\"form-floating\">
                             ";
         // line 58
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 58, $this->source); })()), "imageUrl", [], "any", false, false, false, 58), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "URL de l'image (Cloudinary)"]]);
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 58, $this->source); })()), "imageUrl", [], "any", false, false, false, 58), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "URL de l'image "]]);
         yield "
                             <label for=\"";
         // line 59
@@ -318,7 +318,7 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                     <!-- URL Image Cloudinary -->
                     <div class=\"col-12\">
                         <div class=\"form-floating\">
-                            {{ form_row(addform.imageUrl, {'attr': {'class': 'form-control border-primary-subtle', 'placeholder': 'URL de l\\'image (Cloudinary)'}}) }}
+                            {{ form_row(addform.imageUrl, {'attr': {'class': 'form-control border-primary-subtle', 'placeholder': 'URL de l\\'image '}}) }}
                             <label for=\"{{ addform.imageUrl.vars.id }}\"></label>
                         </div>
                     </div>

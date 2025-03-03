@@ -134,8 +134,8 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
         yield "\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"";
         // line 22
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forum");
-        yield "\" class=\"nav-item nav-link\">Forum</a>
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("discussion_stats");
+        yield "\" class=\"nav-item nav-link\">Communication</a>
                     </div>
                      <div class=\"dropdown\">
                         <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
@@ -373,7 +373,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                         <a href=\"{{ path('app_offremod') }}\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"{{ path('app_event') }}\" class=\"nav-item nav-link\">Evénements</a>
                         <a href=\"{{ path('app_lister_toutes_candidatures') }}\" class=\"nav-item nav-link\">Mission freelance</a>
-                        <a href=\"{{ path('app_forum') }}\" class=\"nav-item nav-link\">Forum</a>
+                        <a href=\"{{ path('discussion_stats') }}\" class=\"nav-item nav-link\">Communication</a>
                     </div>
                      <div class=\"dropdown\">
                         <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
