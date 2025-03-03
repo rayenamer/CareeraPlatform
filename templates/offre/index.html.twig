@@ -86,11 +86,11 @@
 <div class="col-3 text-center">
     {% if app.request.locale == 'fr' %}
         <a href="{{ path('app_offre', {'_locale': 'en'}) }}" class="btn btn" style="border-radius: 20px; margin-right: 20px;">
-            <i class="fas fa-language"></i> Traduire en Anglais
+            <i class="fas fa-language"></i> Traduire en Français
         </a>
     {% else %}
         <a href="{{ path('app_offre', {'_locale': 'fr'}) }}" class="btn btn" style="border-radius: 20px; margin-right: 20px;">
-            <i class="fas fa-language"></i> Traduire en Français
+            <i class="fas fa-language"></i> Traduire en Anglais
         </a>
     {% endif %}
 </div>

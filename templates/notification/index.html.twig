@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NotificationController!
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<div
+			class="row">
+			{# Sort notifications: first unread, then read #}
+			{% set sorted_notifications = notifications|sort((a, b) => a.isRead ? 1 : -1) %}
+
+			{% for notification in sorted_notifications %}
+				<div class="col-md-4 mb-4">
+					<div class="card shadow-sm d-flex flex-column">
+						<div class="card-body d-flex flex-column justify-content-between">
+							<h5 class="card-title text-center">Notification</h5>
+							<p class="card-text text-center">
+								{{ notification.message }}
+							</p>
+							<div class="d-flex justify-content-between">
+								<small class="text-muted">{{ notification.createdAt|date('Y-m-d H:i:s') }}</small>
+								<span class="badge {{ notification.isRead ? 'bg-secondary' : 'bg-primary' }}">
+									{{ notification.isRead ? 'Read'|trans : 'Unread'|trans }}
+								</span>
+
+								{% if not notification.isRead %}
+									<a href="{{ path('app_setNotificationTrue', { 'Id': notification.id }) }}" class="btn btn-link btn-sm">
+										{{ 'Mark as read'|trans }}
+									</a>
+								{% endif %}
+
+							</div>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				<div class="col-12 text-center">
+					<p class="text-muted">{{ 'no_notifications'|trans }}</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+
+{% endblock %}

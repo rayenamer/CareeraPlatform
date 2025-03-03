@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chatbot{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-sm p-4" style="width: 100%; max-width: 600px;">
+        <h1 class="mb-3 text-center">Chatbot</h1>
+        <p class="text-center">Ask me anything and I will assist you with your queries!</p>
+
+        <!-- Chatbox for the conversation -->
+        <div class="chat-box" id="chat-box" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; height: 300px; overflow-y: auto; background-color: #f9f9f9;"></div>
+
+        <!-- User input section -->
+        <input type="text" id="user-question" class="form-control mb-3" placeholder="Ask me anything..." />
+
+        <!-- Button to send the message -->
+        <button id="send-btn" class="btn btn-primary w-100">Ask</button>
+    </div>
+</div>
+
+<script>
+    function scrollToBottom() {
+        let chatBox = document.getElementById('chat-box');
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    document.getElementById('send-btn').addEventListener('click', function() {
+        const userQuestion = document.getElementById('user-question').value;
+        if (userQuestion.trim() === '') return;
+
+        document.getElementById('chat-box').innerHTML += `<div class="user-message">You: ${userQuestion}</div>`;
+
+        fetch('/chatbot/api', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question: userQuestion }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('chat-box').innerHTML += `<div class="bot-message">Bot: ${data.answer}</div>`;
+            document.getElementById('user-question').value = '';
+            scrollToBottom();
+        });
+    });
+</script>
+{% endblock %}

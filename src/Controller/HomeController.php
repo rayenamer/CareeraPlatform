@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeController extends AbstractController
-{
+{   
+    //page moderateur
     #[Route('/home', name: 'app_home')]
     public function index(): Response
     {

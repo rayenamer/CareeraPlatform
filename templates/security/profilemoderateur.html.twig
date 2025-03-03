@@ -1,28 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profil du RH / Recruteur {% endblock %}
+{% block title %}Profil du RH / Recruteur{% endblock %}
 
 {% block body %}
 <div class="container mt-5">
     <div class="card shadow-lg p-4">
         <div class="row">
             <div class="col-md-4 text-center">
-        
+                
             </div>
 
             <div class="col-md-8">
-                {% for profile in tabprofile %}
+                {% if tabprofile is defined and tabprofile is not null %}
                     <h2 class="text-primary">
-                        {{ profile.nom is defined ? profile.nom : 'Nom indisponible' }}
-                        {{ profile.prenom is defined ? profile.prenom : 'Prénom indisponible' }}
+                        {{ tabprofile.nom is defined ? tabprofile.nom : 'Nom indisponible' }}
+                        {{ tabprofile.prenom is defined ? tabprofile.prenom : 'Prénom indisponible' }}
                     </h2>
-                    <p><strong>Email :</strong> {{ profile.email is defined ? profile.email : 'Email indisponible' }}</p>
-                    <p><strong>Téléphone :</strong> {{ profile.tel is defined ? profile.tel : 'Téléphone indisponible' }}</p>
-                    <p><strong>Domaine :</strong> {{ profile.domaine is defined ? profile.domaine : 'Domaine indisponible' }}</p>
-                    <p><strong>Société :</strong> {{ profile.societe is defined ? profile.societe : 'societe indisponible' }}</p>
+                    <p><strong>Email :</strong> {{ tabprofile.email is defined ? tabprofile.email : 'Email indisponible' }}</p>
+                    <p><strong>Téléphone :</strong> {{ tabprofile.tel is defined ? tabprofile.tel : 'Téléphone indisponible' }}</p>
+                    <p><strong>Domaine :</strong> {{ tabprofile.domaine is defined ? tabprofile.domaine : 'Domaine indisponible' }}</p>
+                    <p><strong>Société :</strong> {{ tabprofile.societe is defined ? tabprofile.societe : 'Société indisponible' }}</p>
 
-                    {% if profile.cv is defined %}
-                        <a href="{{ asset('uploads/cv/' ~ profile.cv) }}" class="btn btn-outline-primary mt-3" download>
+                    {% if tabprofile.cv is defined and tabprofile.cv is not null %}
+                        <a href="{{ asset('uploads/cv/' ~ tabprofile.cv) }}" class="btn btn-outline-primary mt-3" download>
                             Télécharger CV
                         </a>
                     {% else %}
@@ -30,17 +30,17 @@
                     {% endif %}
 
                     <!-- Bouton Modifier -->
-                    <a href="{{ path('app_updatemoderateur', {'id': profile.id}) }}" class="btn btn-success mt-3">
+                    <a href="{{ path('app_updatemoderateur', {'id': tabprofile.id}) }}" class="btn btn-success mt-3">
                         Modifier
                     </a>
 
                     <!-- Bouton Supprimer -->
-                    <a href="{{ path('app_deletemoderateur', {'id': profile.id}) }}" class="btn btn-danger mt-3" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce profil ?')">
+                    <a href="{{ path('app_deletemoderateur', {'id': tabprofile.id}) }}" class="btn btn-danger mt-3" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce profil ?')">
                         Supprimer
                     </a>
                 {% else %}
                     <p>Aucun profil trouvé.</p>
-                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>

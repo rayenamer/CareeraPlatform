@@ -2,11 +2,15 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Moderateur;
+use App\Entity\User;
 use App\Entity\Recruteur;
 use App\Entity\ResetPasswordRequest;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,13 +20,40 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ModerateurController extends AbstractController
 { 
     #[Route('/profilemoderateur', name: 'app_profilemoderateur')]
-    public function profile(ManagerRegistry $doctrine): Response
+    public function profile(ManagerRegistry $doctrine, Security $security, UserRepository $userRepository): Response
     {
-        $profile = $doctrine->getRepository(Moderateur::class)->findAll();
-        return $this->render('security/profilemoderateur.html.twig', [
-            'tabprofile' => $profile,
-        ]);
+        $user = $security->getUser();
+    
+        // Vérification si l'utilisateur est authentifié
+        if (!$user) {
+            return new Response('User not authenticated', 401);
+        }
+    
+        // Vérification si l'objet user est valide
+        if (!$user instanceof User) {
+            return new Response('Invalid user object', 500);
+        }
+    
+        // Vérifier si l'utilisateur est un moderateur
+        if ($user instanceof Moderateur) {
+            // Charger le profil du modérateur
+            $profile = $doctrine->getRepository(Moderateur::class)->find($user->getId());
+    
+            // Vérifier si le profil existe
+            if (!$profile) {
+                return new Response('Profil not found', 404);
+            }
+    
+            // Afficher la page du profil du modérateur
+            return $this->render('security/profilemoderateur.html.twig', [
+                'tabprofile' => $profile,
+            ]);
+        }
+    
+        // Si l'utilisateur n'est pas un modérateur, rediriger vers la page d'accueil
+        return $this->redirectToRoute('app_index');
     }
+    
     #[Route('/moderateur', name: 'app_moderateur')]
     public function index(ManagerRegistry $doctrine, Request $request): Response
     {
@@ -50,7 +81,7 @@ class ModerateurController extends AbstractController
             // par exemple via une contrainte de validation côté entité ou dans le contrôleur.
 
             // Sauvegarder les données dans la base
-            $entityManager = $doctrine->getManager();
+            $entityManager = $doctrine->getManager();   
             $entityManager->persist($recruteur);
             $entityManager->flush();
 
@@ -82,16 +113,16 @@ public function updatemoderateur($id, ManagerRegistry $doctrine, Request $reques
 
 
         // Gestion du fichier CV
-        $cvFile = $request->files->get('cv');
-        if ($cvFile) {
-            $newFilename = uniqid() . '.' . $cvFile->guessExtension();
-            try {
-                $cvFile->move($this->getParameter('images_directory'), $newFilename);
-                $moderateur->setCv($newFilename);
-            } catch (FileException $e) {
-                $this->addFlash('error', 'Impossible de télécharger le CV.');
-            }
-        }
+        //$cvFile = $request->files->get('cv');
+        //if ($cvFile) {
+          //  $newFilename = uniqid() . '.' . $cvFile->guessExtension();
+           // try {
+             //   $cvFile->move($this->getParameter('images_directory'), $newFilename);
+               // $moderateur->setCv($newFilename);
+           // } catch (FileException $e) {
+            //    $this->addFlash('error', 'Impossible de télécharger le CV.');
+           // }
+       // }
 
         $em->persist($moderateur);
         $em->flush();

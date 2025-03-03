@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Freelancer;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\DependencyInjection\SecurityExtension;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,9 +17,13 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 class FreelancerController extends AbstractController
 { 
     #[Route('/profilefreelancer', name: 'app_profilefreelancer')]
-    public function profile(ManagerRegistry $doctrine): Response
+    public function profile(ManagerRegistry $doctrine, Security $security,UserRepository $userRepository): Response
     {
-        $profile = $doctrine->getRepository(Freelancer::class)->findAll();
+        $user = $security->getUser();
+        if (!$user instanceof freelancer) {
+            return $this->redirectToRoute('app_login');  // Redirect to login if the user is not authenticated
+        }
+        $profile = $doctrine->getRepository(Freelancer::class)->find($user->getId());
         return $this->render('security/profilefreelancer.html.twig', [
             'tabprofile' => $profile,
         ]);

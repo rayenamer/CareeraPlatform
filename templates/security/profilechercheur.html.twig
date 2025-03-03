@@ -1,37 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profil du moderateur {% endblock %}
+{% block title %}Votre Profil{% endblock %}
 
 {% block body %}
 <div class="container mt-5">
     <div class="card shadow-lg p-4">
         <div class="row">
             <div class="col-md-4 text-center">
-                {% for profile in tabprofile %}
+                {% if tabprofile is defined and tabprofile is not null %}
                     <div class="mb-4">
-                        {% if profile.photo %}
-                            <img src="{{ asset('uploads/images/' ~ profile.photo) }}" class="rounded-circle img-fluid" alt="Photo de {{ profile.nom }} {{ profile.prenom }}" style="width: 200px; height: 200px; object-fit: cover;">
+                        {% if tabprofile.photo %}
+                            <img src="{{ asset('uploads/images/' ~ tabprofile.photo) }}" class="rounded-circle img-fluid" alt="Photo de {{ tabprofile.nom }} {{ tabprofile.prenom }}" style="width: 200px; height: 200px; object-fit: cover;">
                         {% else %}
                             <img src="{{ asset('uploads/default.png') }}" class="rounded-circle img-fluid" alt="Image par défaut" style="width: 200px; height: 200px; object-fit: cover;">
                         {% endif %}
                     </div>
-                {% endfor %}
+                {% endif %}
             </div>
 
             <div class="col-md-8">
-                {% for profile in tabprofile %}
+                {% if tabprofile is defined and tabprofile is not null %}
                     <h2 class="text-primary">
-                        {{ profile.nom is defined ? profile.nom : 'Nom indisponible' }}
-                        {{ profile.prenom is defined ? profile.prenom : 'Prénom indisponible' }}
+                        {{ tabprofile.nom is defined ? tabprofile.nom : 'Nom indisponible' }}
+                        {{ tabprofile.prenom is defined ? tabprofile.prenom : 'Prénom indisponible' }}
                     </h2>
-                    <p><strong>Email :</strong> {{ profile.email is defined ? profile.email : 'Email indisponible' }}</p>
-                    <p><strong>Téléphone :</strong> {{ profile.tel is defined ? profile.tel : 'Téléphone indisponible' }}</p>
-                    <p><strong>Adresse :</strong> {{ profile.adresse is defined ? profile.adresse : 'Adresse indisponible' }}</p>
-                    <p><strong>Domaine :</strong> {{ profile.domaine is defined ? profile.domaine : 'Domaine indisponible' }}</p>
-                    <p><strong>Sexe :</strong> {{ profile.sexe is defined ? profile.sexe : 'Sexe indisponible' }}</p>
+                    <p><strong>Email :</strong> {{ tabprofile.email is defined ? tabprofile.email : 'Email indisponible' }}</p>
+                    <p><strong>Téléphone :</strong> {{ tabprofile.tel is defined ? tabprofile.tel : 'Téléphone indisponible' }}</p>
+                    <p><strong>Adresse :</strong> {{ tabprofile.adresse is defined ? tabprofile.adresse : 'Adresse indisponible' }}</p>
+                    <p><strong>Domaine :</strong> {{ tabprofile.domaine is defined ? tabprofile.domaine : 'Domaine indisponible' }}</p>
+                    <p><strong>Sexe :</strong> {{ tabprofile.sexe is defined ? tabprofile.sexe : 'Sexe indisponible' }}</p>
 
-                    {% if profile.cv is defined %}
-                        <a href="{{ asset('uploads/cv/' ~ profile.cv) }}" class="btn btn-outline-primary mt-3" download>
+                    {% if tabprofile.cv is defined and tabprofile.cv is not null %}
+                        <a href="{{ asset('uploads/cv/' ~ tabprofile.cv) }}" class="btn btn-outline-primary mt-3" download>
                             Télécharger CV
                         </a>
                     {% else %}
@@ -39,17 +39,17 @@
                     {% endif %}
 
                     <!-- Bouton Modifier -->
-                    <a href="{{ path('app_updatechercheur', {'id': profile.id}) }}" class="btn btn-success mt-3">
+                    <a href="{{ path('app_updatechercheur', {'id': tabprofile.id}) }}" class="btn btn-success mt-3">
                         Modifier
                     </a>
 
                     <!-- Bouton Supprimer -->
-                    <a href="{{ path('app_deletechercheur', {'id': profile.id}) }}" class="btn btn-danger mt-3" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce profil ?')">
+                    <a href="{{ path('app_deletechercheur', {'id': tabprofile.id}) }}" class="btn btn-danger mt-3" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce profil ?')">
                         Supprimer
                     </a>
                 {% else %}
                     <p>Aucun profil trouvé.</p>
-                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>

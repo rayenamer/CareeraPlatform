@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'Offre{% endblock %}
+
+{% block body %}
+    <div class="services" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h1>Offre <em>Détails</em></h1>
+                        <span>Détails de l'offre sélectionnée</span>
+                    </div>
+                 
+                    div class="col-md-4">
+                    <div class="service-item">
+                        {% if offre.imageUrl %}
+                            <img src="{{ offre.imageUrl }}" alt="Image de l'offre">
+                        {% else %}
+                            <img src="https://www.miss-seo-girl.com/wp-content/uploads/2019/09/freelance-ou-agence-web.jpg" alt="Image par défaut">
+                        {% endif %}
+                        <div class="down-content">
+                            <h4>ID</h4>
+                            <p>{{ offre.id }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <div class="down-content">
+                            <h4>Titre</h4>
+                            <p>{{ offre.titre }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <div class="down-content">
+                            <h4>Prix</h4>
+                            <p>{{ offre.prix }} dt</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <div class="down-content">
+                            <h4>Description</h4>
+                            <p>{{ offre.description }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <div class="down-content">
+                            <h4>Date Limite</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <div class="down-content">
+                            <h4>Spécialité</h4>
+                            <p>{{ offre.specialite }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="{{ path('app_offrefrelencer_index') }}" class="filled-button">Retour à la liste</a>
+        <a href="{{ path('app_offrefrelencer_edit', {'id': offre.id}) }}" class="filled-button">Modifier</a>
+        {{ include('offrefrelencer/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

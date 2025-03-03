@@ -1,0 +1,6 @@
+easy_admin:
+    entities:
+        - App\Entity\User
+    design:
+        menu:
+            - { label: 'Dashboard', route: 'admin_dashboard' }

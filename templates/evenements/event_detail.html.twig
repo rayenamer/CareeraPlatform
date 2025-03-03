@@ -1,0 +1,182 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'événement - {{ event.description }}{% endblock %}
+
+{% block body %}
+<div class="container mt-5 mb-5"> 
+<div class="text-end mb-3">
+    <label for="languageSelect" class="me-2">Langue :</label>
+    <select id="languageSelect" class="form-select w-auto d-inline-block">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+    </select>
+</div>
+    <div class="row g-4">
+        <div class="col-lg-8">
+        <!-- Sélecteur de langue -->
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h2 fw-bold">{{ event.description }}</h1>
+                        <span class="badge bg-primary">{{ event.TypeEvent.nom }}</span>
+                    </div>
+
+                    {% if event.imageUrl %}
+                        <div class="position-relative overflow-hidden rounded-3 mb-4">
+                            <img src="{{ event.imageUrl }}" 
+                                 alt="{{ event.description }}" 
+                                 class="img-fluid w-100" 
+                                 style="max-height: 450px; object-fit: cover;"
+                                 loading="lazy">
+                        </div>
+                    {% else %}
+                        <div class="bg-light text-center p-5 mb-4 rounded-3 border">
+                            <i class="fas fa-image fa-2x text-muted mb-2"></i>
+                            <p class="text-muted mb-0">Aucune image disponible</p>
+                        </div>
+                    {% endif %}
+
+                    <section class="mb-4">
+                        <h3 class="h4 fw-semibold border-bottom pb-2">Description</h3>
+                        <p class="text-muted">{{ event.Description|nl2br }}</p>
+                    </section>
+
+                    <section class="mb-4">
+                        <h3 class="h4 fw-semibold border-bottom pb-2">Détails</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item px-0 d-flex align-items-center">
+                                <i class="fas fa-calendar-alt me-2 text-primary"></i>
+                                <span>{{ event.date|date('d M Y à H:i') }}</span>
+                            </li>
+                            <li class="list-group-item px-0 d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                <span>{{ event.lieu }}</span>
+                            </li>
+                            <li class="list-group-item px-0 d-flex align-items-center">
+                                <i class="fas fa-chair me-2 text-primary"></i>
+                                <span class="badge {{ event.disponibilite ? 'bg-success' : 'bg-danger' }}">
+                                    {{ event.disponibilite ? 'Places disponibles' : 'Complet' }}
+                                </span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+         <!-- Partie "Participer" dans le template Twig -->
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-body p-4">
+        <h5 class="fw-semibold mb-3">Participer</h5>
+        
+            {% if userId in event.participantsIds %}
+    <form action="{{ path('evenement_annuler', { id: event.id }) }}" method="POST" class="d-grid">
+        <button type="submit" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2">
+            <i class="fas fa-times"></i> Annuler ma participation
+        </button>
+    </form>
+{% else %}
+    <form action="{{ path('evenement_participer', { id: event.id }) }}" method="POST" class="d-grid">
+        <button type="submit" class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+            <i class="fas fa-check"></i> Je participe
+        </button>
+    </form>
+{% endif %}
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <h5 class="fw-semibold mb-3">Partager cet événement</h5>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="btn btn-outline-primary rounded-circle share-facebook" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary rounded-circle share-twitter" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary rounded-circle share-linkedin" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Script pour la traduction -->
+<script>
+    async function translateText(text, sourceLang, targetLang) {
+        if (sourceLang === targetLang) {
+            return text;
+        }
+
+        const apiUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`;
+
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            return data.responseData && data.responseData.translatedText ? data.responseData.translatedText : text;
+        } catch (error) {
+            console.error('Erreur de traduction :', error);
+            return text;
+        }
+    }
+
+    async function translatePage(targetLang) {
+        const sourceLang = 'fr';
+        const elementsToTranslate = document.querySelectorAll(
+            'h1, h5.card-title, p.card-text, span.badge, a.btn, p.text-center, p.text-muted, button.btn'
+        );
+
+        for (const element of elementsToTranslate) {
+            if (!element.hasAttribute('data-original-text')) {
+                element.setAttribute('data-original-text', element.innerText.trim());
+            }
+
+            const originalText = element.getAttribute('data-original-text');
+            if (originalText) {
+                if (sourceLang === targetLang) {
+                    element.innerText = originalText;
+                } else {
+                    element.innerText = await translateText(originalText, sourceLang, targetLang);
+                }
+            }
+        }
+
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            if (!searchInput.hasAttribute('data-original-placeholder')) {
+                searchInput.setAttribute('data-original-placeholder', searchInput.getAttribute('placeholder'));
+            }
+
+            const originalPlaceholder = searchInput.getAttribute('data-original-placeholder');
+            if (originalPlaceholder) {
+                searchInput.setAttribute('placeholder', targetLang === sourceLang ? originalPlaceholder : await translateText(originalPlaceholder, sourceLang, targetLang));
+            }
+        }
+    }
+
+    document.getElementById('languageSelect').addEventListener('change', async function() {
+        await translatePage(this.value);
+    });
+</script>
+
+<script>
+    const currentUrl = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    document.querySelector('.share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+    document.querySelector('.share-twitter').href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${title}`;
+    document.querySelector('.share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
+</script>
+
+<style>
+    .card { transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    .btn { transition: all 0.3s; }
+    .btn:hover { transform: scale(1.05); }
+</style>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DemandeMission index{% endblock %}
+
+{% block body %}
+
+    <h1>DemandeMission index</h1>
+
+    <table class="table">
+<thead style="background-color:rgb(146, 196, 188); color: white;">            <tr>
+                <th>Id</th>
+                <th>Message</th>
+                <th>Portfolio</th>
+                <th>Status</th>
+                 <th>date de publication</th>
+                <th>actions</th>
+
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for demande_mission in demande_missions %}
+            <tr>
+                <td>{{ demande_mission.id }}</td>
+                <td>{{ demande_mission.message }}</td>
+                <td>{{ demande_mission.portfolio }}</td>
+                <td>{{ demande_mission.status }}</td>
+                
+
+       
+                <td>
+                    <a href="{{ path('app_demande_mission_show', {'id': demande_mission.id}) }}">show</a>
+                    <a href="{{ path('app_demande_mission_edit', {'id': demande_mission.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">aucune demande trouvé </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_demande_mission_new') }}">ajouter un nouveau </a>
+{% endblock %}

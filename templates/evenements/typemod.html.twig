@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Evènements{% endblock %}
+
+{% block body %}
+<h1 class="mb-3 text-center">Gestion des Evènements</h1>
+
+<div class="container">
+    <!-- Boutons alignés à gauche -->
+    <div class="d-flex justify-content-start mb-4">
+    <a href="event"  class="btn btn-outline-dark px-3">
+                <i class="fas fa-list me-2"></i>consulter les évenement
+            </a>
+     
+        <!-- Bouton pour ajouter une nouvelle offre -->
+        <a href="addtypeEvent" class="btn btn-success">Ajouter un type evènement</a> 
+        
+    </div>
+
+    <!-- Tableau des offres -->
+    <table class="table table-bordered"> 
+        <thead>
+            <tr>
+                <th>type de evènement</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in tabevent %}
+                <tr>
+                    <td>{{ event.nom }}</dt>
+                  
+                    
+                    {# Ceci est un commentaire Twig. Il ne sera pas affiché dans le HTML final. 
+
+                    <td><img src="{{ asset('uploads/images/' ~ offre.image) }}" alt="Image de {{ offre.nomposte }}" width="50"></td>#}
+                    <td>
+                        <a href="editType/{{event.id}}" class="btn btn-primary btn-sm">Modifier</a>
+                        <a href="deltypeEvent/{{event.id}}"
+                            class="btn btn-danger btn-sm" 
+                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10" class="text-center">Aucune type d'evènement trouvée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+</div>
+
+{% endblock %}

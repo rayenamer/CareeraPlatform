@@ -10,7 +10,7 @@ parameters:
   locale: 'fr'
 
 services:
-  # default configuration for services in *this* file
+  # Default configuration for services in *this* file
   _defaults:
     autowire: true # Automatically injects dependencies in your services.
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
@@ -24,7 +24,7 @@ services:
       - "../src/Entity/"
       - "../src/Kernel.php"
 
-  # New services added in HedireZraga branch
+  # Third-party services
   Dompdf\Dompdf: ~
   App\Entity\Offre:
     autowire: true
@@ -37,3 +37,8 @@ services:
 
   # add more service definitions when explicit configuration is needed
   # please note that last definitions always *replace* previous ones
+  App\Service\SmsService:
+    arguments:
+      $accountSid: '%env(TWILIO_ACCOUNT_SID)%' # Utilise la variable d'environnement TWILIO_ACCOUNT_SID
+      $authToken: '%env(TWILIO_AUTH_TOKEN)%'    # Utilise la variable d'environnement TWILIO_AUTH_TOKEN
+      $phoneNumber: '%env(TWILIO_PHONE_NUMBER)%' # Utilise la variable d'environnement TWILIO_PHONE_NUMBER

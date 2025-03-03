@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un événement{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1 class="text-center mb-4 text-primary fw-bold">Créer un nouvel événement</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm p-4 wow fadeInUp" data-wow-delay="0.5s">
+                <p class="text-muted text-center mb-4">Remplissez les détails ci-dessous pour ajouter votre événement.</p>
+                
+                {{ form_start(addform, {'attr': {'novalidate': 'novalidate', 'class': 'needs-validation'}}) }}
+                <div class="row g-3">
+                    <!-- Nom -->
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_row(addform.nom, {'attr': {'class': 'form-control border-primary-subtle', 'placeholder': 'Nom de l\'événement', 'required': 'required'}}) }}
+                            <label for="{{ addform.nom.vars.id }}"><span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_row(addform.date, {'attr': {'class': 'form-control border-primary-subtle', 'placeholder': 'Date', 'required': 'required'}}) }}
+                            <label for="{{ addform.date.vars.id }}"> <span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="col-12">
+                        <div class="form-floating">
+                            {{ form_row(addform.description, {'attr': {'class': 'form-control border-primary-subtle', 'placeholder': 'Description', 'rows': '6', 'required': 'required'}}) }}
+                            <label for="{{ addform.description.vars.id }}"><span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Lieu -->
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_row(addform.lieu, {'attr': {'class': 'form-control border-primary-subtle', 'placeholder': 'Lieu', 'required': 'required'}}) }}
+                            <label for="{{ addform.lieu.vars.id }}"> <span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Type d'événement -->
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_row(addform.TypeEvent, {'attr': {'class': 'form-select border-primary-subtle', 'placeholder': 'Type d\'événement'}}) }}
+                            <label for="{{ addform.TypeEvent.vars.id }}"></label>
+                        </div>
+                    </div>
+
+                    <!-- URL Image Cloudinary -->
+                    <div class="col-12">
+                        <div class="form-floating">
+                            {{ form_row(addform.imageUrl, {'attr': {'class': 'form-control border-primary-subtle', 'placeholder': 'URL de l\'image (Cloudinary)'}}) }}
+                            <label for="{{ addform.imageUrl.vars.id }}"></label>
+                        </div>
+                    </div>
+
+                    <!-- Disponibilité -->
+                    <div class="col-12">
+                        <div class="form-check form-switch">
+                            {{ form_row(addform.disponibilite, {'attr': {'class': 'form-check-input'}}) }}
+                            <label for="{{ addform.disponibilite.vars.id }}" class="form-check-label fw-medium"></label>
+                        </div>
+                    </div>
+
+                    <!-- Bouton Soumettre -->
+                    <div class="col-12 text-center mt-4">
+                        <button class="btn btn-success w-50 py-2 rounded-pill fw-semibold" type="submit">
+                            <i class="fas fa-save me-2"></i> Enregistrer l'événement
+                        </button>
+                    </div>
+                </div>
+                {{ form_end(addform) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Inclure FontAwesome pour les icônes (si non déjà inclus dans base.html.twig) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}

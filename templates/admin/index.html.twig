@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block navbar %}
+<div class="container-fluid nav-bar bg-transparent">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-3">
+        <a href="{{ path('app_indexhome') }}" class="navbar-brand d-flex align-items-center text-center">
+            <img class="img-fluid" src="{{ asset('img/transparentcareera.png') }}" alt="Icon" style="width: 150px; height: 100px;">
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div>
+{% endblock %}
+
+{% block body %}
+    <h1 class="mt-5 mb-4 text-center">Dashboard</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 mb-4">
+                <canvas id="evenementChart" width="200" height="100"></canvas>
+            </div>
+            <div class="col-md-4 col-sm-12 mb-4">
+                <canvas id="offreChart" width="200" height="100"></canvas>
+            </div>
+            <div class="col-md-4 col-sm-12 mb-4">
+                <canvas id="discussionChart" width="200" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tables below the charts -->
+   
+
+    <!-- Chart.js script inclusion -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Bootstrap CSS inclusion -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        // Assurez-vous que les données sont disponibles dans le JavaScript
+        var evenementCount = {{ evenement_count|default(0) }};
+        var offreCount = {{ offre_count|default(0) }};
+        var discussionCount = {{ discussion_count|default(0) }};
+      
+        // Graphique Evenement (bar)
+        var ctxEvenement = document.getElementById('evenementChart').getContext('2d');
+        var evenementChart = new Chart(ctxEvenement, {
+            type: 'bar',
+            data: {
+                labels: ['Evenements'],
+                datasets: [{
+                    label: '# of Evenements',
+                    data: [evenementCount],
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Graphique Offre (pie)
+        var ctxOffre = document.getElementById('offreChart').getContext('2d');
+        var offreChart = new Chart(ctxOffre, {
+            type: 'pie',
+            data: {
+                labels: ['Offres'],
+                datasets: [{
+                    label: '# of Offres',
+                    data: [offreCount],
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)'],
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // Graphique Discussion (line)
+        var ctxDiscussion = document.getElementById('discussionChart').getContext('2d');
+        var discussionChart = new Chart(ctxDiscussion, {
+            type: 'line',
+            data: {
+                labels: ['Discussions'],
+                datasets: [{
+                    label: '# of Discussions',
+                    data: [discussionCount],
+                    fill: false,
+                    borderColor: 'rgb(54, 162, 235)',
+                    tension: 0.1
+                }]
+            }
+        });
+    </script>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        canvas {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+        }
+
+        .table {
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .row {
+            margin-bottom: 20px;
+        }
+        
+        .shadow-sm {
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+    </style>
+{% endblock %}

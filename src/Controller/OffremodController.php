@@ -68,7 +68,7 @@ final class OffremodController extends AbstractController
 
 
 
-    #[Route('/ajoutoffre', name: 'app_ajoutoffre')]
+#[Route('/ajoutoffre', name: 'app_ajoutoffre')]
 public function ajoutoffre(ManagerRegistry $doctrine, Request $req, SluggerInterface $slugger, Security $security): Response
 {
     $user = $security->getUser();

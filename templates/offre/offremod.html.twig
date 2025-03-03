@@ -16,10 +16,14 @@
     </div>
     
    <!-- Bouton Statistiques à droite -->
-     {% set offre = taboffre[0] %}
+    {% if taboffre is not empty %}
+    {% set offre = taboffre[0] %}
     <a href="{{ path('app_statistiques', {'id': offre.id}) }}" class="btn btn-info d-flex align-items-center">
         <i class="fas fa-chart-bar me-2"></i> Voir les Statistiques
     </a>
+{% else %}
+    <p>Aucune offre disponible.</p>
+{% endif %}
 
 
 
