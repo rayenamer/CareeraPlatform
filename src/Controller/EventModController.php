@@ -99,7 +99,7 @@ public function new(Request $request, EntityManagerInterface $entityManager, Sec
         $entityManager->persist($evenement);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_events');
+        return $this->redirectToRoute('app_event');
     }
 
     return $this->render('evenements/ajoutevent.html.twig', [
@@ -119,7 +119,7 @@ public function new(Request $request, EntityManagerInterface $entityManager, Sec
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_events');
+            return $this->redirectToRoute('app_event');
         }
 
         return $this->render('evenements/editEvent.html.twig', [

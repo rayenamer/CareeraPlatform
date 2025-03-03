@@ -79,10 +79,10 @@ class EventType extends AbstractType
                 'label' => 'Type événement'
             ]) 
             ->add('imageUrl', TextType::class, [
-                'label' => 'URL de l\'image (Cloudinary)',
+                'label' => 'URL de l\'image ',
                 'required' => false, // L'image n'est pas obligatoire
                 'attr' => [
-                    'placeholder' => 'Collez le lien Cloudinary ici',
+                    'placeholder' => 'Collez le lien ici',
                 ],
             ])
              
