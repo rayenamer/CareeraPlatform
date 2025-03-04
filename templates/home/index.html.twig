@@ -20,6 +20,9 @@
                         <a href="{{ path('app_event') }}" class="nav-item nav-link">Evénements</a>
                         <a href="{{ path('app_offrefrelencer_index') }}" class="nav-item nav-link">Mission freelance</a>
                         <a href="{{ path('discussion_stats') }}" class="nav-item nav-link">Communication</a>
+                        <a href="{{ path('chatbot_page') }}" class="nav-item nav-link {% if app.request.get('_route') == 'chatbot_page' %}active{% endif %}">
+                            <i class="fa-solid fa-robot"></i>  
+                        </a>
                     </div>
                      <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

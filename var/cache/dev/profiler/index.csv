@@ -677,3 +677,8 @@ b9f8c9,127.0.0.1,GET,https://127.0.0.1:8000/event,1740995105,,200,request
 3961fb,127.0.0.1,GET,https://127.0.0.1:8000/event,1740995211,,200,request
 36aae3,127.0.0.1,GET,https://127.0.0.1:8000/offrefrelencer,1740995213,,200,request
 2e53e5,127.0.0.1,GET,https://127.0.0.1:8000/candidatures,1740995217,,200,request
+16edf3,127.0.0.1,GET,https://127.0.0.1:8000/,1741070248,,404,request
+8f7c7d,127.0.0.1,GET,https://127.0.0.1:8000/index,1741070266,,200,request
+6ac714,127.0.0.1,GET,https://127.0.0.1:8000/indexhome,1741070295,,200,request
+becaf7,127.0.0.1,GET,https://127.0.0.1:8000/chatbot,1741070299,,200,request
+9f885f,127.0.0.1,GET,https://127.0.0.1:8000/home,1741070310,,200,request

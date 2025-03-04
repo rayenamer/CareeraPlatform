@@ -130,12 +130,22 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
         yield "\" class=\"nav-item nav-link\">Evénements</a>
                         <a href=\"";
         // line 21
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_lister_toutes_candidatures");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
         yield "\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"";
         // line 22
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("discussion_stats");
         yield "\" class=\"nav-item nav-link\">Communication</a>
+                        <a href=\"";
+        // line 23
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("chatbot_page");
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "request", [], "any", false, false, false, 23), "get", ["_route"], "method", false, false, false, 23) == "chatbot_page")) {
+            yield "active";
+        }
+        yield "\">
+                            <i class=\"fa-solid fa-robot\"></i>  
+                        </a>
                     </div>
                      <div class=\"dropdown\">
                         <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
@@ -143,12 +153,12 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                         </a>
                         <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                             <li><a class=\"dropdown-item\" href=\"";
-        // line 29
+        // line 32
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profilemoderateur");
         yield "\">Profile</a></li>
                             <li>
                                 <a class=\"dropdown-item\" href=\"";
-        // line 31
+        // line 34
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         yield "\">Logout</a>
                             </li>
@@ -169,7 +179,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
         yield from [];
     }
 
-    // line 41
+    // line 44
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -182,7 +192,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 42
+        // line 45
         yield "<!-- Header Start -->
         <div class=\"row mt-5\">
             <div class=\"col\"></div>
@@ -199,13 +209,13 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                 <div class=\"owl-carousel header-carousel\">
                     <div class=\"owl-carousel-item\">
                         <img class=\"img-fluid\" src=\"";
-        // line 57
+        // line 60
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/img/careeraflyer.png"), "html", null, true);
         yield "\" alt=\"flyer\" style=\"width: 90%; height: 450px; object-fit: cover;\">
                     </div>
                     <div class=\"owl-carousel-item\">
                         <img class=\"img-fluid\" src=\"";
-        // line 60
+        // line 63
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/careeragalss.png"), "html", null, true);
         yield "\" alt=\"\" style=\"width: 90%; height: 450px; object-fit: cover;\">
                     </div>
@@ -235,7 +245,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                 <div class=\"row g-3 align-items-center\">
                     <div class=\"col-3\">
                         <img class=\"img-fluid rounded w-100\" src=\"";
-        // line 87
+        // line 90
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/emp.jpg"), "html", null, true);
         yield "\" alt=\"Offres d'emploi\">
                     </div>
@@ -243,7 +253,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                         <h1>Vos offres d'emploi</h1>
                         <p>Ajoutez, modifiez, ou supprimez vos offres d'emploi en quelques clics. Notre plateforme vous permet de gérer facilement toutes vos opportunités.</p>
                         <a href=\"";
-        // line 92
+        // line 95
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offre");
         yield "\" class=\"btn btn-primary py-2 px-4\"><i class=\"fas fa-cogs me-2\"></i>Gérer les offres</a>
                     </div>
@@ -256,7 +266,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                 <div class=\"row g-3 align-items-center\">
                     <div class=\"col-3\">
                         <img class=\"img-fluid rounded w-100\" src=\"";
-        // line 102
+        // line 105
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/event.jpg"), "html", null, true);
         yield "\" alt=\"Événements\">
                     </div>
@@ -264,7 +274,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                         <h1>Événements à venir</h1>
                         <p>Participez à des événements conçus pour propulser votre carrière. De la formation au réseautage, nous avons tout ce qu'il vous faut.</p>
                         <a href=\"";
-        // line 107
+        // line 110
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_events");
         yield "\" class=\"btn btn-primary py-2 px-4\"><i class=\"fas fa-cogs me-2\"></i>Gérer les évènements</a>
                     </div>
@@ -279,7 +289,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                 <div class=\"row g-3 align-items-center\">
                     <div class=\"col-3\">
                         <img class=\"img-fluid rounded w-100\" src=\"";
-        // line 119
+        // line 122
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/free.jpg"), "html", null, true);
         yield "\" alt=\"Missions freelance\">
                     </div>
@@ -298,7 +308,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                 <div class=\"row g-3 align-items-center\">
                     <div class=\"col-3\">
                         <img class=\"img-fluid rounded w-100\" src=\"";
-        // line 135
+        // line 138
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/demande.jpg"), "html", null, true);
         yield "\" alt=\"Demandes\">
                     </div>
@@ -347,7 +357,7 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  302 => 135,  283 => 119,  268 => 107,  260 => 102,  247 => 92,  239 => 87,  209 => 60,  203 => 57,  186 => 42,  173 => 41,  152 => 31,  147 => 29,  137 => 22,  133 => 21,  129 => 20,  125 => 19,  121 => 18,  111 => 11,  106 => 9,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  312 => 138,  293 => 122,  278 => 110,  270 => 105,  257 => 95,  249 => 90,  219 => 63,  213 => 60,  196 => 45,  183 => 44,  162 => 34,  157 => 32,  141 => 23,  137 => 22,  133 => 21,  129 => 20,  125 => 19,  121 => 18,  111 => 11,  106 => 9,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -372,8 +382,11 @@ class __TwigTemplate_0484d79c92a7af258ab91d25baef666b extends Template
                         <a href=\"{{ path('app_home') }}\" class=\"nav-item nav-link active\">Acceuil</a>
                         <a href=\"{{ path('app_offremod') }}\" class=\"nav-item nav-link\">Offres d'emploi</a>
                         <a href=\"{{ path('app_event') }}\" class=\"nav-item nav-link\">Evénements</a>
-                        <a href=\"{{ path('app_lister_toutes_candidatures') }}\" class=\"nav-item nav-link\">Mission freelance</a>
+                        <a href=\"{{ path('app_offrefrelencer_index') }}\" class=\"nav-item nav-link\">Mission freelance</a>
                         <a href=\"{{ path('discussion_stats') }}\" class=\"nav-item nav-link\">Communication</a>
+                        <a href=\"{{ path('chatbot_page') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'chatbot_page' %}active{% endif %}\">
+                            <i class=\"fa-solid fa-robot\"></i>  
+                        </a>
                     </div>
                      <div class=\"dropdown\">
                         <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
