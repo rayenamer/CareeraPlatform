@@ -31,6 +31,7 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'navbar' => [$this, 'block_navbar'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -83,7 +84,102 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
         yield from [];
     }
 
-    // line 5
+    // line 4
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_navbar(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
+
+        // line 5
+        yield "        <!-- Navbar Start -->
+        <div class=\"container-fluid nav-bar bg-transparent\">
+            <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
+                <a href=\"";
+        // line 8
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
+        yield "\" class=\"navbar-brand d-flex align-items-center text-center\">
+                    
+                    <img class=\"img-fluid\" src=\"";
+        // line 10
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/transparentcareera.png"), "html", null, true);
+        yield "\" alt=\"Icon\" style=\"width: 150px; height: 100px;\">
+                </a>
+                <button type=\"button\" class=\"navbar-toggler\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\">
+                    <span class=\"navbar-toggler-icon\"></span>
+                </button>
+                <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
+                    <div class=\"navbar-nav ms-auto\">
+                        <a href=\"";
+        // line 17
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
+        yield "\" class=\"nav-item nav-link active\">Acceuil</a>
+                        <a href=\"";
+        // line 18
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offremod");
+        yield "\" class=\"nav-item nav-link\">Offres d'emploi</a>
+                        <a href=\"";
+        // line 19
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event");
+        yield "\" class=\"nav-item nav-link\">Evénements</a>
+                        <a href=\"";
+        // line 20
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_offrefrelencer_index");
+        yield "\" class=\"nav-item nav-link\">Mission freelance</a>
+                        <a href=\"";
+        // line 21
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("discussion_stats");
+        yield "\" class=\"nav-item nav-link\">Communication</a>
+                        <a href=\"";
+        // line 22
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("chatbot_page");
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "request", [], "any", false, false, false, 22), "get", ["_route"], "method", false, false, false, 22) == "chatbot_page")) {
+            yield "active";
+        }
+        yield "\">
+                            <i class=\"fa-solid fa-robot\"></i>  
+                        </a>
+                    </div>
+                     <div class=\"dropdown\">
+                        <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+                            <i class=\"fa-solid fa-user-circle fa-2x\"></i>
+                        </a>
+                        <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                            <li><a class=\"dropdown-item\" href=\"";
+        // line 31
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profilemoderateur");
+        yield "\">Profile</a></li>
+                            <li>
+                                <a class=\"dropdown-item\" href=\"";
+        // line 33
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+        yield "\">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 44
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -96,7 +192,7 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 45
         yield "<div class=\"container my-5\">
     <h1 class=\"text-center mb-4 text-primary fw-bold\">Créer un nouvel événement</h1>
     <div class=\"row justify-content-center\">
@@ -105,20 +201,20 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                 <p class=\"text-muted text-center mb-4\">Remplissez les détails ci-dessous pour ajouter votre événement.</p>
                 
                 ";
-        // line 13
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 13, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate", "class" => "needs-validation"]]);
+        // line 52
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 52, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate", "class" => "needs-validation"]]);
         yield "
                 <div class=\"row g-3\">
                     <!-- Nom -->
                     <div class=\"col-md-6\">
                         <div class=\"form-floating\">
                             ";
-        // line 18
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 18, $this->source); })()), "nom", [], "any", false, false, false, 18), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "Nom de l'événement", "required" => "required"]]);
+        // line 57
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 57, $this->source); })()), "nom", [], "any", false, false, false, 57), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "Nom de l'événement", "required" => "required"]]);
         yield "
                             <label for=\"";
-        // line 19
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 19, $this->source); })()), "nom", [], "any", false, false, false, 19), "vars", [], "any", false, false, false, 19), "id", [], "any", false, false, false, 19), "html", null, true);
+        // line 58
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 58, $this->source); })()), "nom", [], "any", false, false, false, 58), "vars", [], "any", false, false, false, 58), "id", [], "any", false, false, false, 58), "html", null, true);
         yield "\"><span class=\"text-danger\">*</span></label>
                         </div>
                     </div>
@@ -127,12 +223,12 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                     <div class=\"col-md-6\">
                         <div class=\"form-floating\">
                             ";
-        // line 26
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 26, $this->source); })()), "date", [], "any", false, false, false, 26), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "Date", "required" => "required"]]);
+        // line 65
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 65, $this->source); })()), "date", [], "any", false, false, false, 65), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "Date", "required" => "required"]]);
         yield "
                             <label for=\"";
-        // line 27
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 27, $this->source); })()), "date", [], "any", false, false, false, 27), "vars", [], "any", false, false, false, 27), "id", [], "any", false, false, false, 27), "html", null, true);
+        // line 66
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 66, $this->source); })()), "date", [], "any", false, false, false, 66), "vars", [], "any", false, false, false, 66), "id", [], "any", false, false, false, 66), "html", null, true);
         yield "\"> <span class=\"text-danger\">*</span></label>
                         </div>
                     </div>
@@ -141,12 +237,12 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                     <div class=\"col-12\">
                         <div class=\"form-floating\">
                             ";
-        // line 34
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 34, $this->source); })()), "description", [], "any", false, false, false, 34), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "Description", "rows" => "6", "required" => "required"]]);
+        // line 73
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 73, $this->source); })()), "description", [], "any", false, false, false, 73), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "Description", "rows" => "6", "required" => "required"]]);
         yield "
                             <label for=\"";
-        // line 35
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 35, $this->source); })()), "description", [], "any", false, false, false, 35), "vars", [], "any", false, false, false, 35), "id", [], "any", false, false, false, 35), "html", null, true);
+        // line 74
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 74, $this->source); })()), "description", [], "any", false, false, false, 74), "vars", [], "any", false, false, false, 74), "id", [], "any", false, false, false, 74), "html", null, true);
         yield "\"><span class=\"text-danger\">*</span></label>
                         </div>
                     </div>
@@ -155,12 +251,12 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                     <div class=\"col-md-6\">
                         <div class=\"form-floating\">
                             ";
-        // line 42
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 42, $this->source); })()), "lieu", [], "any", false, false, false, 42), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "Lieu", "required" => "required"]]);
+        // line 81
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 81, $this->source); })()), "lieu", [], "any", false, false, false, 81), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "Lieu", "required" => "required"]]);
         yield "
                             <label for=\"";
-        // line 43
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 43, $this->source); })()), "lieu", [], "any", false, false, false, 43), "vars", [], "any", false, false, false, 43), "id", [], "any", false, false, false, 43), "html", null, true);
+        // line 82
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 82, $this->source); })()), "lieu", [], "any", false, false, false, 82), "vars", [], "any", false, false, false, 82), "id", [], "any", false, false, false, 82), "html", null, true);
         yield "\"> <span class=\"text-danger\">*</span></label>
                         </div>
                     </div>
@@ -169,12 +265,12 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                     <div class=\"col-md-6\">
                         <div class=\"form-floating\">
                             ";
-        // line 50
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 50, $this->source); })()), "TypeEvent", [], "any", false, false, false, 50), 'row', ["attr" => ["class" => "form-select border-primary-subtle", "placeholder" => "Type d'événement"]]);
+        // line 89
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 89, $this->source); })()), "TypeEvent", [], "any", false, false, false, 89), 'row', ["attr" => ["class" => "form-select border-primary-subtle", "placeholder" => "Type d'événement"]]);
         yield "
                             <label for=\"";
-        // line 51
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 51, $this->source); })()), "TypeEvent", [], "any", false, false, false, 51), "vars", [], "any", false, false, false, 51), "id", [], "any", false, false, false, 51), "html", null, true);
+        // line 90
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 90, $this->source); })()), "TypeEvent", [], "any", false, false, false, 90), "vars", [], "any", false, false, false, 90), "id", [], "any", false, false, false, 90), "html", null, true);
         yield "\"></label>
                         </div>
                     </div>
@@ -183,12 +279,12 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                     <div class=\"col-12\">
                         <div class=\"form-floating\">
                             ";
-        // line 58
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 58, $this->source); })()), "imageUrl", [], "any", false, false, false, 58), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "URL de l'image "]]);
+        // line 97
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 97, $this->source); })()), "imageUrl", [], "any", false, false, false, 97), 'row', ["attr" => ["class" => "form-control border-primary-subtle", "placeholder" => "URL de l'image "]]);
         yield "
                             <label for=\"";
-        // line 59
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 59, $this->source); })()), "imageUrl", [], "any", false, false, false, 59), "vars", [], "any", false, false, false, 59), "id", [], "any", false, false, false, 59), "html", null, true);
+        // line 98
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 98, $this->source); })()), "imageUrl", [], "any", false, false, false, 98), "vars", [], "any", false, false, false, 98), "id", [], "any", false, false, false, 98), "html", null, true);
         yield "\"></label>
                         </div>
                     </div>
@@ -197,12 +293,12 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                     <div class=\"col-12\">
                         <div class=\"form-check form-switch\">
                             ";
-        // line 66
-        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 66, $this->source); })()), "disponibilite", [], "any", false, false, false, 66), 'row', ["attr" => ["class" => "form-check-input"]]);
+        // line 105
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 105, $this->source); })()), "disponibilite", [], "any", false, false, false, 105), 'row', ["attr" => ["class" => "form-check-input"]]);
         yield "
                             <label for=\"";
-        // line 67
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 67, $this->source); })()), "disponibilite", [], "any", false, false, false, 67), "vars", [], "any", false, false, false, 67), "id", [], "any", false, false, false, 67), "html", null, true);
+        // line 106
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 106, $this->source); })()), "disponibilite", [], "any", false, false, false, 106), "vars", [], "any", false, false, false, 106), "id", [], "any", false, false, false, 106), "html", null, true);
         yield "\" class=\"form-check-label fw-medium\"></label>
                         </div>
                     </div>
@@ -215,8 +311,8 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
                     </div>
                 </div>
                 ";
-        // line 78
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 78, $this->source); })()), 'form_end');
+        // line 117
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addform"]) || array_key_exists("addform", $context) ? $context["addform"] : (function () { throw new RuntimeError('Variable "addform" does not exist.', 117, $this->source); })()), 'form_end');
         yield "
             </div>
         </div>
@@ -256,7 +352,7 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  219 => 78,  205 => 67,  201 => 66,  191 => 59,  187 => 58,  177 => 51,  173 => 50,  163 => 43,  159 => 42,  149 => 35,  145 => 34,  135 => 27,  131 => 26,  121 => 19,  117 => 18,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  315 => 117,  301 => 106,  297 => 105,  287 => 98,  283 => 97,  273 => 90,  269 => 89,  259 => 82,  255 => 81,  245 => 74,  241 => 73,  231 => 66,  227 => 65,  217 => 58,  213 => 57,  205 => 52,  196 => 45,  183 => 44,  162 => 33,  157 => 31,  141 => 22,  137 => 21,  133 => 20,  129 => 19,  125 => 18,  121 => 17,  111 => 10,  106 => 8,  101 => 5,  88 => 4,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -264,6 +360,45 @@ class __TwigTemplate_6bf6ab3bd11c51b1dd134e1a6406606a extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Ajouter un événement{% endblock %}
+{% block navbar %}
+        <!-- Navbar Start -->
+        <div class=\"container-fluid nav-bar bg-transparent\">
+            <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-0 px-3\">
+                <a href=\"{{ path('app_home') }}\" class=\"navbar-brand d-flex align-items-center text-center\">
+                    
+                    <img class=\"img-fluid\" src=\"{{ asset('img/transparentcareera.png') }}\" alt=\"Icon\" style=\"width: 150px; height: 100px;\">
+                </a>
+                <button type=\"button\" class=\"navbar-toggler\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\">
+                    <span class=\"navbar-toggler-icon\"></span>
+                </button>
+                <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
+                    <div class=\"navbar-nav ms-auto\">
+                        <a href=\"{{ path('app_home') }}\" class=\"nav-item nav-link active\">Acceuil</a>
+                        <a href=\"{{ path('app_offremod') }}\" class=\"nav-item nav-link\">Offres d'emploi</a>
+                        <a href=\"{{ path('app_event') }}\" class=\"nav-item nav-link\">Evénements</a>
+                        <a href=\"{{ path('app_offrefrelencer_index') }}\" class=\"nav-item nav-link\">Mission freelance</a>
+                        <a href=\"{{ path('discussion_stats') }}\" class=\"nav-item nav-link\">Communication</a>
+                        <a href=\"{{ path('chatbot_page') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'chatbot_page' %}active{% endif %}\">
+                            <i class=\"fa-solid fa-robot\"></i>  
+                        </a>
+                    </div>
+                     <div class=\"dropdown\">
+                        <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+                            <i class=\"fa-solid fa-user-circle fa-2x\"></i>
+                        </a>
+                        <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                            <li><a class=\"dropdown-item\" href=\"{{ path('app_profilemoderateur') }}\">Profile</a></li>
+                            <li>
+                                <a class=\"dropdown-item\" href=\"{{ path('app_logout') }}\">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+{% endblock %}
 
 {% block body %}
 <div class=\"container my-5\">

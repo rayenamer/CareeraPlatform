@@ -1,6 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Modifier  un événement {% endblock %}
+{% block navbar %}
+        <!-- Navbar Start -->
+        <div class="container-fluid nav-bar bg-transparent">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-3">
+                <a href="{{ path('app_home') }}" class="navbar-brand d-flex align-items-center text-center">
+                    
+                    <img class="img-fluid" src="{{ asset('img/transparentcareera.png') }}" alt="Icon" style="width: 150px; height: 100px;">
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="{{ path('app_home') }}" class="nav-item nav-link active">Acceuil</a>
+                        <a href="{{ path('app_offremod') }}" class="nav-item nav-link">Offres d'emploi</a>
+                        <a href="{{ path('app_event') }}" class="nav-item nav-link">Evénements</a>
+                        <a href="{{ path('app_offrefrelencer_index') }}" class="nav-item nav-link">Mission freelance</a>
+                        <a href="{{ path('discussion_stats') }}" class="nav-item nav-link">Communication</a>
+                        <a href="{{ path('chatbot_page') }}" class="nav-item nav-link {% if app.request.get('_route') == 'chatbot_page' %}active{% endif %}">
+                            <i class="fa-solid fa-robot"></i>  
+                        </a>
+                    </div>
+                     <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user-circle fa-2x"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ path('app_profilemoderateur') }}">Profile</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+{% endblock %}
 
 {% block body %}
 <h1 class="text-center my-4">Modifier  un événement </h1>

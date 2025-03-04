@@ -100,10 +100,10 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
 ";
         // line 50
         yield from $this->unwrap()->yieldBlock('navbar', $context, $blocks);
-        // line 89
+        // line 93
         yield "
         <main>";
-        // line 90
+        // line 94
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
         yield "</main>
          <!-- Footer Start -->
@@ -176,26 +176,26 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
     <script src=\"https://code.jquery.com/jquery-3.4.1.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js\"></script>
     <script src=\"";
-        // line 160
+        // line 164
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/wow/wow.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 161
+        // line 165
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/easing/easing.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 162
+        // line 166
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/waypoints/waypoints.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 163
+        // line 167
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/owlcarousel/owl.carousel.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
 
     <!-- Template Javascript -->
     <script src=\"";
-        // line 167
+        // line 171
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
         yield "\"></script>
 </body>
@@ -368,6 +368,17 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
                     <i class=\"fa-solid fa-bell\"></i> 
                     <span class=\"badge bg-danger\">5</span> 
                 </a>
+                <a href=\"";
+        // line 72
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("chatbot_page");
+        yield "\" class=\"nav-item nav-link ";
+        if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 72, $this->source); })()), "request", [], "any", false, false, false, 72), "get", ["_route"], "method", false, false, false, 72) == "chatbot_page")) {
+            yield "active";
+        }
+        yield "\">
+                    <i class=\"fa-solid fa-robot\"></i>  
+                </a>
+
             </div>
             <div class=\"dropdown\">
                 <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
@@ -375,12 +386,12 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
                 </a>
                 <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                     <li><a class=\"dropdown-item\" href=\"";
-        // line 78
+        // line 82
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile");
         yield "\">Profile</a></li>
                     <li>
                         <a class=\"dropdown-item\" href=\"";
-        // line 80
+        // line 84
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         yield "\">Logout</a>
                     </li>
@@ -400,7 +411,7 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
         yield from [];
     }
 
-    // line 90
+    // line 94
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -443,7 +454,7 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  404 => 90,  384 => 80,  379 => 78,  362 => 68,  354 => 67,  346 => 66,  338 => 65,  330 => 64,  322 => 63,  314 => 62,  304 => 55,  300 => 54,  295 => 51,  282 => 50,  269 => 35,  263 => 32,  257 => 29,  253 => 28,  250 => 27,  237 => 26,  214 => 6,  199 => 167,  192 => 163,  188 => 162,  184 => 161,  180 => 160,  107 => 90,  104 => 89,  102 => 50,  87 => 37,  85 => 26,  68 => 12,  59 => 6,  52 => 1,);
+        return array (  415 => 94,  395 => 84,  390 => 82,  373 => 72,  362 => 68,  354 => 67,  346 => 66,  338 => 65,  330 => 64,  322 => 63,  314 => 62,  304 => 55,  300 => 54,  295 => 51,  282 => 50,  269 => 35,  263 => 32,  257 => 29,  253 => 28,  250 => 27,  237 => 26,  214 => 6,  199 => 171,  192 => 167,  188 => 166,  184 => 165,  180 => 164,  107 => 94,  104 => 93,  102 => 50,  87 => 37,  85 => 26,  68 => 12,  59 => 6,  52 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -519,6 +530,10 @@ class __TwigTemplate_4bfc19d18ed25a08864d0f9161bcefff extends Template
                     <i class=\"fa-solid fa-bell\"></i> 
                     <span class=\"badge bg-danger\">5</span> 
                 </a>
+                <a href=\"{{ path('chatbot_page') }}\" class=\"nav-item nav-link {% if app.request.get('_route') == 'chatbot_page' %}active{% endif %}\">
+                    <i class=\"fa-solid fa-robot\"></i>  
+                </a>
+
             </div>
             <div class=\"dropdown\">
                 <a href=\"#\" class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
